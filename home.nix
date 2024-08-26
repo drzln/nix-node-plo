@@ -9,6 +9,7 @@
 
   # Enable some basic packages
   home.packages = with pkgs; [
-    vim # Text editor
+    vim
+    git
   ];
 }
