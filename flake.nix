@@ -16,7 +16,7 @@
     packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
 
     homeConfigurations = {
-      myuser = home-manager.lib.homeManagerConfiguration {
+      luis = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           home-manager.modules.home-manager
@@ -26,7 +26,7 @@
     };
 
     nixosConfigurations = {
-      mysystem = nixpkgs.lib.nixosSystem {
+      plo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
