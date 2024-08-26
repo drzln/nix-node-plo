@@ -48,7 +48,15 @@
   users.users.luis = {
     isNormalUser = true;
     description = "luis";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "podman"
+      "libvirtd"
+      "audio"
+      "video"
+    ];
     packages = with pkgs; [ ];
   };
 
