@@ -19,7 +19,6 @@
     yq-go
     unzip
     opam
-    yq
     python3
     mysql
     tfsec
