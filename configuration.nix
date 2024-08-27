@@ -136,12 +136,13 @@
     "8.8.8.8"
     "8.8.4.4"
   ];
-
-  security.rtkit.enable = true;
   services.blueman.enable = true;
   services.printing.enable = false;
   services.hardware.bolt.enable = false;
   services.nfs.server.enable = false;
+  services.pipewire.enable = true;
+
+  security.rtkit.enable = true;
 
   fonts.packages = with pkgs;[
     fira-code
@@ -171,7 +172,11 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
+  networking.firewall.extraCommands = ''
+    ip46tables -I INPUT 1 -i vboxnet+ -p tcp -m tcp --dport 2049 -j ACCEPT
+  '';
+  networking.wireless.interfaces = [ "wlp0s20f3" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
