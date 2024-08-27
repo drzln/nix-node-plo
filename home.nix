@@ -33,7 +33,7 @@
     yarn
     typescript
     lazydocker
-    nixopsUnstable
+    # nixopsUnstable
     postgres_with_libpq
     lazygit
     packer
