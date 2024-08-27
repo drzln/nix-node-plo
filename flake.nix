@@ -31,11 +31,6 @@
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager
-          {
-            imports = [
-              self.homeConfigurations.luis.activationPackage
-            ];
-          }
         ];
       };
     };
