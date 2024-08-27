@@ -40,7 +40,7 @@
 
   # Configure keymap in X11
   services.xserver = {
-    enable = true;
+    enable = false;
     xkb = {
       layout = "us";
       variant = "";
