@@ -50,23 +50,23 @@
     jdk
     cargo
     dotnet-sdk
-    # ripgrep
-    # podman-compose
-    # tree
-    # sshfs
-    # php81Packages.composer
-    # php81Packages.php-cs-fixer
-    # xorriso
-    # traceroute
-    # iproute2
-    # s-tui
-    # usbutils
-    # sheldon
-    # julia
-    # adb-sync
-    # autoadb
-    # python39Packages.pipenv-poetry-migrate
-    # python39Packages.poetry-core
+    ripgrep
+    podman-compose
+    tree
+    sshfs
+    php81Packages.composer
+    php81Packages.php-cs-fixer
+    xorriso
+    traceroute
+    iproute2
+    s-tui
+    usbutils
+    sheldon
+    julia
+    adb-sync
+    autoadb
+    python39Packages.pipenv-poetry-migrate
+    python39Packages.poetry-core
     # black
     # pipenv
     # poetry
