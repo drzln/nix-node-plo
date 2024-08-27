@@ -134,15 +134,15 @@
     # nushell
     # ansible
     # openssl
-    # gradle
-    # trunk
-    # whois
-    # delta
-    # tokei
-    # zoxide
-    # httpie
-    # xclip
-    # procs
+    gradle
+    trunk
+    whois
+    delta
+    tokei
+    zoxide
+    httpie
+    xclip
+    procs
   ];
 
   # home.file."backgrounds/nord/tools".source = builtins.fetchGit {
