@@ -111,16 +111,15 @@
     sops
     age
     shfmt
-    # tealdeer
-    # himalaya
-    # tree-sitter
-    # yt-dlp
-    # transmission_4
-    # xorg.xrandr
+    tealdeer
+    himalaya
+    tree-sitter
+    yt-dlp
+    transmission_4
+    xorg.xrandr
     tig
     grex
     skim
-    # stig
     gdb
     bat
     feh
