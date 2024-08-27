@@ -41,6 +41,10 @@
   services.libinput = { enable = true; };
   services.displayManager = {
     defaultSession = "gnome";
+    sddm = {
+      enable = false;
+      theme = "nord";
+    };
     # defaultSession = "none+i3";
     # defaultSession = "none+leftwm";
   };
@@ -56,10 +60,6 @@
       gdm = {
         enable = true;
         wayland = false;
-      };
-      sddm = {
-        enable = false;
-        theme = "nord";
       };
       lightdm = {
         enable = false;
