@@ -126,23 +126,23 @@
     feh
     fd
     sd
-    hyperfine
-    bandwhich
-    json2hcl
-    node2nix
-    cpulimit
-    nushell
-    ansible
-    openssl
-    gradle
-    trunk
-    whois
-    delta
-    tokei
-    zoxide
-    httpie
-    xclip
-    procs
+    # hyperfine
+    # bandwhich
+    # json2hcl
+    # node2nix
+    # cpulimit
+    # nushell
+    # ansible
+    # openssl
+    # gradle
+    # trunk
+    # whois
+    # delta
+    # tokei
+    # zoxide
+    # httpie
+    # xclip
+    # procs
   ];
 
   # home.file."backgrounds/nord/tools".source = builtins.fetchGit {
