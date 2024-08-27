@@ -108,6 +108,7 @@
 
   nix = {
     extraOptions = ''
+      experimental-features = nix-command flakes
       min-free = ${toString (1024 * 1024 * 1024)}
       max-free = ${toString (4096 * 1024 * 1024)}
     '';
@@ -118,9 +119,6 @@
     };
     settings.auto-optimise-store = true;
     package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
   };
 
   console = { font = "Lat2-Terminus16"; keyMap = "us"; };
