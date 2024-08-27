@@ -144,20 +144,20 @@
     procs
   ];
 
-  # home.file."backgrounds/nord/tools".source = builtins.fetchGit {
-  #   url = "https://github.com/arcticicestudio/nord.git";
-  #   ref = "develop";
-  #   rev = "c93f12b23baac69a92e7559f69e7a60c20b9da0d";
-  # };
+  home.file."backgrounds/nord/tools".source = builtins.fetchGit {
+    url = "https://github.com/arcticicestudio/nord.git";
+    ref = "develop";
+    rev = "c93f12b23baac69a92e7559f69e7a60c20b9da0d";
+  };
 
-  # home.file."backgrounds/nord/backgrounds".source = builtins.fetchGit {
-  #   url = "https://github.com/dxnst/nord-backgrounds.git";
-  #   ref = "main";
-  #   rev = "c47d6b8b0ea391fabbb79aa005703ae5549ffdc4";
-  # };
+  home.file."backgrounds/nord/backgrounds".source = builtins.fetchGit {
+    url = "https://github.com/dxnst/nord-backgrounds.git";
+    ref = "main";
+    rev = "c47d6b8b0ea391fabbb79aa005703ae5549ffdc4";
+  };
 
-  # programs.fzf.enable = true;
-  # programs.fzf.enableZshIntegration = true;
+  programs.fzf.enable = true;
+  programs.fzf.enableZshIntegration = true;
 
-  # home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
+  home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
 }
