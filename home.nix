@@ -114,7 +114,7 @@
     tealdeer
     himalaya
     tree-sitter
-    youtube-dl
+    yt-dlp
     transmission
     xorg.xrandr
     tig
