@@ -39,9 +39,54 @@
   };
 
   # Configure keymap in X11
-  services.xserver.xkb = {
+  services.xserver = {
+    enable = true;
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
     layout = "us";
-    variant = "";
+    autoRepeatDelay = 135;
+    autoRepeatInterval = 40;
+    videoDrivers = [ "nvidia" "intel" "nouveau" "qxl" "amdgpu" ];
+    xkbOptions = "caps:escape";
+    libinput = { enable = true; };
+    displayManager = {
+      defaultSession = "gnome";
+      # defaultSession = "none+i3";
+      # defaultSession = "none+leftwm";
+      sddm = {
+        enable = false;
+        theme = "nord";
+      };
+      lightdm = {
+        enable = false;
+      };
+      gdm = {
+        enable = true;
+        wayland = false;
+      };
+    };
+    desktopManager = {
+      gnome = {
+        enable = false;
+      };
+      xterm = {
+        enable = false;
+      };
+    };
+    windowManager = {
+      leftwm = { enable = false; };
+      i3 = {
+        enable = false;
+        extraPackages = with pkgs; [
+          i3blocks
+          i3status
+          i3lock
+          dmenu
+        ];
+      };
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -195,6 +240,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
 
