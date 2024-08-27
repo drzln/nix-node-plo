@@ -38,35 +38,34 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  # Configure keymap in X11
+  services.libinput = { enable = true; };
+  services.displayManager = {
+    defaultSession = "gnome";
+    # defaultSession = "none+i3";
+    # defaultSession = "none+leftwm";
+    sddm = {
+      enable = false;
+      theme = "nord";
+    };
+    lightdm = {
+      enable = false;
+    };
+    gdm = {
+      enable = true;
+      wayland = false;
+    };
+  };
+
   services.xserver = {
     enable = false;
     xkb = {
+      options = "caps:escape";
       layout = "us";
       variant = "";
     };
-    layout = "us";
     autoRepeatDelay = 135;
     autoRepeatInterval = 40;
     videoDrivers = [ "nvidia" "intel" "nouveau" "qxl" "amdgpu" ];
-    xkbOptions = "caps:escape";
-    libinput = { enable = true; };
-    displayManager = {
-      defaultSession = "gnome";
-      # defaultSession = "none+i3";
-      # defaultSession = "none+leftwm";
-      sddm = {
-        enable = false;
-        theme = "nord";
-      };
-      lightdm = {
-        enable = false;
-      };
-      gdm = {
-        enable = true;
-        wayland = false;
-      };
-    };
     desktopManager = {
       gnome = {
         enable = false;
