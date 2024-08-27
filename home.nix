@@ -66,6 +66,49 @@
     julia
     adb-sync
     autoadb
+    python39Packages.pipenv-poetry-migrate
+    python39Packages.poetry-core
+    black
+    pipenv
+    poetry
+    asmfmt
+    zlib
+    ssm-session-manager-plugin
+    cloud-nuke
+    nodePackages_latest.cdktf-cli
+    awscli2
+    goreleaser
+    go-task
+    gofumpt
+    gobang
+    go
+    terraform-ls
+    tflint
+    terraform-docs
+    terraform-landscape
+    terraform-compliance
+    kubectl
+    sumneko-lua-language-server
+    luarocks
+    lua
+    rnix-lsp
+    php
+    redis-dump
+    redis
+    redli
+    solargraph
+    rbenv
+    cargo-edit
+    rust-code-analysis
+    rust-analyzer
+    rust-script
+    rustic-rs
+    rust-motd
+    rusty-man
+    rustscan
+    rustfmt
+    rustcat
+    rustc
   ];
 
   home.file."backgrounds/nord/tools".source = builtins.fetchGit {
