@@ -117,10 +117,10 @@
     # yt-dlp
     # transmission_4
     # xorg.xrandr
-    # tig
-    # grex
-    # skim
-    # stig
+    tig
+    grex
+    skim
+    stig
     gdb
     bat
     feh
