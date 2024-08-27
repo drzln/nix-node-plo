@@ -34,7 +34,7 @@
     typescript
     lazydocker
     # nixopsUnstable
-    postgres_with_libpq
+    # postgres_with_libpq
     lazygit
     packer
     twitch-tui
