@@ -34,6 +34,7 @@
     yarn
     typescript
     lazydocker
+    # rnix-lsp
     # nixopsUnstable
     # postgres_with_libpq
     lazygit
@@ -90,7 +91,6 @@
     sumneko-lua-language-server
     luarocks
     lua
-    # rnix-lsp
     php
     redis-dump
     redis
