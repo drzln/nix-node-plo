@@ -151,6 +151,7 @@
     ref = "develop";
     rev = "c93f12b23baac69a92e7559f69e7a60c20b9da0d";
   };
+
   home.file."backgrounds/nord/backgrounds".source = builtins.fetchGit {
     url = "https://github.com/dxnst/nord-backgrounds.git";
     ref = "main";
@@ -159,4 +160,6 @@
 
   programs.fzf.enable = true;
   programs.fzf.enableZshIntegration = true;
+
+  home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
 }
