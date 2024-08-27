@@ -11,26 +11,26 @@
   home.packages = with pkgs; [
     vim
     git
-    # git-remote-gcrypt
-    # android-tools
-    # coreutils-prefixed
-    # gnirehtet
-    # jellyfin-ffmpeg
-    # yq-go
-    # unzip
-    # opam
-    # yq
-    # python3
-    # mysql
-    # tfsec
-    # ruby
-    # tfplugindocs
-    # tfswitch
-    # golint
-    # duckdb
-    # docker
-    # delve
-    # tree
+    git-remote-gcrypt
+    android-tools
+    coreutils-prefixed
+    gnirehtet
+    jellyfin-ffmpeg
+    yq-go
+    unzip
+    opam
+    yq
+    python3
+    mysql
+    tfsec
+    ruby
+    tfplugindocs
+    tfswitch
+    golint
+    duckdb
+    docker
+    delve
+    tree
     # yarn
     # typescript
     # lazydocker
