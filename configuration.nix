@@ -109,6 +109,8 @@
     ];
   };
 
+  home-manager.users.luis = import ./home.nix;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
