@@ -43,7 +43,6 @@
     tuir
     dig
     nmap
-    spotify-tui
     saml2aws
     tuifeed
     kompose
