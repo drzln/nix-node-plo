@@ -30,17 +30,17 @@
     docker
     delve
     tree
-    # yarn
-    # typescript
-    # lazydocker
-    # nixopsUnstable
-    # postgres_with_libpq
-    # lazygit
-    # packer
-    # twitch-tui
-    # wiki-tui
-    # tuir
-    # dig
+    yarn
+    typescript
+    lazydocker
+    nixopsUnstable
+    postgres_with_libpq
+    lazygit
+    packer
+    twitch-tui
+    wiki-tui
+    tuir
+    dig
     # nmap
     # spotify-tui
     # saml2aws
