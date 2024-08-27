@@ -29,7 +29,7 @@
       plo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          /etc/nixos/configuration.nix
           home-manager.nixosModules.home-manager
         ];
       };
