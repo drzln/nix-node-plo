@@ -93,6 +93,11 @@
     "8.8.4.4"
   ];
 
+  fonts.fonts = with pkgs;[
+    fira-code
+    fira-code-symbols
+  ];
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
