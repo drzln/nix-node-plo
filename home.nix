@@ -11,6 +11,61 @@
   home.packages = with pkgs; [
     vim
     git
+    git-remote-gcrypt
+    android-tools
+    coreutils-prefixed
+    gnirehtet
+    jellyfin-ffmpeg
+    yq-go
+    unzip
+    opam
+    # yq
+    # python3
+    mysql
+    tfsec
+    ruby
+    tfplugindocs
+    tfswitch
+    golint
+    duckdb
+    docker
+    delve
+    tree
+    yarn
+    typescript
+    lazydocker
+    nixopsUnstable
+    postgres_with_libpq
+    lazygit
+    packer
+    twitch-tui
+    wiki-tui
+    tuir
+    dig
+    nmap
+    spotify-tui
+    saml2aws
+    tuifeed
+    kompose
+    gcc
+    jdk
+    cargo
+    dotnet-sdk
+    ripgrep
+    podman-compose
+    tree
+    sshfs
+    php81Packages.composer
+    php81Packages.php-cs-fixer
+    xorriso
+    traceroute
+    iproute2
+    s-tui
+    usbutils
+    sheldon
+    julia
+    adb-sync
+    autoadb
   ];
 
   home.file."backgrounds/nord/tools".source = builtins.fetchGit {
