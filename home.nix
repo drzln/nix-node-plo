@@ -86,28 +86,28 @@
     terraform-docs
     terraform-landscape
     terraform-compliance
-    # kubectl
-    # sumneko-lua-language-server
-    # luarocks
-    # lua
-    # rnix-lsp
-    # php
-    # redis-dump
-    # redis
-    # redli
-    # solargraph
-    # rbenv
-    # cargo-edit
-    # rust-code-analysis
-    # rust-analyzer
-    # rust-script
-    # rustic-rs
-    # rust-motd
-    # rusty-man
-    # rustscan
-    # rustfmt
-    # rustcat
-    # rustc
+    kubectl
+    sumneko-lua-language-server
+    luarocks
+    lua
+    rnix-lsp
+    php
+    redis-dump
+    redis
+    redli
+    solargraph
+    rbenv
+    cargo-edit
+    rust-code-analysis
+    rust-analyzer
+    rust-script
+    rustic-rs
+    rust-motd
+    rusty-man
+    rustscan
+    rustfmt
+    rustcat
+    rustc
     # sops
     # age
     # shfmt
