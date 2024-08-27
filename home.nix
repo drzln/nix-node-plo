@@ -109,6 +109,41 @@
     rustfmt
     rustcat
     rustc
+    sops
+    age
+    shfmt
+    tealdeer
+    himalaya
+    tree-sitter
+    youtube-dl
+    transmission
+    xorg.xrandr
+    tig
+    grex
+    skim
+    stig
+    gdb
+    bat
+    feh
+    fd
+    sd
+    hyperfine
+    bandwhich
+    json2hcl
+    node2nix
+    cpulimit
+    nushell
+    ansible
+    openssl
+    gradle
+    trunk
+    whois
+    delta
+    tokei
+    zoxide
+    httpie
+    xclip
+    procs
   ];
 
   home.file."backgrounds/nord/tools".source = builtins.fetchGit {
