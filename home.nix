@@ -121,11 +121,11 @@
     # grex
     # skim
     # stig
-    # gdb
-    # bat
-    # feh
-    # fd
-    # sd
+    gdb
+    bat
+    feh
+    fd
+    sd
     hyperfine
     bandwhich
     json2hcl
