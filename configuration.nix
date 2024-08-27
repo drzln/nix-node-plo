@@ -43,17 +43,6 @@
     defaultSession = "gnome";
     # defaultSession = "none+i3";
     # defaultSession = "none+leftwm";
-    sddm = {
-      enable = false;
-      theme = "nord";
-    };
-    lightdm = {
-      enable = false;
-    };
-    gdm = {
-      enable = true;
-      wayland = false;
-    };
   };
 
   services.xserver = {
@@ -62,6 +51,19 @@
       options = "caps:escape";
       layout = "us";
       variant = "";
+    };
+    displayManager = {
+      gdm = {
+        enable = true;
+        wayland = false;
+      };
+      sddm = {
+        enable = false;
+        theme = "nord";
+      };
+      lightdm = {
+        enable = false;
+      };
     };
     autoRepeatDelay = 135;
     autoRepeatInterval = 40;
