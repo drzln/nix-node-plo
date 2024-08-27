@@ -42,15 +42,15 @@
     wiki-tui
     tuir
     dig
-    # nmap
-    # spotify-tui
-    # saml2aws
-    # tuifeed
-    # kompose
-    # gcc
-    # jdk
-    # cargo
-    # dotnet-sdk
+    nmap
+    spotify-tui
+    saml2aws
+    tuifeed
+    kompose
+    gcc
+    jdk
+    cargo
+    dotnet-sdk
     # ripgrep
     # podman-compose
     # tree
