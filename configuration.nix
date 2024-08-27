@@ -98,6 +98,19 @@
     fira-code-symbols
   ];
 
+  powerManagement.cpuFreqGovernor = "performance";
+
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
+  time.timeZone = "US/Pacific";
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = { font = "Lat2-Terminus16"; keyMap = "us"; };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
