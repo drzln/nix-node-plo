@@ -67,25 +67,25 @@
     autoadb
     python39Packages.pipenv-poetry-migrate
     python39Packages.poetry-core
-    # black
-    # pipenv
-    # poetry
-    # asmfmt
-    # zlib
-    # ssm-session-manager-plugin
-    # cloud-nuke
-    # nodePackages_latest.cdktf-cli
-    # awscli2
-    # goreleaser
-    # go-task
-    # gofumpt
-    # gobang
-    # go
-    # terraform-ls
-    # tflint
-    # terraform-docs
-    # terraform-landscape
-    # terraform-compliance
+    black
+    pipenv
+    poetry
+    asmfmt
+    zlib
+    ssm-session-manager-plugin
+    cloud-nuke
+    nodePackages_latest.cdktf-cli
+    awscli2
+    goreleaser
+    go-task
+    gofumpt
+    gobang
+    go
+    terraform-ls
+    tflint
+    terraform-docs
+    terraform-landscape
+    terraform-compliance
     # kubectl
     # sumneko-lua-language-server
     # luarocks
