@@ -23,4 +23,7 @@
     ref = "main";
     rev = "c47d6b8b0ea391fabbb79aa005703ae5549ffdc4";
   };
+
+  programs.fzf.enable = true;
+  programs.fzf.enableZshIntegration = true;
 }
