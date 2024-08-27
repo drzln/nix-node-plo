@@ -115,7 +115,7 @@
     himalaya
     tree-sitter
     yt-dlp
-    transmission
+    transmission_4
     xorg.xrandr
     tig
     grex
