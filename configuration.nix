@@ -178,6 +178,16 @@
   '';
   networking.wireless.interfaces = [ "wlp0s20f3" ];
 
+  virtualisation.podman.enable = true;
+  virtualisation.podman.dockerSocket.enable = true;
+  virtualisation.podman.defaultNetwork.settings.dns_enabled = true;
+  virtualisation.docker.enable = false;
+  virtualisation.docker.rootless = {
+    setSocketVariable = true;
+    enable = true;
+  };
+  virtualisation.libvirtd.enable = true;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
