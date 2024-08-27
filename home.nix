@@ -126,14 +126,14 @@
     # feh
     # fd
     # sd
-    # hyperfine
-    # bandwhich
-    # json2hcl
-    # node2nix
-    # cpulimit
-    # nushell
-    # ansible
-    # openssl
+    hyperfine
+    bandwhich
+    json2hcl
+    node2nix
+    cpulimit
+    nushell
+    ansible
+    openssl
     gradle
     trunk
     whois
