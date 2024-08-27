@@ -93,7 +93,7 @@
     "8.8.4.4"
   ];
 
-  fonts.fonts = with pkgs;[
+  fonts.packages = with pkgs;[
     fira-code
     fira-code-symbols
   ];
