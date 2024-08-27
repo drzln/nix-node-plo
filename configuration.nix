@@ -93,6 +93,12 @@
     "8.8.4.4"
   ];
 
+  security.rtkit.enable = true;
+  services.blueman.enable = true;
+  services.printing.enable = false;
+  services.hardware.bolt.enable = false;
+  services.nfs.server.enable = false;
+
   fonts.packages = with pkgs;[
     fira-code
     fira-code-symbols
@@ -101,6 +107,16 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   nix = {
+    extraOptions = ''
+      min-free = ${toString (1024 * 1024 * 1024)}
+      max-free = ${toString (4096 * 1024 * 1024)}
+    '';
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    settings.auto-optimise-store = true;
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
