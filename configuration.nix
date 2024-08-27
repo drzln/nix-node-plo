@@ -92,6 +92,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.luis = {
+    uid = 1000;
     isNormalUser = true;
     description = "luis";
     extraGroups = [
@@ -103,7 +104,9 @@
       "audio"
       "video"
     ];
-    packages = with pkgs; [ ];
+    packages = with pkgs; [
+      home-manager
+    ];
   };
 
   # Allow unfree packages
