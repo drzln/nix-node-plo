@@ -32,10 +32,9 @@
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.users.luis = {
-              home-manager.useUserPackages = true;
-              home-manager.users.luis = import ./home.nix;
-            };
+            imports = [
+              self.homeConfigurations.luis.activationPackage
+            ];
           }
         ];
       };
