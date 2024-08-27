@@ -66,6 +66,50 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    nix-index
+    drm_info
+    pciutils
+    tfswitch
+    yarn2nix
+    starship
+    dnsmasq
+    ripgrep
+    weechat
+    gnumake
+    openssh
+    fcitx5
+    bundix
+    cargo
+    arion
+    unzip
+    gnupg
+    lorri
+    nomad
+    vault
+    ruby
+    sddm
+    sway
+    rofi
+    yarn
+    xsel
+    lshw
+    htop
+    nmap
+    stow
+    zlib
+    wget
+    curl
+    gcc
+    age
+    git
+    fzf
+    dig
+    vim
+    vim
+    git
+    gh
+    globalprotect-openconnect
+    traceroute
     vim
     wget
     git
