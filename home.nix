@@ -120,7 +120,7 @@
     tig
     grex
     skim
-    stig
+    # stig
     gdb
     bat
     feh
