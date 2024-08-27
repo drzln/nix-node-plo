@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
   home.username = "luis"; # Replace with your actual username
   home.homeDirectory = "/home/luis"; # Replace with your home directory
 
