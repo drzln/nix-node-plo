@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./modules/home-manager/blackmatter
+  ];
   nixpkgs.config.allowUnfree = true;
   home.username = "luis"; # Replace with your actual username
   home.homeDirectory = "/home/luis"; # Replace with your home directory
@@ -160,4 +163,6 @@
   programs.fzf.enableZshIntegration = true;
 
   home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
+  blackmatter.programs.nvim.enable = false;
+  blackmatter.shell.enable = false;
 }
