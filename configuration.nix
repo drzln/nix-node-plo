@@ -91,25 +91,25 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.luis = {
-    uid = 1001;
-    isNormalUser = true;
-    description = "luis";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-      "podman"
-      "libvirtd"
-      "audio"
-      "video"
-    ];
-    packages = with pkgs; [
-      home-manager
-    ];
-  };
+  # users.users.luis = {
+  #   uid = 1001;
+  #   isNormalUser = true;
+  #   description = "luis";
+  #   extraGroups = [
+  #     "networkmanager"
+  #     "wheel"
+  #     "docker"
+  #     "podman"
+  #     "libvirtd"
+  #     "audio"
+  #     "video"
+  #   ];
+  #   packages = with pkgs; [
+  #     home-manager
+  #   ];
+  # };
 
-  home-manager.users.luis = import ./home.nix;
+  # home-manager.users.luis = import ./home.nix;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
