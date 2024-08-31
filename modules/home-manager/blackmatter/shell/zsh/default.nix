@@ -35,7 +35,7 @@ in
   	programs.zsh.defaultKeymap = "viins";
   	programs.zsh.enableAutosuggestions = true;
   	programs.zsh.enableCompletion = true;
-  	programs.zsh.enableSyntaxHighlighting = true;
+  	programs.zsh.syntaxHighlighting.enable = true;
   	programs.zsh.autocd = false;
   	programs.zsh.history.size = 10000000;
   	programs.zsh.history.save = 10000000;
