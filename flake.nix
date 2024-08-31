@@ -26,13 +26,13 @@
     };
 
     nixosConfigurations = {
-      plo = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          /etc/nixos/configuration.nix
-          home-manager.nixosModules.home-manager
-        ];
-      };
+      # plo = nixpkgs.lib.nixosSystem {
+      #   system = "x86_64-linux";
+      #   modules = [
+      #     /etc/nixos/configuration.nix
+      #     home-manager.nixosModules.home-manager
+      #   ];
+      # };
     };
   };
 }
