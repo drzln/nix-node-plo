@@ -74,7 +74,7 @@
     };
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  programs.zsh.enable = true;
   users.users.luis = {
     uid = 1001;
     shell = pkgs.zsh;
