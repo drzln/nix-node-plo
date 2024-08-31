@@ -159,8 +159,8 @@
     rev = "c47d6b8b0ea391fabbb79aa005703ae5549ffdc4";
   };
 
-  programs.fzf.enable = true;
-  programs.fzf.enableZshIntegration = true;
+  programs.fzf.enable = false;
+  programs.fzf.enableZshIntegration = false;
 
   home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
   blackmatter.programs.nvim.enable = true;
