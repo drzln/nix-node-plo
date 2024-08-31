@@ -2,12 +2,10 @@ pkgs: with pkgs; [
   tealdeer
   himalaya
   tree-sitter
-  # youtube-dl
   transmission
   xorg.xrandr
   tig
   grex
-  skim
   stig
   gdb
   bat
