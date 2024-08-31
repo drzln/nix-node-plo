@@ -164,7 +164,7 @@ let
       wellle."targets.vim".enable = true;
       ggandor."leap.nvim".enable = true;
       unblevable.quick-scope.enable = true;
-      t3rro.nvim-ts-rainbow.enable = false;
+      t3rro.nvim-ts-rainbow.enable = true;
 
       # snippets
       L3MON4D3.LuaSnip.enable = true;
