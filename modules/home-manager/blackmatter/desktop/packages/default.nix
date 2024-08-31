@@ -80,7 +80,7 @@ in
 
           globalprotect-openconnect
 
-          gnome3.gnome-tweaks
+          gnome-tweaks
           # _1password-gui-beta
           # _1password
           fractal
