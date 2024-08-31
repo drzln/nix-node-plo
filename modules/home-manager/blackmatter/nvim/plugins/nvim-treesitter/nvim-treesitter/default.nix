@@ -52,7 +52,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/nvim-treesitter/nvim-treesitter.git";
           ref = "master";
-          rev = "cbfa7cae1b38e1b843b2275d633ddbb05a105906";
+          rev = "fd9663acca289598086b7c5a366be8b2fa5d7960";
         };
     })
   ];
