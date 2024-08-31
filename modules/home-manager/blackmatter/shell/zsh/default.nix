@@ -33,7 +33,7 @@ in
   	programs.zsh.enable = true;
   	# programs.zsh.plugin.zsh.ohMyZshModule.plugins = ["docker"];
   	programs.zsh.defaultKeymap = "viins";
-  	programs.zsh.enableAutosuggestions = true;
+  	programs.zsh.autosuggestion.enable = true;
   	programs.zsh.enableCompletion = true;
   	programs.zsh.syntaxHighlighting.enable = true;
   	programs.zsh.autocd = false;
