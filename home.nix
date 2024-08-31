@@ -164,7 +164,6 @@
   programs.fzf.enableZshIntegration = true;
   programs.zsh = {
     enable = true;
-    setAsDefaultShell = true;
   };
   # home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
   blackmatter.programs.nvim.enable = true;

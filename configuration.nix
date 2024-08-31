@@ -77,6 +77,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.luis = {
     uid = 1001;
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "luis";
     extraGroups = [
