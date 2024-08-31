@@ -17,7 +17,6 @@
     git
     git-remote-gcrypt
     android-tools
-    coreutils-prefixed
     gnirehtet
     jellyfin-ffmpeg
     yq-go
