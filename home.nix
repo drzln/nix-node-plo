@@ -140,6 +140,7 @@
     whois
     delta
     tokei
+    treesitter
     zoxide
     httpie
     xclip
