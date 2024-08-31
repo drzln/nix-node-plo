@@ -13,7 +13,7 @@ in
   config = mkMerge [
     (mkIf cfg.desktop.alacritty.enable {
       programs.alacritty.enable = true;
-      xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
+      xdg.configFile."alacritty/alacritty.toml".source = ./alacritty.toml;
     })
   ];
 }
