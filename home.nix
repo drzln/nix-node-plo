@@ -167,5 +167,5 @@
   # home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
   blackmatter.programs.nvim.enable = true;
   blackmatter.shell.enable = true;
-  blackmatter.gitconfig.enable = true;
+  blackmatter.gitconfig.enable = false;
 }
