@@ -122,7 +122,6 @@
     xorg.xrandr
     tig
     grex
-    skim
     gdb
     bat
     feh
