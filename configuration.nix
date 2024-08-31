@@ -34,7 +34,7 @@
   };
 
   services.xserver = {
-    enable = false;
+    enable = true;
     xkb = {
       options = "caps:escape";
       layout = "us";
@@ -54,7 +54,7 @@
     videoDrivers = [ "nvidia" "intel" "nouveau" "qxl" "amdgpu" ];
     desktopManager = {
       gnome = {
-        enable = false;
+        enable = true;
       };
       xterm = {
         enable = false;
