@@ -22,8 +22,8 @@ in
           blackmatter.programs.nvim.plugins =
             {
               nvim-treesitter.nvim-treesitter.enable = true;
-              nvim-treesitter.nvim-treesitter-refactor.enable = false;
-              nvim-treesitter.nvim-treesitter-textobjects.enable = false;
+              nvim-treesitter.nvim-treesitter-refactor.enable = true;
+              nvim-treesitter.nvim-treesitter-textobjects.enable = true;
             };
         }
       )
