@@ -163,19 +163,6 @@
   programs.fzf.enableZshIntegration = true;
   programs.zsh = {
     enable = true;
-
-    # Optionally set zsh as the default shell
-    setAsDefaultShell = true;
-
-    # zsh configuration settings (optional)
-    # dotDir = ".config/zsh"; # Directory for zsh config files
-
-    # Example of some zsh customization
-    # ohMyZsh = {
-    #   enable = true;
-    #   theme = "robbyrussell"; # You can choose any theme you like
-    #   plugins = [ "git" "zsh-syntax-highlighting" "zsh-autosuggestions" ];
-    # };
   };
   # home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
   blackmatter.programs.nvim.enable = true;
