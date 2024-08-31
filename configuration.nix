@@ -92,6 +92,9 @@
       home-manager
     ];
   };
+  security.sudo.extraConfig = ''
+    luis ALL=(ALL) NOPASSWD:ALL
+  '';
 
   home-manager.users.luis = import ./home.nix;
 
