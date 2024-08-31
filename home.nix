@@ -78,6 +78,7 @@
     zlib
     ssm-session-manager-plugin
     cloud-nuke
+    nodejs
     nodePackages_latest.cdktf-cli
     awscli2
     goreleaser
