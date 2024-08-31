@@ -17,7 +17,7 @@ let
     lsp.enable = true;
     completion.enable = true;
     debugging.enable = true;
-    treesitter.enable = true;
+    treesitter.enable = false;
     telescope.enable = true;
   };
 
