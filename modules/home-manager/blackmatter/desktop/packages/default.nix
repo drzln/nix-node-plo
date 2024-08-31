@@ -82,19 +82,15 @@ in
 
           gnome-tweaks
           # _1password-gui-beta
-          # _1password
+          _1password
           fractal
           blender
           spotify
-          # leftwm
           slack
           zoom-us
           kitty
           discord-canary
           webcamoid
-          # exists but build is broken
-          # it may be fixed later
-          # retroshare
           obsidian
           android-studio
           xdotool
