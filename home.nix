@@ -1,9 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, requirments, ... }:
 
 {
-  # imports = [
-  #   ./modules/home-manager/blackmatter
-  # ];
+  imports = [
+    requirements.outputs.homeManagerModules.blackmatter
+  ];
 
   nixpkgs.config.allowUnfree = true;
   home.username = "luis";
@@ -169,14 +169,14 @@
   };
 
   # home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
-  # blackmatter.programs.nvim.enable = true;
-  # blackmatter.shell.enable = true;
-  # blackmatter.gitconfig.enable = false;
-  # blackmatter.desktop.enable = true;
+  blackmatter.programs.nvim.enable = true;
+  blackmatter.shell.enable = true;
+  blackmatter.gitconfig.enable = false;
+  blackmatter.desktop.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 }
