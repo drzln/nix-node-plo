@@ -1,8 +1,8 @@
-{ config, pkgs, inputs, outputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
-    outputs.homeManagerModules
+    ./modules/home-manager
   ];
 
   nixpkgs.config.allowUnfree = true;
