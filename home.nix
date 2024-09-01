@@ -1,9 +1,9 @@
-{ config, pkgs, outputs, ... }:
+{ config, pkgs, ... }:
 
 {
-  imports = [
-    outputs.homeManagerModules.blackmatter
-  ];
+  # imports = [
+  #   outputs.homeManagerModules.blackmatter
+  # ];
 
   nixpkgs.config.allowUnfree = true;
   home.username = "luis";
@@ -168,10 +168,10 @@
     enable = true;
   };
   # home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
-  blackmatter.programs.nvim.enable = true;
-  blackmatter.shell.enable = true;
-  blackmatter.gitconfig.enable = false;
-  blackmatter.desktop.enable = true;
+  # blackmatter.programs.nvim.enable = true;
+  # blackmatter.shell.enable = true;
+  # blackmatter.gitconfig.enable = false;
+  # blackmatter.desktop.enable = true;
 
   # wayland.windowManager.hyprland = {
   #   enable = true;
