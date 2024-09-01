@@ -7,7 +7,9 @@
     ./xserver.nix
   ];
 
-  home-manager.users.luis = import ./home.nix;
+  home-manager.users.luis = import ./home.nix {
+    inherit requirments;
+  };
   # home-manager.backupFileExtension = "backup";
 
   hardware.nvidia.open = true;
