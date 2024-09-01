@@ -22,11 +22,14 @@
         inherit inputs outputs;
       };
 
+      specialArgs = { inherit requirements; };
+      extraSpecialArgs = specialArgs;
+
       homeManagerModules = import ./modules/home-manager;
 
       homeConfigurations = {
         luis = home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit requirements; };
+          inherit extraSpecialArgs;
           pkgs = import nixpkgs { inherit system; };
           modules = [
             ./users/luis
@@ -39,7 +42,7 @@
       nixosConfigurations = {
         plo = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit requirements; };
+          inherit specialArgs;
           modules = [
             /etc/nixos/configuration.nix
             ./nodes/plo
