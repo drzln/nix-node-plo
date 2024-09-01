@@ -44,6 +44,26 @@
     , ...
     }@inputs:
     let
+      # build out outputs with inherit only
+      outputs = rec {
+        inherit 
+        nixosConfigurations 
+        homeConfigurations 
+        homeManagerModules;
+      };
+
+      homeManagerModules = import ./modules/home-manager;
+
+      homeConfigurations = {
+        luis = home-manager.lib.homeManagerConfiguration {
+          extraSpecialArgs = { inherit inputs outputs; };
+          pkgs = systems.x86_64-linux.pkgs;
+          modules = [
+            ./home.nix
+          ];
+        };
+      };
+
       nixosConfigurations = {
         plo = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -56,9 +76,19 @@
         };
       };
 
-      outputs = rec {
-          inherit nixosConfigurations;
-      };
-    in 
-      outputs;
+      ##########################################################################
+      # nixpkgs for multiple systems
+      ##########################################################################
+      systems = flake-utils.lib.eachSystem flake-utils.defaultSystems (system:
+      let
+        localPackages = {};
+        pkgs = import nixpkgs { inherit system; } // localPackages;
+      in
+      {
+        system = system;
+        pkgs = pkgs;
+      }); 
+      # end nixpkgs for multiple systems
+
+    in outputs;
 }
