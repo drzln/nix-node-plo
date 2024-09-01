@@ -64,19 +64,22 @@
         #   };
         # };
 
-        # nixosConfigurations = {
-        #   plo = nixpkgs.lib.nixosSystem {
-        #     specialArgs = { inherit inputs outputs; };
-        #     inherit system;
-        #     modules = [
-        #       /etc/nixos/configuration.nix
-        #       ./configuration.nix
-        #       home-manager.nixosModules.home-manager
-        #     ];
-        #   };
-        # };
 
       };
     in
-    outputs);
+    outputs // {
+
+      nixosConfigurations = {
+        plo = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            /etc/nixos/configuration.nix
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+          ];
+        };
+      };
+
+    });
 }
