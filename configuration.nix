@@ -8,7 +8,9 @@
   ];
 
   home-manager.users.luis = import ./home.nix {
-    inherit requirments;
+    extraSpecialArgs = {
+      inherit requirements;
+    };
   };
   # home-manager.backupFileExtension = "backup";
 
