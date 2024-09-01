@@ -122,6 +122,18 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #########################################
+    # hyprland support
+    #########################################
+
+    nvidia-dkms
+    nvidia-utils
+    lib32-nvidia-utils
+    egl-wayland
+    libnvidia-egl-wayland1
+    libnvidia-egl-gbm1
+
+    # hyprland support
     nix-index
     drm_info
     pciutils
