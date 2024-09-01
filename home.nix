@@ -1,8 +1,8 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, homeManagerModules, ... }:
 
 {
   imports = [
-    ./modules/home-manager/blackmatter
+    homeManagerModules.blackmatter
   ];
 
   nixpkgs.config.allowUnfree = true;

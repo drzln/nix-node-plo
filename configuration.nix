@@ -1,11 +1,11 @@
-{ config, pkgs, inputs, outputs, ... }:
+{ config, pkgs, inputs, homeManagerModules, ... }:
 {
   imports = [
     ./boot.nix
   ];
 
   # home-manager.users.luis = import ./home.nix;
-  home-manager.users.luis = outputs.homeConfigurations.luis;
+  home-manager.users.luis = homeConfigurations.luis;
   home-manager.backupFileExtension = "backup";
 
   hardware.nvidia.open = true;
