@@ -19,7 +19,7 @@
       inherit (self) outputs;
 
       requirements = {
-        inherit inputs;
+        inherit inputs outputs;
       };
 
       homeConfigurations = {
