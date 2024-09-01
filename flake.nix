@@ -15,6 +15,9 @@
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
     let
+
+      requirements = { };
+
       homeConfigurations = {
         luis = home-manager.lib.homeManagerConfiguration {
           # extraSpecialArgs = { inherit inputs;};
@@ -30,7 +33,7 @@
       nixosConfigurations = {
         plo = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          # specialArgs = { inherit inputs homeConfigurations; };
+          specialArgs = { inherit requirements; };
           modules = [
             /etc/nixos/configuration.nix
             ./configuration.nix
