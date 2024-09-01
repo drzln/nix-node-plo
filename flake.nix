@@ -56,9 +56,8 @@
     {
       inherit
         nixosConfigurations
+        nixosModules
         homeConfigurations
         homeManagerModules;
-      # nixosModules 
-      # homeManagerModules;
     };
 }
