@@ -169,7 +169,7 @@
   programs.zsh = {
     enable = true;
   };
-  # home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
+  home.file.".config/sheldon/plugins.toml".source = ./sheldon/plugins.toml;
   blackmatter.programs.nvim.enable = true;
   blackmatter.shell.enable = true;
   blackmatter.gitconfig.enable = false;
