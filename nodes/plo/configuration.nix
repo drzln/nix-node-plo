@@ -8,6 +8,8 @@
     ./displayManager.nix
   ];
 
+  programs.zsh.enable = true;
+
   # home-manager.useUserPackages = true;
   # home-manager.users.luis = requirements.outputs.homeConfigurations.luis;
   # home-manager.users.luis = import ./home.nix;
@@ -29,7 +31,6 @@
   #   XDG_CURRENT_DESKTOP = "Hyprland";
   # };
 
-  programs.zsh.enable = true;
   users.users.luis = {
     uid = 1001;
     shell = pkgs.zsh;
