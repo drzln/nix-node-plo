@@ -1,4 +1,4 @@
-{
+let 
   description = "blackmatter systems";
 
   inputs = {
@@ -13,6 +13,18 @@
     };
   };
 
+  # outputs = {
+  #   self,
+  #   nixpkgs,
+  #   home-manager,
+  #   hyprland,
+  # };
+in 
+{
+  inherit 
+  description
+  inputs;
+
   outputs =
     { self
     , nixpkgs
@@ -24,7 +36,7 @@
       inherit (self) outputs;
 
       # arguments for nixos modules
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs outputs; };
 
       # arguments for home-manager modules
       extraSpecialArgs = { inherit inputs outputs; };
@@ -32,6 +44,7 @@
 
     {
       homeManagerModules = import ./modules/home-manager;
+
       homeConfigurations = {
         luis = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs;
