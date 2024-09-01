@@ -18,6 +18,7 @@
     home-manager, 
     hyprland, 
     ... }@inputs: {
+    inherit (self) outputs;
 
     # packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
 
@@ -25,7 +26,7 @@
 
     homeConfigurations = {
       luis = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs outputs; };
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home.nix
@@ -35,7 +36,7 @@
 
     nixosConfigurations = {
       plo = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs outputs; };
         system = "x86_64-linux";
         modules = [
           /etc/nixos/configuration.nix
