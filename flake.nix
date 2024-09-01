@@ -45,34 +45,29 @@
     }@inputs:
     let
       # build out outputs with inherit only
-      outputs = rec {
-        inherit 
-        nixosConfigurations 
-        homeConfigurations 
-        homeManagerModules;
-      };
+      outputs = {
+        homeManagerModules = import ./modules/home-manager;
 
-      homeManagerModules = import ./modules/home-manager;
-
-      homeConfigurations = {
-        luis = home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit inputs outputs; };
-          pkgs = systems.x86_64-linux.pkgs;
-          modules = [
-            ./home.nix
-          ];
+        homeConfigurations = {
+          luis = home-manager.lib.homeManagerConfiguration {
+            extraSpecialArgs = { inherit inputs outputs; };
+            pkgs = systems.x86_64-linux.pkgs;
+            modules = [
+              ./home.nix
+            ];
+          };
         };
-      };
 
-      nixosConfigurations = {
-        plo = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            /etc/nixos/configuration.nix
-            ./configuration.nix
-            home-manager.nixosModules.home-manager
-          ];
+        nixosConfigurations = {
+          plo = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = { inherit inputs outputs; };
+            modules = [
+              /etc/nixos/configuration.nix
+              ./configuration.nix
+              home-manager.nixosModules.home-manager
+            ];
+          };
         };
       };
 
