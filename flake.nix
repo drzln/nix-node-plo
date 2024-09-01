@@ -18,7 +18,7 @@
     home-manager, 
     hyprland, 
     ... }@inputs: {
-    inherit outputs;
+    inherit self.outputs;
 
     # packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
 
