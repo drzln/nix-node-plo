@@ -3,11 +3,11 @@ let
   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
-  hardware.opengl = {
+  hardware.graphics = {
     package = pkgs-unstable.mesa.drivers;
 
     # if you also want 32-bit support (e.g for Steam)
-    driSupport32Bit = true;
+    enable32Bit = true;
     package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
   };
   boot.loader.systemd-boot.enable = true;
@@ -253,6 +253,7 @@ in
   # programs.kitty.enable = false;
   programs.hyprland.enable = false;
   programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  programs.hyprland.portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
