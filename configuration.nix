@@ -5,6 +5,7 @@
     ./time.nix
     ./locale.nix
     ./xserver.nix
+    ./displayManager.nix
   ];
 
   # home-manager.useUserPackages = true;
@@ -22,14 +23,6 @@
   # };
   networking.networkmanager.enable = true;
   services.libinput = { enable = true; };
-  services.displayManager = {
-    defaultSession = "gnome";
-    sddm = {
-      enable = false;
-      theme = "nord";
-      wayland.enable = true;
-    };
-  };
 
   # environment.variables = {
   #   XDG_SESSION_TYPE = "wayland";
