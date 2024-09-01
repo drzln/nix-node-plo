@@ -25,7 +25,7 @@
 
     homeConfigurations = {
       luis = home-manager.lib.homeManagerConfiguration {
-        specialArgs = { inherit inputs; };
+        extraSpecialArgs = { inherit inputs; };
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home.nix
