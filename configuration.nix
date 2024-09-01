@@ -39,9 +39,9 @@
 
   services.libinput = { enable = true; };
   services.displayManager = {
-    defaultSession = "hyprland";
+    defaultSession = "gnome";
     sddm = {
-      enable = true;
+      enable = false;
       theme = "nord";
       wayland.enable = true;
     };
