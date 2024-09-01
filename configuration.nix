@@ -264,7 +264,7 @@ in
   virtualisation.libvirtd.enable = true;
 
   # programs.kitty.enable = false;
-  programs.hyprland.enable = false;
+  programs.hyprland.enable = true;
   programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   programs.hyprland.portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
