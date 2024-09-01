@@ -39,12 +39,7 @@ in
       theme = "nord";
       wayland.enable = true;
     };
-    # defaultSession = "none+i3";
-    # defaultSession = "none+leftwm";
   };
-
-  # services.gdm.enable = true;
-  # services.gdm.wayland = true;
 
   environment.variables = {
     XDG_SESSION_TYPE = "wayland";
@@ -115,8 +110,8 @@ in
     luis ALL=(ALL) NOPASSWD:ALL
   '';
 
-  home-manager.users.luis = import ./home.nix;
-  home-manager.backupFileExtension = "backup";
+  # home-manager.users.luis = import ./home.nix;
+  # home-manager.backupFileExtension = "backup";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

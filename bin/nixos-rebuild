@@ -2,4 +2,5 @@
 NIX_CONFIG="experimental-features = nix-command flakes" sudo nixos-rebuild switch \
   --flake .#plo \
   -I /etc/nixos/configuration.nix \
+  --show-trace \
   --impure
