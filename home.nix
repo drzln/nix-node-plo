@@ -149,7 +149,8 @@
   # desktop packages
   [
     google-chrome
-    "1password"
+    1
+    password-gui
   ];
 
   home.file."backgrounds/nord/tools".source = builtins.fetchGit {
