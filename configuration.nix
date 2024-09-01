@@ -126,12 +126,12 @@ in
     # hyprland support
     #########################################
 
-    nvidia-dkms
-    nvidia-utils
-    lib32-nvidia-utils
-    egl-wayland
-    libnvidia-egl-wayland1
-    libnvidia-egl-gbm1
+    #nvidia-dkms
+    #nvidia-utils
+    #lib32-nvidia-utils
+    #egl-wayland
+    #libnvidia-egl-wayland1
+    #libnvidia-egl-gbm1
 
     # hyprland support
     nix-index
