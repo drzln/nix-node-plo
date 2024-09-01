@@ -15,16 +15,12 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-
-      # nixos and home-manager module requirements
       requirements = {
-        inherit (self) outputs;
         inherit inputs;
       };
 
       homeConfigurations = {
         luis = home-manager.lib.homeManagerConfiguration {
-          # extraSpecialArgs = { inherit inputs;};
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             ./home.nix
@@ -42,6 +38,7 @@
             /etc/nixos/configuration.nix
             ./configuration.nix
             home-manager.nixosModules.home-manager
+            homeConfigurations.luis.activationPackage
           ];
         };
       };
