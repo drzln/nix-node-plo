@@ -24,7 +24,7 @@
       inherit (self) outputs;
 
       # arguments for nixos modules
-      specialArgs = { inherit inputs outputs; };
+      specialArgs = { inherit inputs; };
 
       # arguments for home-manager modules
       extraSpecialArgs = { inherit inputs outputs; };
