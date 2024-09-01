@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-arch_os="$(uname -m)-$(uname -s | tr '[:upper:]' '[:lower:]')"
 NIX_CONFIG="experimental-features = nix-command flakes" sudo nixos-rebuild switch \
-  --flake .#$arch_os.plo \
+  --flake .#plo \
   -I /etc/nixos/configuration.nix \
   --impure
