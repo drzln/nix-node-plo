@@ -235,7 +235,7 @@
   };
   virtualisation.libvirtd.enable = true;
 
-  programs.kitty.enable = false;
+  # programs.kitty.enable = false;
   programs.hyprland.enable = false;
 
   # This value determines the NixOS release from which the default
