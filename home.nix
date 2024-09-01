@@ -6,13 +6,10 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-  home.username = "luis"; # Replace with your actual username
-  home.homeDirectory = "/home/luis"; # Replace with your home directory
+  home.username = "luis";
+  home.homeDirectory = "/home/luis";
+  home.stateVersion = "24.05";
 
-  # Set the state version to match Home Manager version
-  home.stateVersion = "24.05"; # Use the correct version for your setup
-
-  # Enable some basic packages
   home.packages = with pkgs; [
     vim
     git
