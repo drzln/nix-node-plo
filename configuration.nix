@@ -33,6 +33,14 @@
     # defaultSession = "none+leftwm";
   };
 
+  services.gdm.enable = true;
+  services.gdm.wayland = true;
+
+  environment.variables = {
+    XDG_SESSION_TYPE = "wayland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
+  };
+
   services.xserver = {
     enable = false;
     xkb = {
@@ -226,6 +234,9 @@
     enable = true;
   };
   virtualisation.libvirtd.enable = true;
+
+  programs.kitty.enable = false;
+  programs.hyprland.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
