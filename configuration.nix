@@ -1,4 +1,4 @@
-{ config, pkgs, outputs, ... }:
+{ config, pkgs, inputs, outputs, ... }:
 {
   hardware.nvidia.open = true;
   # hardware.graphics = {
@@ -270,8 +270,8 @@
 
   # programs.kitty.enable = false;
   programs.hyprland.enable = true;
-  # programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  # programs.hyprland.portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  programs.hyprland.portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
   services.dbus.enable = true;
   services.udev.enable = true;
