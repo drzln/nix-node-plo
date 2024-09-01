@@ -38,7 +38,6 @@
             /etc/nixos/configuration.nix
             ./configuration.nix
             home-manager.nixosModules.home-manager
-            # homeConfigurations.luis.activationPackage
           ];
         };
       };
