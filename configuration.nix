@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   boot.loader.systemd-boot.enable = true;
@@ -243,6 +243,7 @@
 
   # programs.kitty.enable = false;
   programs.hyprland.enable = false;
+  programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
