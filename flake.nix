@@ -25,13 +25,19 @@
 
         let
           inherit (self) outputs;
+
+          # arguments for nixos modules
+          specialArgs = { inherit inputs outputs;};
+
+          # arguments for home-manager modules
+          extraSpecialArgs = { inherit inputs outputs;};
         in
 
           {
             homeManagerModules = import ./modules/home-manager;
             homeConfigurations = {
               luis = home-manager.lib.homeManagerConfiguration {
-                extraSpecialArgs = { inherit inputs outputs; };
+                inherit extraSpecialArgs;
                 pkgs = nixpkgs.legacyPackages.x86_64-linux;
                 modules = [
                   ./home.nix
@@ -42,7 +48,7 @@
             nixosConfigurations = {
               plo = nixpkgs.lib.nixosSystem {
                 system = "x86_64-linux";
-                specialArgs = { inherit inputs outputs; };
+                inherit specialArgs;
                 modules = [
                   /etc/nixos/configuration.nix
                   ./configuration.nix
