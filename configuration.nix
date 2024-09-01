@@ -51,7 +51,8 @@
     displayManager = {
       gdm = {
         enable = true;
-        wayland = false;
+        wayland = true;
+        autoSession = "hyprland";
       };
       lightdm = {
         enable = false;
