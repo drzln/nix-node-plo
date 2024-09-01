@@ -1,15 +1,12 @@
-{ config, pkgs, inputs, outputs, ... }:
-let
-  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
+{ config, pkgs, outputs, ... }:
 {
-  hardware.graphics = {
-    package = pkgs-unstable.mesa.drivers;
-
-    # if you also want 32-bit support (e.g for Steam)
-    enable32Bit = true;
-    package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
-  };
+  # hardware.graphics = {
+  #   package = pkgs-unstable.mesa.drivers;
+  #
+  #   # if you also want 32-bit support (e.g for Steam)
+  #   enable32Bit = true;
+  #   package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+  # };
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -110,8 +107,8 @@ in
     luis ALL=(ALL) NOPASSWD:ALL
   '';
 
-  # home-manager.users.luis = import ./home.nix;
-  # home-manager.backupFileExtension = "backup";
+  home-manager.users.luis = import ./home.nix;
+  home-manager.backupFileExtension = "backup";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -272,8 +269,8 @@ in
 
   # programs.kitty.enable = false;
   programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  programs.hyprland.portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  # programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  # programs.hyprland.portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
   services.dbus.enable = true;
   services.udev.enable = true;
