@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-NIX_CONFIG="experimental-features = nix-command flakes" nixos-rebuild switch \
+NIX_CONFIG="experimental-features = nix-command flakes" sudo nixos-rebuild switch \
   --flake .#plo \
   -I /etc/nixos/configuration.nix \
   --impure
