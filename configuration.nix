@@ -37,6 +37,7 @@ in
     sddm = {
       enable = true;
       theme = "nord";
+      wayland.enable = true;
     };
     # defaultSession = "none+i3";
     # defaultSession = "none+leftwm";
