@@ -145,6 +145,10 @@
     httpie
     xclip
     procs
+  ] ++
+  # desktop packages
+  [
+    google-chrome
   ];
 
   home.file."backgrounds/nord/tools".source = builtins.fetchGit {
