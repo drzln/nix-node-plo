@@ -7,7 +7,7 @@
     ./xserver.nix
   ];
 
-  home-manager.useUserPackages = true;
+  # home-manager.useUserPackages = true;
   # home-manager.users.luis = requirements.outputs.homeConfigurations.luis;
   # home-manager.users.luis = import ./home.nix;
   # home-manager.backupFileExtension = "backup";
