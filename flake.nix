@@ -43,35 +43,10 @@
     , hyprland
     , ...
     }@inputs:
-
-    # flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" ] (system:
-    flake-utils.lib.eachDefaultSystem (system:
     let
-      pkgs = nixpkgs.legacyPackages.${system};
-
-      outputs = {
-        # inherit self nixpkgs home-manager hyprland;
-
-        homeManagerModules = import ./modules/home-manager;
-
-        # homeConfigurations = {
-        #   luis = home-manager.lib.homeManagerConfiguration {
-        #     extraSpecialArgs = { inherit inputs outputs; };
-        #     pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        #     modules = [
-        #       ./home.nix
-        #     ];
-        #   };
-        # };
-
-
-      };
-    in
-    outputs // {
-
       nixosConfigurations = {
         plo = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
           specialArgs = { inherit inputs outputs; };
           modules = [
             /etc/nixos/configuration.nix
@@ -81,5 +56,9 @@
         };
       };
 
-    });
+      outputs = rec {
+          inherit nixosConfigurations;
+      };
+    in 
+      outputs;
 }
