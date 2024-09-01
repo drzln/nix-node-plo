@@ -52,7 +52,6 @@
       gdm = {
         enable = true;
         wayland = true;
-        autoSession = "hyprland";
       };
       lightdm = {
         enable = false;
