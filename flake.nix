@@ -37,7 +37,7 @@
         };
       };
 
-      nixosModules = { };
+      nixosModules = import ./modules/nixos;
 
       nixosConfigurations = {
         plo = nixpkgs.lib.nixosSystem {
