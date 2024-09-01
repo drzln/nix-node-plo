@@ -33,7 +33,7 @@ in
 
   services.libinput = { enable = true; };
   services.displayManager = {
-    defaultSession = "gnome";
+    defaultSession = "hyprland";
     sddm = {
       enable = true;
       theme = "nord";
