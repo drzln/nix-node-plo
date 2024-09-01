@@ -149,6 +149,8 @@
   # desktop packages
   [
     google-chrome
+    1
+    password
   ];
 
   home.file."backgrounds/nord/tools".source = builtins.fetchGit {
