@@ -17,6 +17,7 @@
     let
       requirements = {
         inherit inputs;
+        outputs = self;
       };
 
       homeConfigurations = {
