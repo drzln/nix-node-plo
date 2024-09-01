@@ -35,42 +35,43 @@
     # end desktop modules
   };
 
-  outputs = { 
-    self, 
-    nixpkgs, 
-    home-manager, 
-    flake-utils,
-    hyprland, 
-    ... }@inputs: 
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , flake-utils
+    , hyprland
+    , ...
+    }@inputs:
 
-    flake-utils.lib.eachSystem ["x86_64-linux" "aarch64-linux" "x86_64-darwin" ] (system:
-      let
-        outputs = {
-          inherit self nixpkgs home-manager hyprland;
+    flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" ] (system:
+    let
+      outputs = {
+        inherit self nixpkgs home-manager hyprland;
 
-          homeConfigurations = {
-            luis = home-manager.lib.homeManagerConfiguration {
-              extraSpecialArgs = { inherit inputs outputs; };
-              pkgs = nixpkgs.legacyPackages.x86_64-linux;
-              modules = [
-                ./home.nix
-              ];
-            };
+        homeConfigurations = {
+          luis = home-manager.lib.homeManagerConfiguration {
+            extraSpecialArgs = { inherit inputs outputs; };
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+            modules = [
+              ./home.nix
+            ];
           };
-
-          nixosConfigurations = {
-            plo = nixpkgs.lib.nixosSystem {
-              specialArgs = { inherit inputs outputs; };
-              inherit system;
-              modules = [
-                /etc/nixos/configuration.nix
-                ./configuration.nix
-                home-manager.nixosModules.home-manager
-              ];
-            };
-          };
-
         };
-      in
+
+        nixosConfigurations = {
+          plo = nixpkgs.lib.nixosSystem {
+            specialArgs = { inherit inputs outputs; };
+            inherit system;
+            modules = [
+              /etc/nixos/configuration.nix
+              ./configuration.nix
+              home-manager.nixosModules.home-manager
+            ];
+          };
+        };
+
+      };
+    in
     outputs);
 }
