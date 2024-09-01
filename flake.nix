@@ -28,6 +28,7 @@
     };
 
     nixosModules = {};
+
     nixosConfigurations = {
       plo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -40,6 +41,8 @@
       };
     };
   in
+
+  # what flake is returning as outputs
   {
     inherit 
     nixosConfigurations 

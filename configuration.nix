@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, homeManagerModules, ... }:
+{ config, pkgs, inputs, homeConfigurations, ... }:
 {
   imports = [
     ./boot.nix
