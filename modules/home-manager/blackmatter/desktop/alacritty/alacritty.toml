@@ -1,7 +1,4 @@
-[debug]
-log_devel = "DEBUG"
-
-[window]
+window]
 title = ""
 dynamic_title = false
 decorations = "full"
