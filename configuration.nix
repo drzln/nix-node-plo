@@ -42,7 +42,7 @@
   };
 
   services.xserver = {
-    enable = true;
+    enable = false;
     xkb = {
       options = "caps:escape";
       layout = "us";
@@ -50,8 +50,8 @@
     };
     displayManager = {
       gdm = {
-        enable = true;
-        wayland = true;
+        enable = false;
+        wayland = false;
       };
       lightdm = {
         enable = false;
