@@ -1,4 +1,7 @@
 { config, pkgs, requirements, ... }:
+let
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   system.stateVersion = "24.05";
 
@@ -11,20 +14,14 @@
   ];
 
   programs.zsh.enable = true;
-
-  # home-manager.useUserPackages = true;
-  # home-manager.users.luis = requirements.outputs.homeConfigurations.luis;
-  # home-manager.users.luis = import ./home.nix;
-  # home-manager.backupFileExtension = "backup";
-
   hardware.nvidia.open = true;
-  # hardware.graphics = {
-  #   package = pkgs-unstable.mesa.drivers;
-  #
-  #   # if you also want 32-bit support (e.g for Steam)
-  #   enable32Bit = true;
-  #   package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
-  # };
+  hardware.graphics = {
+    package = pkgs-unstable.mesa.drivers;
+
+    # if you also want 32-bit support (e.g for Steam)
+    enable32Bit = true;
+    package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+  };
   networking.networkmanager.enable = true;
   services.libinput = { enable = true; };
 
@@ -218,6 +215,6 @@
   programs.hyprland.package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   programs.hyprland.portalPackage = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
-  # services.dbus.enable = true;
-  # services.udev.enable = true;
+  #services.dbus.enable = true;
+  #services.udev.enable = true;
 }
