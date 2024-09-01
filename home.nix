@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -174,4 +174,8 @@
   blackmatter.shell.enable = true;
   blackmatter.gitconfig.enable = false;
   blackmatter.desktop.enable = true;
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+  };
 }
