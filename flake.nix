@@ -16,7 +16,10 @@
   outputs = { nixpkgs, home-manager, ... }@inputs:
     let
 
-      requirements = { };
+      # nixos and home-manager module requirements
+      requirements = {
+        inherit inputs;
+      };
 
       homeConfigurations = {
         luis = home-manager.lib.homeManagerConfiguration {
