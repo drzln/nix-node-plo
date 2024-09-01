@@ -127,6 +127,17 @@ in
     # hyprland support
     #########################################
 
+    waybar
+    alacritty
+    wofi
+    dunst
+    swaybg
+    swaylock
+    grim
+    slurp
+    wl-clipboard
+    mako
+
     #nvidia-dkms
     #nvidia-utils
     #lib32-nvidia-utils
