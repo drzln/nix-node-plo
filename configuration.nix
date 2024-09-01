@@ -1,8 +1,13 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, outputs, ... }:
 {
   imports = [
     ./boot.nix
   ];
+
+  # home-manager.users.luis = import ./home.nix;
+  home-manager.users.luis = outputs.homeConfigurations.luis;
+  home-manager.backupFileExtension = "backup";
+
   hardware.nvidia.open = true;
   # hardware.graphics = {
   #   package = pkgs-unstable.mesa.drivers;
@@ -111,8 +116,6 @@
     luis ALL=(ALL) NOPASSWD:ALL
   '';
 
-  home-manager.users.luis = import ./home.nix;
-  home-manager.backupFileExtension = "backup";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
