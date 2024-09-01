@@ -209,7 +209,10 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    settings.auto-optimise-store = true;
+    settings = { 
+      auto-optimise-store = true;
+      #substituters = [];
+    };
     package = pkgs.nixFlakes;
   };
 
