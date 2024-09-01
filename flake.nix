@@ -37,7 +37,7 @@
           specialArgs = { inherit requirements; };
           modules = [
             /etc/nixos/configuration.nix
-            ./configuration.nix
+            ./nodes/plo
             home-manager.nixosModules.home-manager
           ];
         };
