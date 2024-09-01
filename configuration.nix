@@ -4,6 +4,7 @@
     ./boot.nix
     ./time.nix
     ./locale.nix
+    ./xserver.nix
   ];
 
   # home-manager.users.luis = import ./home.nix;
@@ -33,47 +34,6 @@
   #   XDG_SESSION_TYPE = "wayland";
   #   XDG_CURRENT_DESKTOP = "Hyprland";
   # };
-
-  services.xserver = {
-    enable = false;
-    xkb = {
-      options = "caps:escape";
-      layout = "us";
-      variant = "";
-    };
-    displayManager = {
-      gdm = {
-        enable = false;
-        wayland = false;
-      };
-      lightdm = {
-        enable = false;
-      };
-    };
-    autoRepeatDelay = 135;
-    autoRepeatInterval = 40;
-    videoDrivers = [ "nvidia" "intel" "nouveau" "qxl" "amdgpu" ];
-    desktopManager = {
-      gnome = {
-        enable = true;
-      };
-      xterm = {
-        enable = false;
-      };
-    };
-    windowManager = {
-      leftwm = { enable = false; };
-      i3 = {
-        enable = false;
-        extraPackages = with pkgs; [
-          i3blocks
-          i3status
-          i3lock
-          dmenu
-        ];
-      };
-    };
-  };
 
   programs.zsh.enable = true;
   users.users.luis = {
