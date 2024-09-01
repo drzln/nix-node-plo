@@ -148,8 +148,7 @@
   ] ++
   # desktop packages
   [
-    1
-    password-gui
+    _1password-gui
     google-chrome
   ];
 
