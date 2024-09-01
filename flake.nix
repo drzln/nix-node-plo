@@ -23,6 +23,7 @@
 
       homeConfigurations = {
         luis = home-manager.lib.homeManagerConfiguration {
+          extraSpecialArgs = { inherit requirements; };
           pkgs = import nixpkgs { inherit system; };
           modules = [
             ./users/luis
