@@ -47,10 +47,10 @@
     };
   };
 
-  environment.variables = {
-    XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-  };
+  # environment.variables = {
+  #   XDG_SESSION_TYPE = "wayland";
+  #   XDG_CURRENT_DESKTOP = "Hyprland";
+  # };
 
   services.xserver = {
     enable = false;
