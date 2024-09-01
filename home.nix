@@ -2,8 +2,7 @@
 
 {
   imports = [
-    # outputs.homeManagerModules.blackmatter
-    ./modules/home-manager/blackmatter
+    outputs.homeManagerModules.blackmatter
   ];
 
   nixpkgs.config.allowUnfree = true;
