@@ -1,5 +1,8 @@
 { config, pkgs, inputs, outputs, ... }:
 {
+  imports = [
+    ./boot.nix
+  ];
   hardware.nvidia.open = true;
   # hardware.graphics = {
   #   package = pkgs-unstable.mesa.drivers;
