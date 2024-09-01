@@ -33,8 +33,8 @@
     # defaultSession = "none+leftwm";
   };
 
-  services.gdm.enable = true;
-  services.gdm.wayland = true;
+  # services.gdm.enable = true;
+  # services.gdm.wayland = true;
 
   environment.variables = {
     XDG_SESSION_TYPE = "wayland";
