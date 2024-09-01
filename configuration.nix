@@ -2,6 +2,7 @@
 {
   imports = [
     ./boot.nix
+    ./time.nix
   ];
 
   # home-manager.users.luis = import ./home.nix;
@@ -16,12 +17,8 @@
   #   enable32Bit = true;
   #   package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
   # };
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   networking.networkmanager.enable = true;
 
-  time.timeZone = "America/Fortaleza";
 
   i18n.defaultLocale = "en_US.UTF-8";
 
