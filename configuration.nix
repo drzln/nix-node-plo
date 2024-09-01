@@ -116,6 +116,7 @@ in
   '';
 
   home-manager.users.luis = import ./home.nix;
+  home-manager.backupFileExtension = "backup";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
