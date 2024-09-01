@@ -1,12 +1,12 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./boot.nix
   ];
 
-  home-manager.users.luis = import ./home.nix;
+  # home-manager.users.luis = import ./home.nix;
   # home-manager.users.luis = homeConfigurations.luis;
-  home-manager.backupFileExtension = "backup";
+  # home-manager.backupFileExtension = "backup";
 
   hardware.nvidia.open = true;
   # hardware.graphics = {
@@ -275,12 +275,12 @@
   virtualisation.libvirtd.enable = true;
 
   # programs.kitty.enable = false;
-  programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  programs.hyprland.portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  # programs.hyprland.enable = true;
+  # programs.hyprland.package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  # programs.hyprland.portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
-  services.dbus.enable = true;
-  services.udev.enable = true;
+  # services.dbus.enable = true;
+  # services.udev.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

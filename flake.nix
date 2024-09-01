@@ -15,11 +15,9 @@
 
   outputs = {nixpkgs, home-manager, ...}@inputs: 
   let
-    # homeManagerModules = import ./modules/home-manager;
-
     homeConfigurations = {
       luis = home-manager.lib.homeManagerConfiguration {
-        extraSpecialArgs = { inherit inputs;};
+        # extraSpecialArgs = { inherit inputs;};
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home.nix
@@ -32,7 +30,7 @@
     nixosConfigurations = {
       plo = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs homeConfigurations; };
+        # specialArgs = { inherit inputs homeConfigurations; };
         modules = [
           /etc/nixos/configuration.nix
           ./configuration.nix
