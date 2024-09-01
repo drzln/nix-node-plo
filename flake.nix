@@ -48,35 +48,35 @@
     flake-utils.lib.eachDefaultSystem (system:
     let
       pkgs = nixpkgs.legacyPackages.${system};
-      # outputs = {
-      #   # inherit self nixpkgs home-manager hyprland;
-      #
-      #   # homeManagerModules = import ./modules/home-manager;
-      #
-      #   # homeConfigurations = {
-      #   #   luis = home-manager.lib.homeManagerConfiguration {
-      #   #     extraSpecialArgs = { inherit inputs outputs; };
-      #   #     pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      #   #     modules = [
-      #   #       ./home.nix
-      #   #     ];
-      #   #   };
-      #   # };
-      #
-      #   # nixosConfigurations = {
-      #   #   plo = nixpkgs.lib.nixosSystem {
-      #   #     specialArgs = { inherit inputs outputs; };
-      #   #     inherit system;
-      #   #     modules = [
-      #   #       /etc/nixos/configuration.nix
-      #   #       ./configuration.nix
-      #   #       home-manager.nixosModules.home-manager
-      #   #     ];
-      #   #   };
-      #   # };
-      #
-      # };
+
+      outputs = {
+        # inherit self nixpkgs home-manager hyprland;
+
+        homeManagerModules = import ./modules/home-manager;
+
+        # homeConfigurations = {
+        #   luis = home-manager.lib.homeManagerConfiguration {
+        #     extraSpecialArgs = { inherit inputs outputs; };
+        #     pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        #     modules = [
+        #       ./home.nix
+        #     ];
+        #   };
+        # };
+
+        # nixosConfigurations = {
+        #   plo = nixpkgs.lib.nixosSystem {
+        #     specialArgs = { inherit inputs outputs; };
+        #     inherit system;
+        #     modules = [
+        #       /etc/nixos/configuration.nix
+        #       ./configuration.nix
+        #       home-manager.nixosModules.home-manager
+        #     ];
+        #   };
+        # };
+
+      };
     in
-    {});
-    # outputs);
+    outputs);
 }
