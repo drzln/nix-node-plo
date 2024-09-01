@@ -49,6 +49,8 @@
       outputs = {
         inherit self nixpkgs home-manager hyprland;
 
+        homeManagerModules = import ./modules/home-manager;
+
         homeConfigurations = {
           luis = home-manager.lib.homeManagerConfiguration {
             extraSpecialArgs = { inherit inputs outputs; };

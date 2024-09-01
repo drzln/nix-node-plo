@@ -1,10 +1,10 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, outputs, ... }:
 
 {
   imports = [
-    # inputs.home
-    ./modules/home-manager/blackmatter
+    outputs.homeManagerModules.blackmatter
   ];
+
   nixpkgs.config.allowUnfree = true;
   home.username = "luis"; # Replace with your actual username
   home.homeDirectory = "/home/luis"; # Replace with your home directory
