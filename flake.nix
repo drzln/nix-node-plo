@@ -15,7 +15,7 @@
 
   outputs = {nixpkgs, home-manager, ...}@inputs: 
   let
-    homeManagerModules = import ./modules/home-manager;
+    # homeManagerModules = import ./modules/home-manager;
 
     homeConfigurations = {
       luis = home-manager.lib.homeManagerConfiguration {
@@ -46,8 +46,8 @@
   {
     inherit 
     nixosConfigurations 
-    nixosModules 
-    homeConfigurations 
-    homeManagerModules;
+    homeConfigurations;
+    # nixosModules 
+    # homeManagerModules;
   };
 }
