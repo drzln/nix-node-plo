@@ -13,11 +13,12 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
 
       # nixos and home-manager module requirements
       requirements = {
+        inherit (self) outputs;
         inherit inputs;
       };
 
