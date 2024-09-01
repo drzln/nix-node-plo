@@ -22,6 +22,8 @@
         inherit inputs outputs;
       };
 
+      homeManagerModules = import ./modules/home-manager;
+
       homeConfigurations = {
         luis = home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = { inherit requirements; };
