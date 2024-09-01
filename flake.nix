@@ -15,15 +15,15 @@
 
     # packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
 
-    # homeConfigurations = {
-    #   luis = home-manager.lib.homeManagerConfiguration {
-    #     pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    #     modules = [
-    #       home-manager.modules.home-manager
-    #       ./home.nix
-    #     ];
-    #   };
-    # };
+    homeConfigurations = {
+      luis = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+          home-manager.modules.home-manager
+          ./home.nix
+        ];
+      };
+    };
 
     nixosConfigurations = {
       plo = nixpkgs.lib.nixosSystem {
