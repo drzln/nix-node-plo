@@ -176,10 +176,11 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     settings = {
       "$mod" = "SUPER";
-      bind = [ "$mod+SHIFT+Q, exec, hyprctl dispatch exit" ];
+      bind = [
+        "$mod+SHIFT+Q, exec, hyprctl dispatch exit"
+      ];
     };
   };
 }
