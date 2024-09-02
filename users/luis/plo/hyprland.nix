@@ -56,7 +56,7 @@
   };
 
   programs.wezterm.enable = true;
-  programs.wezterm.extraConfig = "return {}";
+  programs.wezterm.extraConfig = builtins.readFile ./wezterm.lua;
 
   # Wofi configuration
   # home.file.".config/wofi/config" = {
