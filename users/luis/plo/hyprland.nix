@@ -18,8 +18,7 @@
       monitor = "DP-2, 1920x1080@360, 0x0, 1";
       bind = [
         "SUPER_SHIFT, Q, exec, hyprctl dispatch exit"
-        "SUPER_SHIFT, T, exec, foot"
-        "SUPER_SHIFT, W, exec, wezterm"
+        "SUPER, ENTER, exec, foot"
         "SUPER_SHIFT, N, exec, notify-send \"Hyprland is working!\""
       ];
       input = {
