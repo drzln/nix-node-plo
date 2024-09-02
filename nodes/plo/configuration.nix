@@ -7,6 +7,7 @@ in
 
   imports = [
     ./boot.nix
+    ./limits.nix
     ./time.nix
     ./locale.nix
     ./xserver.nix
