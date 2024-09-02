@@ -7,6 +7,7 @@
     kitty
     alacritty
     foot
+    wezterm
   ];
 
   # Enable and configure Hyprland
