@@ -41,7 +41,6 @@ in
   environment.variables = {
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
-    WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
     GBM_BACKEND = "nvidia-drm";
     __GL_GSYNC_ALLOWED = "0";
