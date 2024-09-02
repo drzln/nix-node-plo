@@ -1,7 +1,7 @@
 { requirements, pkgs, ... }: {
   home.packages = with pkgs; [
-    wl-clipboard-rs
-    wl-clipboard-x11
+    # wl-clipboard-rs
+    # wl-clipboard-x11
     wl-gammactl
     wl-gammarelay-rs
     wl-mirror
