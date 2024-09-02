@@ -130,11 +130,6 @@ in
 
   security.rtkit.enable = true;
 
-  fonts.packages = with pkgs;[
-    fira-code
-    fira-code-symbols
-  ];
-
   powerManagement.cpuFreqGovernor = "performance";
 
   nix = {
@@ -177,6 +172,7 @@ in
   fonts.fontconfig.enable = false;
   fonts.packages = with pkgs; [
     fira-code
+    fira-code-symbols
     dejavu_fonts
   ];
   environment.etc."fonts/fonts.conf".text = ''
