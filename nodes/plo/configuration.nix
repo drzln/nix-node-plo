@@ -25,8 +25,8 @@ in
     # if you also want 32-bit support (e.g for Steam)
     enable32Bit = true;
     package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
-    nvidia.modesetting.enable = true;
   };
+  hardware.nvidia.modesetting.enable = true;
   services.libinput = { enable = true; };
 
   environment.variables = {
