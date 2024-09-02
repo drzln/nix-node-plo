@@ -12,6 +12,7 @@ in
     ./xserver.nix
     ./displayManager.nix
     ./virtualisation.nix
+    ./bluetooth.nix
   ];
 
   networking.networkmanager.enable = true;
@@ -153,7 +154,6 @@ in
     "8.8.8.8"
     "8.8.4.4"
   ];
-  services.blueman.enable = true;
   services.printing.enable = false;
   services.hardware.bolt.enable = false;
   services.nfs.server.enable = false;
