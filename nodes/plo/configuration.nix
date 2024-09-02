@@ -31,7 +31,7 @@ in
     XDG_CURRENT_DESKTOP = "Hyprland";
   };
 
-  home-manager.users.luis = ../../users/luis;
+  home-manager.users.luis = ../../users/luis/home.nix;
   users.users.luis = {
     uid = 1001;
     shell = pkgs.zsh;
