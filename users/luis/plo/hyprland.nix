@@ -29,7 +29,7 @@
         follow_mouse = "1";
 
         touchpad = {
-          natural_scroll = yes;
+          natural_scroll = "yes";
         };
       };
     };
