@@ -17,19 +17,23 @@ in
 
   networking.networkmanager.enable = true;
   programs.zsh.enable = true;
-  hardware.nvidia.open = true;
+  hardware.nvidia.open = false;
   hardware.graphics = {
+    enable = true;
     package = pkgs-unstable.mesa.drivers;
 
     # if you also want 32-bit support (e.g for Steam)
     enable32Bit = true;
     package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+    nvidia.modesetting.enable = true;
   };
   services.libinput = { enable = true; };
 
   environment.variables = {
     XDG_SESSION_TYPE = "wayland";
     XDG_CURRENT_DESKTOP = "Hyprland";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
   };
 
   users.users.luis = {
@@ -204,6 +208,8 @@ in
 
   # programs.kitty.enable = false;
   programs.hyprland.enable = true;
+  programs.hyprland.nvidiaPatches = true;
+  programs.hyprland.xwayland.enable = true;
   programs.hyprland.package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   programs.hyprland.portalPackage = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
