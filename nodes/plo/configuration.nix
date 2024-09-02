@@ -11,8 +11,10 @@ in
     ./locale.nix
     ./xserver.nix
     ./displayManager.nix
+    ./virtualisation.nix
   ];
 
+  networking.networkmanager.enable = true;
   programs.zsh.enable = true;
   hardware.nvidia.open = true;
   hardware.graphics = {
@@ -22,7 +24,6 @@ in
     enable32Bit = true;
     package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
   };
-  networking.networkmanager.enable = true;
   services.libinput = { enable = true; };
 
   environment.variables = {
@@ -200,15 +201,6 @@ in
   '';
   networking.wireless.interfaces = [ "wlp0s20f3" ];
 
-  virtualisation.podman.enable = true;
-  virtualisation.podman.dockerSocket.enable = true;
-  virtualisation.podman.defaultNetwork.settings.dns_enabled = true;
-  virtualisation.docker.enable = false;
-  virtualisation.docker.rootless = {
-    setSocketVariable = true;
-    enable = true;
-  };
-  virtualisation.libvirtd.enable = true;
 
   # programs.kitty.enable = false;
   programs.hyprland.enable = true;
