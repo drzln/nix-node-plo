@@ -4,6 +4,7 @@
     dunst
     waybar
     swaybg
+    kitty
     alacritty
   ];
 
