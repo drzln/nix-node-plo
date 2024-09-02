@@ -12,7 +12,7 @@
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
 
-    hyprland-plugisn = {
+    hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
