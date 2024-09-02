@@ -16,6 +16,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+
+    stylix = {
+      url = "github:styli.sh/stylix";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
