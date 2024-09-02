@@ -13,7 +13,7 @@
       wayland.enable = true;
       settings = {
         Wayland = {
-          ServerArguments = "--refresh 360":
+          ServerArguments = "--refresh 360";
         };
         X11 = {
           ServerArguments = "--refresh 360";
