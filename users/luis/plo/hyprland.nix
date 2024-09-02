@@ -1,4 +1,4 @@
-{ requirements, ... }: {
+{ requirements, pkgs, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
