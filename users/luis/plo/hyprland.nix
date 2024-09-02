@@ -19,6 +19,7 @@
         "SUPER_SHIFT, Q, exec, hyprctl dispatch exit"
         "SUPER_SHIFT, T, exec, foot"
         "SUPER_SHIFT, N, exec, notify-send \"Hyprland is working!\""
+        "SUPER_SHIFT, SPACE, exec, wofi"
       ];
       input = {
         force_no_accel = true;
