@@ -1,8 +1,8 @@
 { ... }: {
   services.displayManager = {
-    defaultSession = "gnome";
+    defaultSession = "hyprland";
     sddm = {
-      enable = false;
+      enable = true;
       theme = "nord";
       wayland.enable = true;
     };
