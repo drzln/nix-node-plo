@@ -7,7 +7,7 @@
   };
 
   systemd.user.services.docker.serviceConfig = {
-    LimitNOFILE = lib.mkForce 1048576;
+    # LimitNOFILE = 1048576;
     LimitNPROC = 65536;
     LimitSTACK = "infinity";
     LimitMEMLOCK = "infinity";
