@@ -139,5 +139,6 @@
     beekeeper-studio
     globalprotect-openconnect
     gp-saml-gui
+    openconnect
   ];
 }
