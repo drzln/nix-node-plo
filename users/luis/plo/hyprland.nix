@@ -14,13 +14,13 @@
     package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
       bind = [
-        "Super+Shift+Q, exec, hyprctl dispatch exit"
-        "Super+T, exec, alacritty"
-        "Super+N, exec, notify-send \"Hyprland is working!\""
+        "SUPER_SHIFT, Q, exec, hyprctl dispatch exit"
+        "SUPER, T, exec, alacritty"
+        "SUPER, N, exec, notify-send \"Hyprland is working!\""
       ];
     };
     plugins =  [
-      requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+      # requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
       # requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprtrails
       # requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
       # requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprwinwrap
