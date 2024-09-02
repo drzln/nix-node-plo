@@ -17,7 +17,7 @@
     };
     autoRepeatDelay = 135;
     autoRepeatInterval = 40;
-    videoDrivers = [ "nvidia" "intel" "nouveau" "qxl" "amdgpu" ];
+    videoDrivers = [ "nvidia" ];
     desktopManager = {
       gnome = {
         enable = true;
