@@ -14,7 +14,7 @@
     enable = true;
     package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
-      # monitor = "DP-2,preferred,360";
+      monitor = "DP-2, 1920x1080@360, 0x0, 1";
       bind = [
         "SUPER_SHIFT, Q, exec, hyprctl dispatch exit"
         "SUPER_SHIFT, T, exec, foot"
