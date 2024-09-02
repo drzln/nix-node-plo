@@ -1,7 +1,6 @@
 { requirements, pkgs, ... }: {
   home.packages = with pkgs; [
-    wl-clipboard
-    wl-copy
+    wl-clipboard-rs
     wofi
     dunst
     waybar
