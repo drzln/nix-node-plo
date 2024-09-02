@@ -132,6 +132,7 @@
     httpie
     procs
     xclip
+    xsel
   ] ++ [
     _1password-gui
     google-chrome
