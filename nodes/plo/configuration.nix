@@ -93,7 +93,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-wlr
+    xdg-desktop-portal-hyprland
     vim
     wget
     git
