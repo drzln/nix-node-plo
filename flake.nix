@@ -18,7 +18,7 @@
     };
 
     stylix = {
-      url = "github:styli.sh/stylix";
+      url = "github:danth/stylix";
     };
   };
 
