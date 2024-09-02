@@ -48,7 +48,6 @@ in
     DISABLE_QT5_COMPAT = "0";
     ANKI_WAYLAND = "1";
     DIRENV_LOG_FORMAT = "";
-    WLR_DRM_NO_ATOMIC = "1";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
@@ -56,8 +55,10 @@ in
     MOZ_ENABLE_WAYLAND = "1";
     WLR_BACKEND = "vulkan";
     WLR_NO_HARDWARE_CURSORS = "1";
-    CLUTTER_BACKEND = "wayland";
+    WLR_DRM_NO_ATOMIC = "1";
     WLR_DRM_DEVICES = "/dev/dri/card1";
+    WLR_RENDERER_ALLOW_SOFTWARE = "1";
+    CLUTTER_BACKEND = "wayland";
     WINIT_UNIX_BACKEND = "x111 alacritty";
   };
 
