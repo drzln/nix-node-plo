@@ -136,5 +136,6 @@
   ] ++ [
     _1password-gui
     google-chrome
+    beekeeper-studio
   ];
 }
