@@ -18,5 +18,5 @@
     DefaultLimitNPROC=65536
     DefaultLimitSTACK=infinity
     DefaultLimitMEMLOCK=infinity
-  ''
+  '';
 }
