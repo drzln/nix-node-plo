@@ -18,6 +18,7 @@ in
   networking.networkmanager.enable = true;
   programs.zsh.enable = true;
   hardware.nvidia.open = false;
+  hardware.opengl.driSupport = true;
   hardware.graphics = {
     enable = true;
     package = pkgs-unstable.mesa.drivers;
