@@ -15,11 +15,11 @@
     settings = {
       bind = [
         "SUPER_SHIFT, Q, exec, hyprctl dispatch exit"
-        "SUPER, T, exec, alacritty"
-        "SUPER, N, exec, notify-send \"Hyprland is working!\""
+        "SUPER_SHIFT, T, exec, alacritty"
+        "SUPER_SHIFT, N, exec, notify-send \"Hyprland is working!\""
       ];
     };
-    plugins =  [
+    plugins = [
       # requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
       # requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprtrails
       # requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
