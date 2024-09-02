@@ -20,7 +20,7 @@
       ];
       input = {
         force_no_accel = true;
-        kb_layout = pl;
+        kb_layout = "pl";
         kb_variant = "";
         kb_model = "";
         kb_options = "caps:escape";
@@ -29,7 +29,7 @@
         follow_mouse = "1";
 
         touchpad = {
-          natural_scroll = yes;
+          natural_scroll = "yes";
         };
       };
     };
