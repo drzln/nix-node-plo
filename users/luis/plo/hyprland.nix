@@ -47,23 +47,23 @@
   };
 
   # Wofi configuration
-  home.file.".config/wofi/config" = {
-    text = ''
-      [colors]
-      background = "#2E3440";
-      foreground = "#D8DEE9";
-      selection_background = "#4C566A";
-      selection_foreground = "#D8DEE9";
-    '';
-  };
+  # home.file.".config/wofi/config" = {
+  #   text = ''
+  #     [colors]
+  #     background = "#2E3440";
+  #     foreground = "#D8DEE9";
+  #     selection_background = "#4C566A";
+  #     selection_foreground = "#D8DEE9";
+  #   '';
+  # };
 
   # Dunst configuration
-  home.file.".config/dunst/dunstrc" = {
-    text = ''
-      [global]
-      background = "#2E3440";
-      foreground = "#D8DEE9";
-      frame_color = "#4C566A";
-    '';
-  };
+  # home.file.".config/dunst/dunstrc" = {
+  #   text = ''
+  #     [global]
+  #     background = "#2E3440";
+  #     foreground = "#D8DEE9";
+  #     frame_color = "#4C566A";
+  #   '';
+  # };
 }
