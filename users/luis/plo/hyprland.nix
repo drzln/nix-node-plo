@@ -55,6 +55,9 @@
     ];
   };
 
+  programs.wezterm.enable = true;
+  programs.wezterm.extraConfig = "return {}";
+
   # Wofi configuration
   # home.file.".config/wofi/config" = {
   #   text = ''
