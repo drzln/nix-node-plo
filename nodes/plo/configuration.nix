@@ -100,6 +100,7 @@ in
     vim
     wget
     git
+    fontconfig
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
