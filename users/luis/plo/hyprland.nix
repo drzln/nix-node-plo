@@ -21,7 +21,7 @@
       ];
     };
     plugins =  [
-      requirements.inputs.hyprland-plugins.${pkgs.stdenv.hostPlatform.system}.hyprbars
+      requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
     ];
   };
 

@@ -109,18 +109,18 @@
         "url": "https://github.com/hyprwm/Hyprland"
       }
     },
-    "hyprland-plugisn": {
+    "hyprland-plugins": {
       "inputs": {
         "hyprland": [
           "hyprland"
         ],
         "nixpkgs": [
-          "hyprland-plugisn",
+          "hyprland-plugins",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-plugisn",
+          "hyprland-plugins",
           "hyprland",
           "systems"
         ]
@@ -281,7 +281,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "hyprland-plugisn": "hyprland-plugisn",
+        "hyprland-plugins": "hyprland-plugins",
         "nixpkgs": "nixpkgs_2"
       }
     },
