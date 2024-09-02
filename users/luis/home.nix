@@ -3,7 +3,6 @@
 {
   imports = [
     requirements.outputs.homeManagerModules.blackmatter
-    # ../../modules/home-manager/blackmatter
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -180,7 +179,7 @@
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     settings = {
       "$mod" = "SUPER";
-      bind = ["SUPER+SHIFT+Q, exec, hyprctl dispatch exit"];
+      bind = [ "SUPER+SHIFT+Q, exec, hyprctl dispatch exit" ];
     };
   };
 }
