@@ -137,5 +137,6 @@
     _1password-gui
     google-chrome
     beekeeper-studio
+    globalprotect-openconnect
   ];
 }
