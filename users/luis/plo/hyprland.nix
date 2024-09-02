@@ -15,11 +15,15 @@
     settings = {
       # "$mod" = "SUPER";
       bind = [
-        "Super+Shift+Q,exec,hyprctl dispatch exit"
-        "Super+T,exec,alacritty"
-        "Super+N,exec,notify-send \"Hyprland is working!\""
+        "Super+Shift+Q, exec, hyprctl dispatch exit"
+        "Super+T, exec, alacritty"
+        "Super+N, exec, notify-send \"Hyprland is working!\""
       ];
     };
+    plugins = with requirements.inputs.hyprland-plugins.${pkgs.stdenv.hostPlatform.system}; 
+      {
+        hyprbars
+      };
   };
 
   # Wofi configuration
