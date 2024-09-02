@@ -1,28 +1,64 @@
 {...}:{
   security.pam.loginLimits = [
     {
-      domain = "*";  # Applies to all users
+      domain = "*";
       type = "soft";
       item = "nofile";
-      value = "1048576";  # Set soft limit to a very high number
-    }
+      value = "1048576";
+    },
     {
       domain = "*";
       type = "hard";
       item = "nofile";
-      value = "1048576";  # Set hard limit to the same high value
-    }
+      value = "1048576";
+    },
     {
       domain = "*";
       type = "soft";
       item = "nproc";
-      value = "65536";  # Example of setting max processes
-    }
+      value = "65536";
+    },
     {
       domain = "*";
       type = "hard";
       item = "nproc";
       value = "65536";
+    },
+    {
+      domain = "*";
+      type = "soft";
+      item = "stack";
+      value = "unlimited";
+    },
+    {
+      domain = "*";
+      type = "hard";
+      item = "stack";
+      value = "unlimited";
+    },
+    {
+      domain = "*";
+      type = "soft";
+      item = "memlock";
+      value = "unlimited";
+    },
+    {
+      domain = "*";
+      type = "hard";
+      item = "memlock";
+      value = "unlimited";
+    },
+    {
+      domain = "*";
+      type = "soft";
+      item = "rss";
+      value = "unlimited";
+    },
+    {
+      domain = "*";
+      type = "hard";
+      item = "rss";
+      value = "unlimited";
     }
-  ]; 
+  ];
 }
