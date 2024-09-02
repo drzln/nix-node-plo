@@ -60,7 +60,7 @@ in
     WLR_NO_HARDWARE_CURSORS = "1";
     CLUTTER_BACKEND = "wayland";
     WLR_DRM_DEVICES = "/dev/dri/card1";
-    WINIT_UNIX_BACKEND="wayland";
+    WINIT_UNIX_BACKEND="x111 alacritty";
   };
 
   xdg.portal.enable = true;
