@@ -7,6 +7,7 @@
   };
 
   systemd.user.services.docker.serviceConfig = {
+    # competes with virtualisation values
     # LimitNOFILE = 1048576;
     # LimitNPROC = 65536;
     LimitSTACK = "infinity";
