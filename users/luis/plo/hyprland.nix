@@ -15,9 +15,9 @@
     settings = {
       # "$mod" = "SUPER";
       bind = [
-        "Super, Shift+Q, exec, hyprctl dispatch exit"
-        "Super, T, exec, alacritty"
-        "Super, N, exec,notify-send \"Hyprland is working!\""
+        "Super+Shift+Q,exec,hyprctl dispatch exit"
+        "Super+T,exec,alacritty"
+        "Super+N,exec,notify-send \"Hyprland is working!\""
       ];
     };
   };
