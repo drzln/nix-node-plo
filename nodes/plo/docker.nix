@@ -20,7 +20,7 @@
     DefaultLimitMEMLOCK=infinity
   '';
 
-  environment.etc."docker/docker.json".text = ''
+  environment.etc."docker/daemon.json".text = ''
     {
       "default-ulimits": {
         "nofile": {
