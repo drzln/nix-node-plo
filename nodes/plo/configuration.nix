@@ -65,16 +65,16 @@ in
     # hyprland support
     #########################################
 
-    waybar
-    alacritty
-    wofi
-    dunst
-    swaybg
-    swaylock
-    grim
-    slurp
-    wl-clipboard
-    mako
+    # waybar
+    # alacritty
+    # wofi
+    # dunst
+    # swaybg
+    # swaylock
+    # grim
+    # slurp
+    # wl-clipboard
+    # mako
 
     #nvidia-dkms
     #nvidia-utils
@@ -84,50 +84,50 @@ in
     #libnvidia-egl-gbm1
 
     # hyprland support
-    nix-index
-    drm_info
-    pciutils
-    tfswitch
-    yarn2nix
-    starship
-    dnsmasq
-    ripgrep
-    weechat
-    gnumake
-    openssh
-    fcitx5
-    bundix
-    cargo
-    arion
-    unzip
-    gnupg
-    lorri
-    nomad
-    vault
-    ruby
-    sddm
-    sway
-    rofi
-    yarn
-    xsel
-    lshw
-    htop
-    nmap
-    stow
-    zlib
-    wget
-    curl
-    gcc
-    age
-    git
-    fzf
-    dig
-    vim
-    vim
-    git
-    gh
-    globalprotect-openconnect
-    traceroute
+    # nix-index
+    # drm_info
+    # pciutils
+    # tfswitch
+    # yarn2nix
+    # starship
+    # dnsmasq
+    # ripgrep
+    # weechat
+    # gnumake
+    # openssh
+    # fcitx5
+    # bundix
+    # cargo
+    # arion
+    # unzip
+    # gnupg
+    # lorri
+    # nomad
+    # vault
+    # ruby
+    # sddm
+    # sway
+    # rofi
+    # yarn
+    # xsel
+    # lshw
+    # htop
+    # nmap
+    # stow
+    # zlib
+    # wget
+    # curl
+    # gcc
+    # age
+    # git
+    # fzf
+    # dig
+    # vim
+    # vim
+    # git
+    # gh
+    # globalprotect-openconnect
+    # traceroute
     vim
     wget
     git
