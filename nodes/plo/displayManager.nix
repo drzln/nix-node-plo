@@ -11,14 +11,14 @@
       enable = true;
       theme = "nord";
       wayland.enable = true;
-      settings = {
-        Wayland = {
-          ServerArguments = "--refresh 360";
-        };
-        X11 = {
-          ServerArguments = "--refresh 360";
-        };
-      };
+      # settings = {
+      #   Wayland = {
+      #     ServerArguments = "--refresh 360";
+      #   };
+      #   X11 = {
+      #     ServerArguments = "--refresh 360";
+      #   };
+      # };
     };
   };
 }
