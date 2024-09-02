@@ -97,6 +97,7 @@ in
   environment.systemPackages = with pkgs; [
     requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
     xdg-desktop-portal-wlr
+    xdg-desktop-portal-gtk
     vim
     wget
     git
