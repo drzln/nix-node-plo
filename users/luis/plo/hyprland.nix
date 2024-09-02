@@ -37,12 +37,12 @@
   };
 
   # Waybar configuration
-  waybar = {
-    enable = true;
-    package = pkgs.waybar;
-    config = ./waybar-config.json;
-    style = ./waybar-style.css; # Custom Nord-themed CSS
-  };
+  # waybar = {
+  #   enable = true;
+  #   package = pkgs.waybar;
+  #   config = ./waybar-config.json;
+  #   style = ./waybar-style.css; # Custom Nord-themed CSS
+  # };
 
   # Wofi configuration
   home.file.".config/wofi/config" = {
