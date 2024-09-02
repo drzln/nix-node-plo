@@ -56,7 +56,6 @@ in
     MOZ_ENABLE_WAYLAND = "1";
     WLR_BACKEND = "vulkan";
     WLR_NO_HARDWARE_CURSORS = "1";
-    XDG_SESSION_TYPE = "wayland";
     CLUTTER_BACKEND = "wayland";
     WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
   };
