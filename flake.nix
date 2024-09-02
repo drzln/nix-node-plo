@@ -52,7 +52,6 @@
       };
     in
 
-    # what flake is returning as outputs
     {
       inherit
         nixosConfigurations
