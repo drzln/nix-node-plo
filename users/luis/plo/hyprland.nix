@@ -1,4 +1,5 @@
 { requirements, pkgs, ... }: {
+  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
   home.packages = with pkgs; [
     wofi
     dunst
