@@ -20,10 +20,9 @@
         "Super+N, exec, notify-send \"Hyprland is working!\""
       ];
     };
-    plugins = with requirements.inputs.hyprland-plugins.${pkgs.stdenv.hostPlatform.system}; 
-      {
-        hyprbars
-      };
+    plugins =  [
+      requirements.inputs.hyprland-plugins.${pkgs.stdenv.hostPlatform.system}.hyprbars
+    ];
   };
 
   # Wofi configuration
