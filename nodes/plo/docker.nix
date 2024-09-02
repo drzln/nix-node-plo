@@ -8,7 +8,7 @@
 
   systemd.user.services.docker.serviceConfig = {
     # LimitNOFILE = 1048576;
-    LimitNPROC = 65536;
+    # LimitNPROC = 65536;
     LimitSTACK = "infinity";
     LimitMEMLOCK = "infinity";
   };
