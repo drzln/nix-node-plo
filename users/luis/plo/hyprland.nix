@@ -13,10 +13,10 @@
     enable = true;
     package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
-      "$mod" = "SUPER";
+      # "$mod" = "SUPER";
       bind = [
-        "$mod, SHIFT+Q, exec, hyprctl dispatch exit"
-        "$mod, T, exec, alacritty"
+        "Super, Shift+Q, exec, hyprctl dispatch exit"
+        "Super, T, exec, alacritty"
       ];
     };
   };
