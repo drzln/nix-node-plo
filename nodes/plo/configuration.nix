@@ -174,7 +174,8 @@ in
   services.dbus.enable = true;
   services.udev.enable = true;
 
-  fonts.fontconfig.enable = false;
+  fonts.fontconfig.enable = true;
+  fonts.fontconfig.localConf = "";
   # environment.etc."fonts/fonts.conf".text = ''
   #    <?xml version="1.0"?>
   #    <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
