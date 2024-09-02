@@ -28,11 +28,11 @@
       homeManagerModules = import ./modules/home-manager;
 
       homeConfigurations = {
-        luis = home-manager.lib.homeManagerConfiguration {
+        "luis@plo" = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs;
           pkgs = import nixpkgs { inherit system; };
           modules = [
-            ./users/luis
+            ./users/luis/plo
           ];
         };
       };
