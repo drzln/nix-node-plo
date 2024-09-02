@@ -171,6 +171,7 @@ in
   services.udev.enable = true;
 
   fonts.fontconfig.enable = true;
+  fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     fira-code
     fira-code-symbols
