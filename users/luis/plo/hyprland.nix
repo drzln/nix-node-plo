@@ -15,7 +15,8 @@
     settings = {
       "$mod" = "SUPER";
       bind = [
-        "$mod+SHIFT+Q,exec,hyprctl dispatch exit"
+        "$mod+SHIFT+Q, exec, hyprctl dispatch exit"
+        "$mod, T, exec, alacritty"
       ];
     };
   };
