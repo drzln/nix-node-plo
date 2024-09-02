@@ -7,6 +7,7 @@
     kitty
     alacritty
     foot
+    wezterm
   ];
 
   # Enable and configure Hyprland
@@ -14,10 +15,10 @@
     enable = true;
     package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
-      monitor = "DP-1,preferred,360";
+      monitor = "DP-2, 1920x1080@360, 0x0, 1";
       bind = [
         "SUPER_SHIFT, Q, exec, hyprctl dispatch exit"
-        "SUPER_SHIFT, T, exec, foot"
+        "SUPER, T, exec, foot"
         "SUPER_SHIFT, N, exec, notify-send \"Hyprland is working!\""
         "SUPER_SHIFT, SPACE, exec, wofi"
       ];
@@ -46,23 +47,23 @@
   };
 
   # Wofi configuration
-  home.file.".config/wofi/config" = {
-    text = ''
-      [colors]
-      background = "#2E3440";
-      foreground = "#D8DEE9";
-      selection_background = "#4C566A";
-      selection_foreground = "#D8DEE9";
-    '';
-  };
+  # home.file.".config/wofi/config" = {
+  #   text = ''
+  #     [colors]
+  #     background = "#2E3440";
+  #     foreground = "#D8DEE9";
+  #     selection_background = "#4C566A";
+  #     selection_foreground = "#D8DEE9";
+  #   '';
+  # };
 
   # Dunst configuration
-  home.file.".config/dunst/dunstrc" = {
-    text = ''
-      [global]
-      background = "#2E3440";
-      foreground = "#D8DEE9";
-      frame_color = "#4C566A";
-    '';
-  };
+  # home.file.".config/dunst/dunstrc" = {
+  #   text = ''
+  #     [global]
+  #     background = "#2E3440";
+  #     foreground = "#D8DEE9";
+  #     frame_color = "#4C566A";
+  #   '';
+  # };
 }
