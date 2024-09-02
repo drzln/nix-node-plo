@@ -18,12 +18,9 @@ in
   networking.networkmanager.enable = true;
   programs.zsh.enable = true;
   hardware.nvidia.open = false;
-  hardware.opengl.driSupport = true;
   hardware.graphics = {
     enable = true;
     package = pkgs-unstable.mesa.drivers;
-    # driSupport = true;
-    # driSupport32Bit = true;
 
     # if you also want 32-bit support (e.g for Steam)
     enable32Bit = true;
