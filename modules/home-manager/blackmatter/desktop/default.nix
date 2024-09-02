@@ -101,7 +101,7 @@ in
       # vscode
       #########################################################################
 
-      programs.vscode.enable = true;
+      programs.vscode.enable = false;
 
       # end vscode
 

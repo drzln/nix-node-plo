@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./programs.nix
     requirements.outputs.homeManagerModules.blackmatter
   ];
 
@@ -160,12 +161,6 @@
     url = "https://github.com/dxnst/nord-backgrounds.git";
     ref = "main";
     rev = "c47d6b8b0ea391fabbb79aa005703ae5549ffdc4";
-  };
-
-  programs.fzf.enable = true;
-  programs.fzf.enableZshIntegration = true;
-  programs.zsh = {
-    enable = true;
   };
 
   blackmatter.programs.nvim.enable = true;
