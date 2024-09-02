@@ -20,7 +20,7 @@
       ];
       input = {
         force_no_accel = true;
-        kb_layout = pl;
+        kb_layout = "pl";
         kb_variant = "";
         kb_model = "";
         kb_options = "caps:escape";
