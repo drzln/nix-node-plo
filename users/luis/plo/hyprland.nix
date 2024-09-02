@@ -21,6 +21,7 @@
         "SUPER, T, exec, foot"
         "SUPER_SHIFT, N, exec, notify-send \"Hyprland is working!\""
         "SUPER, SPACE, exec, wofi --show drun"
+        "SUPER, Q, exec, hyprctl dispatch closewindow address:mouse"
       ];
       input = {
         force_no_accel = true;
