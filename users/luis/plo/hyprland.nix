@@ -6,6 +6,7 @@
     swaybg
     kitty
     alacritty
+    foot
   ];
 
   # Enable and configure Hyprland
@@ -15,7 +16,7 @@
     settings = {
       bind = [
         "SUPER_SHIFT, Q, exec, hyprctl dispatch exit"
-        "SUPER_SHIFT, T, exec, kitty"
+        "SUPER_SHIFT, T, exec, foot"
         "SUPER_SHIFT, N, exec, notify-send \"Hyprland is working!\""
       ];
       input = {
