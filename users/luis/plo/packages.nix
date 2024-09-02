@@ -131,7 +131,6 @@
     zoxide
     httpie
     procs
-    xsel
     xclip
   ] ++ [
     _1password-gui
