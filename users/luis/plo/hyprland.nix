@@ -15,7 +15,7 @@
     settings = {
       bind = [
         "SUPER_SHIFT, Q, exec, hyprctl dispatch exit"
-        "SUPER_SHIFT, T, exec, alacritty"
+        "SUPER_SHIFT, T, exec, kitty"
         "SUPER_SHIFT, N, exec, notify-send \"Hyprland is working!\""
       ];
     };
