@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   services.xserver = {
-    enable = false;
+    enable = true;
     xkb = {
       options = "caps:escape";
       layout = "us";
