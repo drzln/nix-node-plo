@@ -179,7 +179,7 @@
     # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     settings = {
       "$mod" = "SUPER";
-      bind = [ "SUPER+SHIFT+Q, exec, hyprctl dispatch exit" ];
+      bind = [ "$mod+SHIFT+Q, exec, hyprctl dispatch exit" ];
     };
   };
 }
