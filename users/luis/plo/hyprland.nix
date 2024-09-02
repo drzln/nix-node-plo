@@ -1,5 +1,5 @@
 { requirements, pkgs, ... }: {
-  home.packages = [
+  home.packages = with pkgs; [
     wofi
     dunst
     waybar
