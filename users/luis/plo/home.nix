@@ -11,7 +11,7 @@
   home.username = "luis";
   home.homeDirectory = "/home/luis";
   nixpkgs.config.allowUnfree = true;
-  home.packages = [
+  home.packages = with pkgs; [
     xsel
   ];
 }
