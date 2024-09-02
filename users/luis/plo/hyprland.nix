@@ -4,7 +4,7 @@
     dunst
     waybar
     swaybg
-    nordic-theme # Add a Nord theme package
+    # nordic-theme # Add a Nord theme package
     alacritty # Terminal with Nord theme support
   ];
 
