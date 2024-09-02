@@ -11,9 +11,9 @@
       enable = true;
       theme = "nord";
       wayland.enable = true;
-      settings = {
-        HaltCommand="/etc/sddm/scripts/xsetup";
-      };
+      # settings = {
+      #   HaltCommand="/etc/sddm/scripts/xsetup";
+      # };
     };
   };
 }
