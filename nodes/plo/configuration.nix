@@ -38,29 +38,29 @@ in
   hardware.nvidia.modesetting.enable = true;
   services.libinput = { enable = true; };
 
-  environment.variables = {
-    XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    NIXOS_OZONE_WL = "1";
-    GBM_BACKEND = "nvidia-drm";
-    __GL_GSYNC_ALLOWED = "0";
-    __GL_VRR_ALLOWED = "0";
-    DISABLE_QT5_COMPAT = "0";
-    ANKI_WAYLAND = "1";
-    DIRENV_LOG_FORMAT = "";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    QT_QPA_PLATFORM = "wayland";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    QT_QPA_PLATFORMTHEME = "qt5ct";
-    MOZ_ENABLE_WAYLAND = "1";
-    WLR_BACKEND = "vulkan";
-    WLR_NO_HARDWARE_CURSORS = "1";
-    WLR_DRM_NO_ATOMIC = "1";
-    WLR_DRM_DEVICES = "/dev/dri/card1";
-    WLR_RENDERER_ALLOW_SOFTWARE = "1";
-    CLUTTER_BACKEND = "wayland";
-    WINIT_UNIX_BACKEND = "x111 alacritty";
-  };
+  # environment.variables = {
+  #   XDG_SESSION_TYPE = "wayland";
+  #   XDG_CURRENT_DESKTOP = "Hyprland";
+  #   NIXOS_OZONE_WL = "1";
+  #   GBM_BACKEND = "nvidia-drm";
+  #   __GL_GSYNC_ALLOWED = "0";
+  #   __GL_VRR_ALLOWED = "0";
+  #   DISABLE_QT5_COMPAT = "0";
+  #   ANKI_WAYLAND = "1";
+  #   DIRENV_LOG_FORMAT = "";
+  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  #   QT_QPA_PLATFORM = "wayland";
+  #   QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+  #   QT_QPA_PLATFORMTHEME = "qt5ct";
+  #   MOZ_ENABLE_WAYLAND = "1";
+  #   WLR_BACKEND = "vulkan";
+  #   WLR_NO_HARDWARE_CURSORS = "1";
+  #   WLR_DRM_NO_ATOMIC = "1";
+  #   WLR_DRM_DEVICES = "/dev/dri/card1";
+  #   WLR_RENDERER_ALLOW_SOFTWARE = "1";
+  #   CLUTTER_BACKEND = "wayland";
+  #   WINIT_UNIX_BACKEND = "x111 alacritty";
+  # };
 
   xdg.portal.enable = true;
   xdg.portal.wlr.enable = true;
