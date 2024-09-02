@@ -174,48 +174,47 @@ in
   services.dbus.enable = true;
   services.udev.enable = true;
 
-  fonts.fontconfig.enable = true;
-  fonts.fontconfig.localConf = "";
-  # environment.etc."fonts/fonts.conf".text = ''
-  #    <?xml version="1.0"?>
-  #    <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-  #    <fontconfig>
-  #      <!-- I BE HERE-->
-  #
-  #      <!-- Enable antialiasing for smoother font rendering -->
-  #      <match target="font">
-  #        <edit name="antialias" mode="assign">
-  #          <bool>true</bool>
-  #        </edit>
-  #      </match>
-  #
-  #      <!-- Enable subpixel rendering -->
-  #      <match target="font">
-  #        <edit name="rgba" mode="assign">
-  #          <const>rgb</const>
-  #        </edit>
-  #      </match>
-  #
-  #      <!-- Set hinting to slight for better font clarity -->
-  #      <match target="font">
-  #        <edit name="hinting" mode="assign">
-  #          <bool>true</bool>
-  #        </edit>
-  #        <edit name="hintstyle" mode="assign">
-  #          <const>hintslight</const>
-  #        </edit>
-  #      </match>
-  #
-  #      <!-- Default font substitution -->
-  #      <match target="pattern">
-  #        <test qual="any" name="family">
-  #          <string>monospace</string>
-  #        </test>
-  #        <edit name="family" mode="assign">
-  #          <string>DejaVu Sans Mono</string>
-  #        </edit>
-  #      </match>
-  #
-  #    </fontconfig>
-  # '';
+  fonts.fontconfig.enable = false;
+  environment.etc."fonts/fonts.conf".text = ''
+     <?xml version="1.0"?>
+     <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+     <fontconfig>
+       <!-- I BE HERE-->
+
+       <!-- Enable antialiasing for smoother font rendering -->
+       <match target="font">
+         <edit name="antialias" mode="assign">
+           <bool>true</bool>
+         </edit>
+       </match>
+
+       <!-- Enable subpixel rendering -->
+       <match target="font">
+         <edit name="rgba" mode="assign">
+           <const>rgb</const>
+         </edit>
+       </match>
+
+       <!-- Set hinting to slight for better font clarity -->
+       <match target="font">
+         <edit name="hinting" mode="assign">
+           <bool>true</bool>
+         </edit>
+         <edit name="hintstyle" mode="assign">
+           <const>hintslight</const>
+         </edit>
+       </match>
+
+       <!-- Default font substitution -->
+       <match target="pattern">
+         <test qual="any" name="family">
+           <string>monospace</string>
+         </test>
+         <edit name="family" mode="assign">
+           <string>DejaVu Sans Mono</string>
+         </edit>
+       </match>
+
+     </fontconfig>
+  '';
 }
