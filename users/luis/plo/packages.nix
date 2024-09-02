@@ -141,28 +141,21 @@
     gp-saml-gui
     openconnect
     (pkgs.stdenv.mkDerivation {
-      pname = "connect-vpn";
+      pname = "connect-vpn-pinger";
       version = "1.0.0";
 
-      # Script content as a string
       src = pkgs.writeScript "connect-vpn-pinger.sh" ''
         #!/bin/bash
         sudo openconnect --protocol=gp --mtu=1200 pan.corp.pinger.com
       '';
+
+      phases = ["installPhase"];
 
       installPhase = ''
         mkdir -p $out/bin
         install -m755 ${src} $out/bin/connect-vpn-pinger
       '';
 
-      phases = ["installPhase"];
-
-      meta = with pkgs.lib; {
-        description = "connect to pinger in vpn";
-        license = licenses.mit;
-        maintainers = [ maintainers.your-github-username ];
-        platforms = platforms.linux;
-      };
     })
   ];
 }
