@@ -4,4 +4,5 @@
     LimitNPROC = 65536;
     LimitCORE = "infinity";
   };
+  systemd.services."*".serviceConfig.limitNOFILE = 1048576;
 }
