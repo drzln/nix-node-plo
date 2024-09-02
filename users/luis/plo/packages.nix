@@ -153,7 +153,7 @@
 
       installPhase = ''
         mkdir -p $out/bin
-        install -m755 ${src} $out/bin/connect-vpn-pinger
+        install -m755 "$src" $out/bin/connect-vpn-pinger
       '';
 
     })
