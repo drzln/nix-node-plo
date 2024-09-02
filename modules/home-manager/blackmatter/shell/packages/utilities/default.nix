@@ -27,6 +27,5 @@ pkgs: with pkgs; [
   tokei
   zoxide
   httpie
-  xclip
   procs
 ]

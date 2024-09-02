@@ -130,7 +130,6 @@
     tree-sitter
     zoxide
     httpie
-    xclip
     procs
   ] ++ [
     _1password-gui
