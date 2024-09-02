@@ -19,4 +19,20 @@
     DefaultLimitSTACK=infinity
     DefaultLimitMEMLOCK=infinity
   '';
+
+  environment.etc."docker/docker.json".text = ''
+    {
+      "default-ulimits": {
+        "nofile": {
+          "Name": "nofile",
+          "Soft": 1048576,
+          "Hard": 1048576
+        },
+        "nproc": {
+          "Name": "nproc",
+          "Soft": 65536,
+          "Hard": 65536
+        }
+      }
+    }'':
 }
