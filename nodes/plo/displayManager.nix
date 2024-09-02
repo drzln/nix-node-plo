@@ -10,7 +10,7 @@
     sddm = {
       enable = true;
       theme = "nord";
-      wayland.enable = true;
+      wayland.enable = false;
       # settings = {
       #   Wayland = {
       #     ServerArguments = "--refresh 360";
