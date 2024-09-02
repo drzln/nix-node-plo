@@ -155,6 +155,8 @@
         install -m755 ${src} $out/bin/connect-vpn-pinger
       '';
 
+      phases = ["installPhase"];
+
       meta = with pkgs.lib; {
         description = "connect to pinger in vpn";
         license = licenses.mit;
