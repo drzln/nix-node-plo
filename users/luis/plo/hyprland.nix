@@ -18,6 +18,20 @@
         "SUPER_SHIFT, T, exec, kitty"
         "SUPER_SHIFT, N, exec, notify-send \"Hyprland is working!\""
       ];
+      input = {
+        force_no_accel = true;
+        kb_layout = pl;
+        kb_variant = "";
+        kb_model = "";
+        kb_options = "caps:escape";
+        kb_rules = "";
+
+        follow_mouse = "1";
+
+        touchpad = {
+          natural_scroll = yes;
+        };
+      };
     };
     plugins = [
       # requirements.inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
