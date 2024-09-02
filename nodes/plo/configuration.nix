@@ -59,7 +59,8 @@ in
     WLR_BACKEND = "vulkan";
     WLR_NO_HARDWARE_CURSORS = "1";
     CLUTTER_BACKEND = "wayland";
-    WLR_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card0";
+    WLR_DRM_DEVICES = "/dev/dri/card1";
+    WINIT_UNIX_BACKEND="wayland";
   };
 
   xdg.portal.enable = true;
