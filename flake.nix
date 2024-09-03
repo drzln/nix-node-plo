@@ -31,6 +31,8 @@
         inherit inputs outputs;
       };
 
+      overlays = import ./overlays;
+
       specialArgs = { inherit requirements; };
       extraSpecialArgs = specialArgs;
 
@@ -40,8 +42,7 @@
         "luis@plo" = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs;
           pkgs = import nixpkgs { 
-            overlays = import ./overlays;
-            inherit system; 
+            inherit system overlays; 
           };
           modules = [
             ./users/luis/plo
