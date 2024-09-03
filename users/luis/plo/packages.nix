@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     git
-    neovim_8
     git-remote-gcrypt
     android-tools
     gnirehtet
