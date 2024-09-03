@@ -7,7 +7,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/neovim/neovim/releases/download/v${version}/nvim-linux64.tar.gz";
-    sha256 = "0ca97ld7flcx7sjbwdwcrm8pbsxdb5dspf9p51rna7zhkis7bl59";
+    sha256 = "sha256-GvJ0cfdvG0961lY8hjpKeBF/BRXjOQ7k2RETKXBRf6c=";
   };
 
   installPhase = ''
