@@ -8,6 +8,9 @@
         rev = "v${version}";
         sha256 = "1szx648cffsaqqnm0j9jy5ibky20nfdzbfd5v7i989pw8f79amwr";
       };
+      postInstall = ''
+        echo "Built Neovim version ${version}"
+    '';
     });
   })
 ]

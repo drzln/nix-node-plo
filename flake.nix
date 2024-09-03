@@ -32,18 +32,22 @@
       };
 
       overlays = import ./overlays;
+      pkgs = import nixpkgs { 
+        inherit system overlays; 
+      };
 
       specialArgs = { inherit requirements; };
       extraSpecialArgs = specialArgs;
+
+      packages.${system} = rec {
+        neovim = pkgs.neovim;
+      };
 
       homeManagerModules = import ./modules/home-manager;
 
       homeConfigurations = {
         "luis@plo" = home-manager.lib.homeManagerConfiguration {
-          inherit extraSpecialArgs;
-          pkgs = import nixpkgs { 
-            inherit system overlays; 
-          };
+          inherit extraSpecialArgs pkgs;
           modules = [
             ./users/luis/plo
           ];
