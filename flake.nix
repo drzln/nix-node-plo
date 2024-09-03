@@ -40,7 +40,7 @@
       extraSpecialArgs = specialArgs;
 
       packages.${system} = rec {
-        neovim = pkgs.neovim;
+        neovim = pkgs.neovim_8;
       };
 
       homeManagerModules = import ./modules/home-manager;
@@ -73,6 +73,7 @@
       inherit
         nixosConfigurations
         nixosModules
+        packages
         homeConfigurations
         homeManagerModules;
     };
