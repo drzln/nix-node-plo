@@ -15,7 +15,7 @@ let
 in
 stdenv.mkDerivation {
   name = "neovim";
-  version = "0.8.0";
+  version = "0.10.1-dev";
 
   src = fetchFromGitHub {
     owner = "neovim";
