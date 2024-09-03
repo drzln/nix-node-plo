@@ -327,7 +327,7 @@ in
         nvim.enable = mkEnableOption "nvim";
         nvim.package = mkOption {
           type = types.package;
-          default = pkgs.neovim-unwrapped;
+          default = pkgs.neovim;
           description = lib.mdDoc "neovim package/derivation";
         };
       };
