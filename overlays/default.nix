@@ -24,7 +24,7 @@
   #   });
   # })
   (self: super: {
-    neovim = super.callPackage ./neovim.nix {};
+    neovim_raw = super.callPackage ./neovim.nix {};
   })
 
   # (self: super: {
