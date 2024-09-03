@@ -14,8 +14,9 @@ let
   deps = callPackage ./deps { inherit pkgs; };
 in
 stdenv.mkDerivation {
-  name = "nix-neovim-build";
-  version = "0.10.0-dev";
+  name = "neovim";
+  # version = "0.10.0-dev";
+  version = "0.8.0";
 
   src = fetchFromGitHub {
     owner = "neovim";
