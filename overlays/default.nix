@@ -1,5 +1,5 @@
 [
   (self: super: {
-    neovim = super.callPackage ../packages/neovim { };
+    neovim_raw = super.callPackage ../packages/neovim { };
   })
 ]

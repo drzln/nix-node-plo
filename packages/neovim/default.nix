@@ -15,13 +15,12 @@ let
 in
 stdenv.mkDerivation {
   name = "neovim";
-  # version = "0.10.0-dev";
   version = "0.8.0";
 
   src = fetchFromGitHub {
     owner = "neovim";
     repo = "neovim";
-    rev = "5d4e1693cb415e8b76749e833e28f00f14630b87";
+    rev = "b1ae775de618e3e87954a88d533ec17bbef41cdf";
     sha256 = "sha256-dCwN7Z4t+pmGuH90Dff5h1qIm2Rh917cZX3GF/W5GYk=";
   };
 
