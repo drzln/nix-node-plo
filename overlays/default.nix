@@ -1,6 +1,6 @@
 [
   (self: super: {
-    neovim_8 = super.neovim.overrideAttrs (oldAttrs: rec {
+    neovim = super.neovim.overrideAttrs (oldAttrs: rec {
       version = "0.8.0";
       src = super.fetchFromGitHub {
         owner = "neovim";
