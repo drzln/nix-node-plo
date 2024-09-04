@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin?branch=master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -32,8 +36,8 @@
       };
 
       overlays = import ./overlays;
-      pkgs = import nixpkgs { 
-        inherit system overlays; 
+      pkgs = import nixpkgs {
+        inherit system overlays;
       };
 
       specialArgs = { inherit requirements; };
@@ -67,13 +71,25 @@
           ];
         };
       };
+
+      darwinConfigurations = {
+        cid = nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit outputs; };
+          system = "x86_64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./nodes/cid
+          ];
+        };
+      };
     in
 
     {
       inherit
+        packages
+        darwinConfigurations
         nixosConfigurations
         nixosModules
-        packages
         homeConfigurations
         homeManagerModules;
     };
