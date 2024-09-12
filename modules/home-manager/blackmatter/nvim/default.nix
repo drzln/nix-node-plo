@@ -17,7 +17,7 @@ let
     lsp.enable = true;
     completion.enable = true;
     debugging.enable = true;
-    treesitter.enable = true;
+    treesitter.enable = false;
     telescope.enable = true;
   };
 
@@ -164,7 +164,7 @@ let
       wellle."targets.vim".enable = true;
       ggandor."leap.nvim".enable = true;
       unblevable.quick-scope.enable = true;
-      t3rro.nvim-ts-rainbow.enable = true;
+      t3rro.nvim-ts-rainbow.enable = false;
 
       # snippets
       L3MON4D3.LuaSnip.enable = true;
@@ -327,7 +327,7 @@ in
         nvim.enable = mkEnableOption "nvim";
         nvim.package = mkOption {
           type = types.package;
-          default = pkgs.neovim-unwrapped;
+          default = pkgs.neovim;
           description = lib.mdDoc "neovim package/derivation";
         };
       };

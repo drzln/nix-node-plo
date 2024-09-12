@@ -3,8 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin?branch=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,7 +28,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-darwin, ... }@inputs:
     let
       system = "x86_64-linux";
       inherit (self) outputs;
@@ -31,15 +37,23 @@
         inherit inputs outputs;
       };
 
+      overlays = import ./overlays;
+      pkgs = import nixpkgs {
+        inherit system overlays;
+      };
+
       specialArgs = { inherit requirements; };
       extraSpecialArgs = specialArgs;
+
+      packages.${system} = rec {
+        neovim = pkgs.neovim;
+      };
 
       homeManagerModules = import ./modules/home-manager;
 
       homeConfigurations = {
         "luis@plo" = home-manager.lib.homeManagerConfiguration {
-          inherit extraSpecialArgs;
-          pkgs = import nixpkgs { inherit system; };
+          inherit extraSpecialArgs pkgs;
           modules = [
             ./users/luis/plo
           ];
@@ -59,10 +73,23 @@
           ];
         };
       };
+
+      darwinConfigurations = {
+        cid = nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit outputs; };
+          system = "x86_64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./nodes/cid
+          ];
+        };
+      };
     in
 
     {
       inherit
+        packages
+        darwinConfigurations
         nixosConfigurations
         nixosModules
         homeConfigurations
