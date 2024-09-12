@@ -84,8 +84,30 @@ in
       home-manager
     ];
   };
+
+  users.users.gab = {
+    uid = 1002;
+    shell = pkgs.zsh;
+    isNormalUser = true;
+    description = "gab";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "podman"
+      "libvirtd"
+      "audio"
+      "video"
+    ];
+    packages = with pkgs; [
+      home-manager
+    ];
+  };
+
+
   security.sudo.extraConfig = ''
     luis ALL=(ALL) NOPASSWD:ALL
+    gab ALL=(ALL) NOPASSWD:ALL
   '';
 
 
@@ -111,6 +133,7 @@ in
     "8.8.8.8"
     "8.8.4.4"
   ];
+
   services.printing.enable = false;
   services.hardware.bolt.enable = false;
   services.nfs.server.enable = false;
