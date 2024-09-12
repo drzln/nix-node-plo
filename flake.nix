@@ -52,12 +52,21 @@
       homeManagerModules = import ./modules/home-manager;
 
       homeConfigurations = {
+
         "luis@plo" = home-manager.lib.homeManagerConfiguration {
           inherit extraSpecialArgs pkgs;
           modules = [
             ./users/luis/plo
           ];
         };
+
+        "gab@plo" = home-manager.lib.homeManagerConfiguration {
+          inherit extraSpecialArgs pkgs;
+          modules = [
+            ./users/gab/plo
+          ];
+        };
+
       };
 
       nixosModules = import ./modules/nixos;
