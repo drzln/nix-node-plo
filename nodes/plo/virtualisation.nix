@@ -1,11 +1,11 @@
 { ... }: {
-  virtualisation.podman.enable = true;
-  virtualisation.podman.dockerSocket.enable = true;
-  virtualisation.podman.defaultNetwork.settings.dns_enabled = true;
-  virtualisation.docker.enable = false;
+  virtualisation.podman.enable = false;
+  virtualisation.podman.dockerSocket.enable = false;
+  virtualisation.podman.defaultNetwork.settings.dns_enabled = false;
+  virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
     setSocketVariable = true;
     enable = true;
   };
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = false;
 }
