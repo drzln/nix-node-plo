@@ -6,7 +6,7 @@
   #   chmod +x /etc/sddm/scripts/Xsetup
   # '';
   services.displayManager = {
-    defaultSession = "gnome";
+    defaultSession = "i3";
     sddm = {
       enable = true;
       theme = "nord";
