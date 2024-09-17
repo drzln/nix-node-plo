@@ -31,7 +31,7 @@
     windowManager = {
       leftwm = { enable = false; };
       i3 = {
-        enable = false;
+        enable = true;
         extraPackages = with pkgs; [
           i3blocks
           i3status

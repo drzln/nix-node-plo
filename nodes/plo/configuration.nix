@@ -123,7 +123,6 @@ in
     wget
     git
     fontconfig
-    i3
   ];
 
   services.openssh.enable = true;
