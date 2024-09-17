@@ -12,8 +12,8 @@
   home.homeDirectory = "/home/luis";
   nixpkgs.config.allowUnfree = true;
   xsession.enable = true;
-  services.i3.enable = true;
-  services.i3.config = ''
+  programs.i3.enable = true;
+  programs.i3.config = ''
     # Set the Mod key to the Super/Windows key
     set $mod Mod4
 
