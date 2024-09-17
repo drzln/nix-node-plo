@@ -13,7 +13,7 @@
   nixpkgs.config.allowUnfree = true;
   xsession.enable = true;
   xsession.windowManager.i3.enable = true;
-  xsession.windowManager.extraConfig = ''
+  xsession.windowManager.i3.extraConfig = ''
     # Set the Mod key to the Super/Windows key
     set $mod Mod4
 
