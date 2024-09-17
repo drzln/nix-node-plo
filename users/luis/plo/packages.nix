@@ -6,6 +6,7 @@
     git
     git-remote-gcrypt
     android-tools
+    neovim
     gnirehtet
     jellyfin-ffmpeg
     yq-go
