@@ -8,7 +8,7 @@
     };
     displayManager = {
       defaultSession = "i3";
-      sessionPackages = with pkgs; [ i3 ];
+      # sessionPackages = with pkgs; [ i3 ];
       gdm = {
         enable = false;
         wayland = false;
