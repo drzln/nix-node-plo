@@ -1,5 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    i3status
+    dmenu
+    rxvt_unicode
     git
     git-remote-gcrypt
     android-tools
@@ -148,7 +151,7 @@
         sudo openconnect --protocol=gp --mtu=1200 pan.corp.pinger.com
       '';
 
-      phases = ["installPhase"];
+      phases = [ "installPhase" ];
 
       installPhase = ''
         mkdir -p $out/bin
