@@ -7,7 +7,6 @@
       variant = "";
     };
     displayManager = {
-      defaultSession = "none+i3";
       gdm = {
         enable = false;
         wayland = false;
