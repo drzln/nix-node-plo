@@ -5,7 +5,7 @@ let
   name = "comment-box.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "6672213bd5d2625a666a297b66307967effa50bc";
+  rev = "06bb771690bc9df0763d14769b779062d8f12bc5";
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in
