@@ -46,7 +46,7 @@
       extraSpecialArgs = specialArgs;
 
       packages.${system} = rec {
-        neovim = pkgs.neovim;
+        neovim_drzln = pkgs.neovim_drzln;
       };
 
       homeManagerModules = import ./modules/home-manager;

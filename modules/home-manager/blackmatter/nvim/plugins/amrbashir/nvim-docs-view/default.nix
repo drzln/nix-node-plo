@@ -5,7 +5,7 @@ let
   name = "nvim-docs-view";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "a7ba30f8d545ab0fd181e0f4fb84544ef9f236ac";
+  rev = "365593534e0acd762bfddce6e8313315ffa4fa36";
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

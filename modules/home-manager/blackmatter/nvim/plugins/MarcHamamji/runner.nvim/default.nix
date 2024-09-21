@@ -5,7 +5,7 @@ let
   name = "runner.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "a5a437eb11e3f34bbdd15a0de6eb073ac4cd9ae2";
+  rev = "9ae6f56b73471174c6c4d47581007c6781fb6b6e";
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

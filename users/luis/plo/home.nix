@@ -18,7 +18,7 @@
     set $mod Mod4
 
     # Start a terminal
-    bindsym $mod+Return exec urxvt
+    bindsym $mod+Return exec alacritty
 
     # Exit i3
     bindsym $mod+Shift+e exec "i3-msg exit"

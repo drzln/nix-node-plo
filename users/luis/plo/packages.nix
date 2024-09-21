@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    autorandr
     i3status
     dmenu
     rxvt_unicode
