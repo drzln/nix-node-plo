@@ -31,7 +31,7 @@
           pkgs = import nixpkgs { inherit system overlays; };
         in
         {
-          neovim_drzln = pkgs.neovim_drzln;
+          # neovim_drzln = pkgs.neovim_drzln;
         };
 
 
