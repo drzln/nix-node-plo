@@ -1,5 +1,5 @@
 {
-  description = "blackmatter systems";
+  description = "flake holding drzln systems";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -26,7 +26,23 @@
 
   outputs = { self, nixpkgs, home-manager, nix-darwin, ... }@inputs:
     let
-      system = "x86_64-linux";
+      packagesFor = system:
+        let
+          pkgs = import nixpkgs { inherit system overlays; };
+        in
+        {
+          neovim_drzln = pkgs.neovim_drzln;
+        };
+
+
+      systems = [ "x86_64-linux" "x86_64-darwin" ];
+      packages = builtins.listToAttrs (map
+        (s: {
+          name = s;
+          value = packagesFor s;
+        })
+        systems);
+
       inherit (self) outputs;
 
       requirements = {
@@ -34,70 +50,65 @@
       };
 
       overlays = import ./overlays;
-      pkgs = import nixpkgs {
-        inherit system overlays;
-      };
 
       specialArgs = { inherit requirements; };
       extraSpecialArgs = specialArgs;
 
-      packages.${system} = rec {
-        neovim_drzln = pkgs.neovim_drzln;
-      };
-
       homeManagerModules = import ./modules/home-manager;
 
-      homeConfigurations = {
+      # homeConfigurations = {
+      #
+      #   "luis@plo" = home-manager.lib.homeManagerConfiguration {
+      #     pkgs = packages."x86_64-linux".pkgs;
+      #     inherit extraSpecialArgs;
+      #     modules = [
+      #       ./users/luis/plo
+      #     ];
+      #   };
+      #
+      #   "gab@plo" = home-manager.lib.homeManagerConfiguration {
+      #     pkgs = packages."x86_64-linux".pkgs;
+      #     inherit extraSpecialArgs;
+      #     modules = [
+      #       ./users/gab/plo
+      #     ];
+      #   };
+      #
+      # };
 
-        "luis@plo" = home-manager.lib.homeManagerConfiguration {
-          inherit extraSpecialArgs pkgs;
-          modules = [
-            ./users/luis/plo
-          ];
-        };
+      # nixosModules = import ./modules/nixos;
 
-        "gab@plo" = home-manager.lib.homeManagerConfiguration {
-          inherit extraSpecialArgs pkgs;
-          modules = [
-            ./users/gab/plo
-          ];
-        };
+      # nixosConfigurations = {
+      #   plo = nixpkgs.lib.nixosSystem {
+      #     system = "x86_64-linux";
+      #     inherit specialArgs;
+      #     modules = [
+      #       /etc/nixos/configuration.nix
+      #       ./nodes/plo
+      #       home-manager.nixosModules.home-manager
+      #     ];
+      #   };
+      # };
 
-      };
-
-      nixosModules = import ./modules/nixos;
-
-      nixosConfigurations = {
-        plo = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          inherit specialArgs;
-          modules = [
-            /etc/nixos/configuration.nix
-            ./nodes/plo
-            home-manager.nixosModules.home-manager
-          ];
-        };
-      };
-
-      darwinConfigurations = {
-        cid = nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit outputs; };
-          system = "x86_64-darwin";
-          modules = [
-            home-manager.darwinModules.home-manager
-            ./nodes/cid
-          ];
-        };
-      };
+      # darwinConfigurations = {
+      #   cid = nix-darwin.lib.darwinSystem {
+      #     specialArgs = { inherit outputs; };
+      #     system = "x86_64-darwin";
+      #     modules = [
+      #       home-manager.darwinModules.home-manager
+      #       ./nodes/cid
+      #     ];
+      #   };
+      # };
     in
 
     {
       inherit
-        packages
-        darwinConfigurations
-        nixosConfigurations
-        nixosModules
-        homeConfigurations
-        homeManagerModules;
+        packages;
+      # darwinConfigurations
+      # nixosConfigurations
+      # nixosModules
+      # homeConfigurations
+      # homeManagerModules;
     };
 }
