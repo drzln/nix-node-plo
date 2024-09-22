@@ -1,25 +1,5 @@
-{ pkgs ? import <nixpkgs> { } }:
-let
-  inherit (pkgs)
-    stdenv
-    fetchFromGitHub
-    cmake
-    ninja
-    callPackage
-    gettext
-    lib
-    platforms
-    ;
+{ stdenv, fetchFromGitHub, cmake, ninja, callPackage, gettext, lib, fixupDarwin, autoPatchelfHook, deps }:
 
-  # Import platform-specific hooks
-  patchelfHook = pkgs.autoPatchelfHook;
-  darwinHook = pkgs.fixupDarwin; # Corrected reference
-
-  # Determine the appropriate hook based on the system
-  patchHook = lib.optional stdenv.isLinux patchelfHook ++ lib.optional stdenv.isDarwin darwinHook;
-
-  deps = callPackage ./deps { inherit pkgs; };
-in
 stdenv.mkDerivation {
   pname = "neovim";
   version = "0.10.1-dev";
@@ -34,7 +14,7 @@ stdenv.mkDerivation {
   nativeBuildInputs = [
     cmake
     ninja
-  ] ++ patchHook;
+  ] ++ lib.optional stdenv.isLinux autoPatchelfHook ++ lib.optional stdenv.isDarwin fixupDarwin;
 
   buildInputs = [ gettext deps ];
 
@@ -50,8 +30,7 @@ stdenv.mkDerivation {
   ];
 
   # Apply the correct fixup hook based on the platform
-  postInstall = ''
-    ${ if stdenv.isLinux then
+  postInstall = ''    ${ if stdenv.isLinux then
       "addAutoPatchelfSearchPath ${deps}/luajit/lib/"
     else if stdenv.isDarwin then
       "install_name_tool -change /old/path/libfoo.dylib ${deps}/lib/libfoo.dylib $out/bin/neovim" # Replace with actual paths if needed
@@ -60,11 +39,11 @@ stdenv.mkDerivation {
     }
   '';
 
-  meta = with lib; {
+  meta = {
     homepage = "https://neovim.io";
     description = "Neovim built with Nix";
-    license = licenses.asl20;
-    platforms = platforms.linux ++ platforms.darwin;
+    license = lib.licenses.asl20;
+    platforms = lib.platforms.linux ++ lib.platforms.darwin;
     maintainers = [ "joakimpaulsson" ];
   };
 }
