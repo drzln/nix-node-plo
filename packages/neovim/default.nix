@@ -8,11 +8,12 @@ let
     callPackage
     gettext
     lib
+    platforms
     ;
 
   # Import platform-specific hooks
   patchelfHook = pkgs.autoPatchelfHook;
-  darwinHook = pkgs.fixupDarwin;
+  darwinHook = pkgs.fixupDarwin; # Corrected reference
 
   # Determine the appropriate hook based on the system
   patchHook = lib.optional stdenv.isLinux patchelfHook ++ lib.optional stdenv.isDarwin darwinHook;
@@ -27,7 +28,7 @@ stdenv.mkDerivation {
     owner = "neovim";
     repo = "neovim";
     rev = "b1ae775de618e3e87954a88d533ec17bbef41cdf";
-    sha256 = "dCwN7Z4t+pmGuH90Dff5h1qIm2Rh917cZX3GF/W5GYk="; # Remove 'sha256-' prefix
+    sha256 = "dCwN7Z4t+pmGuH90Dff5h1qIm2Rh917cZX3GF/W5GYk="; # Ensure this hash is correct
   };
 
   nativeBuildInputs = [
@@ -52,8 +53,10 @@ stdenv.mkDerivation {
   postInstall = ''
     ${ if stdenv.isLinux then
       "addAutoPatchelfSearchPath ${deps}/luajit/lib/"
+    else if stdenv.isDarwin then
+      "install_name_tool -change /old/path/libfoo.dylib ${deps}/lib/libfoo.dylib $out/bin/neovim" # Replace with actual paths if needed
     else
-      "install_name_tool -change <old> <new> $out/bin/neovim" # Example for macOS
+      ""
     }
   '';
 
