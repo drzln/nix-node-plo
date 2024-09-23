@@ -136,6 +136,7 @@
     ldesiqueira = {
       uid = 1002;
       packages = [ pkgs.home-manager ];
+      home = "/Users/ldesiqueira";
     };
   };
 
@@ -145,7 +146,7 @@
     { outputs, ... }: {
       imports = [ ../../modules/home-manager/blackmatter ];
 
-      home.stateVersion = "23.05";
+      home.stateVersion = "23.11";
       programs.home-manager.enable = true;
 
       blackmatter.programs.nvim.enable = true;
