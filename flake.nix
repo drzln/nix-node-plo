@@ -38,8 +38,7 @@
       };
 
       linux-pkgs = import nixpkgs { system = "x86_64-linux"; };
-      deps = linux-pkgs.callPackage ./packages/neovim/deps { };
-      neovim_drzln = linux-pkgs.callPackage ./packages/neovim { inherit deps; };
+      neovim_drzln = linux-pkgs.callPackage ./packages/neovim { };
     in
     {
       packages = flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ] (system:
@@ -47,14 +46,13 @@
           pkgs = import nixpkgs { inherit system; };
         in
         {
-          neovim_drzln = pkgs.callPackage ./packages/neovim { inherit deps; };
+          neovim_drzln = pkgs.callPackage ./packages/neovim { };
         }
       );
 
       homeConfigurations = {
         "luis@plo" = home-manager.lib.homeManagerConfiguration {
           pkgs = linux-pkgs;
-          inherit deps;
           modules = [
             ./users/luis/plo
           ];
@@ -62,7 +60,6 @@
 
         "gab@plo" = home-manager.lib.homeManagerConfiguration {
           pkgs = linux-pkgs;
-          inherit deps;
           modules = [
             ./users/gab/plo
           ];

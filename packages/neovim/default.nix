@@ -1,5 +1,4 @@
 { stdenv
-, deps
 , fetchFromGitHub
 , cmake
 , ninja
@@ -18,6 +17,7 @@
 
 let
   libvterm = pkgs.callPackage ./deps/libvterm.nix { inherit pkgs; };
+  deps = pkgs.callPackage ./packages/neovim/deps { inherit pkgs; };
 in
 
 stdenv.mkDerivation {
