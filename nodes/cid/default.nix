@@ -149,7 +149,7 @@
       programs.home-manager.enable = true;
 
       blackmatter.programs.nvim.enable = true;
-      blackmatter.programs.nvim.package = pkgs.neovim_drzln;
+      blackmatter.programs.nvim.package = pkgs.neovim;
       blackmatter.shell.enable = true;
       blackmatter.desktop.alacritty.enable = true;
       blackmatter.envrc.enable = true;
