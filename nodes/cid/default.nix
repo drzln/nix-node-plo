@@ -105,6 +105,7 @@
       # TODO: poetry is flagged as insecure
       # poetry
       bundix
+      zoxide
       cargo
       arion
       unzip
