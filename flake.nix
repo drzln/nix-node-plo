@@ -29,10 +29,14 @@
     let
       inherit (self) outputs;
       overlays = import ./overlays/default.nix;
+
+      # configure darwin packages
       darwin-pkgs = import nixpkgs {
+        inherit overlays;
         system = "x86_64-darwin";
         config.allowUnfree = true;
       };
+
       linux-pkgs = import nixpkgs { system = "x86_64-linux"; };
       deps = linux-pkgs.callPackage ./packages/neovim/deps { };
       neovim_drzln = linux-pkgs.callPackage ./packages/neovim { inherit deps; };
