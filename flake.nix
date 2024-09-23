@@ -74,16 +74,16 @@
           };
         };
 
-        darwinConfigurations = {
-          cid = nix-darwin.lib.darwinSystem {
-            specialArgs = { inherit outputs; };
-            system = "x86_64-darwin";
-            modules = [
-              home-manager.darwinModules.home-manager
-              ./nodes/cid
-            ];
-          };
-        };
+        # darwinConfigurations = {
+        #   cid = nix-darwin.lib.darwinSystem {
+        #     specialArgs = { inherit outputs; };
+        #     system = "x86_64-darwin";
+        #     modules = [
+        #       home-manager.darwinModules.home-manager
+        #       ./nodes/cid
+        #     ];
+        #   };
+        # };
       }
     );
 }
