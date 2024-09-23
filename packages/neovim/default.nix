@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, cmake, ninja, callPackage, gettext, lib, autoPatchelfHook, deps, fixupDarwin ? null }:
+{ stdenv, fetchFromGitHub, cmake, ninja, gettext, lib, autoPatchelfHook, deps, libuv, msgpack, tree-sitter, pkg-config, fixupDarwin ? null, pkgs }:
 
 stdenv.mkDerivation {
   pname = "neovim";
@@ -20,9 +20,22 @@ stdenv.mkDerivation {
   nativeBuildInputs = [
     cmake
     ninja
-  ] ++ lib.optional stdenv.isLinux autoPatchelfHook ++ lib.optional (stdenv.isDarwin && fixupDarwin != null) fixupDarwin;
+    pkg-config
+  ] ++ lib.optional stdenv.isLinux autoPatchelfHook
+  ++ lib.optional (stdenv.isDarwin && fixupDarwin != null) fixupDarwin;
 
-  buildInputs = [ gettext deps ];
+  buildInputs = [
+    gettext
+    deps
+    libuv
+    msgpack
+    pkgs.luajitPackages.libluv
+    pkgs.luajit
+    pkgs.unibilium
+    pkgs.libtermkey
+    pkgs.libvterm
+    tree-sitter
+  ];
 
   preConfigure = ''
     export PATH=${deps}/luajit/bin:${deps}/luv/bin:${deps}/libuv/bin:${deps}/libvterm/bin:${deps}/lpeg/bin:${deps}/msgpack/bin:${deps}/treesitter/bin:${deps}/unibilium/bin:$PATH
@@ -51,3 +64,4 @@ stdenv.mkDerivation {
     maintainers = [ "joakimpaulsson" ];
   };
 }
+
