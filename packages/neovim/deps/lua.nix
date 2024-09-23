@@ -1,43 +1,66 @@
-{ pkgs ? import <nixpkgs> {}, commonCmakeFlags ? [] }:
+{ stdenv, fetchFromGitHub, cmake, ninja, callPackage, gettext, lib, autoPatchelfHook, deps, fixupDarwin ? null }:
+
 let
-  inherit (pkgs)
-    stdenv
-    fetchurl
-    libedit
-    gnumake
-    makeWrapper;
+  luaPatch = pkgs.writeText "lua-macos-patch.patch" ''
+    --- a/src/Makefile
+    +++ b/src/Makefile
+    @@ -52,7 +52,7 @@
+      # -Wl,-E        export dynamic symbols for dynamic linking (ld option)
+      # -ldl          the dynamic linking library
 
-  LUA_CFLAGS="-O2 -g3 -fPIC";
-  LUA_LDFLAGS="";
+    -LDFLAGS= -Wl,-E
+    +LDFLAGS= -flat_namespace -undefined dynamic_lookup
+
+     MYCFLAGS= -DLUA_USE_LINUX
+     MYLDFLAGS=
+  '';
 in
-  stdenv.mkDerivation {
-    pname = "lua";
-    version = "5.1.5";
+stdenv.mkDerivation {
+  pname = "lua";
+  version = "5.1.1";
 
-    src = fetchurl {
-      url = "https://www.lua.org/ftp/lua-5.1.5.tar.gz";
-      sha256 = "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333";
-    };
+  src = fetchFromGitHub {
+    owner = "lua";
+    repo = "lua";
+    rev = "98194db4295726069137d13b8d24fca8cbf892b6";
+    sha256 = "sha256-vnyHIanZrm9rlvl2tBXxWLsZiwUx9N4dkJ7ohXcinYg=";
+  };
 
-    nativeBuildInputs = [ gnumake makeWrapper libedit ];
+  nativeBuildInputs = [
+    cmake
+    ninja
+  ] ++ lib.optional stdenv.isLinux autoPatchelfHook ++ lib.optional (stdenv.isDarwin && fixupDarwin != null) fixupDarwin;
 
-    preConfigure = ''
-      sed -i "/^CC/ s|gcc|${stdenv.cc.targetPrefix}cc|" src/Makefile
-      sed -i "/^CFLAGS/ s|-O2|${LUA_CFLAGS}|" src/Makefile
-      sed -i "s|-lreadline||g" src/Makefile
-      sed -i "s|-lhistory||g" src/Makefile
-      sed -i "s|-lncurses||g" src/Makefile
-      sed -i "/^MYLDFLAGS/ s|$|${LUA_LDFLAGS}|" src/Makefile
-      sed -i "/#define LUA_USE_READLINE/ d" src/luaconf.h
-      sed -i "s|\\(#define LUA_ROOT[   ]*\"\\)/usr/local|\\1${placeholder "out"}|" src/luaconf.h
-    '';
+  buildInputs = [ gettext deps ];
 
-    buildPhase = ''
-      make linux
-    '';
+  # Apply patch only on Darwin (macOS)
+  patches = lib.optional stdenv.isDarwin luaPatch;
 
-    installPhase = ''
-      make TO_BIN="lua luac" INSTALL_TOP=$out install
-    '';
+  preConfigure = ''
+    export PATH=${deps}/luajit/bin:${deps}/luv/bin:${deps}/libuv/bin:${deps}/libvterm/bin:${deps}/lpeg/bin:${deps}/msgpack/bin:${deps}/treesitter/bin:${deps}/unibilium/bin:$PATH
+    export CMAKE_PREFIX_PATH=${deps}
+  '';
+
+  cmakeFlags = [
+    "-DCMAKE_BUILD_TYPE=Release"
+    "-DDEPS_PREFIX=${deps}"
+  ];
+
+  postInstall = ''
+    ${if stdenv.isLinux then
+      "addAutoPatchelfSearchPath ${deps}/luajit/lib/"
+    else if stdenv.isDarwin then
+      "install_name_tool -change /old/path/libfoo.dylib ${deps}/lib/libfoo.dylib $out/bin/lua"
+    else
+      ""}
+  '';
+
+  meta = {
+    homepage = "https://www.lua.org";
+    description = "Lua programming language built with Nix";
+    license = lib.licenses.mit;
+    platforms = lib.platforms.linux ++ lib.platforms.darwin;
+    maintainers = [ "luis" ];
+  };
 }
 
