@@ -145,7 +145,7 @@
     { outputs, ... }: {
       imports = [ ../../modules/home-manager/blackmatter ];
 
-      home.stateVersion = "21.11";
+      home.stateVersion = "23.05";
       programs.home-manager.enable = true;
 
       blackmatter.programs.nvim.enable = true;
