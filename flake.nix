@@ -26,65 +26,65 @@
   };
 
   outputs = { self, flake-utils, nixpkgs, home-manager, nix-darwin, hyprland, stylix, ... }@inputs:
-    flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ] (system:
-      let
-        inherit (self) outputs;
+    let
+      inherit (self) outputs;
+      overlays = import ./overlays/default.nix;
+      darwin-pkgs = import nixpkgs { system = "x86_64-darwin"; };
+      linux-pkgs = import nixpkgs { system = "x86_64-linux"; };
+      deps = linux-pkgs.callPackage ./packages/neovim/deps { };
+      neovim_drzln = linux-pkgs.callPackage ./packages/neovim { inherit deps; };
+    in
+    {
+      packages = flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ] (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+        {
+          neovim_drzln = pkgs.callPackage ./packages/neovim { inherit deps; };
+        }
+      );
 
-        overlays = import ./overlays/default.nix;
-
-        pkgs = import nixpkgs {
-          inherit system overlays;
+      homeConfigurations = {
+        "luis@plo" = home-manager.lib.homeManagerConfiguration {
+          pkgs = linux-pkgs;
+          inherit deps;
+          modules = [
+            ./users/luis/plo
+          ];
         };
 
-        deps = pkgs.callPackage ./packages/neovim/deps { };
-
-        neovim_drzln = pkgs.callPackage ./packages/neovim { inherit deps; };
-      in
-      {
-        packages = {
-          neovim_drzln = neovim_drzln;
+        "gab@plo" = home-manager.lib.homeManagerConfiguration {
+          pkgs = linux-pkgs;
+          inherit deps;
+          modules = [
+            ./users/gab/plo
+          ];
         };
+      };
 
-        homeConfigurations = {
-          "luis@plo" = home-manager.lib.homeManagerConfiguration {
-            pkgs = pkgs;
-            inherit deps;
-            modules = [
-              ./users/luis/plo
-            ];
+      nixosConfigurations = {
+        plo = linux-pkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            /etc/nixos/configuration.nix
+            ./nodes/plo
+            home-manager.nixosModules.home-manager
+          ];
+        };
+      };
+
+      darwinConfigurations = {
+        cid = nix-darwin.lib.darwinSystem {
+          system = "x86_64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            ./nodes/cid
+          ];
+          specialArgs = {
+            pkgs = darwin-pkgs;
           };
-
-          "gab@plo" = home-manager.lib.homeManagerConfiguration {
-            pkgs = pkgs;
-            inherit deps;
-            modules = [
-              ./users/gab/plo
-            ];
-          };
         };
-
-        nixosConfigurations = {
-          plo = pkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            modules = [
-              /etc/nixos/configuration.nix
-              ./nodes/plo
-              home-manager.nixosModules.home-manager
-            ];
-          };
-        };
-
-        darwinConfigurations = {
-          cid = nix-darwin.lib.darwinSystem {
-            specialArgs = { inherit outputs; };
-            system = "x86_64-darwin";
-            modules = [
-              home-manager.darwinModules.home-manager
-              ./nodes/cid
-            ];
-          };
-        };
-      }
-    );
+      };
+    };
 }
 
