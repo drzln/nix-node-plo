@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+NIX_CONFIG="experimental-features = nix-command flakes" sudo darwin-rebuild switch \
+	--flake .#$(scutil --get ComputerName) \
+	--show-trace
