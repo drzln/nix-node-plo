@@ -37,16 +37,16 @@
         };
 
         # Define dependencies
-        deps = pkgs.callPackage ./packages/deps { };
+        deps = pkgs.callPackage ./packages/neovim/deps { };
 
         # Define Neovim package
-        # neovim = pkgs.callPackage ./packages/neovim { inherit deps; };
+        neovim_drzln = pkgs.callPackage ./packages/neovim { inherit deps; };
 
       in
       {
-        # packages = {
-        #   neovim_drzln = neovim;
-        # };
+        packages = {
+          neovim_drzln = neovim_drzln;
+        };
 
         # Define configurations for Home Manager
         homeConfigurations = {
