@@ -64,7 +64,7 @@ stdenv.mkDerivation {
 
   preConfigure = ''
     export PATH=${pkgs.luajitPackages.libluv}/bin:${pkgs.libuv}/bin:$PATH
-    export CMAKE_PREFIX_PATH=${pkgs.libuv}:${libvterm}:${pkgs.msgpack}:${pkgs.tree-sitter}:${pkgs.unibilium}
+    export CMAKE_PREFIX_PATH=${pkgs.libuv}:${libvterm}:${pkgs.msgpack}:${pkgs.tree-sitter}:${pkgs.unibilium}:${pkgs.luajitPackages.lpeg}
     export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
     export CMAKE_OSX_SYSROOT=$(xcrun --sdk --show-sdk-path)
   '';
