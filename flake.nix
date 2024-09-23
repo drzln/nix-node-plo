@@ -28,6 +28,8 @@
   outputs = { self, flake-utils, nixpkgs, home-manager, nix-darwin, hyprland, stylix, ... }@inputs:
     flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ] (system:
       let
+        inherit (self) outputs;
+
         overlays = import ./overlays/default.nix;
 
         pkgs = import nixpkgs {
@@ -74,6 +76,7 @@
 
         darwinConfigurations = {
           cid = nix-darwin.lib.darwinSystem {
+            specialArgs = { inherit outputs; };
             system = "x86_64-darwin";
             modules = [
               home-manager.darwinModules.home-manager
