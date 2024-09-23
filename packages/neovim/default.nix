@@ -1,4 +1,8 @@
-{ stdenv, fetchFromGitHub, cmake, ninja, gettext, lib, autoPatchelfHook, deps, libuv, msgpack, tree-sitter, pkg-config, fixupDarwin ? null, pkgs }:
+{ stdenv, deps, fetchFromGitHub, cmake, ninja, gettext, lib, autoPatchelfHook, libuv, msgpack, tree-sitter, libiconv, pkg-config, fixupDarwin ? null, pkgs }:
+
+let
+  libvterm = pkgs.callPackage ./deps/libvterm.nix { inherit pkgs; };
+in
 
 stdenv.mkDerivation {
   pname = "neovim";
@@ -33,13 +37,16 @@ stdenv.mkDerivation {
     pkgs.luajit
     pkgs.unibilium
     pkgs.libtermkey
-    pkgs.libvterm
+    libvterm
+    pkgs.luajitPackages.lpeg
+    pkgs.luajitPackages.mpack
+    libiconv
     tree-sitter
   ];
 
   preConfigure = ''
-    export PATH=${deps}/luajit/bin:${deps}/luv/bin:${deps}/libuv/bin:${deps}/libvterm/bin:${deps}/lpeg/bin:${deps}/msgpack/bin:${deps}/treesitter/bin:${deps}/unibilium/bin:$PATH
-    export CMAKE_PREFIX_PATH=${deps}
+    export PATH=${pkgs.luajitPackages.libluv}/bin:${pkgs.libuv}/bin:$PATH
+    export CMAKE_PREFIX_PATH=${pkgs.libuv}:${libvterm}:${pkgs.msgpack}:${pkgs.tree-sitter}:${pkgs.unibilium}
   '';
 
   cmakeFlags = [
@@ -49,7 +56,7 @@ stdenv.mkDerivation {
 
   postInstall = ''
     ${if stdenv.isLinux then
-      "addAutoPatchelfSearchPath ${deps}/luajit/lib/"
+      "addAutoPatchelfSearchPath ${pkgs.luajitPackages.lib}/"
     else if stdenv.isDarwin then
       "install_name_tool -change /old/path/libfoo.dylib ${deps}/lib/libfoo.dylib $out/bin/neovim"
     else
