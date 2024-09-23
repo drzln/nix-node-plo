@@ -14,6 +14,7 @@ in
     (mkIf cfg.desktop.alacritty.enable {
       programs.alacritty.enable = true;
       xdg.configFile."alacritty/alacritty.toml".source = ./alacritty.toml;
+      xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;
     })
   ];
 }
