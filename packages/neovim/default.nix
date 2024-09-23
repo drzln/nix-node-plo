@@ -1,4 +1,20 @@
-{ stdenv, deps, fetchFromGitHub, cmake, ninja, gettext, lib, autoPatchelfHook, libuv, msgpack, tree-sitter, libiconv, pkg-config, fixupDarwin ? null, pkgs }:
+{ stdenv
+, deps
+, fetchFromGitHub
+, cmake
+, ninja
+, gettext
+, lib
+, autoPatchelfHook
+, libuv
+, msgpack
+, tree-sitter
+, libiconv
+, pkg-config
+, fixupDarwin ? null
+, pkgs
+, darwin
+}:
 
 let
   libvterm = pkgs.callPackage ./deps/libvterm.nix { inherit pkgs; };
@@ -42,11 +58,14 @@ stdenv.mkDerivation {
     pkgs.luajitPackages.mpack
     libiconv
     tree-sitter
+    darwin.apple_sdk.frameworks.CoreServices
   ];
 
   preConfigure = ''
     export PATH=${pkgs.luajitPackages.libluv}/bin:${pkgs.libuv}/bin:$PATH
     export CMAKE_PREFIX_PATH=${pkgs.libuv}:${libvterm}:${pkgs.msgpack}:${pkgs.tree-sitter}:${pkgs.unibilium}
+    export SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+    export CMAKE_OSX_SYSROOT=$(xcrun --sdk --show-sdk-path)
   '';
 
   cmakeFlags = [
@@ -58,7 +77,7 @@ stdenv.mkDerivation {
     ${if stdenv.isLinux then
       "addAutoPatchelfSearchPath ${pkgs.luajitPackages.lib}/"
     else if stdenv.isDarwin then
-      "install_name_tool -change /old/path/libfoo.dylib ${deps}/lib/libfoo.dylib $out/bin/neovim"
+      "install_name_tool -change /old/path/libfoo.dylib ${deps}/lib/libfoo.dylib $out/bin/nvim"
     else
       ""}
   '';
