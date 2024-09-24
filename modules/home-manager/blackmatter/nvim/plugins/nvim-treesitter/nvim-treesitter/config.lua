@@ -1,5 +1,8 @@
 local M = {}
 function M.setup()
+  require("nvim-treesitter.configs").setup {
+    ensure_installed = "all";
+  }
   --local parsers_path = "~/.local/share/nvim/site/pack/parsers/start/parsers/tree-sitter"
   --vim.opt.runtimepath:append(parsers_path)
 

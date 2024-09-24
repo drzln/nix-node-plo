@@ -185,12 +185,19 @@ in
 {
   imports =
     [
-      ./plugins/common
-      ./plugins/lsp
-      ./plugins/completion
-      ./plugins/debugging
-      ./plugins/treesitter
-      ./plugins/telescope
+      ##################################
+      # groups
+      ##################################
+
+      ./groups/common
+      ./groups/lsp
+      ./groups/completion
+      ./groups/debugging
+      ./groups/treesitter
+      ./groups/telescope
+
+      # end groups
+
       ./plugins/maaslalani/nordbuddy
       ./plugins/kkoomen/vim-doge
       ./plugins/danymat/neogen
