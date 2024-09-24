@@ -23,9 +23,6 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
-          # TODO: needs a valid macos build
-          # TODO: turning off until a valid build
-          # TODO: is created for the rust dependency
           blackmatter.programs.nvim.plugins =
             {
               numToStr.Comment.enable = true;
