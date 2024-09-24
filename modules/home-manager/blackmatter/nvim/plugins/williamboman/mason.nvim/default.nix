@@ -22,6 +22,8 @@ in
 
       home.file."${configPath}".source = ./config.lua;
 
+      # this is done so you always have a language server for
+      # lua in which neovim is configured for.
       # TODO: move this hack to a more reasonable location
       # mason manages language servers.  Some of the binaries
       # it downloads don't work.  One of these is lua_ls.
