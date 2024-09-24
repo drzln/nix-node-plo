@@ -15,9 +15,9 @@ let
   groups.toggles = {
     common.enable = true;
     lsp.enable = true;
+    treesitter.enable = true;
     completion.enable = true;
     debugging.enable = true;
-    treesitter.enable = false;
     telescope.enable = true;
   };
 
