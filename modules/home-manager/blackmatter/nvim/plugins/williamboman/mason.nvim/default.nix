@@ -1,16 +1,14 @@
 { lib, config, pkgs, ... }:
 with lib;
 let
-  replaceDotsWithSlashes = str: builtins.replaceStrings ["." ] ["/"] str;
-  plugName = replaceDotsWithSlashes name;
-
   author = "williamboman";
   name = "mason.nvim";
+  plugName = "mason";
   url = "https://github.com/${author}/${name}";
   ref = "main";
   rev = "74eac861b013786bf231b204b4ba9a7d380f4bd9";
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
-  configPath = ".config/nvim-nix/lua/plugins/config/${author}/${plugName}/init.lua";
+  configPath = ".config/nvim/lua/plugins/config/${author}/${plugName}.lua";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in
 {
