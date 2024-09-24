@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 with lib;
 let
   cfg = config.blackmatter.programs.nvim.plugin.groups.lsp;
@@ -22,6 +22,8 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
+          # extra packages required to power language servers
+          home.packages = with pkgs; [ ruby ];
           # TODO: needs a valid macos build
           # TODO: turning off until a valid build
           # TODO: is created for the rust dependency
