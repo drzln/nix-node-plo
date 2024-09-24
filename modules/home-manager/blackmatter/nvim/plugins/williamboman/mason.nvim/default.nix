@@ -7,7 +7,7 @@ let
   ref = "main";
   rev = "74eac861b013786bf231b204b4ba9a7d380f4bd9";
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
-  configPath = ".config/nvim/lua/plugins/config/${author}/${name}.lua";
+  configPath = ".config/nvim-nix/lua/plugins/config/${author}/${name}/config.lua";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in
 {

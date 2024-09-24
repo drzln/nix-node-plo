@@ -2,6 +2,10 @@ local M = {}
 
 function M.setup()
   local utils = require('utils')
+
+  -- first load configurations provided by nix plugin system
+  utils.load_files('~/.config/nvim-nix/lua/plugins/config')
+
   -- find everything in this directory
   -- and run its setup hook.
   utils.load_files('~/.config/nvim/lua/plugins/config')
