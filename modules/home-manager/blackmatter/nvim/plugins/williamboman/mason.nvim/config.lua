@@ -8,6 +8,7 @@ function M.setup()
   local available_servers = mason_lspconfig.get_available_servers()
 
   local exclude_servers = {
+      "sourcery",
       "erlangls",
       "teal_ls",
       "foam_ls",
