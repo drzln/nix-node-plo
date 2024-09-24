@@ -6,7 +6,7 @@ let
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   author = "williamboman";
-  name = "mason-lspconfig";
+  name = "mason-lspconfig.nvim";
   ref = "main";
   rev = "e86a4c84ff35240639643ffed56ee1c4d55f538e";
 in
