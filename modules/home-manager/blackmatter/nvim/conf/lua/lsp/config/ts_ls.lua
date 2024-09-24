@@ -3,14 +3,14 @@ local M = {}
 function M.setup(opts)
 	local lsputils = require("lsp.utils")
 
-	-- override tsserver
-	local tsserver_opts = lsputils.merge(
+	-- override ts_ls
+	local ts_ls_opts = lsputils.merge(
 		{},
 		opts
 	)
 
 	-- enable bashls
-	require("lspconfig").tsserver.setup(tsserver_opts)
+	require("lspconfig").ts_ls.setup(ts_ls_opts)
 end
 
 return M
