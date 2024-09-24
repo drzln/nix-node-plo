@@ -10,13 +10,13 @@ in
     };
 
   imports = [
-    ../hrsh7th/nvim-cmp
-    ../hrsh7th/cmp-nvim-lsp
-    ../hrsh7th/cmp-cmdline
-    ../hrsh7th/cmp-buffer
-    ../hrsh7th/cmp-path
-    ../sar/cmp-lsp.nvim
-    ../ray-x/cmp-treesitter
+    ../../plugins/hrsh7th/nvim-cmp
+    ../../plugins/hrsh7th/cmp-nvim-lsp
+    ../../plugins/hrsh7th/cmp-cmdline
+    ../../plugins/hrsh7th/cmp-buffer
+    ../../plugins/hrsh7th/cmp-path
+    ../../plugins/sar/cmp-lsp.nvim
+    ../../plugins/ray-x/cmp-treesitter
   ];
 
   config =

@@ -10,12 +10,12 @@ in
     };
 
   imports = [
-    ../neovim/nvim-lspconfig
-    ../williamboman/mason.nvim
-    ../williamboman/mason-lspconfig.nvim
-    ../jose-elias-alvarez/null-ls
-    ../ray-x/lsp_signature
-    ../onsails/lspkind.nvim
+    ../../plugins/neovim/nvim-lspconfig
+    ../../plugins/williamboman/mason.nvim
+    ../../plugins/williamboman/mason-lspconfig.nvim
+    ../../plugins/jose-elias-alvarez/null-ls
+    ../../plugins/ray-x/lsp_signature
+    ../../plugins/onsails/lspkind.nvim
   ];
 
   config =

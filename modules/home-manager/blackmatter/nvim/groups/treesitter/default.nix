@@ -10,9 +10,9 @@ in
     };
 
   imports = [
-    ../nvim-treesitter/nvim-treesitter
-    ../nvim-treesitter/nvim-treesitter-refactor
-    ../nvim-treesitter/nvim-treesitter-textobjects
+    ../../plugins/nvim-treesitter/nvim-treesitter
+    ../../plugins/nvim-treesitter/nvim-treesitter-refactor
+    ../../plugins/nvim-treesitter/nvim-treesitter-textobjects
   ];
 
   config =

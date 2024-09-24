@@ -10,17 +10,17 @@ in
     };
 
   imports = [
-    ../ravenxrz/DAPInstall.nvim
-    ../yriveiro/dap-go.nvim
-    ../nvim-telescope/telescope-dap.nvim
-    ../Pocco81/dap-buddy.nvim
-    ../mfussenegger/nvim-dap
-    ../jbyuki/one-small-step-for-vimkind
-    ../leoluz/nvim-dap-go
-    ../mfussenegger/nvim-dap-python
-    ../theHamsta/nvim-dap-virtual-text
-    ../suketa/nvim-dap-ruby
-    ../rcarriga/nvim-dap-ui
+    ../../plugins/ravenxrz/DAPInstall.nvim
+    ../../plugins/yriveiro/dap-go.nvim
+    ../../plugins/nvim-telescope/telescope-dap.nvim
+    ../../plugins/Pocco81/dap-buddy.nvim
+    ../../plugins/mfussenegger/nvim-dap
+    ../../plugins/jbyuki/one-small-step-for-vimkind
+    ../../plugins/leoluz/nvim-dap-go
+    ../../plugins/mfussenegger/nvim-dap-python
+    ../../plugins/theHamsta/nvim-dap-virtual-text
+    ../../plugins/suketa/nvim-dap-ruby
+    ../../plugins/rcarriga/nvim-dap-ui
   ];
 
   config =

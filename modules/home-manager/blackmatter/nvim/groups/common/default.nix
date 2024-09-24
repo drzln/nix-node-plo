@@ -10,13 +10,13 @@ in
     };
 
   imports = [
-    ../jcdickinson/http.nvim
-    ../nvim-lua/plenary
-    ../folke/which-key.nvim
-    ../folke/neodev.nvim
-    ../maaslalani/nordbuddy
-    ../numToStr/Comment
-    ../nathom/filetype
+    ../../plugins/jcdickinson/http.nvim
+    ../../plugins/nvim-lua/plenary
+    ../../plugins/folke/which-key.nvim
+    ../../plugins/folke/neodev.nvim
+    ../../plugins/maaslalani/nordbuddy
+    ../../plugins/numToStr/Comment
+    ../../plugins/nathom/filetype
   ];
 
   config =

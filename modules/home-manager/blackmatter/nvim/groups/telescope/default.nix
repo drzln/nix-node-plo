@@ -10,12 +10,12 @@ in
     };
 
   imports = [
-    ../nvim-telescope/telescope.nvim
-    ../nvim-telescope/telescope-file-browser.nvim
-    ../nvim-telescope/telescope-project.nvim
-    ../nvim-telescope/telescope-dap.nvim
-    ../nvim-telescope/telescope-z.nvim
-    ../danielpieper/telescope-tmuxinator.nvim
+    ../../plugins/nvim-telescope/telescope.nvim
+    ../../plugins/nvim-telescope/telescope-file-browser.nvim
+    ../../plugins/nvim-telescope/telescope-project.nvim
+    ../../plugins/nvim-telescope/telescope-dap.nvim
+    ../../plugins/nvim-telescope/telescope-z.nvim
+    ../../plugins/danielpieper/telescope-tmuxinator.nvim
   ];
 
   config =
