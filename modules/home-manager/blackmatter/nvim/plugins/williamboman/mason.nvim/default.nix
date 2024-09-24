@@ -1,16 +1,16 @@
 { lib, config, pkgs, ... }:
 with lib;
 let
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
   common = import ../../../common;
   url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "williamboman";
   name = "mason.nvim";
   plugName = "mason";
   ref = "main";
   rev = "74eac861b013786bf231b204b4ba9a7d380f4bd9";
-  plugPath = "${common.basePlugPath}/${author}/start/${name}";
-  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
-  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in
 {
   options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =

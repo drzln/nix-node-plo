@@ -3,13 +3,13 @@ with lib;
 let
   common = import ../../../common;
   url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${name}.lua";
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
   author = "nvim-treesitter";
   name = "nvim-treesitter";
   ref = "master";
   rev = "fd9663acca289598086b7c5a366be8b2fa5d7960";
-  plugPath = "${common.basePlugPath}/${author}/start/${name}";
-  configPath = "${common.baseConfigPath}/${author}/${name}.lua";
-  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in
 {
   options = {
