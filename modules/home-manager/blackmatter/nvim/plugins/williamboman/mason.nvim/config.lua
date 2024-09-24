@@ -8,10 +8,7 @@ function M.setup()
   local available_servers = mason_lspconfig.get_available_servers()
 
   local exclude_servers = {
-      -- "rnix",
       "custom_elements_ls",
-      "diagnosticls",
-      "efm",
       "nil_ls",
       "sorbet",
       "sourcery",
@@ -55,7 +52,16 @@ function M.setup()
 
   local lspconfig = require("lspconfig")
 
-  local server_configs = {}
+  local server_configs = {
+    nil_ls = {
+      settins = {
+        ['nil'] = {
+          autoArchive = true,
+        },
+      },
+    }
+  }
+
   for _, server in ipairs(available_servers) do
     if not is_excluded(server) then
       local success, err = pcall(function()
