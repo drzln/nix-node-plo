@@ -29,8 +29,10 @@
     let
       inherit (self) outputs;
       overlays = import ./overlays/default.nix;
+      requirements = { inherit inputs outputs; };
+      specialArgs = { inherit requirements; };
+      extraSpecialArgs = specialArgs;
 
-      # configure darwin packages
       darwin-pkgs = import nixpkgs {
         inherit overlays;
         system = "x86_64-darwin";
@@ -52,6 +54,7 @@
 
       homeConfigurations = {
         "luis@plo" = home-manager.lib.homeManagerConfiguration {
+          inherit extraSpecialArgs;
           pkgs = linux-pkgs;
           modules = [
             ./users/luis/plo
@@ -59,6 +62,7 @@
         };
 
         "gab@plo" = home-manager.lib.homeManagerConfiguration {
+          inherit extraSpecialArgs;
           pkgs = linux-pkgs;
           modules = [
             ./users/gab/plo
@@ -68,6 +72,7 @@
 
       nixosConfigurations = {
         plo = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
           system = "x86_64-linux";
           modules = [
             /etc/nixos/configuration.nix
