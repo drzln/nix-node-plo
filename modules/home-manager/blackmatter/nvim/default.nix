@@ -336,9 +336,12 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       home.packages = [ cfg.package ];
+
       xdg.configFile."nvim/init.lua".source = ./conf/init.lua;
       xdg.configFile."nvim/lua/plugins/init.lua".source = ./conf/lua/plugins/init.lua;
-      xdg.configFile."nvim/lua/utils/init.lua".source = ./conf/lua/utils/init.lua;
+      xdg.configFile."nvim/lua/utils".source = ./conf/lua/utils;
+      xdg.configFile."nvim/lua/lsp".source = ./conf/lua/lsp;
+
       blackmatter = {
         programs = {
           nvim = {
