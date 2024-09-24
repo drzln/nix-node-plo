@@ -33,13 +33,6 @@
       specialArgs = { inherit requirements; };
       extraSpecialArgs = specialArgs;
 
-      # nixpkgs.lib.mkFlake = {
-      #   nixpkgs = import nixpkgs {
-      #     inherit overlays;
-      #     system = "x86_64-linux";
-      #   };
-      # };
-
       shared-pkg-attributes = {
         inherit overlays;
         config.allowUnfree = true;
@@ -55,7 +48,6 @@
           system = "x86_64-linux";
         } // shared-pkg-attributes;
 
-      neovim_drzln = linux-pkgs.callPackage ./packages/neovim { };
     in
     {
       packages = flake-utils.lib.eachSystem [ "x86_64-linux" "x86_64-darwin" ] (system:
