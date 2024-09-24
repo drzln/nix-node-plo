@@ -2,15 +2,15 @@
 with lib;
 let
   cfg = config.blackmatter.programs.nvim.plugins.nvim-treesitter.nvim-treesitter;
-  sitePath = ".local/share/nvim/site";
-  packPath = "${sitePath}/pack";
-  plugPackPath = "${packPath}/nvim-treesitter";
-  startPath = "${plugPackPath}/start";
-  parsersPath = "${packPath}/parsers/start/parsers/tree-sitter/parser";
-  prubyPath = "${parsersPath}/ruby";
-  ppythonPath = "${parsersPath}/python";
-  pcPath = "${parsersPath}/c";
-  tsCPath = "${pcPath}/tree-sitter-c";
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  author = "nvim-treesitter";
+  name = "nvim-treesitter";
+  ref = "master";
+  rev = "fd9663acca289598086b7c5a366be8b2fa5d7960";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${name}.lua";
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in
 {
   options = {
@@ -20,17 +20,7 @@ in
           plugins = {
             nvim-treesitter = {
               nvim-treesitter = {
-                enable = mkEnableOption "nvim-treesitter/nvim-treesitter";
-                # parsers = mkOption {
-                #   description = "packages each representing a built grammar";
-                #   type = types.attrsOf types.package;
-                #   default = {
-                #     # tree-sitter-c-grammar =
-                #     #   outputs.packages.x86_64-linux.tree-sitter-c-grammar;
-                #     # tree-sitter-ruby-grammar =
-                #     #   outputs.packages.x86_64-linux.tree-sitter-ruby-grammar;
-                #   };
-                # };
+                enable = mkEnableOption "${author}/${name}";
               };
             };
           };
@@ -41,19 +31,10 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
 
-      # home.file."${parsersPath}/c.so".source =
-      #   "${cfg.parsers.tree-sitter-c-grammar}/parser.so";
-
-      # home.file."${parsersPath}/ruby.so".source =
-      #   "${cfg.parsers.tree-sitter-ruby-grammar}/parser.so";
-
-      home.file."${startPath}/nvim-treesitter".source =
-        builtins.fetchGit {
-          url = "https://github.com/nvim-treesitter/nvim-treesitter.git";
-          ref = "master";
-          rev = "fd9663acca289598086b7c5a366be8b2fa5d7960";
-        };
+      home.file."${configPath}".source = ./config.lua;
     })
   ];
 }
