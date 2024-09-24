@@ -7,10 +7,10 @@
     ./hyprland.nix
     ./blackmatter.nix
   ];
+  # nixpkgs.config.allowUnfree = true;
   home.stateVersion = "24.05";
   home.username = "luis";
   home.homeDirectory = "/home/luis";
-  nixpkgs.config.allowUnfree = true;
   xsession.enable = true;
   xsession.windowManager.i3.enable = true;
   xsession.windowManager.i3.extraConfig = ''

@@ -30,7 +30,7 @@ stdenv.mkDerivation {
     rev = "7e194f0d0c33a0a1b7ccfaf2baafdacf7f22fbb5";
     sha256 =
       if stdenv.isLinux then
-        "dCwN7Z4t+pmGuH90Dff5h1qIm2Rh917cZX3GF/W5GYk="  # Linux sha256
+        "sha256-OsHIacgorYnB/dPbzl1b6rYUzQdhTtsJYLsFLJxregk="  # Linux sha256
       else if stdenv.isDarwin then
         "sha256-OsHIacgorYnB/dPbzl1b6rYUzQdhTtsJYLsFLJxregk="  # Darwin sha256
       else

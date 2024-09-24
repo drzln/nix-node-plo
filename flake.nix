@@ -33,13 +33,28 @@
       specialArgs = { inherit requirements; };
       extraSpecialArgs = specialArgs;
 
-      darwin-pkgs = import nixpkgs {
+      # nixpkgs.lib.mkFlake = {
+      #   nixpkgs = import nixpkgs {
+      #     inherit overlays;
+      #     system = "x86_64-linux";
+      #   };
+      # };
+
+      shared-pkg-attributes = {
         inherit overlays;
-        system = "x86_64-darwin";
         config.allowUnfree = true;
       };
 
-      linux-pkgs = import nixpkgs { system = "x86_64-linux"; };
+      darwin-pkgs = import nixpkgs
+        {
+          system = "x86_64-darwin";
+        } // shared-pkg-attributes;
+
+      linux-pkgs = import nixpkgs
+        {
+          system = "x86_64-linux";
+        } // shared-pkg-attributes;
+
       neovim_drzln = linux-pkgs.callPackage ./packages/neovim { };
     in
     {
@@ -51,6 +66,8 @@
           neovim_drzln = pkgs.callPackage ./packages/neovim { };
         }
       );
+
+      homeManagerModules = import ./modules/home-manager;
 
       homeConfigurations = {
         "luis@plo" = home-manager.lib.homeManagerConfiguration {

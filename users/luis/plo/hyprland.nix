@@ -20,7 +20,7 @@
 
   # Enable and configure Hyprland
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = false;
     package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
       monitor = "DP-2, 1920x1080@360, 0x0, 1";
