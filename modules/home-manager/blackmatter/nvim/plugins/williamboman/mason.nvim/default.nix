@@ -2,13 +2,13 @@
 with lib;
 let
   common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
   author = "williamboman";
   name = "mason.nvim";
   plugName = "mason";
-  url = "https://github.com/${author}/${name}";
   ref = "main";
   rev = "74eac861b013786bf231b204b4ba9a7d380f4bd9";
-  plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in
@@ -30,7 +30,7 @@ in
       # it downloads don't work.  One of these is lua_ls.
       # the approach is then to link to a well known derivation
       # to where mason expects the language server binary to be.
-      home.file.".local/share/nvim/mason/packages/lua-language-server/bin/lua-language-server".source =
+      home.file."${common.baseMasonPackagesPath}/lua-language-server/bin/lua-language-server".source =
         "${pkgs.sumneko-lua-language-server}/bin/lua-language-server";
     })
   ];
