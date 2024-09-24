@@ -1,22 +1,25 @@
 { lib, config, pkgs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.williamboman."mason.nvim";
+  author = "williamboman";
+  name = "mason.nvim";
+  url = "https://github.com/${author}/${name}";
+  ref = "main";
+  rev = "74eac861b013786bf231b204b4ba9a7d380f4bd9";
+  plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
+  configPath = ".config/nvim/lua/plugins/config/${author}/${name}.lua";
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in
 {
-  options.blackmatter.programs.nvim.plugins.williamboman."mason.nvim".enable =
-    mkEnableOption "williamboman/mason.nvim";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      home.file.".local/share/nvim/site/pack/williamboman/start/mason.nvim".source =
-        builtins.fetchGit {
-          url = "https://github.com/williamboman/mason.nvim";
-          ref = "main";
-          # rev = "add6d1d63d8b86af951ba64b4157fe6b0af173d4";
-          rev = "74eac861b013786bf231b204b4ba9a7d380f4bd9";
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
 
+      home.file."${configPath}".source = ./config.lua;
 
       # TODO: move this hack to a more reasonable location
       # mason manages language servers.  Some of the binaries
