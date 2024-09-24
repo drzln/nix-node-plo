@@ -1,7 +1,6 @@
 { lib, config, outputs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.nvim-treesitter.nvim-treesitter;
   common = import ../../../common;
   url = "${common.baseRepoUrl}/${author}/${name}";
   author = "nvim-treesitter";
