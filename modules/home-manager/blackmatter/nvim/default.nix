@@ -336,7 +336,7 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       home.packages = [ cfg.package ];
-      #xdg.configFile."nvim".source = ./conf;
+      xdg.configFile."nvim".source = ./conf;
       blackmatter = {
         programs = {
           nvim = {
