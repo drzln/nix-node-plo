@@ -23,7 +23,10 @@ in
       (mkIf cfg.enable
         {
           # extra packages required to power language servers
-          home.packages = with pkgs; [ ruby ];
+          home.packages = with pkgs; [ 
+            ruby 
+            gnumake
+          ];
           # TODO: needs a valid macos build
           # TODO: turning off until a valid build
           # TODO: is created for the rust dependency
