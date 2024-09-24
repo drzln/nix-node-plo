@@ -1,10 +1,28 @@
 local M = {}
 function M.setup()
+  -- nix requires this because parsers_path must be read/write
+  -- and nix by default places things as read only
+  -- local parsers_path = "~/.local/share/nvim/site/pack/parsers/start/parsers/tree-sitter"
+  local parsers_path = "~/.local/share/nvim/site/tree-sitter/parsers"
+  vim.opt.runtimepath:append(parsers_path)
+
+  local function ensure_directory_exists(dir)
+    if vim.fn.isdirectory(dir) == 0 then
+      vim.fn.mkdir(dir, "p")  -- "p" ensures parent directories are created if necessary
+      print("Directory created: " .. dir)
+    else
+      print("Directory already exists: " .. dir)
+    end
+  end
+
+  ensure_directory_exists(vim.fn.expand(parsers_path))
+
   require("nvim-treesitter.configs").setup {
-    ensure_installed = "all";
+    auto_install = true,
+    ensure_installed = "all",
+    parsers_install_dir = parsers_path,
   }
-  --local parsers_path = "~/.local/share/nvim/site/pack/parsers/start/parsers/tree-sitter"
-  --vim.opt.runtimepath:append(parsers_path)
+
 
   -- TODO: orgmode when turned on currently generates many errors
   -- https://github.com/nvim-orgmode/orgmode
