@@ -22,15 +22,12 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
-          # extra packages required to power language servers
           home.packages = with pkgs; [ 
             ruby 
             gnumake
             rubyPackages.sorbet-runtime
           ];
-          # TODO: needs a valid macos build
-          # TODO: turning off until a valid build
-          # TODO: is created for the rust dependency
+
           blackmatter.programs.nvim.plugins =
             {
               neovim.nvim-lspconfig.enable = true;
