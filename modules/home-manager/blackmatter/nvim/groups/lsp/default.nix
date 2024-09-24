@@ -26,6 +26,7 @@ in
           home.packages = with pkgs; [ 
             ruby 
             gnumake
+            rubyPackages.sorbet-runtime
           ];
           # TODO: needs a valid macos build
           # TODO: turning off until a valid build
