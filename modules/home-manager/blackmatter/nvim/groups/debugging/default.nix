@@ -29,17 +29,17 @@ in
         {
           blackmatter.programs.nvim.plugins =
             {
-              ravenxrz."DAPInstall.nvim".enable = true;
-              yriveiro."dap-go.nvim".enable = true;
-              nvim-telescope."telescope-dap.nvim".enable = true;
+              ravenxrz."DAPInstall.nvim".enable = false;
+              yriveiro."dap-go.nvim".enable = false;
+              nvim-telescope."telescope-dap.nvim".enable = false;
               Pocco81."dap-buddy.nvim".enable = false;
-              mfussenegger.nvim-dap.enable = true;
-              jbyuki.one-small-step-for-vimkind.enable = true;
-              leoluz.nvim-dap-go.enable = true;
-              mfussenegger.nvim-dap-python.enable = true;
-              theHamsta.nvim-dap-virtual-text.enable = true;
-              suketa.nvim-dap-ruby.enable = true;
-              rcarriga.nvim-dap-ui.enable = true;
+              mfussenegger.nvim-dap.enable = false;
+              jbyuki.one-small-step-for-vimkind.enable = false;
+              leoluz.nvim-dap-go.enable = false;
+              mfussenegger.nvim-dap-python.enable = false;
+              theHamsta.nvim-dap-virtual-text.enable = false;
+              suketa.nvim-dap-ruby.enable = false;
+              rcarriga.nvim-dap-ui.enable = false;
 
             };
         }
