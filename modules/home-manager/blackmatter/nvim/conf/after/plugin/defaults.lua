@@ -3,12 +3,6 @@
 -- and therefore will customize their behavior.
 -- ]]
 
--- custom neovim interpreter paths
-vim.g.python3_host_prog = '/usr/local/bin/python'
--- TODO: trying out direct python
--- os.getenv('HOME') .. '/.config/interpreters/neovim/python/bin/python'
-
-
 -- common editor settings
 vim.g.mapleader = ','
 vim.opt.hlsearch = true

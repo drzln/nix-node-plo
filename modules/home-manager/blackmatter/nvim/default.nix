@@ -345,6 +345,7 @@ in
       home.packages = [ cfg.package ];
 
       xdg.configFile."nvim/init.lua".source = ./conf/init.lua;
+      xdg.configFile."nvim/after".source = ./conf/after;
       xdg.configFile."nvim/lua/plugins/init.lua".source = ./conf/lua/plugins/init.lua;
       xdg.configFile."nvim/lua/utils".source = ./conf/lua/utils;
       xdg.configFile."nvim/lua/lsp".source = ./conf/lua/lsp;
