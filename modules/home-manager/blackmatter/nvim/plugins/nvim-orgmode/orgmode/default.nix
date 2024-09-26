@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/nvim-orgmode/orgmode";
           ref = "master";
-          rev = "313ce5a04e7fc3d677ad906a94fc49c1f54d1572";
+          rev = import ./rev.nix;
         };
     })
   ];

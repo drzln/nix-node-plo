@@ -5,7 +5,7 @@ let
   name = "neorg";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "532548b9f444bd1ae6f2efd3edd842282cc79659";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

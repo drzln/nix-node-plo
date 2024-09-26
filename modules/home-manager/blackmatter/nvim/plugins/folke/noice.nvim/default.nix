@@ -5,7 +5,7 @@ let
   name = "noice.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "f8b1a72a7bce56d9e9ed054708dc855d57dec085";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/hrsh7th/cmp-path";
           ref = "main";
-          rev = "91ff86cd9c29299a64f968ebb45846c485725f23";
+          rev = import ./rev.nix;
         };
     })
   ];

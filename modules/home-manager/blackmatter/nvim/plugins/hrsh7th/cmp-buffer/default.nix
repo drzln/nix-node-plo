@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/hrsh7th/cmp-buffer";
           ref = "main";
-          rev = "3022dbc9166796b644a841a02de8dd1cc1d311fa";
+          rev = import ./rev.nix;
         };
     })
   ];

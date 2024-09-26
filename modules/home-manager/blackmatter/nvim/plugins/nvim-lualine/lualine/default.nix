@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/nvim-lualine/lualine.nvim";
           ref = "master";
-          rev = "0050b308552e45f7128f399886c86afefc3eb988";
+          rev = import ./rev.nix;
         };
     })
   ];

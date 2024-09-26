@@ -8,7 +8,7 @@ let
   author = "williamboman";
   name = "mason-lspconfig.nvim";
   ref = "main";
-  rev = "e86a4c84ff35240639643ffed56ee1c4d55f538e";
+  rev = import ./rev.nix;
 in
 {
   options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =

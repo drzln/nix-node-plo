@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/lewis6991/impatient.nvim";
           ref = "main";
-          rev = "c90e273f7b8c50a02f956c24ce4804a47f18162e";
+          rev = import ./rev.nix;
         };
     })
   ];

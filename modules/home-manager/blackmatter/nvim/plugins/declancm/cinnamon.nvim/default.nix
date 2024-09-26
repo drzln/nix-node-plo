@@ -5,7 +5,7 @@ let
   name = "cinnamon.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "c406ffda3a0302f32c23b24ab756ea20467d6578";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

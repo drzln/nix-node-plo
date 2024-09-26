@@ -5,7 +5,7 @@ let
   name = "icon-picker.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "66d37ceae84099ca76235de44466829eb37118c2";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

@@ -5,7 +5,7 @@ let
   name = "markdown-preview.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "02cc3874738bc0f86e4b91f09b8a0ac88aef8e96";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

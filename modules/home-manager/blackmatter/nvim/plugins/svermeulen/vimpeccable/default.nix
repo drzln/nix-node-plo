@@ -5,7 +5,7 @@ let
   name = "vimpeccable";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "bd19b2a86a3d4a0ee184412aa3edb7ed57025d56";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

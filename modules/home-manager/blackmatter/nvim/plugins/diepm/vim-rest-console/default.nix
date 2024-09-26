@@ -5,7 +5,7 @@ let
   name = "vim-rest-console";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "7b407f47185468d1b57a8bd71cdd66c9a99359b2";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

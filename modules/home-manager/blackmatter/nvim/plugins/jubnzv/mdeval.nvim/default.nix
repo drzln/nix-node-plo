@@ -5,7 +5,7 @@ let
   name = "mdeval.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "2654caf8ecaad702b50199d18e39cff23d81e0ba";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

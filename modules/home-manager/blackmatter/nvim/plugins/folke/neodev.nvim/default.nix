@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/folke/neodev.nvim";
           ref = "main";
-          rev = "50eaabc6645b43ded9126f97080bff767063b1c6";
+          rev = import ./rev.nix;
         };
     })
   ];

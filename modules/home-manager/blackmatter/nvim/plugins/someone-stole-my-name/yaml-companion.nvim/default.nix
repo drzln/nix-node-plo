@@ -5,7 +5,7 @@ let
   name = "yaml-companion.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "4de1e1546abc461f62dee02fcac6a02debd6eb9e";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

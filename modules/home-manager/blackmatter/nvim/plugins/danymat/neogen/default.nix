@@ -5,7 +5,7 @@ let
   name = "neogen";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "c0fd3dc9e7cc91181ea5a345c4b01c865626c81e";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

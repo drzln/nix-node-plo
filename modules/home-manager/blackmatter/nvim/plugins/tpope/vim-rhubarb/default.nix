@@ -12,7 +12,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/tpope/vim-rhubarb";
           ref = "master";
-          rev = "cad60fe382f3f501bbb28e113dfe8c0de6e77c75";
+          rev = import ./rev.nix;
         };
     })
   ];

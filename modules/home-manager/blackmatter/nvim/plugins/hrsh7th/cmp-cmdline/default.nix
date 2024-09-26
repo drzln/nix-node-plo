@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/hrsh7th/cmp-cmdline";
           ref = "main";
-          rev = "8fcc934a52af96120fe26358985c10c035984b53";
+          rev = import ./rev.nix;
         };
     })
   ];

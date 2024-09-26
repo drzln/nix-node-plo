@@ -6,7 +6,7 @@ let
   name = "http.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "a2b51f2f8345279f3bf017974a56fa494c560745";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
   src = builtins.fetchGit { inherit ref rev url; };

@@ -5,7 +5,7 @@ let
   name = "glow.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "a3f24fdaa71d2c25a2b88026032b34f5b6a6e215";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

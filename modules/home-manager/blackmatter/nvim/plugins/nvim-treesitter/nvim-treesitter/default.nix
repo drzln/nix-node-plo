@@ -9,7 +9,7 @@ let
   author = "nvim-treesitter";
   name = "nvim-treesitter";
   ref = "master";
-  rev = "621f5901f0b3e762cc4c5ed0f9246cf1495193ad";
+  rev = import ./rev.nix;
 in
 {
   options = {

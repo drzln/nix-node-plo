@@ -5,7 +5,7 @@ let
   name = "nvim-lua-guide";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "393ea845b88661a8f54ec251ecca0b06a3c7fc49";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

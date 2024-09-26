@@ -5,7 +5,7 @@ let
   name = "cphelper.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "c873e28fa743324bb949ef0f33eeaf49d059af08";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

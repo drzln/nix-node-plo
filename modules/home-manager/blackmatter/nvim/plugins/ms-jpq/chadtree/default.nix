@@ -5,7 +5,7 @@ let
   name = "chadtree";
   url = "https://github.com/${author}/${name}";
   ref = "chad";
-  rev = "773fb772e43b10d407133079e5ef2c69bda3ed8b";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

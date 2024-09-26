@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/suketa/nvim-dap-ruby";
           ref = "main";
-          rev = "0a18182c6e5ee62b690b0c6ace155e4bbc4cd37f";
+          rev = import ./rev.nix;
         };
     })
   ];

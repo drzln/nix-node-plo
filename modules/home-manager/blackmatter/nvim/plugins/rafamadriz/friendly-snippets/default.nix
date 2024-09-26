@@ -5,7 +5,7 @@ let
   name = "friendly-snippets";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "1d0dac346de7c6895ac72528df3276386c6b149b";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

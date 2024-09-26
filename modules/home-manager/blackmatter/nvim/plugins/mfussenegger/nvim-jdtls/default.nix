@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/mfussenegger/nvim-jdtls";
           ref = "master";
-          rev = "db08bfb87300fca2db91d15b64ca88a62970fb58";
+          rev = import ./rev.nix;
         };
     })
   ];

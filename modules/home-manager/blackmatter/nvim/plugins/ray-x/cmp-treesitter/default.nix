@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/ray-x/cmp-treesitter";
           ref = "master";
-          rev = "b40178b780d547bcf131c684bc5fd41af17d05f2";
+          rev = import ./rev.nix;
         };
     })
   ];

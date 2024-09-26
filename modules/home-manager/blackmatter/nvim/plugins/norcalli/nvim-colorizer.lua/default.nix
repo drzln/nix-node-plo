@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/norcalli/nvim-colorizer.lua";
           ref = "master";
-          rev = "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6";
+          rev = import ./rev.nix;
         };
     })
   ];

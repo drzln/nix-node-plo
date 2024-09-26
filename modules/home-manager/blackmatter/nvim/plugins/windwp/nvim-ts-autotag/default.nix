@@ -5,7 +5,7 @@ let
   name = "nvim-ts-autotag";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "25698e4033cd6cd3745454bfc837dd670eba0480";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

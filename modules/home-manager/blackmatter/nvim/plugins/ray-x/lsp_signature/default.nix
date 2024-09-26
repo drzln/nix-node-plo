@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/ray-x/lsp_signature.nvim";
           ref = "master";
-          rev = "6f6252f63b0baf0f2224c4caea33819a27f3f550";
+          rev = import ./rev.nix;
         };
     })
   ];

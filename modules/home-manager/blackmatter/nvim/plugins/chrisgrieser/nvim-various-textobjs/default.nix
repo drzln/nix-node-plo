@@ -5,7 +5,7 @@ let
   name = "nvim-various-textobjs";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "0b2a34d3281fc065cf19042c2f15aea8b38af18a";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

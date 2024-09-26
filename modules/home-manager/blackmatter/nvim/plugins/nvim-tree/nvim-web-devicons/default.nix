@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/nvim-tree/nvim-web-devicons";
           ref = "master";
-          rev = "6c38926351372ea87034dec26182b62c835ff3bc";
+          rev = import ./rev.nix;
         };
     })
   ];

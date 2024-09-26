@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/neovim/nvim-lspconfig";
           ref = "master";
-          rev = "dd329912c8d446240584a2dbcd3802af3a19105a";
+          rev = import ./rev.nix;
         };
     })
   ];

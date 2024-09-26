@@ -12,7 +12,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/camspiers/lens.vim";
           ref = "master";
-          rev = "099c3502d001f7081edf113de57e8b1cfd121c55";
+          rev = import ./rev.nix;
         };
     })
   ];

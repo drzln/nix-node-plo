@@ -5,7 +5,7 @@ let
   name = "vim-doge";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "6d4c6601b6d37d893880deac7c402f70bc375d5f";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

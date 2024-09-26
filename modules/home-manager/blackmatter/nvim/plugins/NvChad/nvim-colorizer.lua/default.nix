@@ -5,7 +5,7 @@ let
   name = "nvim-colorizer.lua";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "dde3084106a70b9a79d48f426f6d6fec6fd203f7";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

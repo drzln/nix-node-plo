@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/simrat39/rust-tools.nvim";
           ref = "master";
-          rev = "71d2cf67b5ed120a0e31b2c8adb210dd2834242f";
+          rev = import ./rev.nix;
         };
     })
   ];

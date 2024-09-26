@@ -12,7 +12,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/nvim-lua/plenary.nvim";
           ref = "master";
-          rev = "1c7e3e6b0f4dd5a174fcea9fda8a4d7de593b826";
+          rev = import ./rev.nix;
         };
     })
   ];

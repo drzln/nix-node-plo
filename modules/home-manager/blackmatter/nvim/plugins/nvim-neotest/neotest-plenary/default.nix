@@ -5,7 +5,7 @@ let
   name = "neotest-plenary";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "e0d9b1530307a03abcc52fc0ae28f054dea3f752";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

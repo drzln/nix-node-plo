@@ -5,7 +5,7 @@ let
   name = "legendary.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "1a2022a818388d691b1de3187c241e67c2ce0792";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

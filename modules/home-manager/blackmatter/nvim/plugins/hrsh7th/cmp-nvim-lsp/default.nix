@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/hrsh7th/cmp-nvim-lsp";
           ref = "main";
-          rev = "0e6b2ed705ddcff9738ec4ea838141654f12eeef";
+          rev = import ./rev.nix;
         };
     })
   ];

@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/mfussenegger/nvim-dap-python";
           ref = "master";
-          rev = "65ccab83fb3d0b29ead6c765c1c52a1ed49592e8";
+          rev = import ./rev.nix;
         };
     })
   ];

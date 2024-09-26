@@ -5,7 +5,7 @@ let
   name = "reaper-keys";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "8435f68d16d75bf1358128f5cab62318c3c79b6f";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

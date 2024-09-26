@@ -5,7 +5,7 @@ let
   name = "nvim-regexplainer";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "f7ceb71176a892e24349b6f9bc30b3088fde9ac6";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

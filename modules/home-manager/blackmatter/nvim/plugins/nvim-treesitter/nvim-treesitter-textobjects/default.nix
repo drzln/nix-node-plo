@@ -5,7 +5,7 @@ let
   name = "nvim-treesitter-textobjects";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "35a60f093fa15a303874975f963428a5cd24e4a0";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

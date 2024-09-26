@@ -12,7 +12,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/shaunsingh/nord.nvim";
           ref = "master";
-          rev = "9824b8511dcb7d89de628d7e9bab5fa65c9d59d1";
+          rev = import ./rev.nix;
         };
     })
   ];

@@ -5,7 +5,7 @@ let
   name = "nvim-luaref";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "9cd3ed50d5752ffd56d88dd9e395ddd3dc2c7127";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

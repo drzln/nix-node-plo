@@ -5,7 +5,7 @@ let
   name = "netman.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "0992ecede84db9591c59ee2131f39443f4a44f3c";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

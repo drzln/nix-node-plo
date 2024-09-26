@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/leoluz/nvim-dap-go";
           ref = "main";
-          rev = "b4ded7de579b4e2a85c203388233b54bf1028816";
+          rev = import ./rev.nix;
         };
     })
   ];

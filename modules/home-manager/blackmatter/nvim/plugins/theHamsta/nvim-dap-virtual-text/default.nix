@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/theHamsta/nvim-dap-virtual-text";
           ref = "master";
-          rev = "8db23ea51203b5f00ad107a0cef7e0b2d7a0476c";
+          rev = import ./rev.nix;
         };
     })
   ];

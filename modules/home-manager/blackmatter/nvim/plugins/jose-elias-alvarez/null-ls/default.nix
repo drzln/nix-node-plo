@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/jose-elias-alvarez/null-ls.nvim";
           ref = "main";
-          rev = "33cfeb7a761f08e8535dca722d4b237cabadd371";
+          rev = import ./rev.nix;
         };
     })
   ];

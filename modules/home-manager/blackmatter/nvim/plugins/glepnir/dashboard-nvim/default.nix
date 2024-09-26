@@ -5,7 +5,7 @@ let
   name = "dashboard-nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "669536db27ea411217f633ee54b63be41ecff300";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

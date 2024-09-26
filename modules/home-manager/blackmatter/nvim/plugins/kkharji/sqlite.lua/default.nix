@@ -5,7 +5,7 @@ let
   name = "sqlite.lua";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "376e4735c48e07dade3e6ff5f09a654a04f5d4ba";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

@@ -5,7 +5,7 @@ let
   name = "vlog.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "300e43f1628935aa9fec0560f3c7c483b3d38db2";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

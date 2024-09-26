@@ -5,7 +5,7 @@ let
   name = "overseer.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "9e7cc435c1c85d37aa5471d7429501690f4d64d6";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

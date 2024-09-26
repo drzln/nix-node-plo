@@ -5,7 +5,7 @@ let
   name = "LuaSnip";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "e808bee352d1a6fcf902ca1a71cee76e60e24071";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

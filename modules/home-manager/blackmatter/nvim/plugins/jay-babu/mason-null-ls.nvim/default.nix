@@ -5,7 +5,7 @@ let
   name = "mason-null-ls.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "bfaa24b899233385c92364f95856e6280bddef30";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

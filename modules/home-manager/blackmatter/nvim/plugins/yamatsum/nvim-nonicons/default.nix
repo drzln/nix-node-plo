@@ -5,7 +5,7 @@ let
   name = "nvim-nonicons";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "ceda07dc7339f35444b5f4c4016f76a9eb42ac16";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

@@ -5,7 +5,7 @@ let
   name = "nvim-llama";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "aaed87540a3156a3e17e53e14f7ec0fa3a21870a";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

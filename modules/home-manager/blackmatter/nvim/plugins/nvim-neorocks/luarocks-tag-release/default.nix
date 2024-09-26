@@ -5,7 +5,7 @@ let
   name = "luarocks-tag-release";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "edaa93d52e6440ceab66030fff9096a91f755b15";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

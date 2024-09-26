@@ -5,7 +5,7 @@ let
   name = "tmux.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "65ee9d6e6308afcd7d602e1320f727c5be63a947";
+  rev = import ./rev.nix;
 
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};

@@ -5,7 +5,7 @@ let
   name = "git-blame.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "1ad47c6454a5a53d3f4ffdd4022e84f4a6e376cb";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

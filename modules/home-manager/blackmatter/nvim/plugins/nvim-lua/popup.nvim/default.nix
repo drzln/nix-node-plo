@@ -14,7 +14,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/nvim-lua/popup.nvim";
           ref = "master";
-          rev = "b7404d35d5d3548a82149238289fa71f7f6de4ac";
+          rev = import ./rev.nix;
         };
     })
   ];

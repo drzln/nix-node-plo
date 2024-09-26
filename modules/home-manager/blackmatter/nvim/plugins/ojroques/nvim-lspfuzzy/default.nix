@@ -5,7 +5,7 @@ let
   name = "nvim-lspfuzzy";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "7c9f861fdf0adc4a4361355f892c4a3f7431bfa9";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

@@ -5,7 +5,7 @@ let
   name = "vim-wordmotion";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "81d9bd298376ab0dc465c85d55afa4cb8d5f47a1";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

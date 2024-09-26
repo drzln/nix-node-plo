@@ -5,7 +5,7 @@ let
   name = "schemastore";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "166136b96a14f103a948053903e9339e63ad9170";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

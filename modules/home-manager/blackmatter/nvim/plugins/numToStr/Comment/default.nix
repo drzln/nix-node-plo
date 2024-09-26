@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/numToStr/Comment.nvim";
           ref = "master";
-          rev = "eab2c83a0207369900e92783f56990808082eac2";
+          rev = import ./rev.nix;
         };
     })
   ];

@@ -5,7 +5,7 @@ let
   name = "reaper-nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "dc30b618bb0e2c47b7e0dce781527627291b3365";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

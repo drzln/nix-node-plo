@@ -5,7 +5,7 @@ let
   name = "nvim-ts-rainbow";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "ef95c15a935f97c65a80e48e12fe72d49aacf9b9";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

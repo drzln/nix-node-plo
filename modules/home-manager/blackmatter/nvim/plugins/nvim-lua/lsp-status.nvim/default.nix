@@ -5,7 +5,7 @@ let
   name = "lsp-status.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "54f48eb5017632d81d0fd40112065f1d062d0629";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

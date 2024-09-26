@@ -5,7 +5,7 @@ let
   name = "tabular";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "339091ac4dd1f17e225fe7d57b48aff55f99b23a";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

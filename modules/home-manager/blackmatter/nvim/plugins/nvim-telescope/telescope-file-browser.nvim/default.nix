@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/nvim-telescope/telescope-file-browser.nvim";
           ref = "master";
-          rev = "61b3769065131129716974f7fb63f82ee409bd80";
+          rev = import ./rev.nix;
         };
     })
   ];

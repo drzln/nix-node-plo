@@ -5,7 +5,7 @@ let
   name = "one-small-step-for-vimkind";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "aef1bdbb8347e6daaf33d5109002f3df243ebfe9";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

@@ -5,7 +5,7 @@ let
   name = "dap-buddy.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "bbda2b062e5519cde4e10b6e4240d3dd1f867b20";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

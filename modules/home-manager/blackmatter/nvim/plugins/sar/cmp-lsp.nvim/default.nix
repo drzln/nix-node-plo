@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/sar/cmp-lsp.nvim";
           ref = "main";
-          rev = "60e1e16308c862f678ea02b8430befa20c8fda6c";
+          rev = import ./rev.nix;
         };
     })
   ];

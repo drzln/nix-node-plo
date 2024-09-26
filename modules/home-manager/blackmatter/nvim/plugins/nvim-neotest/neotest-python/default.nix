@@ -5,7 +5,7 @@ let
   name = "neotest-python";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "6c06041cfb45f45e276068020baa06c06fe20d5c";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

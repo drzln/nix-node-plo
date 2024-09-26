@@ -5,7 +5,7 @@ let
   name = "telescope-tmuxinator.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "9b51e2dc870c46aa57e277bb70b2c1c000a7a857";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

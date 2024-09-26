@@ -5,7 +5,7 @@ let
   name = "projections.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "008de87749e6baa402a2ce2f3ebc75e724b95da1";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

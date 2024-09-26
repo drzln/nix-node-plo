@@ -5,7 +5,7 @@ let
   name = "codeium.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "38a889a6b8e1612c9adbe97399012c638b210e65";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

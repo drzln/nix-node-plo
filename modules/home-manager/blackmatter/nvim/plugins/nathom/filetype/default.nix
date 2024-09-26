@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/nathom/filetype.nvim";
           ref = "main";
-          rev = "b522628a45a17d58fc0073ffd64f9dc9530a8027";
+          rev = import ./rev.nix;
         };
     })
   ];

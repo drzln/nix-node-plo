@@ -5,7 +5,7 @@ let
   name = "galaxyline.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "4d4f5fc8e20a10824117e5beea7ec6e445466a8f";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

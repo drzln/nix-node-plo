@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/camspiers/animate.vim";
           ref = "master";
-          rev = "ca124da441b4d4ea721f33a999d4493e0d0a7a31";
+          rev = import ./rev.nix;
         };
     })
   ];

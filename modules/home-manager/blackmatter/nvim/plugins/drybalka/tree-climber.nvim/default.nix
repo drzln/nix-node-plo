@@ -5,7 +5,7 @@ let
   name = "tree-climber.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "9b0c8c8358f575f924008945c74fd4f40d814cd7";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

@@ -5,7 +5,7 @@ let
   name = "neotest-rust";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "eaaf57c2124067167b6f7dcab6feedfcabd27fbb";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

@@ -5,7 +5,7 @@ let
   name = "git-conflict.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "2957f747e1a34f1854e4e0efbfbfa59a1db04af5";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

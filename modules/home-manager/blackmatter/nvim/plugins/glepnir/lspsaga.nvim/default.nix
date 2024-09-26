@@ -5,7 +5,7 @@ let
   name = "lspsaga.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "04617d1f5b1cfbdd2a99d9765ef04fc6ae415622";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

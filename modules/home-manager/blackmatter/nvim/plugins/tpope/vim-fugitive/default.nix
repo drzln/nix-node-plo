@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/tpope/vim-fugitive";
           ref = "master";
-          rev = "2febbe1f00be04f16daa6464cb39214a8566ec4b";
+          rev = import ./rev.nix;
         };
     })
   ];

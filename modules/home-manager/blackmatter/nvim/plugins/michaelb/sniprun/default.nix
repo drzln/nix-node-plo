@@ -5,7 +5,7 @@ let
   name = "sniprun";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "562ccadf7ed93d6223564714cb2b57f1805f3e06";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

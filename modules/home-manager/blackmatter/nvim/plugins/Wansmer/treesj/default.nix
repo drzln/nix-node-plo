@@ -5,7 +5,7 @@ let
   name = "treesj";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "29aac56d24bf9870f2ea337817c5542b56e21f16";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

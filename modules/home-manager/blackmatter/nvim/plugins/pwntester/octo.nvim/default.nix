@@ -5,7 +5,7 @@ let
   name = "octo.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "91a87271552828a499c2ddcc6a3e36f09f38c1d3";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

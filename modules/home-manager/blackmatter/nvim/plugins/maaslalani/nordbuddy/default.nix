@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/andersevenrud/nordic.nvim";
           ref = "main";
-          rev = "cd552784eeeae61644fec60f6cc52c267dbddc73";
+          rev = import ./rev.nix;
         };
     })
   ];

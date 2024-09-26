@@ -13,7 +13,7 @@ in
         builtins.fetchGit {
           url = "https://github.com/rcarriga/nvim-dap-ui";
           ref = "master";
-          rev = "bdb94e3853d11b5ce98ec182e5a3719d5c0ef6fd";
+          rev = import ./rev.nix;
         };
     })
   ];

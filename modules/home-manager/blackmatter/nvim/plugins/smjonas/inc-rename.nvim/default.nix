@@ -5,7 +5,7 @@ let
   name = "inc-rename.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "21c23c379342a731a0c90f226601ec0434627b26";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

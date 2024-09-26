@@ -5,7 +5,7 @@ let
   name = "nvim-lightbulb";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "56b9ce31ec9d09d560fe8787c0920f76bc208297";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

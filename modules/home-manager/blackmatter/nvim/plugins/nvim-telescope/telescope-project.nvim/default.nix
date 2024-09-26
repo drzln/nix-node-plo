@@ -5,7 +5,7 @@ let
   name = "telescope-project.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "master";
-  rev = "7c64b181dd4e72deddcf6f319e3bf1e95b2a2f30";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in

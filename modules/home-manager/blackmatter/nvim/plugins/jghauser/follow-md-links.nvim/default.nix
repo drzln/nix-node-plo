@@ -5,7 +5,7 @@ let
   name = "follow-md-links.nvim";
   url = "https://github.com/${author}/${name}";
   ref = "main";
-  rev = "ccc50e7ba191e62b4243ddd3db9b7dbddf2ee179";
+  rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
 in
