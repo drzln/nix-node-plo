@@ -10,7 +10,7 @@ let
   name = "mason.nvim";
   plugName = "mason";
   ref = "main";
-  rev = "e2f7f9044ec30067bc11800a9e266664b88cda22";
+  rev = import ./rev.nix;
 in
 {
   options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
