@@ -6,9 +6,9 @@ let
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+	plugName = name;
   author = "nvim-treesitter";
   name = "nvim-treesitter";
-	plugName = name;
   ref = "master";
   rev = import ./rev.nix;
 in
