@@ -1,21 +1,24 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.LnL7.vim-nix;
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "LnL7";
+  name = "vim-nix";
+  ref = "main";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.LnL7.vim-nix.enable =
-    mkEnableOption "LnL7/vim-nix";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      # nix syntax highlighting
-      home.file.".local/share/nvim/site/pack/LnL7/start/vim-nix".source =
-        builtins.fetchGit {
-          url = "https://github.com/LnL7/vim-nix";
-          ref = "master";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
     })
   ];
 }
