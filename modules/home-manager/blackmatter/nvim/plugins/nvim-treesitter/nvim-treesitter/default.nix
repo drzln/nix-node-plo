@@ -1,13 +1,14 @@
 { lib, config, outputs, ... }:
 with lib;
 let
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
   common = import ../../../common;
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
-  configPath = "${common.baseConfigPath}/${author}/${name}.lua";
-  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "nvim-treesitter";
   name = "nvim-treesitter";
+  plugName = "mason";
   ref = "master";
   rev = import ./rev.nix;
 in
