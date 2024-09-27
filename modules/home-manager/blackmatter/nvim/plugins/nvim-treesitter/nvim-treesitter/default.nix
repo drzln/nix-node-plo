@@ -8,7 +8,6 @@ let
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "nvim-treesitter";
   name = "nvim-treesitter";
-  plugName = "mason";
   ref = "master";
   rev = import ./rev.nix;
 in
