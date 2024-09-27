@@ -134,6 +134,9 @@ in
             config = {
               window.border = 0;
               fonts = [ themes.nord.styling.font-0 ];
+              fonts = { 
+                font-0 = themes.nord.styling.font-0;
+              };
               # send alt+d to menu
               menu = "rofi -show drun";
               # alacritty has zoom in and out

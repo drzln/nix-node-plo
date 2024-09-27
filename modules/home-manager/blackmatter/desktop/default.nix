@@ -95,7 +95,7 @@ in
       blackmatter.desktop.kitty.enable = true;
       blackmatter.desktop.packages.enable = true;
       blackmatter.desktop.firefox.enable = false;
-      blackmatter.desktop.i3.enable = false;
+      blackmatter.desktop.i3.enable = true;
 
       #########################################################################
       # vscode
