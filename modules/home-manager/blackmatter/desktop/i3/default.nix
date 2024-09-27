@@ -141,8 +141,7 @@ in
               # send alt+d to menu
               menu = "rofi -show drun";
               # alacritty has zoom in and out
-              terminal = "alacritty";
-              # terminal = "kitty";
+              terminal = "kitty";
               # if you have polybar active remove default bars configuration
               bars = [ ];
               colors.urgent = themes.nord.globals.colors.urgent;
