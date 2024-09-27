@@ -344,19 +344,22 @@ in
     (mkIf cfg.enable {
       home.packages = [ cfg.package ];
 
+			# place some lua programming that calls plugins
+			# that you place in the correct spot.
       xdg.configFile."nvim/init.lua".source = ./conf/init.lua;
-      xdg.configFile."nvim/after".source = ./conf/after;
       xdg.configFile."nvim/lua/plugins/init.lua".source = ./conf/lua/plugins/init.lua;
       xdg.configFile."nvim/lua/utils".source = ./conf/lua/utils;
       xdg.configFile."nvim/lua/lsp".source = ./conf/lua/lsp;
 
+			# this is where you can drop lua code that executes after
+			# plugins load.
+      xdg.configFile."nvim/after".source = ./conf/after;
+
       blackmatter = {
         programs = {
           nvim = {
-            plugin = {
-              groups = groups.toggles;
-            };
             plugins = plugins.toggles;
+						plugin.groups = groups.toggles;
           };
         };
       };
