@@ -25,9 +25,9 @@ let
 
   plugins.toggles =
     {
-      jpmcb."nvim-llama".enable = true;
+      jpmcb."nvim-llama".enable = false;
       # enabled plugins
-      NvChad."nvim-colorizer.lua".enable = true;
+      NvChad."nvim-colorizer.lua".enable = false;
       jay-babu."mason-null-ls.nvim".enable = false;
       nvim-lualine.lualine.enable = false;
       nvim-tree.nvim-web-devicons.enable = false;
@@ -42,8 +42,8 @@ let
       # disabled plugins
       Wansmer.treesj.enable = false;
       EtiamNullam."relative-source.nvim".enable = false;
-      zbirenbaum."copilot.lua".enable = true;
-      zbirenbaum."copilot-cmp".enable = true;
+      zbirenbaum."copilot.lua".enable = false;
+      zbirenbaum."copilot-cmp".enable = false;
       ziontee113."icon-picker.nvim".enable = false;
       windwp.nvim-projectconfig.enable = false;
       windwp.nvim-ts-autotag.enable = false;
@@ -63,8 +63,8 @@ let
       # markdown
 
       nfrid.markdown-togglecheck.enable = false;
-      godlygeek.tabular.enable = true;
-      preservim.vim-markdown.enable = true;
+      godlygeek.tabular.enable = false;
+      preservim.vim-markdown.enable = false;
       iamcco."markdown-preview.nvim".enable = false;
 
 
@@ -112,9 +112,9 @@ let
       aserowy."tmux.nvim".enable = false;
       michaelb.sniprun.enable = false;
       mrjones2014."legendary.nvim".enable = false;
-      MarcHamamji."runner.nvim".enable = true;
-      tpope.vim-fugitive.enable = true;
-      tpope.vim-repeat.enable = true;
+      MarcHamamji."runner.nvim".enable = false;
+      tpope.vim-fugitive.enable = false;
+      tpope.vim-repeat.enable = false;
       mfussenegger.nvim-lint.enable = false;
       camspiers."animate.vim".enable = false;
       tpope.vim-rhubarb.enable = false;
