@@ -16,6 +16,7 @@ let
     common.enable = true;
     lsp.enable = true;
     treesitter.enable = true;
+    theming.enable = true;
     completion.enable = false;
     debugging.enable = false;
     telescope.enable = false;
@@ -192,6 +193,7 @@ in
       ./groups/common
       ./groups/lsp
       ./groups/completion
+      ./groups/theming
       ./groups/debugging
       ./groups/treesitter
       ./groups/telescope
