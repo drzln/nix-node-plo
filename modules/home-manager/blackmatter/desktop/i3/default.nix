@@ -93,7 +93,7 @@ in
         # The command that gets executed to bring up the status bar
         # Change this to match the command you use to start your status bar of choice
         # In this case, I'm using polybar
-        status_bar = "polybar main"
+        status_bar = "polybar top"
 
         # Window border colors
         border_active = "#4C566A"
