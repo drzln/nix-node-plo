@@ -78,7 +78,8 @@ in
 
           # end ruby deps
 
-          globalprotect-openconnect
+          gpauth
+          gpclient
 
           gnome-tweaks
           # _1password-gui-beta
