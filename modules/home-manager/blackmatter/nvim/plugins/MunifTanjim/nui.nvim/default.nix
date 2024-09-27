@@ -8,7 +8,7 @@ let
   # configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "MunifTanjim";
   name = "nui.nvim";
-  plugName = "mason";
+  plugName = "nui";
   ref = "main";
   rev = import ./rev.nix;
 in
