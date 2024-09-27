@@ -133,7 +133,6 @@ in
             enable = true;
             config = {
               window.border = 0;
-              # fonts = [ themes.nord.styling.font-0 ];
               fonts = { 
                 names = [themes.nord.styling.font-0];
                 size = 10.0;
@@ -166,6 +165,7 @@ in
           };
         };
       };
+
       xdg.configFile."i3lock/config".text = ''
         background_color = "${nord.colors.i3lock.background.blue}"
       '';
