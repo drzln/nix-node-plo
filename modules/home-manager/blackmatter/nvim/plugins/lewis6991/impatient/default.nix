@@ -1,20 +1,25 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.lewis6991.impatient;
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  # configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "lewis6991";
+  name = "impatient.nvim";
+  plugName = "impatient";
+  ref = "main";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.lewis6991.impatient.enable = mkEnableOption "lewis6991/impatient";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      # speed up loading times
-      home.file.".local/share/nvim/site/pack/lewis6991/start/impatient.nvim".source =
-        builtins.fetchGit {
-          url = "https://github.com/lewis6991/impatient.nvim";
-          ref = "main";
-          rev = import ./rev.nix;
-        };
-    })
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
+      })
   ];
 }

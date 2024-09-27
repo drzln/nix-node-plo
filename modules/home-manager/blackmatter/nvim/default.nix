@@ -105,7 +105,7 @@ let
       ray-x."navigator.lua".enable = false;
       amrbashir.nvim-docs-view.enable = false;
       p00f."cphelper.nvim".enable = false;
-      lewis6991.impatient.enable = false;
+      lewis6991."impatient.nvim".enable = false;
       f-person."git-blame.nvim".enable = false;
       folke."noice.nvim".enable = false;
       frabjous.knap.enable = false;
