@@ -133,9 +133,10 @@ in
             enable = true;
             config = {
               window.border = 0;
-              fonts = [ themes.nord.styling.font-0 ];
+              # fonts = [ themes.nord.styling.font-0 ];
               fonts = { 
-                font-0 = themes.nord.styling.font-0;
+                names = [themes.nord.styling.font-0];
+                size = 10.0;
               };
               # send alt+d to menu
               menu = "rofi -show drun";
