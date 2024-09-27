@@ -1,20 +1,25 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.camspiers.animate;
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "camspiers";
+  name = "animate.vim";
+  plugName = "animate";
+  ref = "master";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.camspiers.animate.enable = mkEnableOption "camspiers/animate";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      # move split screens side to side
-      home.file.".local/share/nvim/site/pack/camspiers/start/animate.vim".source =
-        builtins.fetchGit {
-          url = "https://github.com/camspiers/animate.vim";
-          ref = "master";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
     })
   ];
 }
