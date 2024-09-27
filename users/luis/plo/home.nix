@@ -7,7 +7,6 @@
     ./hyprland.nix
     ./blackmatter.nix
   ];
-  # nixpkgs.config.allowUnfree = true;
   home.stateVersion = "24.05";
   home.username = "luis";
   home.homeDirectory = "/home/luis";
