@@ -8,7 +8,6 @@ let
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "Wansmer";
   name = "treesj";
-  plugName = "mason";
   ref = "main";
   rev = import ./rev.nix;
 in
