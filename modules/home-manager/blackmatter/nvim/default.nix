@@ -16,9 +16,9 @@ let
     common.enable = true;
     lsp.enable = true;
     treesitter.enable = true;
-    completion.enable = true;
-    debugging.enable = true;
-    telescope.enable = true;
+    completion.enable = false;
+    debugging.enable = false;
+    telescope.enable = false;
   };
 
   # end plugin groups
@@ -28,13 +28,13 @@ let
       jpmcb."nvim-llama".enable = true;
       # enabled plugins
       NvChad."nvim-colorizer.lua".enable = true;
-      jay-babu."mason-null-ls.nvim".enable = true;
-      nvim-lualine.lualine.enable = true;
-      nvim-tree.nvim-web-devicons.enable = true;
+      jay-babu."mason-null-ls.nvim".enable = false;
+      nvim-lualine.lualine.enable = false;
+      nvim-tree.nvim-web-devicons.enable = false;
       # tree-sitter for nix is bugged with OOM
-      LnL7.vim-nix.enable = true;
-      simrat39."rust-tools.nvim".enable = true;
-      willothy."veil.nvim".enable = true;
+      LnL7.vim-nix.enable = false;
+      simrat39."rust-tools.nvim".enable = false;
+      willothy."veil.nvim".enable = false;
 
       # TODO: has bug, so turning off for now
       jcdickinson."codeium.nvim".enable = false;
@@ -136,7 +136,7 @@ let
       ellisonleao."glow.nvim".enable = false;
 
       # KittyCAD
-      "kcl-lang"."kcl.nvim".enable = true;
+      "kcl-lang"."kcl.nvim".enable = false;
 
 
       # this is a less compatible nord with tree-sitter
@@ -150,36 +150,36 @@ let
     lib.optionalAttrs isLinux {
 
       # testing
-      nvim-neotest.neotest.enable = true;
-      nvim-neotest.neotest-python.enable = true;
-      nvim-neotest.neotest-plenary.enable = true;
-      nvim-neotest.neotest-go.enable = true;
-      nvim-neotest.neotest-jest.enable = true;
-      rouge8.neotest-rust.enable = true;
-      stevearc."overseer.nvim".enable = true;
+      nvim-neotest.neotest.enable = false;
+      nvim-neotest.neotest-python.enable = false;
+      nvim-neotest.neotest-plenary.enable = false;
+      nvim-neotest.neotest-go.enable = false;
+      nvim-neotest.neotest-jest.enable = false;
+      rouge8.neotest-rust.enable = false;
+      stevearc."overseer.nvim".enable = false;
 
       # improved motion
-      andymass.vim-matchup.enable = true;
-      chaoren.vim-wordmotion.enable = true;
-      wellle."targets.vim".enable = true;
-      ggandor."leap.nvim".enable = true;
-      unblevable.quick-scope.enable = true;
+      andymass.vim-matchup.enable = false;
+      chaoren.vim-wordmotion.enable = false;
+      wellle."targets.vim".enable = false;
+      ggandor."leap.nvim".enable = false;
+      unblevable.quick-scope.enable = false;
       t3rro.nvim-ts-rainbow.enable = false;
 
       # snippets
-      L3MON4D3.LuaSnip.enable = true;
-      rafamadriz.friendly-snippets.enable = true;
+      L3MON4D3.LuaSnip.enable = false;
+      rafamadriz.friendly-snippets.enable = false;
 
       # refactoring
-      ThePrimeagen."refactoring.nvim".enable = true;
+      ThePrimeagen."refactoring.nvim".enable = false;
 
       # annotating
-      kkoomen.vim-doge.enable = true;
-      danymat.neogen.enable = true;
+      kkoomen.vim-doge.enable = false;
+      danymat.neogen.enable = false;
 
       # rest calls
-      diepm.vim-rest-console.enable = true;
-      NTBBloodbath."rest.nvim".enable = true;
+      diepm.vim-rest-console.enable = false;
+      NTBBloodbath."rest.nvim".enable = false;
     };
 in
 {
