@@ -116,7 +116,7 @@ let
       tpope.vim-fugitive.enable = true;
       tpope.vim-repeat.enable = true;
       mfussenegger.nvim-lint.enable = false;
-      camspiers.animate.enable = false;
+      camspiers."animate.nvim".enable = false;
       tpope.vim-rhubarb.enable = false;
       numToStr."Navigator.nvim".enable = false;
       camspiers.lens.enable = false;
