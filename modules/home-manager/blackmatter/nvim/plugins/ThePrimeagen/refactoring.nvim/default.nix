@@ -8,7 +8,7 @@ let
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "ThePrimeagen";
   name = "refactoring.nvim";
-  plugName = "mason";
+  plugName = "refactoring";
   ref = "master";
   rev = import ./rev.nix;
 in
