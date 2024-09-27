@@ -13,7 +13,7 @@ let
   rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.camspiers.lens.enable = mkEnableOption "camspiers/lens";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable = mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {

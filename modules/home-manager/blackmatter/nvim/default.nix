@@ -119,7 +119,7 @@ let
       camspiers."animate.vim".enable = false;
       tpope.vim-rhubarb.enable = false;
       numToStr."Navigator.nvim".enable = false;
-      camspiers.lens.enable = false;
+      camspiers."lens.vim".enable = false;
       gnikdroy."projections.nvim".enable = false;
       nvim-neorg.neorg.enable = false;
       nvim-neorocks.luarocks-tag-release.enable = false;
