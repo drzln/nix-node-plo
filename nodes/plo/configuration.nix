@@ -5,6 +5,27 @@ in
 {
   system.stateVersion = "24.05";
 
+  # common settings for our sudo users
+  sudo-users-common =
+    {
+      shell = pkgs.zsh;
+      isNormalUser = true;
+      description = "a sudo user";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+        "podman"
+        "libvirtd"
+        "audio"
+        "video"
+      ];
+      packages = with pkgs; [
+        home-manager
+      ];
+    };
+
+
   imports = [
     ./boot.nix
     ./limits.nix
@@ -41,77 +62,24 @@ in
   services.libinput = { enable = true; };
 
   environment.variables = {
-    # XDG_SESSION_TYPE = "wayland";
-    # XDG_CURRENT_DESKTOP = "Hyprland";
-    # NIXOS_OZONE_WL = "1";
     GBM_BACKEND = "nvidia-drm";
-    # __GL_GSYNC_ALLOWED = "0";
-    # __GL_VRR_ALLOWED = "0";
-    # DISABLE_QT5_COMPAT = "0";
-    # ANKI_WAYLAND = "1";
-    # DIRENV_LOG_FORMAT = "";
-    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    # QT_QPA_PLATFORM = "wayland";
-    # QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    # QT_QPA_PLATFORMTHEME = "qt5ct";
-    # MOZ_ENABLE_WAYLAND = "1";
-    # WLR_BACKEND = "vulkan";
-    # WLR_NO_HARDWARE_CURSORS = "1";
-    # WLR_DRM_NO_ATOMIC = "1";
-    # WLR_DRM_DEVICES = "/dev/dri/card1";
-    # WLR_RENDERER_ALLOW_SOFTWARE = "1";
-    # CLUTTER_BACKEND = "wayland";
-    # WINIT_UNIX_BACKEND = "x111 alacritty";
   };
 
   xdg.portal.enable = true;
   xdg.portal.wlr.enable = true;
-  # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   users.users.luis = {
     uid = 1001;
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    description = "luis";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-      "podman"
-      "libvirtd"
-      "audio"
-      "video"
-    ];
-    packages = with pkgs; [
-      home-manager
-    ];
-  };
+  } // sudo-users-common;
 
   users.users.gab = {
     uid = 1002;
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    description = "gab";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-      "podman"
-      "libvirtd"
-      "audio"
-      "video"
-    ];
-    packages = with pkgs; [
-      home-manager
-    ];
-  };
-
+  } // sudo users-common;
 
   security.sudo.extraConfig = ''
     luis ALL=(ALL) NOPASSWD:ALL
     gab ALL=(ALL) NOPASSWD:ALL
   '';
-
 
   nixpkgs.config.allowUnfree = true;
 
@@ -174,8 +142,8 @@ in
   '';
   networking.wireless.interfaces = [ "wlp0s20f3" ];
 
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
+  programs.hyprland.enable = false;
+  programs.hyprland.xwayland.enable = false;
   programs.hyprland.package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   programs.hyprland.portalPackage = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
@@ -190,49 +158,4 @@ in
     fira-code-symbols
     dejavu_fonts
   ];
-  # environment.etc."fonts/fonts.conf".text = ''
-  #   <?xml version="1.0"?>
-  #   <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-  #   <fontconfig>
-  #     
-  #     <!-- Add cachedir elements -->
-  #     <cachedir>/var/cache/fontconfig</cachedir>
-  #     <cachedir prefix="xdg">fontconfig</cachedir>
-  #     
-  #     <!-- Enable antialiasing for smoother font rendering -->
-  #     <match target="font">
-  #       <edit name="antialias" mode="assign">
-  #         <bool>true</bool>
-  #       </edit>
-  #     </match>
-  #
-  #     <!-- Enable subpixel rendering -->
-  #     <match target="font">
-  #       <edit name="rgba" mode="assign">
-  #         <const>rgb</const>
-  #       </edit>
-  #     </match>
-  #
-  #     <!-- Set hinting to slight for better font clarity -->
-  #     <match target="font">
-  #       <edit name="hinting" mode="assign">
-  #         <bool>true</bool>
-  #       </edit>
-  #       <edit name="hintstyle" mode="assign">
-  #         <const>hintslight</const>
-  #       </edit>
-  #     </match>
-  #
-  #     <!-- Default font substitution -->
-  #     <match target="pattern">
-  #       <test qual="any" name="family">
-  #         <string>monospace</string>
-  #       </test>
-  #       <edit name="family" mode="assign">
-  #         <string>DejaVu Sans Mono</string>
-  #       </edit>
-  #     </match>
-  #
-  #   </fontconfig>
-  # '';
 }

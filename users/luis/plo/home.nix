@@ -26,7 +26,7 @@
     bindsym $mod+Shift+c reload
 
     # Restart i3 inplace (preserves your layout/session)
-    bindsym $mod+Shift+r restart
+    # bindsym $mod+Shift+r restart
 
     # Move focus
     bindsym $mod+h focus left
@@ -55,7 +55,5 @@
     bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
     bindsym XF86AudioLowerVolume exec amixer set Master 5%-
     bindsym XF86AudioMute exec amixer set Master toggle
-
-    # Add other configurations as needed
   '';
 }
