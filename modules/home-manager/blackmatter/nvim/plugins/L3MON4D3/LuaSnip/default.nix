@@ -8,7 +8,6 @@ let
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "L3MON4D3";
   name = "LuaSnip";
-  plugName = "mason";
   ref = "master";
   rev = import ./rev.nix;
 in
