@@ -136,7 +136,6 @@
     _1password-gui
     google-chrome
     beekeeper-studio
-    globalprotect-openconnect
     gp-saml-gui
     openconnect
     (pkgs.stdenv.mkDerivation {
