@@ -1,20 +1,25 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.hrsh7th.nvim-cmp;
+  common = import ../../../common;
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+	author = "hrsh7th";
+	name = "nvim-cmp";
+	plugName = name;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  ref = "main";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.hrsh7th.nvim-cmp.enable = mkEnableOption "hrsh7th/nvim-cmp";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable = mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      # plugin for completion hooks
-      home.file.".local/share/nvim/site/pack/hrsh7th/start/nvim-cmp".source =
-        builtins.fetchGit {
-          url = "https://github.com/hrsh7th/nvim-cmp";
-          ref = "main";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref ref url;};
+      home.file."${configPath}".source = ./config.lua;
     })
   ];
 }
