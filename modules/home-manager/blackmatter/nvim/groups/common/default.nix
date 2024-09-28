@@ -10,6 +10,7 @@ in
     };
 
   imports = [
+    ../../groups/telescope
     ../../plugins/jcdickinson/http.nvim
     ../../plugins/nvim-lua/plenary
     ../../plugins/folke/which-key.nvim
@@ -23,6 +24,7 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
+					blackmatter.programs.nvim.plugin.groups.telescope.enable = true;
           blackmatter.programs.nvim.plugins =
             {
               numToStr.Comment.enable = true;

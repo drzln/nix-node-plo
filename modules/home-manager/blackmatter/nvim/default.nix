@@ -19,7 +19,6 @@ let
     theming.enable = true;
     completion.enable = false;
     debugging.enable = false;
-    telescope.enable = false;
   };
 
   # end plugin groups
@@ -192,7 +191,6 @@ in
       ./groups/theming
       ./groups/debugging
       ./groups/treesitter
-      ./groups/telescope
 
       # end groups
 
