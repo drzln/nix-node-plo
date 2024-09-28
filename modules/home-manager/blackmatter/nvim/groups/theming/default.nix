@@ -21,16 +21,6 @@ in
 					{
 						shaunsingh."nord.nvim".enable = true;
 					};
-          # blackmatter.programs.nvim.plugins =
-          #   {
-          #     numToStr.Comment.enable = true;
-          #     jcdickinson."http.nvim".enable = false;
-          #     maaslalani.nordbuddy.enable = true;
-          #     nvim-lua.plenary.enable = true;
-          #     folke."which-key.nvim".enable = true;
-          #     folke."neodev.nvim".enable = true;
-          #     nathom.filetype.enable = true;
-          #   };
         }
       )
     ];
