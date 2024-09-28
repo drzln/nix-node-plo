@@ -15,7 +15,6 @@ let
   groups.toggles = {
     common.enable = true;
     lsp.enable = true;
-    treesitter.enable = true;
     theming.enable = true;
     completion.enable = false;
     debugging.enable = false;
@@ -190,7 +189,6 @@ in
       ./groups/completion
       ./groups/theming
       ./groups/debugging
-      ./groups/treesitter
 
       # end groups
 
