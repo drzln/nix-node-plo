@@ -19,6 +19,8 @@ function M.setup()
 	keymap('n', '<Leader>fh', '<Cmd>Telescope help_tags<CR>', opts)
 	keymap('n', '<Leader>gb', '<Cmd>Telescope git_branches<CR>', opts)
 	keymap('n', '<Leader>gc', '<Cmd>Telescope git_commits<CR>', opts)
+	keymap('n', '<Leader>gr', '<Cmd>Telescope lsp_references<CR>', opts)
+	keymap('n', '<Leader>gd', '<Cmd>Telescope lsp_definitions<CR>', opts)
 end
 
 return M
