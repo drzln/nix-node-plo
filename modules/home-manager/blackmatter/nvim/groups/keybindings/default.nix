@@ -2,7 +2,7 @@
 with lib;
 let
   cfg = config.blackmatter.programs.nvim.plugin.groups.keybindings;
-  common = import ../../../common;
+  common = import ../../common;
   configPath = "${common.baseConfigPath}/groups/keybindings.lua";
 in
 {
