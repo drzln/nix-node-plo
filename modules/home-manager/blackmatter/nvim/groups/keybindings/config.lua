@@ -22,6 +22,8 @@ function M.setup()
 	keymap('n', '<Leader>gr', '<Cmd>Telescope lsp_references<CR>', opts)
 	keymap('n', '<Leader>gd', '<Cmd>Telescope lsp_definitions<CR>', opts)
 	keymap('n', '<Leader>fc', '<Cmd>Telescope command_history<CR>', opts)
+	keymap('n', '<Leader>fk', '<Cmd>Telescope keymaps<CR>', opts)
+	keymap('n', '<Leader>fs', '<Cmd>Telescope search_history<CR>', opts)
 end
 
 return M
