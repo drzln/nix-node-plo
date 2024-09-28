@@ -266,7 +266,6 @@ in
       ./plugins/folke/noice.nvim
       ./plugins/f-person/git-blame.nvim
       ./plugins/numToStr/Navigator.nvim
-      ./plugins/shaunsingh/nord
       ./plugins/camspiers/lens
       ./plugins/LnL7/vim-nix
       ./plugins/cbochs/grapple.nvim

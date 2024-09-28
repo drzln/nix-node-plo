@@ -9,15 +9,9 @@ in
       enable = mkEnableOption "theming";
     };
 
-  # imports = [
-  #   ../../plugins/jcdickinson/http.nvim
-  #   ../../plugins/nvim-lua/plenary
-  #   ../../plugins/folke/which-key.nvim
-  #   ../../plugins/folke/neodev.nvim
-  #   ../../plugins/maaslalani/nordbuddy
-  #   ../../plugins/numToStr/Comment
-  #   ../../plugins/nathom/filetype
-  # ];
+  imports = [
+    ../../plugins/shaunsingh/nord.nvim
+  ];
 
   config =
     mkMerge [
