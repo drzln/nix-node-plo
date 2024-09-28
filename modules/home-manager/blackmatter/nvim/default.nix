@@ -138,10 +138,6 @@ let
 
       # KittyCAD
       "kcl-lang"."kcl.nvim".enable = false;
-
-
-      # this is a less compatible nord with tree-sitter
-      shaunsingh.nord.enable = false;
     } //
 
     # unfortunately macos has some sandbox issue

@@ -23,6 +23,7 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
+					shaunsingh."nord.nvim".enable = true;
           # blackmatter.programs.nvim.plugins =
           #   {
           #     numToStr.Comment.enable = true;
