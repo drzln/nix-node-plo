@@ -24,7 +24,7 @@ in
         {
           blackmatter.programs.nvim.plugins =
             {
-              nvim-telescope."telescope.nvim".enable = false;
+              nvim-telescope."telescope.nvim".enable = true;
               nvim-telescope."telescope-file-browser.nvim".enable = false;
               nvim-telescope."telescope-project.nvim".enable = false;
               nvim-telescope."telescope-dap.nvim".enable = false;
