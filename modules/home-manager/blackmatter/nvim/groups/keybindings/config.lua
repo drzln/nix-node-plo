@@ -17,6 +17,8 @@ function M.setup()
 	keymap('n', '<Leader>fg', '<Cmd>Telescope live_grep<CR>', opts)
 	keymap('n', '<Leader>fb', '<Cmd>Telescope buffers<CR>', opts)
 	keymap('n', '<Leader>fh', '<Cmd>Telescope help_tags<CR>', opts)
+	keymap('n', '<Leader>gb', '<Cmd>Telescope git_branches<CR>', opts)
+	keymap('n', '<Leader>gc', '<Cmd>Telescope git_commits<CR>', opts)
 end
 
 return M
