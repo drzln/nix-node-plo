@@ -12,6 +12,7 @@ in
   imports = [
     ../../groups/telescope
     ../../groups/treesitter
+    ../../groups/keybindings
     ../../plugins/jcdickinson/http.nvim
     ../../plugins/nvim-lua/plenary
     ../../plugins/folke/which-key.nvim
@@ -27,6 +28,7 @@ in
         {
 					blackmatter.programs.nvim.plugin.groups.telescope.enable = true;
 					blackmatter.programs.nvim.plugin.groups.treesitter.enable = true;
+					blackmatter.programs.nvim.plugin.groups.keybindings.enable = true;
           blackmatter.programs.nvim.plugins =
             {
               numToStr.Comment.enable = true;
