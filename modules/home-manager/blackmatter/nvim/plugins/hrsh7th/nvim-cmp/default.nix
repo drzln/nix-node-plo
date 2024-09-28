@@ -18,7 +18,7 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       home.file."${plugPath}".source =
-        builtins.fetchGit { inherit ref ref url;};
+        builtins.fetchGit { inherit ref rev url;};
       home.file."${configPath}".source = ./config.lua;
     })
   ];
