@@ -102,6 +102,7 @@
     rustcat
     rustc
     sops
+		gnupg
     age
     shfmt
     tealdeer
