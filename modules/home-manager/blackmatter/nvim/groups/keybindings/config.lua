@@ -21,6 +21,7 @@ function M.setup()
 	vim.keymap.set('n', '<Leader>fc', '<Cmd>Telescope command_history<CR>', opts)
 	vim.keymap.set('n', '<Leader>fk', '<Cmd>Telescope keymaps<CR>', opts)
 	vim.keymap.set('n', '<Leader>fs', '<Cmd>Telescope search_history<CR>', opts)
+	vim.keymap.set('n', '<Leader>fp', '<Cmd>Telescope projects<CR>', opts)
 
 	-- Map 'ff' to format the buffer in normal mode
 	vim.keymap.set('n', 'ff', vim.lsp.buf.format, opts)
