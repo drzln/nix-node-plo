@@ -74,7 +74,7 @@ in
 
   users.users.gab = {
     uid = 1002;
-  } // sudo users-common;
+  } // sudo-users-common;
 
   security.sudo.extraConfig = ''
     luis ALL=(ALL) NOPASSWD:ALL
