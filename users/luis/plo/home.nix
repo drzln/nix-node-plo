@@ -56,6 +56,11 @@
     bindsym XF86AudioLowerVolume exec amixer set Master 5%-
     bindsym XF86AudioMute exec amixer set Master toggle
   '';
-	programs.gpg.enable = true;
-	services.gpg-agent.enable = true;
+  programs.gpg.enable = true;
+  programs.gpg = {
+    settings = {
+      pinentry-program = "${pkgs.pinentry-curses}/bin/pinentry-curses";
+    };
+  };
+  services.gpg-agent.enable = true;
 }
