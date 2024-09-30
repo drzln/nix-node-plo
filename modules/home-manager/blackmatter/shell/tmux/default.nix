@@ -16,8 +16,7 @@ in
       programs = {
         tmux = {
           enable = true;
-          # terminal = "alacritty";
-          terminal = "screen-256color";
+          terminal = "xterm-kitty";
           aggressiveResize = false;
           baseIndex = 1;
           clock24 = false;
@@ -33,8 +32,6 @@ in
           resizeAmount = 1;
           secureSocket = false;
           sensibleOnTop = false;
-
-
           tmuxinator = {
             enable = false;
           };
