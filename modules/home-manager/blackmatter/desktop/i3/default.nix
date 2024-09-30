@@ -154,6 +154,9 @@ in
               for_window [class="^.*"] border pixel 0
               for_window [class="^.*"] gaps inner all
 
+							gaps inner 10
+							gaps outer 10
+
               # make the background nord color
               exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
 
