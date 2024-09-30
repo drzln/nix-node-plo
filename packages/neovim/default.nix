@@ -27,7 +27,7 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "neovim";
     repo = "neovim";
-    rev = "7e194f0d0c33a0a1b7ccfaf2baafdacf7f22fbb5";
+    rev = "20251be15a4ad3f6e7016450ca3338d52b2f0951";
     sha256 =
       if stdenv.isLinux then
         "sha256-OsHIacgorYnB/dPbzl1b6rYUzQdhTtsJYLsFLJxregk="  # Linux sha256
