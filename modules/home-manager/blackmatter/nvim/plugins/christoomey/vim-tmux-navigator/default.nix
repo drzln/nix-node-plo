@@ -6,7 +6,7 @@ let
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   # configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
-  ref = "main";
+  ref = "master";
   author = "christoomey";
   name = "vim-tmux-navigator";
   plugName = name;
