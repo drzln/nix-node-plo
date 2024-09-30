@@ -6,7 +6,6 @@
     ./background.nix
     ./hyprland.nix
     ./blackmatter.nix
-    ./gnupg
   ];
   home.stateVersion = "24.05";
   home.username = "luis";
