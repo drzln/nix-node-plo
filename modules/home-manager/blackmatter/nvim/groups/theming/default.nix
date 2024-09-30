@@ -12,7 +12,7 @@ in
   imports = [
     ../../plugins/shaunsingh/nord.nvim
     ../../plugins/nvim-lualine/lualine
-    ../../plugins/norcalli/colorizer.lua
+    ../../plugins/norcalli/nvim-colorizer.lua
   ];
 
   config =
