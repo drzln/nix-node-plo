@@ -19,6 +19,7 @@ in
     ../../plugins/folke/neodev.nvim
     ../../plugins/maaslalani/nordbuddy
     ../../plugins/numToStr/Comment
+    ../../plugins/ahmedkhalf/project.nvim
   ];
 
   config =
@@ -30,6 +31,7 @@ in
           blackmatter.programs.nvim.plugin.groups.keybindings.enable = true;
           blackmatter.programs.nvim.plugins =
             {
+              ahmedkhalf."project.nvim".enable = true;
               numToStr.Comment.enable = true;
               folke."neodev.nvim".enable = true;
               jcdickinson."http.nvim".enable = false;
