@@ -13,6 +13,7 @@ in
     ../../plugins/shaunsingh/nord.nvim
     ../../plugins/nvim-lualine/lualine
     ../../plugins/norcalli/nvim-colorizer.lua
+    ../../plugins/akinsho/bufferline.nvim
   ];
 
   config =
