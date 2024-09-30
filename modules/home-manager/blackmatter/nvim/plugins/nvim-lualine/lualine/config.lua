@@ -1,6 +1,6 @@
 local M = {}
 function M.setup()
-	require('lualine').setup {
+	require('lualine').setup({
 		options = {
 			theme = 'nord',
 			section_separators = { '', '' },
@@ -15,7 +15,7 @@ function M.setup()
 			lualine_y = { 'progress' },
 			lualine_z = { 'location' }
 		},
-	};
+	});
 end
 
 return M
