@@ -103,7 +103,7 @@
     rustc
     sops
 		gnupg
-		pinentry-all
+		pinentry-curses
     age
     shfmt
     tealdeer

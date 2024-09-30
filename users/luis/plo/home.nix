@@ -56,4 +56,6 @@
     bindsym XF86AudioLowerVolume exec amixer set Master 5%-
     bindsym XF86AudioMute exec amixer set Master toggle
   '';
+	programs.gpg.enable = true;
+	services.gpg-agent.enable = true;
 }
