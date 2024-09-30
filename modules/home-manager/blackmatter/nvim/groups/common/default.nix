@@ -19,7 +19,6 @@ in
     ../../plugins/folke/neodev.nvim
     ../../plugins/maaslalani/nordbuddy
     ../../plugins/numToStr/Comment
-    ../../plugins/nathom/filetype
   ];
 
   config =
