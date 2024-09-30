@@ -25,11 +25,12 @@ let
 
   plugins.toggles =
     {
+      nvim-lualine.lualine.enable = true;
+
       jpmcb."nvim-llama".enable = false;
       # enabled plugins
       NvChad."nvim-colorizer.lua".enable = false;
       jay-babu."mason-null-ls.nvim".enable = false;
-      nvim-lualine.lualine.enable = false;
       # tree-sitter for nix is bugged with OOM
       LnL7.vim-nix.enable = false;
       simrat39."rust-tools.nvim".enable = false;
