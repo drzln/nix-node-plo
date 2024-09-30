@@ -26,6 +26,7 @@ let
   plugins.toggles =
     {
       nvim-lualine.lualine.enable = true;
+      norcalli."nvim-colorizer.lua".enable = true;
 
       jpmcb."nvim-llama".enable = false;
       # enabled plugins
@@ -93,7 +94,6 @@ let
       bennypowers.nvim-regexplainer.enable = false;
       cuducos."yaml.nvim".enable = false;
       cbochs."grapple.nvim".enable = false;
-      norcalli."nvim-colorizer.lua".enable = false;
       akinsho."git-conflict.nvim".enable = false;
       jose-elias-alvarez."typescript.nvim".enable = false;
       simrat39."symbols-outline.nvim".enable = false;
