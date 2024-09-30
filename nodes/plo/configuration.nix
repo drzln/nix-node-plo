@@ -1,11 +1,6 @@
 { config, pkgs, requirements, ... }:
 let
   pkgs-unstable = requirements.inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
-{
-  system.stateVersion = "24.05";
-
-  # common settings for our sudo users
   sudo-users-common =
     {
       shell = pkgs.zsh;
@@ -24,7 +19,9 @@ in
         home-manager
       ];
     };
-
+in
+{
+  system.stateVersion = "24.05";
 
   imports = [
     ./boot.nix
