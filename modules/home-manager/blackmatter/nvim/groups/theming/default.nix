@@ -11,16 +11,20 @@ in
 
   imports = [
     ../../plugins/shaunsingh/nord.nvim
+    ../../plugins/nvim-lualine/lualine
+    ../../plugins/norcalli/colorizer.lua
   ];
 
   config =
     mkMerge [
       (mkIf cfg.enable
         {
-					blackmatter.programs.nvim.plugins =
-					{
-						shaunsingh."nord.nvim".enable = true;
-					};
+          blackmatter.programs.nvim.plugins =
+            {
+              shaunsingh."nord.nvim".enable = true;
+              nvim-lualine.lualine.enable = true;
+              norcalli."nvim-colorizer.lua".enable = true;
+            };
         }
       )
     ];

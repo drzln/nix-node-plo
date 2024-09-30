@@ -25,9 +25,6 @@ let
 
   plugins.toggles =
     {
-      nvim-lualine.lualine.enable = true;
-      norcalli."nvim-colorizer.lua".enable = true;
-
       jpmcb."nvim-llama".enable = false;
       # enabled plugins
       NvChad."nvim-colorizer.lua".enable = false;
@@ -208,7 +205,6 @@ in
       ./plugins/leoluz/nvim-dap-go
       ./plugins/mfussenegger/nvim-dap-python
       ./plugins/NvChad/nvim-colorizer.lua
-      ./plugins/nvim-lualine/lualine
       ./plugins/svermeulen/vimpeccable
       ./plugins/tjdevries/vlog.nvim
       ./plugins/someone-stole-my-name/yaml-companion.nvim
@@ -240,7 +236,6 @@ in
       ./plugins/t3rro/nvim-ts-rainbow
       ./plugins/wellle/targets.vim
       ./plugins/amrbashir/nvim-docs-view
-      ./plugins/norcalli/nvim-colorizer.lua
       ./plugins/nfrid/markdown-togglecheck
       ./plugins/jose-elias-alvarez/typescript.nvim
       ./plugins/akinsho/git-conflict.nvim
