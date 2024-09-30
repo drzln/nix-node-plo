@@ -131,6 +131,7 @@ in
         windowManager = {
           i3 = {
             enable = true;
+						package = pkgs.i3-gaps;
             config = {
               window.border = 0;
               fonts = { 
