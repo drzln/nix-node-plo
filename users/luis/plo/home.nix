@@ -10,6 +10,9 @@
   home.stateVersion = "24.05";
   home.username = "luis";
   home.homeDirectory = "/home/luis";
+  home.sessionVariables = {
+    GPG_TTY = "${pkgs.util-linux}/bin/tty";
+  };
   xsession.enable = true;
   xsession.windowManager.i3.enable = true;
   xsession.windowManager.i3.extraConfig = ''
