@@ -34,7 +34,6 @@ in
               numToStr.Comment.enable = true;
               folke."neodev.nvim".enable = true;
               jcdickinson."http.nvim".enable = false;
-              nathom.filetype.enable = true;
               nvim-lua.plenary.enable = true;
 
               folke."which-key.nvim".enable = false;
