@@ -17,7 +17,7 @@ in
     ../../plugins/nvim-lua/plenary
     ../../plugins/folke/which-key.nvim
     ../../plugins/folke/neodev.nvim
-    ../../plugins/maaslalani/nordbuddy
+    # ../../plugins/maaslalani/nordbuddy
     ../../plugins/numToStr/Comment
     ../../plugins/ahmedkhalf/project.nvim
   ];
@@ -38,7 +38,7 @@ in
               nvim-lua.plenary.enable = true;
 
               folke."which-key.nvim".enable = false;
-              maaslalani.nordbuddy.enable = false;
+              # maaslalani.nordbuddy.enable = false;
             };
         }
       )
