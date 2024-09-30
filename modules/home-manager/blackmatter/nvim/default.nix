@@ -16,6 +16,7 @@ let
     common.enable = true;
     lsp.enable = true;
     theming.enable = true;
+    tmux.enable = true;
     completion.enable = false;
     debugging.enable = false;
   };
@@ -189,6 +190,7 @@ in
       ./groups/completion
       ./groups/theming
       ./groups/debugging
+      ./groups/tmux
 
       # end groups
 
