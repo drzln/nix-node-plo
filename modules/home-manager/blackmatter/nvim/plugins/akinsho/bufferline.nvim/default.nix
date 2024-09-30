@@ -20,6 +20,7 @@ in
     (mkIf cfg.enable {
       home.file."${plugPath}".source =
         builtins.fetchGit { inherit ref rev url; };
+      home.file."${configPath}".source = ./config.lua;
     })
   ];
 }
