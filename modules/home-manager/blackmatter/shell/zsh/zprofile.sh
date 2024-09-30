@@ -15,27 +15,27 @@ export PATH=/usr/local/opt/openjdk/bin:$PATH
 export PATH=~/bin:$PATH
 
 function load_shellz_mod() {
-  [ -d ~/.config/shellz/"$1" ] && source ~/.config/shellz/$1/main.sh
+	[ -d ~/.config/shellz/"$1" ] && source ~/.config/shellz/$1/main.sh
 }
 
 declare -a shellz_mods=(
-  direnv
-  path
-  xdg
-  nix
-  tmux
-  zstyle
-  completions
-  ssh_agent
+	direnv
+	path
+	xdg
+	nix
+	tmux
+	zstyle
+	completions
+	ssh_agent
 )
 
 for m in "${shellz_mods[@]}"; do
-  load_shellz_mod $m
+	load_shellz_mod $m
 done
 
 # load gh token from sops-nix location if exists
 [ -e ~/.config/gh/env/GH_TOKEN ] &&
-  export GH_TOKEN=$(cat ~/.config/gh/env/GH_TOKEN)
+	export GH_TOKEN=$(cat ~/.config/gh/env/GH_TOKEN)
 
 # some aliases
 alias grep=rg
@@ -105,3 +105,7 @@ export PATH=$ANDROID_HOME/emulator:$PATH
 
 # set EDITOR
 export EDITOR=nvim
+
+# set gpg-agent stuff
+export GPG_TTY
+GPG_TTY=$(tty)
