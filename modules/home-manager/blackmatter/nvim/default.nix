@@ -30,7 +30,6 @@ let
       NvChad."nvim-colorizer.lua".enable = false;
       jay-babu."mason-null-ls.nvim".enable = false;
       nvim-lualine.lualine.enable = false;
-      nvim-tree.nvim-web-devicons.enable = false;
       # tree-sitter for nix is bugged with OOM
       LnL7.vim-nix.enable = false;
       simrat39."rust-tools.nvim".enable = false;
@@ -241,7 +240,6 @@ in
       ./plugins/wellle/targets.vim
       ./plugins/amrbashir/nvim-docs-view
       ./plugins/norcalli/nvim-colorizer.lua
-      ./plugins/nvim-tree/nvim-web-devicons
       ./plugins/nfrid/markdown-togglecheck
       ./plugins/jose-elias-alvarez/typescript.nvim
       ./plugins/akinsho/git-conflict.nvim

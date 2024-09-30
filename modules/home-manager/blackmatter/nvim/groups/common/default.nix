@@ -17,9 +17,9 @@ in
     ../../plugins/nvim-lua/plenary
     ../../plugins/folke/which-key.nvim
     ../../plugins/folke/neodev.nvim
-    # ../../plugins/maaslalani/nordbuddy
     ../../plugins/numToStr/Comment
     ../../plugins/ahmedkhalf/project.nvim
+    ../../plugins/nvim-tree/nvim-web-devicons
   ];
 
   config =
@@ -32,13 +32,13 @@ in
           blackmatter.programs.nvim.plugins =
             {
               ahmedkhalf."project.nvim".enable = true;
+              nvim-tree.nvim-web-devicons.enable = true;
               numToStr.Comment.enable = true;
               folke."neodev.nvim".enable = true;
               jcdickinson."http.nvim".enable = false;
               nvim-lua.plenary.enable = true;
 
               folke."which-key.nvim".enable = false;
-              # maaslalani.nordbuddy.enable = false;
             };
         }
       )
