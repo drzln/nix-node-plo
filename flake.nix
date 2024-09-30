@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    sops-nix.url = "github:Mic92/sops-nix";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -25,7 +26,17 @@
     };
   };
 
-  outputs = { self, flake-utils, nixpkgs, home-manager, nix-darwin, hyprland, stylix, ... }@inputs:
+  outputs =
+    { self
+    , flake-utils
+    , nixpkgs
+    , home-manager
+    , nix-darwin
+    , hyprland
+    , stylix
+    , sops-nix
+    , ...
+    }@inputs:
     let
       inherit (self) outputs;
       overlays = import ./overlays/default.nix;
@@ -89,6 +100,7 @@
             /etc/nixos/configuration.nix
             ./nodes/plo
             home-manager.nixosModules.home-manager
+            sops-nix.nixosModules.sops
           ];
         };
       };
