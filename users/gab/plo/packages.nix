@@ -1,5 +1,9 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    autorandr
+    i3status
+    dmenu
+    rxvt_unicode
     git
     git-remote-gcrypt
     android-tools
@@ -98,6 +102,8 @@
     rustcat
     rustc
     sops
+		gnupg
+		pinentry-curses
     age
     shfmt
     tealdeer
@@ -136,6 +142,8 @@
     _1password-gui
     google-chrome
     beekeeper-studio
+    gpauth
+    gpclient
     gp-saml-gui
     openconnect
     (pkgs.stdenv.mkDerivation {
@@ -147,7 +155,7 @@
         sudo openconnect --protocol=gp --mtu=1200 pan.corp.pinger.com
       '';
 
-      phases = ["installPhase"];
+      phases = [ "installPhase" ];
 
       installPhase = ''
         mkdir -p $out/bin
