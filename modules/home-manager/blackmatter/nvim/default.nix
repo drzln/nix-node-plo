@@ -13,10 +13,10 @@ let
   #############################################################################
 
   groups.toggles = {
-    common.enable = true;
-    lsp.enable = true;
-    theming.enable = true;
-    tmux.enable = true;
+    common.enable = false;
+    lsp.enable = false;
+    theming.enable = false;
+    tmux.enable = false;
     completion.enable = false;
     debugging.enable = false;
   };
