@@ -77,6 +77,7 @@ in
   security.sudo.extraConfig = ''
     luis ALL=(ALL) NOPASSWD:ALL
     gab ALL=(ALL) NOPASSWD:ALL
+    gaby ALL=(ALL) NOPASSWD:ALL
   '';
 
   nixpkgs.config.allowUnfree = true;
