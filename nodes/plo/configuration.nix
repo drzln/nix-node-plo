@@ -5,7 +5,6 @@ let
     {
       shell = pkgs.zsh;
       isNormalUser = true;
-      description = "a sudo user";
       extraGroups = [
         "networkmanager"
         "wheel"
@@ -67,10 +66,12 @@ in
 
   users.users.luis = {
     uid = 1001;
+    description = "luis";
   } // sudo-users-common;
 
   users.users.gab = {
     uid = 1002;
+    description = "gab";
   } // sudo-users-common;
 
   security.sudo.extraConfig = ''
