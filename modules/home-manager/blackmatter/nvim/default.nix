@@ -16,7 +16,7 @@ let
     common.enable = true;
     lsp.enable = true;
     theming.enable = true;
-    tmux.enable = false;
+    tmux.enable = true;
     completion.enable = false;
     debugging.enable = false;
   };
