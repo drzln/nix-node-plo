@@ -90,6 +90,14 @@
             ./users/gab/plo
           ];
         };
+
+        "gaby@plo" = home-manager.lib.homeManagerConfiguration {
+          inherit extraSpecialArgs;
+          pkgs = linux-pkgs;
+          modules = [
+            ./users/gaby/plo
+          ];
+        };
       };
 
       nixosConfigurations = {
