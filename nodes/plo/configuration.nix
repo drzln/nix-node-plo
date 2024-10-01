@@ -74,6 +74,12 @@ in
     description = "gab";
   } // sudo-users-common;
 
+  users.users.gaby = {
+    uid = 1003;
+    description = "gaby";
+  } // sudo-users-common;
+
+
   security.sudo.extraConfig = ''
     luis ALL=(ALL) NOPASSWD:ALL
     gab ALL=(ALL) NOPASSWD:ALL

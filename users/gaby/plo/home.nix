@@ -8,8 +8,8 @@
     ./blackmatter.nix
   ];
   home.stateVersion = "24.05";
-  home.username = "gab";
-  home.homeDirectory = "/home/gab";
+  home.username = "gaby";
+  home.homeDirectory = "/home/gaby";
   home.sessionVariables = {
     GPG_TTY = "${pkgs.util-linux}/bin/tty";
   };

@@ -7,7 +7,7 @@
   blackmatter.shell.enable = true;
   blackmatter.gitconfig.enable = true;
   blackmatter.gitconfig.email = "gab@pleme.io";
-  blackmatter.gitconfig.user = "gab";
+  blackmatter.gitconfig.user = "gaby";
   blackmatter.desktop.enable = true;
   blackmatter.desktop.monitors = {
     main = {
