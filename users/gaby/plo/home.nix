@@ -59,11 +59,11 @@
   #   bindsym XF86AudioLowerVolume exec amixer set Master 5%-
   #   bindsym XF86AudioMute exec amixer set Master toggle
   # '';
-  # programs.gpg.enable = true;
-  # services.gpg-agent.enable = true;
-  # services.gpg-agent.pinentryPackage = pkgs.pinentry-curses;
-  # services.gpg-agent.extraConfig = ''
-  #   default-cache-ttl 600
-  #   max-cache-ttl 7200
-  # '';
+  programs.gpg.enable = true;
+  services.gpg-agent.enable = true;
+  services.gpg-agent.pinentryPackage = pkgs.pinentry-curses;
+  services.gpg-agent.extraConfig = ''
+    default-cache-ttl 600
+    max-cache-ttl 7200
+  '';
 }
