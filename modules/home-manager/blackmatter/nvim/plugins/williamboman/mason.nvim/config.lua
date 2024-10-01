@@ -9,6 +9,7 @@ function M.setup()
 
   local exclude_servers = {
     "custom_elements_ls",
+    "pkgbuild_language_server",
     "nil_ls",
     "sorbet",
     "sourcery",
