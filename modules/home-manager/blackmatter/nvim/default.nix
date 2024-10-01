@@ -14,7 +14,7 @@ let
 
   groups.toggles = {
     common.enable = true;
-    lsp.enable = false;
+    lsp.enable = true;
     theming.enable = false;
     tmux.enable = false;
     completion.enable = false;
