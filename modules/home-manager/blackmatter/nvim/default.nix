@@ -13,7 +13,7 @@ let
   #############################################################################
 
   groups.toggles = {
-    common.enable = false;
+    common.enable = true;
     lsp.enable = false;
     theming.enable = false;
     tmux.enable = false;
