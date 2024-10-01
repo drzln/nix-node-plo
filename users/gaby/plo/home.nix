@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   imports = [
-    # ./programs.nix
-    # ./packages.nix
-    # ./background.nix
-    # ./hyprland.nix
+    ./programs.nix
+    ./packages.nix
+    ./background.nix
+    ./hyprland.nix
     # ./blackmatter.nix
   ];
   home.stateVersion = "24.05";
