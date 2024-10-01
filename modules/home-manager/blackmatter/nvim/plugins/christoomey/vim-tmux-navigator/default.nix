@@ -6,10 +6,10 @@ let
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   # configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
-  ref = "master";
   author = "christoomey";
   name = "vim-tmux-navigator";
   plugName = name;
+  ref = "master";
   rev = import ./rev.nix;
 in
 {
