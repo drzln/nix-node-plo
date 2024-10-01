@@ -1,14 +1,13 @@
 { lib, config, ... }:
 with lib;
 let
+	cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
   common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
-  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
-	author = "hrsh7th";
+  author = "hrsh7th";
 	name = "nvim-cmp";
-	plugName = name;
-  url = "${common.baseRepoUrl}/${author}/${name}";
   ref = "main";
   rev = import ./rev.nix;
 in
