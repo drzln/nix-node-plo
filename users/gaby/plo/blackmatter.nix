@@ -2,13 +2,13 @@
   imports = [
     requirements.outputs.homeManagerModules.blackmatter
   ];
-  blackmatter.programs.nvim.enable = true;
+  blackmatter.programs.nvim.enable = false;
   blackmatter.programs.nvim.package = pkgs.neovim_drzln;
-  blackmatter.shell.enable = true;
-  blackmatter.gitconfig.enable = true;
+  blackmatter.shell.enable = false;
+  blackmatter.gitconfig.enable = false;
   blackmatter.gitconfig.email = "gab@pleme.io";
   blackmatter.gitconfig.user = "gaby";
-  blackmatter.desktop.enable = true;
+  blackmatter.desktop.enable = false;
   blackmatter.desktop.monitors = {
     main = {
       name = "DP-2";      # Secondary monitor output name
