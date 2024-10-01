@@ -5,7 +5,7 @@
     ./packages.nix
     ./background.nix
     ./hyprland.nix
-    # ./blackmatter.nix
+    ./blackmatter.nix
   ];
   home.stateVersion = "24.05";
   home.username = "gaby";
