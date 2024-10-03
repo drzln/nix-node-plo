@@ -1,20 +1,25 @@
 { lib, config, ... }:
 with lib;
 let
-  nv = config.blackmatter.programs.nvim;
-  cfg = nv.plugins.numToStr.Comment;
+	cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "numToStr";
+  name = "Comment.nvim";
+	plugName = "Comment";
+  ref = "master";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.numToStr.Comment.enable = mkEnableOption "numToStr/Comment";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      home.file.".local/share/nvim/site/pack/numToStr/start/Comment.nvim".source =
-        builtins.fetchGit {
-          url = "https://github.com/numToStr/Comment.nvim";
-          ref = "master";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
     })
   ];
 }
