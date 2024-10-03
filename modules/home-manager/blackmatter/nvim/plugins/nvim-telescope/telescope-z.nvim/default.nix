@@ -1,20 +1,25 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.nvim-telescope."telescope-z.nvim";
+	cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "nvim-telescope";
+  name = "telescope-z.nvim";
+	plugName = "telescope-z";
+  ref = "main";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.nvim-telescope."telescope-z.nvim".enable =
-    mkEnableOption "nvim-telescope/telescope-z.nvim";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      home.file.".local/share/nvim/site/pack/nvim-telescope/start/telescope-z.nvim".source =
-        builtins.fetchGit {
-          url = "https://github.com/nvim-telescope/telescope-z.nvim";
-          ref = "main";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
     })
   ];
 }

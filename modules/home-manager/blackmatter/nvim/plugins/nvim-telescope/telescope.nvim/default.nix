@@ -2,15 +2,15 @@
 with lib;
 let
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
-  url = "${common.baseRepoUrl}/${author}/${name}";
   common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
-  rev = import ./rev.nix;
-  ref = "master";
   author = "nvim-telescope";
   name = "telescope.nvim";
   plugName = "telescope";
+  ref = "master";
+  rev = import ./rev.nix;
 in
 {
   options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
