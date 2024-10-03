@@ -39,9 +39,8 @@
     }@inputs:
     let
       inherit (self) outputs;
-      overlays = import ./overlays/default.nix ++ [
-        sops-nix.overlays
-      ];
+      overlays = import ./overlays/default.nix
+        ++ builtins.attrValues sops-nix.overlays;
       requirements = { inherit inputs outputs; };
       specialArgs = { inherit requirements; };
       extraSpecialArgs = specialArgs;
