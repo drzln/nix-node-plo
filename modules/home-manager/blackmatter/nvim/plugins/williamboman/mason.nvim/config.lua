@@ -8,6 +8,9 @@ function M.setup()
   local available_servers = mason_lspconfig.get_available_servers()
 
   local exclude_servers = {
+    "efm",
+    "diagnostic_ls",
+    "tflint",
     "remark_ls",
     "marksman",
     "prosemd_lsp",
