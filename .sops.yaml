@@ -1,5 +1,3 @@
 creation_rules:
-  - path_regex: secrets/luis/.aws/config
-    pgp: 6F7E7A535A92FF75B4492B233B2E5A1B7358B60A
-  - path_regex: .*\.yaml
+  - path_regex: secrets/default.yaml
     pgp: 6F7E7A535A92FF75B4492B233B2E5A1B7358B60A
