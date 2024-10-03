@@ -39,7 +39,9 @@
     }@inputs:
     let
       inherit (self) outputs;
-      overlays = import ./overlays/default.nix;
+      overlays = import ./overlays/default.nix ++ [
+        sops-nix.overlay
+      ];
       requirements = { inherit inputs outputs; };
       specialArgs = { inherit requirements; };
       extraSpecialArgs = specialArgs;
@@ -79,6 +81,7 @@
           inherit extraSpecialArgs;
           pkgs = linux-pkgs;
           modules = [
+            sops-nix.homeManagerModules.sops
             ./users/luis/plo
           ];
         };
@@ -87,6 +90,7 @@
           inherit extraSpecialArgs;
           pkgs = linux-pkgs;
           modules = [
+            sops-nix.homeManagerModules.sops
             ./users/gab/plo
           ];
         };
