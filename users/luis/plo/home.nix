@@ -7,6 +7,7 @@
     ./hyprland.nix
     ./blackmatter.nix
     ./secrets
+    ./shadeflakes
   ];
   home.stateVersion = "24.05";
   home.username = "luis";
