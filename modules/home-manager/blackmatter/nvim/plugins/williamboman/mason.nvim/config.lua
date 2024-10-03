@@ -9,6 +9,7 @@ function M.setup()
 
   local exclude_servers = {
     "remark_ls",
+    "vale_ls",
     "grammarly",
     "custom_elements_ls",
     "pkgbuild_language_server",
