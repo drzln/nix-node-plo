@@ -40,7 +40,7 @@
     let
       inherit (self) outputs;
       overlays = import ./overlays/default.nix ++ [
-        sops-nix.overlay
+        sops-nix.overlays
       ];
       requirements = { inherit inputs outputs; };
       specialArgs = { inherit requirements; };
