@@ -9,6 +9,8 @@ function M.setup()
 
   local exclude_servers = {
     "remark_ls",
+    "marksman",
+    "prosemd_lsp",
     "vale_ls",
     "grammarly",
     "custom_elements_ls",
