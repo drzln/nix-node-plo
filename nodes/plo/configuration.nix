@@ -95,6 +95,7 @@ in
     vim
     wget
     git
+		bash
     fontconfig
   ];
 
