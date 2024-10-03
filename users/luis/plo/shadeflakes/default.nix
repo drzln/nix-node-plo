@@ -9,10 +9,6 @@
   };
 
   home.file."code/codecommit/.envrc" = {
-    text = ''
-			rm -rf flake.nix
-      [ ! -f flake.nix ] && cat shadeflake.nix > flake.nix
-      use flake
-    '';
+    source = ./code/codecommit/.envrc;
   };
 }
