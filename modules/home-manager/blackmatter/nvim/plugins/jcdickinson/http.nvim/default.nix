@@ -2,14 +2,17 @@
 { lib, config, pkgs, inputs, ... }:
 with lib;
 let
+	cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  # configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "jcdickinson";
   name = "http.nvim";
-  url = "https://github.com/${author}/${name}";
+  plugName = "http";
   ref = "main";
   rev = import ./rev.nix;
-  plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
-  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
-  src = builtins.fetchGit { inherit ref rev url; };
+
   pkg = pkgs.rustPlatform.buildRustPackage rec {
     pname = name;
     inherit src;
@@ -27,6 +30,7 @@ let
     cargoSha256 = "sha256-nvOjnjuwm2x487JAaQlngooQUquue4bKr8hnHEeD3Js=";
 
   };
+
 
 in
 {

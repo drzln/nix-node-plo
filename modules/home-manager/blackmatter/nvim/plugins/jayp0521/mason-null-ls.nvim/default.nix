@@ -5,8 +5,10 @@ let
   common = import ../../../common;
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "jayp0521";
   name = "mason-null-ls.nvim";
+  plugName = "mason-null-ls";
   ref = "main";
   rev = import ./rev.nix;
 in
