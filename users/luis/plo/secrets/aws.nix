@@ -1,11 +1,12 @@
 { config, ... }: {
-  sops = {
-    secrets = {
-      awsConfig = {
-        sopsFile = ../../../../secrets/luis/.aws/config;
-      };
-    };
-  };
+  # sops = {
+  #   secrets = {
+  #     awsConfig = {
+  #       sopsFile = ../../../../secrets/luis/.aws/config;
+  # 		format = "json";
+  #     };
+  #   };
+  # };
 
   # home.file.".aws/config" = {
   #   text = config.sops.secrets.awsConfig;
