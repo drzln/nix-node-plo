@@ -1,14 +1,14 @@
 { lib, ... }: {
   home.activation.createCodeCommitDir = lib.mkAfter ''
-    		mkdir -p $HOME/code/codecommit
-    		chmod 700 $HOME/code/codecommit
+    		mkdir -p $HOME/code/codecommit/pinger
+    		chmod 700 $HOME/code/codecommit/pinger
     	'';
 
-  home.file."code/codecommit/shadeflake.nix" = {
-    source = ./code/codecommit/flake.nix;
+  home.file."code/codecommit/pinger/shadeflake.nix" = {
+    source = ./code/codecommit/pinger/flake.nix;
   };
 
-  home.file."code/codecommit/.envrc" = {
-    source = ./code/codecommit/.envrc;
+  home.file."code/codecommit/pinger/.envrc" = {
+    source = ./code/codecommit/pinger/.envrc.default;
   };
 }
