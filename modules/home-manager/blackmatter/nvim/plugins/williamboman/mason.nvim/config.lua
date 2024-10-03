@@ -9,7 +9,7 @@ function M.setup()
 
   local exclude_servers = {
     "efm",
-    "diagnostic_ls",
+    "diagnosticls",
     "tflint",
     "remark_ls",
     "marksman",
