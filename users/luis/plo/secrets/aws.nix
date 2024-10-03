@@ -9,6 +9,6 @@
 
   home.file.".aws/config" = {
     text = config.sops.secrets.awsConfig;
-    permissions = "0600";
+    # permissions = "0600";
   };
 }
