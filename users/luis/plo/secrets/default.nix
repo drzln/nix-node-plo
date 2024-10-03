@@ -4,5 +4,5 @@
   ];
 
   sops.gnupg.home = "/home/luis/.gnupg";
-  sops.gnupg.sskKeyPaths = [ ];
+  sops.gnupg.sshKeyPaths = [ ];
 }
