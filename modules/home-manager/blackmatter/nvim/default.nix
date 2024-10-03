@@ -14,7 +14,7 @@ let
 
   groups.toggles = {
     common.enable = true;
-		languages.enable = true;
+    languages.enable = true;
     lsp.enable = true;
     theming.enable = true;
     tmux.enable = true;
@@ -335,22 +335,22 @@ in
     (mkIf cfg.enable {
       home.packages = [ cfg.package ];
 
-			# place some lua programming that calls plugins
-			# that you place in the correct spot.
+      # place some lua programming that calls plugins
+      # that you place in the correct spot.
       xdg.configFile."nvim/init.lua".source = ./conf/init.lua;
       xdg.configFile."nvim/lua/plugins/init.lua".source = ./conf/lua/plugins/init.lua;
       xdg.configFile."nvim/lua/utils".source = ./conf/lua/utils;
       xdg.configFile."nvim/lua/lsp".source = ./conf/lua/lsp;
 
-			# this is where you can drop lua code that executes after
-			# plugins load.
+      # this is where you can drop lua code that executes after
+      # plugins load.
       xdg.configFile."nvim/after".source = ./conf/after;
 
       blackmatter = {
         programs = {
           nvim = {
             plugins = plugins.toggles;
-						plugin.groups = groups.toggles;
+            plugin.groups = groups.toggles;
           };
         };
       };
