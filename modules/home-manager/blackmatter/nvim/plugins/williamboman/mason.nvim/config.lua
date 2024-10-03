@@ -8,6 +8,8 @@ function M.setup()
   local available_servers = mason_lspconfig.get_available_servers()
 
   local exclude_servers = {
+    "remark_ls",
+    "grammarly",
     "custom_elements_ls",
     "pkgbuild_language_server",
     "nil_ls",
