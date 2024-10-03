@@ -109,3 +109,5 @@ export EDITOR=nvim
 # set gpg-agent stuff
 export GPG_TTY
 GPG_TTY=$(tty)
+
+export AWS_PROFILE=pinger-organization
