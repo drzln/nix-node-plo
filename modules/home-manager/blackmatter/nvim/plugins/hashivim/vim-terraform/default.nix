@@ -21,7 +21,8 @@ in
       home.file."${plugPath}".source =
         builtins.fetchGit { inherit ref rev url; };
 
-      home.file."${configPath}".source = ./config.lua;
+			# configure if you wanna
+      # home.file."${configPath}".source = ./config.lua;
     })
   ];
 }
