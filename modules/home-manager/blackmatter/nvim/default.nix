@@ -14,6 +14,7 @@ let
 
   groups.toggles = {
     common.enable = true;
+		languages.enable = true;
     lsp.enable = true;
     theming.enable = true;
     tmux.enable = true;
@@ -184,6 +185,7 @@ in
 
       ./groups/common
       ./groups/lsp
+      ./groups/languages
       ./groups/completion
       ./groups/theming
       ./groups/debugging
