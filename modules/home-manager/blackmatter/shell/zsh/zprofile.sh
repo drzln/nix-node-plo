@@ -34,8 +34,8 @@ for m in "${shellz_mods[@]}"; do
 done
 
 # load gh token from sops-nix location if exists
-[ -e ~/.config/gh/env/GH_TOKEN ] &&
-	export GH_TOKEN=$(cat ~/.config/gh/env/GH_TOKEN)
+# [ -e ~/.config/gh/env/GH_TOKEN ] &&
+# 	export GH_TOKEN=$(cat ~/.config/gh/env/GH_TOKEN)
 
 # some aliases
 alias grep=rg
@@ -90,13 +90,13 @@ export PATH="/usr/local/opt/libiconv/bin:$PATH"
 [ -d ~/.rbenv/bin ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 # load NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # load YVM
-export YVM_DIR=/usr/local/opt/yvm
-[ -r "$YVM_DIR/yvm.sh" ] && . "$YVM_DIR/yvm.sh"
+# export YVM_DIR=/usr/local/opt/yvm
+# [ -r "$YVM_DIR/yvm.sh" ] && . "$YVM_DIR/yvm.sh"
 
 # android
 export ANDROID_HOME=$HOME/Library/Android/sdk
