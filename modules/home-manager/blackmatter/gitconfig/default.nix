@@ -27,11 +27,22 @@ in
         	email = ${cfg.email}
         	name = ${cfg.user}
 
+				[init]
+					defaultBranch = main
+
+				[push]
+					default = simple
+
+				[branch "main"]
+					remote = origin
+					merge = refs/head/main
+
         [merge]
         	default = merge
 
         [core]
         	pager = delta --dark --line-numbers
+					editor = nvim
 
         [delta]
         	side-by-side = true
