@@ -32,6 +32,7 @@ in
     ./displayManager.nix
     ./virtualisation.nix
     ./bluetooth.nix
+    ./sound.nix
   ];
 
   networking.networkmanager.enable = true;
@@ -95,7 +96,7 @@ in
     vim
     wget
     git
-		bash
+    bash
     fontconfig
   ];
 
@@ -113,7 +114,6 @@ in
   services.printing.enable = false;
   services.hardware.bolt.enable = false;
   services.nfs.server.enable = false;
-  services.pipewire.enable = true;
 
   security.rtkit.enable = true;
 
