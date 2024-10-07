@@ -9,9 +9,9 @@ function M.setup()
 		}),
 		nls.builtins.formatting.black,
 		nls.builtins.formatting.prettier,
-		nls.builtins.formatting.prettier.with({
-			filetypes = { "xml", "html", "xhtml", "js", "tsx", "json", "yaml", "yml" },
-		}),
+		-- nls.builtins.formatting.prettier.with({
+		-- 	filetypes = { "xml", "html", "xhtml", "js", "tsx", "json", "yaml", "yml" },
+		-- }),
 		-- commenting out rubocop so solargraph can take over
 		-- nls.builtins.formatting.rubocop,
 		nls.builtins.code_actions.gitsigns,
