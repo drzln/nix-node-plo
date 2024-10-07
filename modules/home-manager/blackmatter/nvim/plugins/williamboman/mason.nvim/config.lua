@@ -9,7 +9,7 @@ function M.setup()
 
 	local exclude_servers = {
 		"efm",
-		"yammls",
+		"rome",
 		"diagnosticls",
 		"spectral",
 		"azure_pipelines_ls",
