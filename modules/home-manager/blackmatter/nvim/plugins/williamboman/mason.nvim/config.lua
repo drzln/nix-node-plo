@@ -10,6 +10,8 @@ function M.setup()
   local exclude_servers = {
     "efm",
     "diagnosticls",
+    "spectral",
+    "azure_pipeline_ls",
     "tflint",
     "remark_ls",
     "marksman",
