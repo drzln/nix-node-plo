@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 with lib;
 let
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
@@ -18,6 +18,8 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
+      # install some dependencies for null-ls for our config
+      home.packages = [ pkgs.nodePackages.prettier ];
       # handles some linting and formatting
       home.file."${plugPath}".source =
         builtins.fetchGit { inherit ref rev url; };
