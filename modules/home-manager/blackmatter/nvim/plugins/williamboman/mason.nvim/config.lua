@@ -11,7 +11,7 @@ function M.setup()
     "efm",
     "diagnosticls",
     "spectral",
-    "azure_pipeline_ls",
+    "azure_pipelines_ls",
     "tflint",
     "remark_ls",
     "marksman",
