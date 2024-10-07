@@ -11,6 +11,7 @@ in
 
   imports = [
     ../../plugins/nvim-treesitter/nvim-treesitter
+    ../../plugins/nvim-treesitter/nvim-treesitter-context
     ../../plugins/nvim-treesitter/nvim-treesitter-refactor
     ../../plugins/nvim-treesitter/nvim-treesitter-textobjects
   ];
@@ -22,6 +23,7 @@ in
           blackmatter.programs.nvim.plugins =
             {
               nvim-treesitter.nvim-treesitter.enable = true;
+              nvim-treesitter.nvim-treesitter-context.enable = true;
               nvim-treesitter.nvim-treesitter-refactor.enable = false;
               nvim-treesitter.nvim-treesitter-textobjects.enable = false;
             };
