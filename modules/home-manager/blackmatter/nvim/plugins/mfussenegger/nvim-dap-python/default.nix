@@ -1,20 +1,24 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.mfussenegger.nvim-dap-python;
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "mfussenegger";
+  name = "nvim-dap-python";
+  ref = "master";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.mfussenegger.nvim-dap-python.enable =
-    mkEnableOption "mfussenegger/nvim-dap-python";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      home.file.".local/share/nvim/site/pack/mfussenegger/start/nvim-dap-python".source =
-        builtins.fetchGit {
-          url = "https://github.com/mfussenegger/nvim-dap-python";
-          ref = "master";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
     })
   ];
 }

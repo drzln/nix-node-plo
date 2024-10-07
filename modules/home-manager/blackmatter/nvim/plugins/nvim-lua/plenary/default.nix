@@ -1,19 +1,24 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.nvim-lua.plenary;
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "nvim-lua";
+  name = "plenary";
+  ref = "master";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.nvim-lua.plenary.enable = mkEnableOption "nvim-lua/plenary";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      home.file.".local/share/nvim/site/pack/nvim-lua/start/plenary.nvim".source =
-        builtins.fetchGit {
-          url = "https://github.com/nvim-lua/plenary.nvim";
-          ref = "master";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
     })
   ];
 }

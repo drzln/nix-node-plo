@@ -19,7 +19,6 @@ in
     (mkIf cfg.enable {
       home.file."${plugPath}".source =
         builtins.fetchGit { inherit ref rev url; };
-
     })
   ];
 }

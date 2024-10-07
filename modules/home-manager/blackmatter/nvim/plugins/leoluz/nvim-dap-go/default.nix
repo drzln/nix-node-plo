@@ -1,20 +1,24 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.leoluz.nvim-dap-go;
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "leoluz";
+  name = "nvim-dap-go";
+  ref = "main";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.leoluz.nvim-dap-go.enable =
-    mkEnableOption "leoluz/nvim-dap-go";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      home.file.".local/share/nvim/site/pack/leoluz/start/nvim-dap-go".source =
-        builtins.fetchGit {
-          url = "https://github.com/leoluz/nvim-dap-go";
-          ref = "main";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
     })
   ];
 }

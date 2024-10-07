@@ -1,20 +1,25 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.maaslalani.nordbuddy;
+  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "maaslalani";
+  name = "nordbuddy";
+  ref = "main";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.maaslalani.nordbuddy.enable =
-    mkEnableOption "maaslalani/nordbuddy";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      home.file.".local/share/nvim/site/pack/maaslalani/start/nordbuddy".source =
-        builtins.fetchGit {
-          url = "https://github.com/andersevenrud/nordic.nvim";
-          ref = "main";
-          rev = import ./rev.nix;
-        };
-    })
-  ];
-}
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
+
+        })
+      ];
+    }

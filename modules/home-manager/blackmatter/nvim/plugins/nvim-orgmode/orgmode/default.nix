@@ -1,20 +1,24 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.nvim-orgmode.orgmode;
+	cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "nvim-orgmode";
+  name = "orgmode";
+  ref = "master";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.nvim-orgmode.orgmode.enable =
-    mkEnableOption "nvim-orgmode/orgmode";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      home.file.".local/share/nvim/site/pack/nvim-orgmode/start/orgmode".source =
-        builtins.fetchGit {
-          url = "https://github.com/nvim-orgmode/orgmode";
-          ref = "master";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
     })
   ];
 }

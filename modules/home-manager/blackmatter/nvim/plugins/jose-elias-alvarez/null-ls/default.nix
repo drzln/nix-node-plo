@@ -19,10 +19,10 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       # handles some linting and formatting
-      home.file."${plugPath}".source =
-        builtins.fetchGit { inherit ref rev url; };
 
       home.file."${configPath}".source = ./config.lua;
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
     })
   ];
 }

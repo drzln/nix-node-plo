@@ -1,21 +1,25 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.nvim-lua."popup.nvim";
+	cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  common = import ../../../common;
+  url = "${common.baseRepoUrl}/${author}/${name}";
+  plugPath = "${common.basePlugPath}/${author}/start/${name}";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  author = "nvim-lua";
+  name = "popup.nvim";
+  ref = "master";
+  rev = import ./rev.nix;
 in
 {
-  options.blackmatter.programs.nvim.plugins.nvim-lua."popup.nvim".enable =
-    mkEnableOption "nvim-lua/popup.nvim";
+  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+    mkEnableOption "${author}/${name}";
 
   config = mkMerge [
     (mkIf cfg.enable {
-      # nix syntax highlighting
-      home.file.".local/share/nvim/site/pack/nvim-lua/start/popup.nvim".source =
-        builtins.fetchGit {
-          url = "https://github.com/nvim-lua/popup.nvim";
-          ref = "master";
-          rev = import ./rev.nix;
-        };
+      home.file."${plugPath}".source =
+        builtins.fetchGit { inherit ref rev url; };
+
     })
   ];
 }

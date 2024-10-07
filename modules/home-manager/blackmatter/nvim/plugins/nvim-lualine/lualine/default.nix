@@ -1,16 +1,15 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.nvim-lualine.lualine;
+	cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
   common = import ../../../common;
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
-  ref = "master";
-  rev = import ./rev.nix;
   author = "nvim-lualine";
   name = "lualine";
-  plugName = name;
+  ref = "master";
+  rev = import ./rev.nix;
 in
 {
   options.blackmatter.programs.nvim.plugins.${author}.${name}.enable = mkEnableOption "${author}/${name}";

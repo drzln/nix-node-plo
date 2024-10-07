@@ -17,7 +17,7 @@ in
     ../../plugins/nvim-lua/plenary
     ../../plugins/folke/which-key.nvim
     ../../plugins/folke/neodev.nvim
-    ../../plugins/numToStr/Comment
+    ../../plugins/numToStr/Comment.nvim
     ../../plugins/ahmedkhalf/project.nvim
     ../../plugins/nvim-tree/nvim-web-devicons
   ];
@@ -33,7 +33,7 @@ in
             {
               ahmedkhalf."project.nvim".enable = true;
               nvim-tree.nvim-web-devicons.enable = true;
-              numToStr.Comment.enable = true;
+              numToStr."Comment.nvim".enable = true;
               folke."neodev.nvim".enable = true;
               jcdickinson."http.nvim".enable = false;
               nvim-lua.plenary.enable = true;
