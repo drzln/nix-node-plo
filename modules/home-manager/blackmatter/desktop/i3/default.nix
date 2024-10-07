@@ -174,6 +174,11 @@ in
         background_color = "${nord.colors.i3lock.background.blue}"
       '';
 
+      # packages to assist polybar
+      home.packages = with pkgs;[
+        alsa-utils
+      ];
+
       services.polybar = with themes.nord;
         {
           enable = true;
@@ -205,6 +210,7 @@ in
               ramp-volume-7 = "█";
               ramp-headphones-0 = "○";
               ramp-headphones-1 = "◉";
+              headphone-id = "Master";
             };
             "bar/top" = {
               monitor = monitors.main.name;
