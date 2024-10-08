@@ -14,7 +14,7 @@ in
     ../../plugins/williamboman/mason.nvim
     ../../plugins/williamboman/mason-lspconfig.nvim
     ../../plugins/jose-elias-alvarez/null-ls
-    ../../plugins/ray-x/lsp_signature
+    ../../plugins/ray-x/lsp_signature.nvim
     ../../plugins/onsails/lspkind.nvim
   ];
 
@@ -22,8 +22,8 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
-          home.packages = with pkgs; [ 
-            ruby 
+          home.packages = with pkgs; [
+            ruby
             gnumake
             rubyPackages.sorbet-runtime
           ];
@@ -34,7 +34,7 @@ in
               neovim.nvim-lspconfig.enable = true;
               williamboman."mason.nvim".enable = true;
               williamboman."mason-lspconfig.nvim".enable = true;
-              ray-x.lsp_signature.enable = false;
+              ray-x."lsp_signature.nvim".enable = false;
               onsails."lspkind.nvim".enable = false;
             };
         }
