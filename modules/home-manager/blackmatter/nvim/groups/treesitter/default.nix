@@ -26,8 +26,8 @@ in
               nvim-treesitter.nvim-treesitter.enable = true;
               nvim-treesitter.playground.enable = true;
               nvim-treesitter.nvim-treesitter-context.enable = false;
-              nvim-treesitter.nvim-treesitter-refactor.enable = false;
-              nvim-treesitter.nvim-treesitter-textobjects.enable = false;
+              nvim-treesitter.nvim-treesitter-refactor.enable = true;
+              nvim-treesitter.nvim-treesitter-textobjects.enable = true;
             };
         }
       )
