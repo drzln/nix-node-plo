@@ -8,7 +8,7 @@ let
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "wellle";
   name = "targets.vim";
-  plugName = "mason";
+  plugName = "targets";
   ref = "master";
   rev = import ./rev.nix;
 in
