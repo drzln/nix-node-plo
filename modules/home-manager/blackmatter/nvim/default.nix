@@ -45,7 +45,6 @@ let
       zbirenbaum."copilot-cmp".enable = false;
       ziontee113."icon-picker.nvim".enable = false;
       windwp.nvim-projectconfig.enable = false;
-      windwp.nvim-ts-autotag.enable = false;
       yamatsum.nvim-nonicons.enable = false;
       RishabhRD.nvim-lsputils.enable = false;
       RRethy.vim-illuminate.enable = false;
@@ -299,7 +298,6 @@ in
       ./plugins/RishabhRD/nvim-lsputils
       ./plugins/Wansmer/treesj
       ./plugins/windwp/nvim-projectconfig
-      ./plugins/windwp/nvim-ts-autotag
       ./plugins/yamatsum/nvim-nonicons
       ./plugins/zbirenbaum/copilot.lua
       ./plugins/zbirenbaum/copilot-cmp
