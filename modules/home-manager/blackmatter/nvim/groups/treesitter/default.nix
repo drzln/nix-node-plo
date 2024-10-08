@@ -31,7 +31,7 @@ in
               nvim-treesitter.nvim-treesitter-refactor.enable = true;
               nvim-treesitter.nvim-treesitter-textobjects.enable = true;
               windwp.nvim-ts-autotag.enable = true;
-              p00f.nvim-ts-rainbow.enable = true;
+              p00f.nvim-ts-rainbow.enable = false;
             };
         }
       )
