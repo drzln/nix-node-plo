@@ -23,6 +23,10 @@ function M.setup()
 		ensure_installed = "all",
 		auto_install = true,
 		enable = true,
+		rainbow = {
+			enable = true,
+			extended_mode = true,
+		},
 		highlight = {
 			enable = true,
 			disable = { "nix" },
