@@ -16,6 +16,7 @@ in
     ../../plugins/nvim-treesitter/nvim-treesitter-refactor
     ../../plugins/nvim-treesitter/nvim-treesitter-textobjects
     ../../plugins/windwp/nvim-ts-autotag
+    ../../plugins/p00f/nvim-ts-rainbow
   ];
 
   config =
@@ -30,6 +31,7 @@ in
               nvim-treesitter.nvim-treesitter-refactor.enable = true;
               nvim-treesitter.nvim-treesitter-textobjects.enable = true;
               windwp.nvim-ts-autotag.enable = true;
+              p00f.nvim-ts-rainbow.enable = true;
             };
         }
       )
