@@ -45,7 +45,6 @@ let
       zbirenbaum."copilot-cmp".enable = false;
       ziontee113."icon-picker.nvim".enable = false;
       windwp.nvim-projectconfig.enable = false;
-      windwp.nvim-ts-autotag.enable = false;
       yamatsum.nvim-nonicons.enable = false;
       RishabhRD.nvim-lsputils.enable = false;
       RRethy.vim-illuminate.enable = false;
@@ -158,7 +157,6 @@ let
       wellle."targets.vim".enable = false;
       ggandor."leap.nvim".enable = false;
       unblevable.quick-scope.enable = false;
-      t3rro.nvim-ts-rainbow.enable = false;
 
       # snippets
       L3MON4D3.LuaSnip.enable = false;
@@ -235,7 +233,6 @@ in
       ./plugins/esensar/nvim-dev-container
       ./plugins/bennypowers/nvim-regexplainer
       ./plugins/theHamsta/nvim-dap-virtual-text
-      ./plugins/t3rro/nvim-ts-rainbow
       ./plugins/wellle/targets.vim
       ./plugins/amrbashir/nvim-docs-view
       ./plugins/nfrid/markdown-togglecheck
@@ -299,7 +296,6 @@ in
       ./plugins/RishabhRD/nvim-lsputils
       ./plugins/Wansmer/treesj
       ./plugins/windwp/nvim-projectconfig
-      ./plugins/windwp/nvim-ts-autotag
       ./plugins/yamatsum/nvim-nonicons
       ./plugins/zbirenbaum/copilot.lua
       ./plugins/zbirenbaum/copilot-cmp

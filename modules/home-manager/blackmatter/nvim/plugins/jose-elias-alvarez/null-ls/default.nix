@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 with lib;
 let
   cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
@@ -8,6 +8,7 @@ let
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "jose-elias-alvarez";
   name = "null-ls";
+  plugName = name;
   ref = "main";
   rev = import ./rev.nix;
 in
@@ -17,9 +18,16 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
+      # install some dependencies for null-ls for our config
+      home.packages = with pkgs; [
+        nodePackages.prettier
+        terraform
+      ];
+      # handles some linting and formatting
       home.file."${plugPath}".source =
         builtins.fetchGit { inherit ref rev url; };
 
+      home.file."${configPath}".source = ./config.lua;
     })
   ];
 }

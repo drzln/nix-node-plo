@@ -131,11 +131,11 @@ in
         windowManager = {
           i3 = {
             enable = true;
-						package = pkgs.i3-gaps;
+            package = pkgs.i3-gaps;
             config = {
               window.border = 0;
-              fonts = { 
-                names = [themes.nord.styling.font-0];
+              fonts = {
+                names = [ themes.nord.styling.font-0 ];
                 size = 10.0;
               };
               # send alt+d to menu
@@ -150,21 +150,21 @@ in
               colors.focusedInactive = themes.nord.globals.colors.focusedInactive;
             };
             extraConfig = ''
-              # remove borders
-              for_window [class="^.*"] border pixel 0
-              for_window [class="^.*"] gaps inner all
+                            # remove borders
+                            for_window [class="^.*"] border pixel 0
+                            for_window [class="^.*"] gaps inner all
 
-							gaps inner 0
-							gaps outer 0
+              							gaps inner 0
+              							gaps outer 0
 
-              # make the background nord color
-              exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
+                            # make the background nord color
+                            exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
 
-              # screen locking
-              # TODO: for now set directly but move to config file in the future
-              bindsym Mod1+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
+                            # screen locking
+                            # TODO: for now set directly but move to config file in the future
+                            bindsym Mod1+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
 
-              exec --no-startup-id ${pkgs.xorg.xrandr}/bin/xrandr --output ${monitors.main.name} --mode ${monitors.main.mode} --rate ${monitors.main.rate}
+                            exec --no-startup-id ${pkgs.xorg.xrandr}/bin/xrandr --output ${monitors.main.name} --mode ${monitors.main.mode} --rate ${monitors.main.rate}
             '';
           };
         };
@@ -173,6 +173,11 @@ in
       xdg.configFile."i3lock/config".text = ''
         background_color = "${nord.colors.i3lock.background.blue}"
       '';
+
+      # packages to assist polybar
+      home.packages = with pkgs;[
+        alsa-utils
+      ];
 
       services.polybar = with themes.nord;
         {
@@ -185,12 +190,12 @@ in
               date = "%Y-%m-%d";
               time = "%H:%M %Z";
             };
+            # tries to work with alsa but we goin pipewire
             "module/volume" = {
               type = "internal/alsa";
-              master-mixer = "Master";
-              speaker-mixer = "Speaker";
-              headphone-mixer = "Headphone";
               mixer = "default";
+              master-mixer = "Master";
+              headphone-mixer = "Headphone";
               interval = 1;
               format-volume = "♪ <label-volume>";
               label-volume = "VOL %percentage%%";
@@ -203,8 +208,7 @@ in
               ramp-volume-5 = "▆";
               ramp-volume-6 = "▇";
               ramp-volume-7 = "█";
-              ramp-headphones-0 = "○";
-              ramp-headphones-1 = "◉";
+              headphone-id = "Master";
             };
             "bar/top" = {
               monitor = monitors.main.name;
