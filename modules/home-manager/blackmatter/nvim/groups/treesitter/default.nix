@@ -40,7 +40,7 @@ in
               p00f.nvim-ts-rainbow.enable = false;
               RRethy.nvim-treesitter-endwise.enable = true;
               RRethy.nvim-treesitter-textsubjects.enable = true;
-              JooseAlviste.nvim-ts-context-commentstring.enable = true;
+              JoosepAlviste.nvim-ts-context-commentstring.enable = true;
             };
         }
       )
