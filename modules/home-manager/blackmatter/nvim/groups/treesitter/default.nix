@@ -15,7 +15,7 @@ in
     ../../plugins/nvim-treesitter/nvim-treesitter-context
     ../../plugins/nvim-treesitter/nvim-treesitter-refactor
     ../../plugins/nvim-treesitter/nvim-treesitter-textobjects
-    ../../plugins/nvim-treesitter/nvim-treesitter-lua
+    # ../../plugins/nvim-treesitter/nvim-treesitter-lua
     ../../plugins/windwp/nvim-ts-autotag
     ../../plugins/p00f/nvim-ts-rainbow
     ../../plugins/RRethy/nvim-treesitter-endwise
@@ -33,7 +33,7 @@ in
               nvim-treesitter.nvim-treesitter-context.enable = false;
               nvim-treesitter.nvim-treesitter-refactor.enable = true;
               nvim-treesitter.nvim-treesitter-textobjects.enable = true;
-              nvim-treesitter.nvim-treesitter-lua.enable = true;
+              # nvim-treesitter.nvim-treesitter-lua.enable = true;
               windwp.nvim-ts-autotag.enable = true;
               # now a part of nvim-treesitter as config
               p00f.nvim-ts-rainbow.enable = false;
