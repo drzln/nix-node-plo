@@ -40,6 +40,7 @@ in
               p00f.nvim-ts-rainbow.enable = false;
               RRethy.nvim-treesitter-endwise.enable = true;
               RRethy.nvim-treesitter-textsubjects.enable = true;
+              # also merged into native nvim-treesitter so disabled now
               JoosepAlviste.nvim-ts-context-commentstring.enable = false;
             };
         }
