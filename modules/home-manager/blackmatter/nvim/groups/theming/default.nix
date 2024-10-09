@@ -23,7 +23,6 @@ in
           blackmatter.programs.nvim.plugins =
             {
               shaunsingh."nord.nvim".enable = true;
-              nvim-lualine.lualine.enable = false;
               nvim-lualine."lualine.nvim".enable = true;
               norcalli."nvim-colorizer.lua".enable = true;
             };
