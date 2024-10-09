@@ -11,7 +11,7 @@ in
 
   imports = [
     ../../plugins/shaunsingh/nord.nvim
-    ../../plugins/nvim-lualine.nvim/lualine
+    ../../plugins/nvim-lualine/lualine.nvim
     ../../plugins/norcalli/nvim-colorizer.lua
     ../../plugins/akinsho/bufferline.nvim
   ];
