@@ -9,9 +9,11 @@
     ./secrets
     ./shadeflakes
   ];
+
   home.stateVersion = "24.05";
   home.username = "luis";
   home.homeDirectory = "/home/luis";
+
   xsession.enable = true;
   xsession.windowManager.i3.enable = true;
   xsession.windowManager.i3.extraConfig = ''
@@ -58,6 +60,7 @@
     bindsym XF86AudioLowerVolume exec amixer set Master 5%-
     bindsym XF86AudioMute exec amixer set Master toggle
   '';
+
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
   services.gpg-agent.pinentryPackage = pkgs.pinentry-curses;

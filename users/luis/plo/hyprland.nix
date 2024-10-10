@@ -1,5 +1,6 @@
 { requirements, pkgs, ... }: {
   home.packages = with pkgs; [
+    # dunst
     # wl-clipboard-rs
     # wl-clipboard-x11
     wl-gammactl
@@ -9,7 +10,6 @@
     wl-color-picker
     wl-clip-persist
     wofi
-    dunst
     waybar
     swaybg
     kitty
