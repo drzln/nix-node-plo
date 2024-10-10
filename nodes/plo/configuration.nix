@@ -155,6 +155,7 @@ in
 
   services.dbus.enable = true;
   services.udev.enable = true;
+  services.dunst.enable = false;
 
   fonts.fontconfig.enable = true;
   fonts.fontDir.enable = true;

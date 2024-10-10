@@ -55,7 +55,7 @@
     ];
   };
 
-  programs.wezterm.enable = true;
+  programs.wezterm.enable = false;
   programs.wezterm.extraConfig = builtins.readFile ./wezterm.lua;
 
   # Wofi configuration
