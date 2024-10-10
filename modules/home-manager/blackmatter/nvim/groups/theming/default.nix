@@ -25,6 +25,7 @@ in
               shaunsingh."nord.nvim".enable = true;
               nvim-lualine."lualine.nvim".enable = true;
               norcalli."nvim-colorizer.lua".enable = true;
+              akinsho."bufferline.nvim".enable = true;
             };
         }
       )
