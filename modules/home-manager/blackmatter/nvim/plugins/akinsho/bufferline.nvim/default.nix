@@ -5,7 +5,7 @@ let
   common = import ../../../common;
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
-  # configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
+  configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "akinsho";
   name = "bufferline.nvim";
   plugName = "bufferline";
