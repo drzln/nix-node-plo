@@ -21,6 +21,7 @@ in
     ../../plugins/hrsh7th/cmp-path
     ../../plugins/sar/cmp-lsp.nvim
     ../../plugins/ray-x/cmp-treesitter
+    ../../plugins/L3MON4D3/LuaSnip
   ];
 
   config =
@@ -35,6 +36,7 @@ in
               hrsh7th.cmp-cmdline.enable = true;
               hrsh7th.cmp-buffer.enable = true;
               hrsh7th.cmp-path.enable = true;
+              L3MON4D3.LuaSnip.enable = true;
 
               ray-x.cmp-treesitter.enable = true;
               sar."cmp-lsp.nvim".enable = true;
