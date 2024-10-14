@@ -42,7 +42,7 @@ function M.setup()
 		options = {
 			numbers = "buffer_id",
 			diagnostics = "nvim_lsp",
-			separator_style = "slant",
+			separator_style = "thin",
 			show_buffer_close_icons = true,
 			show_close_icon = true,
 			enforce_regular_tabs = false,
