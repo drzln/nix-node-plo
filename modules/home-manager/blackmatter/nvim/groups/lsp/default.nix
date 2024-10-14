@@ -22,8 +22,8 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
-          home.packages = with pkgs; [ 
-            ruby 
+          home.packages = with pkgs; [
+            ruby
             gnumake
             rubyPackages.sorbet-runtime
           ];
@@ -34,8 +34,8 @@ in
               neovim.nvim-lspconfig.enable = true;
               williamboman."mason.nvim".enable = true;
               williamboman."mason-lspconfig.nvim".enable = true;
-              ray-x.lsp_signature.enable = false;
-              onsails."lspkind.nvim".enable = false;
+              ray-x.lsp_signature.enable = true;
+              onsails."lspkind.nvim".enable = true;
             };
         }
       )
