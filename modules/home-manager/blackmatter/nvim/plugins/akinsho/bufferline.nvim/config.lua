@@ -1,35 +1,37 @@
 local M = {}
 function M.setup()
+	local base = "#2E3440"
+	local popout = "#d8dee9"
 	require("bufferline").setup {
 		highlights = {
 			fill = {
-				bg = "#2E3440",
+				bg = base
 			},
 			background = {
-				bg = "#2E3440",
+				bg = base,
 			},
 			tab = {
-				bg = "#2E3440",
+				bg = base,
 			},
 			tab_selected = {
-				bg = "#2E3440",
-				fg = "#2E3440",
+				bg = base,
+				fg = popout,
 			},
 			tab_close = {
-				bg = "#2E3440",
+				bg = base,
 			},
 			close_button = {
-				bg = "#2E3440",
+				bg = base,
 			},
 			close_button_selected = {
-				bg = "#2E3440",
+				bg = base,
 			},
 			buffer_visible = {
-				bg = "#2E3440",
+				bg = base,
 			},
 			buffer_selected = {
-				bg = "#2E3440",
-				fg = "#2E3440",
+				bg = base,
+				fg = popout,
 				bold = true,
 			},
 		},
