@@ -3,33 +3,33 @@ function M.setup()
 	require("bufferline").setup {
 		highlights = {
 			fill = {
-				bg = "#81A1C1",
+				bg = "#2E3440",
 			},
 			background = {
-				bg = "#81A1C1",
+				bg = "#2E3440",
 			},
 			tab = {
-				bg = "#81A1C1",
+				bg = "#2E3440",
 			},
 			tab_selected = {
-				fg = "#ECEFF4",
-				bg = "#5E81AC",
+				bg = "#2E3440",
+				fg = "#2E3440",
 			},
 			tab_close = {
-				bg = "#81A1C1",
+				bg = "#2E3440",
 			},
 			close_button = {
-				bg = "#81A1C1",
+				bg = "#2E3440",
 			},
 			close_button_selected = {
-				bg = "#5E81AC",
+				bg = "#2E3440",
 			},
 			buffer_visible = {
-				bg = "#81A1C1",
+				bg = "#2E3440",
 			},
 			buffer_selected = {
-				fg = "#ECEFF4",
-				bg = "#5E81AC",
+				bg = "#2E3440",
+				fg = "#2E3440",
 				bold = true,
 			},
 		},
