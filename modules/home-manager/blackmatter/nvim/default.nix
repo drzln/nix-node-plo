@@ -18,7 +18,7 @@ let
     lsp.enable = true;
     theming.enable = true;
     tmux.enable = true;
-    completion.enable = false;
+    completion.enable = true;
     debugging.enable = false;
   };
 

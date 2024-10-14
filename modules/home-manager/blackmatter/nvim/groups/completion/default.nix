@@ -1,12 +1,16 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugin.groups.completion;
+  name = "completion";
+  plugName = name;
+  cfg = config.blackmatter.programs.nvim.plugin.groups.${name};
+  common = import ../../common;
+  configPath = "${common.baseConfigPath}/groups/${plugName}.lua";
 in
 {
   options.blackmatter.programs.nvim.plugin.groups.completion =
     {
-      enable = mkEnableOption "completion";
+      enable = mkEnableOption name;
     };
 
   imports = [
@@ -23,6 +27,7 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
+          home.file."${configPath}".source = ./config.lua;
           blackmatter.programs.nvim.plugins =
             {
               hrsh7th.nvim-cmp.enable = true;
