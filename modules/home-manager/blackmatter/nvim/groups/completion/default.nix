@@ -26,12 +26,13 @@ in
           blackmatter.programs.nvim.plugins =
             {
               hrsh7th.nvim-cmp.enable = true;
-              ray-x.cmp-treesitter.enable = false;
-              hrsh7th.cmp-nvim-lsp.enable = false;
-              hrsh7th.cmp-cmdline.enable = false;
-              sar."cmp-lsp.nvim".enable = false;
-              hrsh7th.cmp-buffer.enable = false;
-              hrsh7th.cmp-path.enable = false;
+              hrsh7th.cmp-nvim-lsp.enable = true;
+              hrsh7th.cmp-cmdline.enable = true;
+              hrsh7th.cmp-buffer.enable = true;
+              hrsh7th.cmp-path.enable = true;
+
+              ray-x.cmp-treesitter.enable = true;
+              sar."cmp-lsp.nvim".enable = true;
             };
         }
       )
