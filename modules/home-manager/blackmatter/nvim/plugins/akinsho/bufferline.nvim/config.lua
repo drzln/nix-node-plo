@@ -4,6 +4,10 @@ function M.setup()
 	local popout = "#d8dee9"
 	require("bufferline").setup {
 		highlights = {
+			separator = {
+				bg = base,
+				fg = popout
+			},
 			fill = {
 				bg = base
 			},
