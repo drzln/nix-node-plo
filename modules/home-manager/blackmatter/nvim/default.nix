@@ -159,7 +159,6 @@ let
       unblevable.quick-scope.enable = false;
 
       # snippets
-      # L3MON4D3.LuaSnip.enable = false;
       rafamadriz.friendly-snippets.enable = false;
 
       # refactoring
@@ -305,7 +304,6 @@ in
       ./plugins/andymass/vim-matchup
       ./plugins/chaoren/vim-wordmotion
       ./plugins/unblevable/quick-scope
-      # ./plugins/L3MON4D3/LuaSnip
       ./plugins/rafamadriz/friendly-snippets
       ./plugins/preservim/vim-markdown
       ./plugins/godlygeek/tabular
