@@ -22,6 +22,8 @@ in
     ../../plugins/sar/cmp-lsp.nvim
     ../../plugins/ray-x/cmp-treesitter
     ../../plugins/L3MON4D3/LuaSnip
+    ../../plugins/zbirenbaum/copilot-cmp
+    ../../plugins/zbirenbaum/copilot.lua
   ];
 
   config =
@@ -40,6 +42,8 @@ in
 
               ray-x.cmp-treesitter.enable = true;
               sar."cmp-lsp.nvim".enable = true;
+              zbirenbaum."copilot.lua".enable = true;
+              zbirenbaum."copilot-cmp".enable = true;
             };
         }
       )

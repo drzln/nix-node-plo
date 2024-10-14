@@ -41,8 +41,6 @@ let
       # disabled plugins
       Wansmer.treesj.enable = false;
       EtiamNullam."relative-source.nvim".enable = false;
-      zbirenbaum."copilot.lua".enable = false;
-      zbirenbaum."copilot-cmp".enable = false;
       ziontee113."icon-picker.nvim".enable = false;
       windwp.nvim-projectconfig.enable = false;
       yamatsum.nvim-nonicons.enable = false;
@@ -296,8 +294,6 @@ in
       ./plugins/Wansmer/treesj
       ./plugins/windwp/nvim-projectconfig
       ./plugins/yamatsum/nvim-nonicons
-      ./plugins/zbirenbaum/copilot.lua
-      ./plugins/zbirenbaum/copilot-cmp
       ./plugins/ziontee113/icon-picker.nvim
       ./plugins/EtiamNullam/relative-source.nvim
       ./plugins/ellisonleao/glow.nvim
