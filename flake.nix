@@ -2,6 +2,10 @@
   description = "Flake for Neovim with custom configurations for Linux and macOS";
 
   inputs = {
+    nixhashsync = {
+      url = "github:gahbdias/NixHashSync";
+    };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -35,12 +39,17 @@
     , hyprland
     , stylix
     , sops-nix
+    , nixhashsync
     , ...
     }@inputs:
     let
       inherit (self) outputs;
       overlays = import ./overlays/default.nix
-        ++ builtins.attrValues sops-nix.overlays;
+        ++ builtins.attrValues sops-nix.overlays ++ [
+        (final: prev: {
+          nixhashsync = nixhashsync.packages.${prev.system}.default;
+        })
+      ];
       requirements = { inherit inputs outputs; };
       specialArgs = { inherit requirements; };
       extraSpecialArgs = specialArgs;
@@ -53,11 +62,13 @@
       darwin-pkgs = import nixpkgs
         {
           system = "x86_64-darwin";
+          overlays = shared-pkg-attributes.overlays;
         } // shared-pkg-attributes;
 
       linux-pkgs = import nixpkgs
         {
           system = "x86_64-linux";
+          overlays = shared-pkg-attributes.overlays;
         } // shared-pkg-attributes;
 
     in
@@ -66,10 +77,12 @@
         let
           pkgs = import nixpkgs {
             inherit system;
+            overlays = shared-pkg-attributes.overlays;
           };
         in
         {
           neovim_drzln = pkgs.callPackage ./packages/neovim { };
+          nixhashsync = nixhashsync.packages.${system}.default;
         }
       );
 
