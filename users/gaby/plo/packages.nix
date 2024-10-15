@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
+    nixhashsync
     autorandr
     i3status
     dmenu
@@ -102,8 +103,8 @@
     rustcat
     rustc
     sops
-		gnupg
-		pinentry-curses
+    gnupg
+    pinentry-curses
     age
     shfmt
     tealdeer
