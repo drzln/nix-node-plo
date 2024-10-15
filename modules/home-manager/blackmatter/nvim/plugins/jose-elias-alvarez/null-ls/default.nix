@@ -21,7 +21,7 @@ in
       # install some dependencies for null-ls for our config
       home.packages = with pkgs; [
         nodePackages.prettier
-        terraform
+        # terraform
       ];
       # handles some linting and formatting
       home.file."${plugPath}".source =

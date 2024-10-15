@@ -86,7 +86,7 @@
     [
       docker-client
       docker
-      terraform
+      # terraform
       # comes up as undefined
       # pkgconfig
       nix-index
@@ -111,8 +111,8 @@
       unzip
       gnupg
       lorri
-      nomad
-      vault
+      # nomad
+      # vault
       ruby
       yarn
       xsel

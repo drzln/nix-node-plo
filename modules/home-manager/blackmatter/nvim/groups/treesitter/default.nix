@@ -33,7 +33,7 @@ in
               nvim-treesitter.nvim-treesitter-context.enable = false;
               nvim-treesitter.nvim-treesitter-refactor.enable = true;
               nvim-treesitter.nvim-treesitter-textobjects.enable = true;
-              windwp.nvim-ts-autotag.enable = true;
+              windwp.nvim-ts-autotag.enable = false;
               # now a part of nvim-treesitter as config
               p00f.nvim-ts-rainbow.enable = false;
               RRethy.nvim-treesitter-endwise.enable = true;

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-NIX_CONFIG="experimental-features = nix-command flakes" darwin-rebuild switch \
+NIXPKGS_ALLOW_UNFREE=1 NIX_CONFIG="experimental-features = nix-command flakes" darwin-rebuild switch \
 	--flake .#$HOST \
 	--show-trace
