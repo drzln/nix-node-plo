@@ -1,5 +1,5 @@
 plugin:
-  path: "~/nix-node-plo/modules/home-manager/blackmatter/nvim/plugins/"
+  path: "~/code/github/drzln/nix-node-plo/modules/home-manager/blackmatter/nvim/plugins/"
 
 plugins:
   - author: L3MON4D3
