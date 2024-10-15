@@ -136,7 +136,10 @@
   users.users = {
     ldesiqueira = {
       uid = 1002;
-      packages = [ pkgs.home-manager ];
+      packages = with pkgs;[ 
+				home-manager 
+				nixhashsync
+			];
       home = "/Users/ldesiqueira";
     };
   };
