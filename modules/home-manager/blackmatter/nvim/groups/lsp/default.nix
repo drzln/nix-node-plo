@@ -34,8 +34,8 @@ in
               neovim.nvim-lspconfig.enable = true;
               williamboman."mason.nvim".enable = true;
               williamboman."mason-lspconfig.nvim".enable = true;
-              ray-x."lsp_signature.nvim".enable = false;
-              onsails."lspkind.nvim".enable = false;
+              ray-x."lsp_signature.nvim".enable = true;
+              onsails."lspkind.nvim".enable = true;
             };
         }
       )
