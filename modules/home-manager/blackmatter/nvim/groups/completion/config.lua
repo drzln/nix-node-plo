@@ -1,10 +1,5 @@
 local M = {}
 
---[[
--- Check if there are non-whitespace characters before the cursor
--- @return boolean: true if non-whitespace characters exist before the cursor, false otherwise
-local function has_words_before()
---]]
 local function has_words_before()
 	if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
 		return false
@@ -13,39 +8,6 @@ local function has_words_before()
 	return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
 
---[[
------ Check if 'kyazdani42/nvim-web-devicons' plugin is installed
--- @return boolean: true if the plugin is installed, false otherwise
---]]
-local function is_codicons_installed()
-	local ok, _ = pcall(require, 'nvim-web-devicons')
-	return ok
-end
-
---[[
------ Set up lspkind configuration based on the provided kind_config ("text" or "codicons")
--- @param kind_config string: The kind of configuration to set up (either "text" or "codicons")
---]]
-local function set_lspkind_config(kind_config)
-	local symbol_map = {}
-	local lspkind = require('lspkind')
-
-	if kind_config == "text" then
-		symbol_map = M.getTextSymbolMap()
-	elseif kind_config == "codicons" and is_codicons_installed then
-		symbol_map = require('lspkind').presets.default
-	else
-		error("Invalid kind_config value, it must be 'text' or 'codicons'")
-	end
-
-	lspkind.init({ symbol_map = symbol_map })
-
-	M.setup_cmp()
-end
-
---[[
--- get the local text symbol map
---]]
 function M.getTextSymbolMap()
 	return {
 		Text = "[-]",
@@ -76,52 +38,82 @@ function M.getTextSymbolMap()
 	}
 end
 
---[[
--- setup completion
---]]
-function M.setup_cmp()
-	local cmp = require("cmp")
+local function set_lspkind_config(kind_config)
 	local lspkind = require('lspkind')
 
-	cmp.setup(
-		{
-			formatting = {
-				format = lspkind.cmp_format({
-					before = function(entry, vim_item)
-						local source = entry.source.name
-						vim_item.menu = string.format(
-							"%s (%s)",
-							vim_item.menu or "",
-							source
-						)
-						return vim_item
-					end
-				}),
-			},
-			snippet = {
-				expand = function(args)
-					require('luasnip').lsp_expand(args.body)
-				end,
-			},
-			mapping = M.getCmpMapping(),
-			sources = cmp.config.sources(M.getCmpSources())
-		}
-	)
+	if kind_config == "text" then
+		lspkind.init({
+			mode = 'symbol_text',
+			symbol_map = M.getTextSymbolMap(),
+		})
+	elseif kind_config == "codicons" then
+		lspkind.init({
+			mode = 'symbol_text',
+			preset = 'codicons',
+		})
+	else
+		error("Invalid kind_config value, it must be 'text' or 'codicons'")
+	end
+
+	M.setup_cmp()
 end
 
---[[
--- completion key mappings
---]]
+function M.setup_cmp()
+	local cmp = require("cmp")
+	local luasnip = require('luasnip')
+	local lspkind = require('lspkind')
+
+	cmp.setup({
+		formatting = {
+			format = lspkind.cmp_format({
+				mode = 'symbol_text', -- show both symbol and text
+				maxwidth = 50,
+				ellipsis_char = '...',
+				before = function(entry, vim_item)
+					local source = entry.source.name
+					vim_item.menu = string.format(
+						"%s (%s)",
+						vim_item.menu or "",
+						source
+					)
+					return vim_item
+				end
+			}),
+		},
+		snippet = {
+			expand = function(args)
+				luasnip.lsp_expand(args.body)
+			end,
+		},
+		mapping = M.getCmpMapping(),
+		sources = cmp.config.sources(M.getCmpSources())
+	})
+end
+
 function M.getCmpMapping()
 	local cmp = require("cmp")
+	local luasnip = require('luasnip')
 	return {
-		["<Tab>"] = vim.schedule_wrap(function(fallback)
-			if cmp.visible() and has_words_before() then
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
 				cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif has_words_before() then
+				cmp.complete()
 			else
 				fallback()
 			end
-		end),
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+			elseif luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 		['<C-y>'] = cmp.config.disable,
 		['<CR>'] = cmp.mapping.confirm({ select = true }),
 		['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -133,30 +125,20 @@ function M.getCmpMapping()
 	}
 end
 
---[[
--- completion sources
---
--- { name = 'cmdline' },
---]]
 function M.getCmpSources()
 	return {
 		{ name = 'nvim_lsp' },
-		{ name = 'cmdline' },
+		{ name = 'luasnip' },
 		{ name = 'buffer' },
 		{ name = 'treesitter' },
-		{ name = 'copilot' },
-		{ name = 'luasnip' },
 		{ name = 'path' },
+		-- Add additional sources if needed
 	}
 end
 
---[[
--- put it all together
---]]
 function M.setup()
 	vim.cmd [[ set completeopt=menu,menuone,noselect ]]
 	local map = require("utils.map")
-	-- set_lspkind_config("text")
 	set_lspkind_config("codicons")
 	map('i', '<C-n>', "<cmd>lua require('cmp').complete()<CR>", {
 		noremap = false, expr = false
@@ -164,3 +146,4 @@ function M.setup()
 end
 
 return M
+
