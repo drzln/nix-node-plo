@@ -6,10 +6,9 @@ let
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
-  author = "akinsho";
-  name = "bufferline.nvim";
-  plugName = "bufferline";
-  ref = "main";
+  author = "RRethy";
+  name = "nvim-treesitter-endwise";
+  ref = "master";
   rev = import ./rev.nix;
 in
 {
@@ -20,7 +19,6 @@ in
     (mkIf cfg.enable {
       home.file."${plugPath}".source =
         builtins.fetchGit { inherit ref rev url; };
-      home.file."${configPath}".source = ./config.lua;
     })
   ];
 }

@@ -11,7 +11,7 @@ in
 
   imports = [
     ../../plugins/shaunsingh/nord.nvim
-    ../../plugins/nvim-lualine/lualine
+    ../../plugins/nvim-lualine/lualine.nvim
     ../../plugins/norcalli/nvim-colorizer.lua
     ../../plugins/akinsho/bufferline.nvim
   ];
@@ -23,8 +23,9 @@ in
           blackmatter.programs.nvim.plugins =
             {
               shaunsingh."nord.nvim".enable = true;
-              nvim-lualine.lualine.enable = false;
+              nvim-lualine."lualine.nvim".enable = true;
               norcalli."nvim-colorizer.lua".enable = true;
+              akinsho."bufferline.nvim".enable = true;
             };
         }
       )

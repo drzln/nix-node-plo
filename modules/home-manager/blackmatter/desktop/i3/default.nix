@@ -220,6 +220,9 @@ in
       # enable the rofi launcher
       programs.rofi.enable = true;
       programs.rofi.theme = themes.nord.rofi;
+
+      # disable dunst
+      services.dunst.enable = false;
     })
   ];
 }

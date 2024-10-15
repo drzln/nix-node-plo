@@ -18,7 +18,7 @@ let
     lsp.enable = true;
     theming.enable = true;
     tmux.enable = true;
-    completion.enable = false;
+    completion.enable = true;
     debugging.enable = false;
   };
 
@@ -41,8 +41,6 @@ let
       # disabled plugins
       Wansmer.treesj.enable = false;
       EtiamNullam."relative-source.nvim".enable = false;
-      zbirenbaum."copilot.lua".enable = false;
-      zbirenbaum."copilot-cmp".enable = false;
       ziontee113."icon-picker.nvim".enable = false;
       windwp.nvim-projectconfig.enable = false;
       yamatsum.nvim-nonicons.enable = false;
@@ -159,8 +157,7 @@ let
       unblevable.quick-scope.enable = false;
 
       # snippets
-      L3MON4D3.LuaSnip.enable = false;
-      rafamadriz.friendly-snippets.enable = false;
+      # rafamadriz.friendly-snippets.enable = false;
 
       # refactoring
       ThePrimeagen."refactoring.nvim".enable = false;
@@ -297,16 +294,13 @@ in
       ./plugins/Wansmer/treesj
       ./plugins/windwp/nvim-projectconfig
       ./plugins/yamatsum/nvim-nonicons
-      ./plugins/zbirenbaum/copilot.lua
-      ./plugins/zbirenbaum/copilot-cmp
       ./plugins/ziontee113/icon-picker.nvim
       ./plugins/EtiamNullam/relative-source.nvim
       ./plugins/ellisonleao/glow.nvim
       ./plugins/andymass/vim-matchup
       ./plugins/chaoren/vim-wordmotion
       ./plugins/unblevable/quick-scope
-      ./plugins/L3MON4D3/LuaSnip
-      ./plugins/rafamadriz/friendly-snippets
+      # ./plugins/rafamadriz/friendly-snippets
       ./plugins/preservim/vim-markdown
       ./plugins/godlygeek/tabular
       ./plugins/iamcco/markdown-preview.nvim

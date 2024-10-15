@@ -17,6 +17,9 @@ in
     ../../plugins/nvim-treesitter/nvim-treesitter-textobjects
     ../../plugins/windwp/nvim-ts-autotag
     ../../plugins/p00f/nvim-ts-rainbow
+    ../../plugins/RRethy/nvim-treesitter-endwise
+    ../../plugins/RRethy/nvim-treesitter-textsubjects
+    ../../plugins/JoosepAlviste/nvim-ts-context-commentstring
   ];
 
   config =
@@ -33,6 +36,10 @@ in
               windwp.nvim-ts-autotag.enable = true;
               # now a part of nvim-treesitter as config
               p00f.nvim-ts-rainbow.enable = false;
+              RRethy.nvim-treesitter-endwise.enable = true;
+              RRethy.nvim-treesitter-textsubjects.enable = true;
+              # also merged into native nvim-treesitter so disabled now
+              JoosepAlviste.nvim-ts-context-commentstring.enable = false;
             };
         }
       )

@@ -1,5 +1,6 @@
 { requirements, pkgs, ... }: {
   home.packages = with pkgs; [
+    # dunst
     # wl-clipboard-rs
     # wl-clipboard-x11
     wl-gammactl
@@ -9,7 +10,6 @@
     wl-color-picker
     wl-clip-persist
     wofi
-    dunst
     waybar
     swaybg
     kitty
@@ -55,7 +55,7 @@
     ];
   };
 
-  programs.wezterm.enable = true;
+  programs.wezterm.enable = false;
   programs.wezterm.extraConfig = builtins.readFile ./wezterm.lua;
 
   # Wofi configuration
