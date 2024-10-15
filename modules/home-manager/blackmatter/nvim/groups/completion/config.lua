@@ -156,7 +156,8 @@ end
 function M.setup()
 	vim.cmd [[ set completeopt=menu,menuone,noselect ]]
 	local map = require("utils.map")
-	set_lspkind_config("text")
+	-- set_lspkind_config("text")
+	set_lspkind_config("codicons")
 	map('i', '<C-n>', "<cmd>lua require('cmp').complete()<CR>", {
 		noremap = false, expr = false
 	})
