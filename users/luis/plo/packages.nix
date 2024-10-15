@@ -102,8 +102,8 @@
     rustcat
     rustc
     sops
-		gnupg
-		pinentry-curses
+    gnupg
+    pinentry-curses
     age
     shfmt
     tealdeer
