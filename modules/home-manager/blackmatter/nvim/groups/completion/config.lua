@@ -63,6 +63,9 @@ function M.setup_cmp()
 	local luasnip = require('luasnip')
 	local lspkind = require('lspkind')
 
+	-- load more snippets
+	require('luasnip.loaders.from_vscode').lazy_load()
+
 	cmp.setup({
 		formatting = {
 			format = lspkind.cmp_format({

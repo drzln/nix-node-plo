@@ -157,7 +157,7 @@ let
       unblevable.quick-scope.enable = false;
 
       # snippets
-      rafamadriz.friendly-snippets.enable = false;
+      # rafamadriz.friendly-snippets.enable = false;
 
       # refactoring
       ThePrimeagen."refactoring.nvim".enable = false;
@@ -300,7 +300,7 @@ in
       ./plugins/andymass/vim-matchup
       ./plugins/chaoren/vim-wordmotion
       ./plugins/unblevable/quick-scope
-      ./plugins/rafamadriz/friendly-snippets
+      # ./plugins/rafamadriz/friendly-snippets
       ./plugins/preservim/vim-markdown
       ./plugins/godlygeek/tabular
       ./plugins/iamcco/markdown-preview.nvim
