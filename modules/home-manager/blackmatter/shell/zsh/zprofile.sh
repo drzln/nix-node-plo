@@ -114,4 +114,6 @@ export AWS_PROFILE=pinger-organization
 if [[ "$(uname)" == "Darwin" ]]; then
 	export LIBRARY_PATH="/usr/local/opt/libiconv/lib"
 	export CPATH="/usr/local/opt/libiconv/include"
+	export SDKROOT
+	SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
 fi
