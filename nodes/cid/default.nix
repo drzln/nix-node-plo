@@ -139,6 +139,7 @@
       packages = with pkgs;[ 
 				home-manager 
 				nixhashsync
+				libiconv
 			];
       home = "/Users/ldesiqueira";
     };
