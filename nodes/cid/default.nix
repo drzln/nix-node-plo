@@ -142,7 +142,7 @@
 				libiconv
 				go
 				bat
-				fira-code
+				fira-code-nerdfont
 				dotnet-sdk_8
 				php83Packages.composer
 			];
