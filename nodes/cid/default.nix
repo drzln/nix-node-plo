@@ -141,6 +141,7 @@
 				nixhashsync
 				libiconv
 				go
+				bat
 				dotnet-sdk_8
 				php83Packages.composer
 			];
