@@ -116,4 +116,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
 	export CPATH="/usr/local/opt/libiconv/include"
 	export SDKROOT
 	SDKROOT=$(xcrun --sdk macosx --show-sdk-path)
+	export CGO_CFLAGS
+	CGO_CFLAGS="-isysroot $(xcrun --sdk macosx --show-sdk-path)"
+	export CGO_LDFLAGS
+	CGO_LDFLAGS="-isysroot $(xcrun --sdk macosx --show-sdk-path)"
 fi
