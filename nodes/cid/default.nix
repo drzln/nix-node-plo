@@ -135,6 +135,7 @@
 
   users.users = {
     ldesiqueira = {
+      home = "/Users/ldesiqueira";
       uid = 1002;
       packages = with pkgs;[ 
 				home-manager 
@@ -146,7 +147,6 @@
 				dotnet-sdk_8
 				php83Packages.composer
 			];
-      home = "/Users/ldesiqueira";
     };
   };
 
