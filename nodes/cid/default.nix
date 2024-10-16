@@ -146,6 +146,8 @@
 				fira-code-nerdfont
 				dotnet-sdk_8
 				php83Packages.composer
+				clang
+				darwin.apple_sdk.frameworks.CoreServices
 			];
     };
   };
