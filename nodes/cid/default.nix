@@ -162,6 +162,7 @@
       blackmatter.programs.nvim.package = pkgs.neovim;
       blackmatter.shell.enable = true;
       blackmatter.desktop.alacritty.enable = true;
+      blackmatter.desktop.kitty.enable = true;
       blackmatter.envrc.enable = true;
 
       # stop a dumb bug
