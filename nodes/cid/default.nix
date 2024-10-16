@@ -148,6 +148,7 @@
 				php83Packages.composer
 				clang
 				darwin.apple_sdk.frameworks.CoreServices
+				ruby
 			];
     };
   };
