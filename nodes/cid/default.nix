@@ -142,6 +142,7 @@
 				libiconv
 				go
 				bat
+				fira-code
 				dotnet-sdk_8
 				php83Packages.composer
 			];
