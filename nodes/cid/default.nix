@@ -137,19 +137,19 @@
     ldesiqueira = {
       home = "/Users/ldesiqueira";
       uid = 1002;
-      packages = with pkgs;[ 
-				home-manager 
-				nixhashsync
-				libiconv
-				go
-				bat
-				fira-code-nerdfont
-				dotnet-sdk_8
-				php83Packages.composer
-				clang
-				darwin.apple_sdk.frameworks.CoreServices
-				ruby
-			];
+      packages = with pkgs;[
+        home-manager
+        nixhashsync
+        libiconv
+        go
+        bat
+        fira-code-nerdfont
+        dotnet-sdk_8
+        php83Packages.composer
+        clang
+        darwin.apple_sdk.frameworks.CoreServices
+        ruby
+      ];
     };
   };
 
