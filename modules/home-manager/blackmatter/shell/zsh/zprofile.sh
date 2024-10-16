@@ -87,7 +87,7 @@ export PATH=~/.nix-profile/bin:$PATH
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 
 # PATH up rbenv at the end
-[ -d ~/.rbenv/bin ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
+# [ -d ~/.rbenv/bin ] && eval "$(~/.rbenv/bin/rbenv init - zsh)"
 
 # load NVM
 # export NVM_DIR="$HOME/.nvm"
