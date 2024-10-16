@@ -140,6 +140,9 @@
 				home-manager 
 				nixhashsync
 				libiconv
+				go
+				dotnet-sdk_8
+				php83Packages.composer
 			];
       home = "/Users/ldesiqueira";
     };

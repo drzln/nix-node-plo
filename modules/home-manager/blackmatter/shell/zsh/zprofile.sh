@@ -111,3 +111,7 @@ export GPG_TTY
 GPG_TTY=$(tty)
 
 export AWS_PROFILE=pinger-organization
+if [[ "$(uname)" == "Darwin" ]]; then
+	export LIBRARY_PATH=$(nix eval --raw nixpkgs.libiconv.outPath)/lib
+	export CPATH=$(nix eval --raw nixpkgs.libiconv.outPath)/include
+fi
