@@ -149,6 +149,7 @@
         clang
         darwin.apple_sdk.frameworks.CoreServices
         ruby
+        poetry
       ];
     };
   };
