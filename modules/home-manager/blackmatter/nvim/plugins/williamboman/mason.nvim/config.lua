@@ -9,6 +9,12 @@ function M.setup()
 
 	local exclude_servers = {
 		"efm",
+		"mm0_ls",
+		"lelwel_ls",
+		"flux_lsp",
+		"vls",
+		"verible",
+		"fennel_language_server",
 		"rome",
 		"diagnosticls",
 		"spectral",
