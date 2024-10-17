@@ -2,15 +2,15 @@ plugin:
   path: "~/code/github/drzln/nix-node-plo/modules/home-manager/blackmatter/nvim/plugins/"
 
 plugins:
-  # - author: L3MON4D3
-  #   name: LuaSnip
-  #   branch: main
-  # - author: Wansmer
-  #   name: treesj
-  #   branch: main
-  # - author: ThePrimeagen
-  #   name: refactoring.nvim
-  #   branch: main
+  - author: L3MON4D3
+    name: LuaSnip
+    branch: main
+  - author: Wansmer
+    name: treesj
+    branch: main
+  - author: ThePrimeagen
+    name: refactoring.nvim
+    branch: main
   # - author: SchemaStore
   #   name: schemastore
   #   branch: main
