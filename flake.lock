@@ -515,11 +515,11 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1729020944,
-        "narHash": "sha256-zueIyJKYii2+1VnhmhoX1G+/ReSGLQCiNAUz8kfta2I=",
+        "lastModified": 1729193701,
+        "narHash": "sha256-9JuuE7fOTshrZNeDlkLs+m6o6en4CbZ75tD//n+keA4=",
         "owner": "gahbdias",
         "repo": "NixHashSync",
-        "rev": "ffd5469dd89fed04b65e0a760a50d773d9ae351a",
+        "rev": "76cf0e3010f61f99d8668bfdab699834418cfcec",
         "type": "github"
       },
       "original": {
