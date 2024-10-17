@@ -47,9 +47,9 @@ plugins:
   - author: LeonHeidelbach
     name: trailblazer.nvim
     branch: main
-  - author: camspiers
-    name: animate
-    branch: main
+  # - author: camspiers
+  #   name: animate
+  #   branch: main
   - author: bennypowers
     name: nvim-regexplainer
     branch: main
