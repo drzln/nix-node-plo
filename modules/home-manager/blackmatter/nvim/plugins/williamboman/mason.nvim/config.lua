@@ -50,7 +50,7 @@ function M.setup()
 		"vuels",
 		"hls",
 		"denols",
-		"quick_lint_ls",
+		"quick_lint_js",
 		"als"
 	}
 
