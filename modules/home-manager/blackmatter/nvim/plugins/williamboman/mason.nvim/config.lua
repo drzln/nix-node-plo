@@ -49,6 +49,8 @@ function M.setup()
 		"vala_ls",
 		"vuels",
 		"hls",
+		"denols",
+		"quick_lint_ls",
 		"als"
 	}
 
