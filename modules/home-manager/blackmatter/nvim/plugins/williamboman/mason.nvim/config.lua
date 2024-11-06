@@ -9,6 +9,11 @@ function M.setup()
 
 	local exclude_servers = {
 		"efm",
+		"pyre",
+		"pylyzer",
+		"ruff_lsp",
+		"pyright",
+		"jedi_language_server",
 		"mm0_ls",
 		"lelwel_ls",
 		"flux_lsp",
