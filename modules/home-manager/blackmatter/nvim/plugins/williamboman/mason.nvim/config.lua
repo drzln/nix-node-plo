@@ -8,6 +8,7 @@ function M.setup()
 	local available_servers = mason_lspconfig.get_available_servers()
 
 	local exclude_servers = {
+		"standardrb",
 		"efm",
 		"mm0_ls",
 		"lelwel_ls",
