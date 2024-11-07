@@ -10,6 +10,11 @@ function M.setup()
 	local exclude_servers = {
 		"standardrb",
 		"efm",
+		"pyre",
+		"pylyzer",
+		"ruff_lsp",
+		"pyright",
+		"jedi_language_server",
 		"mm0_ls",
 		"lelwel_ls",
 		"flux_lsp",
@@ -50,6 +55,8 @@ function M.setup()
 		"vala_ls",
 		"vuels",
 		"hls",
+		"denols",
+		"quick_lint_js",
 		"als"
 	}
 

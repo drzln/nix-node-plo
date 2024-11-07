@@ -32,7 +32,7 @@ in
               nvim-treesitter.playground.enable = true;
               nvim-treesitter.nvim-treesitter-context.enable = false;
               nvim-treesitter.nvim-treesitter-refactor.enable = true;
-              nvim-treesitter.nvim-treesitter-textobjects.enable = true;
+              nvim-treesitter.nvim-treesitter-textobjects.enable = false;
               windwp.nvim-ts-autotag.enable = false;
               # now a part of nvim-treesitter as config
               p00f.nvim-ts-rainbow.enable = false;
