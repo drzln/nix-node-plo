@@ -7,7 +7,8 @@ let
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "nvim-lua";
-  name = "plenary";
+  name = "plenary.nvim";
+  plugName = "plenary";
   ref = "master";
   rev = import ./rev.nix;
 in

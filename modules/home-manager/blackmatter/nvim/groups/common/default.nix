@@ -36,7 +36,7 @@ in
               numToStr."Comment.nvim".enable = true;
               folke."neodev.nvim".enable = true;
               jcdickinson."http.nvim".enable = false;
-              nvim-lua.plenary.enable = true;
+              nvim-lua."plenary.nvim".enable = true;
 
               folke."which-key.nvim".enable = false;
             };
