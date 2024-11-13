@@ -7,8 +7,8 @@ let
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
   configPath = "${common.baseConfigPath}/${author}/${plugName}.lua";
   author = "jose-elias-alvarez";
-  name = "null-ls";
-  plugName = name;
+  name = "null-ls.nvim";
+  plugName = "null-ls";
   ref = "main";
   rev = import ./rev.nix;
 in

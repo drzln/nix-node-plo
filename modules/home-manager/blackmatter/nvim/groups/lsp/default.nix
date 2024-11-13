@@ -30,7 +30,7 @@ in
 
           blackmatter.programs.nvim.plugins =
             {
-              jose-elias-alvarez.null-ls.enable = true;
+              jose-elias-alvarez."null-ls.nvim".enable = true;
               neovim.nvim-lspconfig.enable = true;
               williamboman."mason.nvim".enable = true;
               williamboman."mason-lspconfig.nvim".enable = true;
