@@ -114,6 +114,14 @@
             ./users/gaby/plo
           ];
         };
+
+        "gabrielad@gcd" = home-manager.lib.homeManagerConfiguration {
+          inherit extraSpecialArgs;
+          pkgs = linux-pkgs;
+          modules = [
+            ./users/gabrielad/gcd
+          ];
+        };
       };
 
       nixosConfigurations = {
