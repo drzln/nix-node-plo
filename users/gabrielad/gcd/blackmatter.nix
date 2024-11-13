@@ -9,11 +9,11 @@
   blackmatter.gitconfig.email = "gahb.dias@gmail.com";
   blackmatter.gitconfig.user = "gabrielad";
   blackmatter.desktop.enable = true;
-  # blackmatter.desktop.monitors = {
-  #   main = {
-  #     name = "DP-2"; # Secondary monitor output name
-  #     mode = "1920x1080"; # Resolution of the monitor
-  #     rate = "360"; # Refresh rate in Hz for a higher refresh secondary monitor
-  #   };
-  # };
+  blackmatter.desktop.monitors = {
+    main = {
+      name = "DP-2"; # Secondary monitor output name
+      mode = "1920x1080"; # Resolution of the monitor
+      rate = "360"; # Refresh rate in Hz for a higher refresh secondary monitor
+    };
+  };
 }
