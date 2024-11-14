@@ -1,1 +1,3 @@
-{ }
+{
+  services.xserver.videoDrivers = [ "intel" ];
+}
