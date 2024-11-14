@@ -5,7 +5,7 @@
   blackmatter.programs.nvim.enable = true;
   blackmatter.programs.nvim.package = pkgs.neovim_drzln;
   blackmatter.shell.enable = true;
-  blackmatter.gitconfig.enable = true;
+  blackmatter.gitconfig.enable = false;
   blackmatter.gitconfig.email = "gahb.dias@gmail.com";
   blackmatter.gitconfig.user = "gabrielad";
   blackmatter.desktop.enable = true;
