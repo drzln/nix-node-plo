@@ -3,6 +3,7 @@
   services.xserver.videoDrivers = [ "intel" ];
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.autoLogin.enable = false;
   # services.gnome = {
   #   clocks.enable = true;
   #   calendar.enable = true;
