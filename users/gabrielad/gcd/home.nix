@@ -7,63 +7,58 @@
     ./hyprland.nix
     ./blackmatter.nix
   ];
+
   home.stateVersion = "24.05";
   home.username = "gabrielad";
   home.homeDirectory = "/home/gabrielad";
-  # home.sessionVariables = {
-  #   GPG_TTY = "${pkgs.util-linux}/bin/tty";
-  # };
-  # xsession.enable = true;
-  # xsession.windowManager.i3.enable = true;
-  # xsession.windowManager.i3.extraConfig = ''
-  #   # Set the Mod key to the Super/Windows key
-  #   set $mod Mod4
-  #
-  #   # Start a terminal
-  #   bindsym $mod+Return exec kitty
-  #
-  #   # Exit i3
-  #   bindsym $mod+Shift+e exec "i3-msg exit"
-  #
-  #   # Reload the configuration file
-  #   bindsym $mod+Shift+c reload
-  #
-  #   # Restart i3 inplace (preserves your layout/session)
-  #   # bindsym $mod+Shift+r restart
-  #
-  #   # Move focus
-  #   bindsym $mod+h focus left
-  #   bindsym $mod+j focus down
-  #   bindsym $mod+k focus up
-  #   bindsym $mod+l focus right
-  #
-  #   # Split in horizontal orientation
-  #   bindsym $mod+Shift+h split h
-  #
-  #   # Split in vertical orientation
-  #   bindsym $mod+Shift+v split v
-  #
-  #   # Change container layout
-  #   bindsym $mod+s layout stacking
-  #   bindsym $mod+w layout tabbed
-  #   bindsym $mod+e layout toggle split
-  #
-  #   # Kill focused window
-  #   bindsym $mod+Shift+q kill
-  #
-  #   # Start dmenu (a program launcher)
-  #   bindsym $mod+d exec dmenu_run
-  #
-  #   # Volume control (requires appropriate packages)
-  #   bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-  #   bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-  #   bindsym XF86AudioMute exec amixer set Master toggle
-  # '';
+
+  # Enable XSession and configure GNOME as the window manager
+  xsession.enable = true;
+  xsession.windowManager.gnome.enable = true;
+
+  # Enable dmenu for application launching
+  programs.dmenu.enable = true;
+
+  # Customize GNOME settings, including keybindings
+  programs.dconf.enable = true;
+  programs.dconf.settings = {
+    "/org/gnome/desktop/interface" = {
+      # Use dark theme for GTK applications
+      "gtk-theme" = "Adwaita-dark";
+
+      # Set Papirus-Dark as the icon theme
+      "icon-theme" = "Papirus-Dark";
+
+      # Use the default cursor theme
+      "cursor-theme" = "Adwaita";
+    };
+    "/org/gnome/settings-daemon/plugins/media-keys" = {
+      "custom-keybindings" = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
+    };
+    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      # Shortcut: Super (Windows key) + d
+      "binding" = "<Super>d";
+
+      # Open the application menu (dmenu)
+      "command" = "dmenu_run";
+
+      # Program launcher name
+      "name" = "Program Launcher (dmenu)";
+    };
+  };
+
+  # Configure GPG for secure encryption and signing
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
   services.gpg-agent.pinentryPackage = pkgs.pinentry-curses;
   services.gpg-agent.extraConfig = ''
+    # Cache passphrases for 600 seconds (10 minutes)
     default-cache-ttl 600
+
+    # Allow caching for up to 7200 seconds (2 hours)
     max-cache-ttl 7200
   '';
 }
+
