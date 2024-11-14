@@ -5,7 +5,6 @@
     i3status
     dmenu
     rxvt_unicode
-    git
     git-remote-gcrypt
     android-tools
     gnirehtet
