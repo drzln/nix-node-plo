@@ -15,6 +15,12 @@ in
       description = "The address where the default k3d cluster is accessible.";
     };
 
+    port = mkOption {
+      type = types.str;
+      default = "6443";
+      description = "The port where the default k3d cluster is accessible.";
+    };
+
     client.enable = mkEnableOption "Enable client tools and KUBECONFIG management for k3d.";
 
     client.tools = mkOption {
@@ -61,7 +67,7 @@ in
       Service = {
         ExecStart = ''
           ${pkgs.k3d}/bin/k3d cluster create \
-            --api-port ${cfg.address} \
+            --api-port ${cfg.address}:${cfg.port} \
             -p 80:80@loadbalancer
         '';
         ExecStop = "${pkgs.k3d}/bin/k3d cluster delete";
