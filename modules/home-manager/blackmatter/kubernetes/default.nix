@@ -19,6 +19,9 @@ in
     (mkIf cfg.kubernetes.enable {
       home.packages = with pkgs; [
         kind
+        minikube
+        helm
+        kubectl
       ];
     })
   ];

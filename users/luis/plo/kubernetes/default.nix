@@ -4,6 +4,6 @@
   ];
 
   blackmatter.kubernetes.enable = true;
-  blackmatter.kubernetes.k3d.enable = true;
-  blackmatter.kubernetes.k3d.client.enable = true;
+  blackmatter.kubernetes.k3d.enable = false;
+  blackmatter.kubernetes.k3d.client.enable = false;
 }
