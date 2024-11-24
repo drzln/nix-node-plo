@@ -5,7 +5,9 @@ let
 
 in
 {
-  # imports = [];
+  imports = [
+    ./k3d
+  ];
 
   options = {
     blackmatter = {
@@ -21,9 +23,12 @@ in
 
   config = mkMerge [
     (mkIf cfg.kubernetes.enable {
-      home.packages = with pkgs; [ k3d ];
+      blackmatter.kubernetes.k3d.enable = true;
+      home.packages = with pkgs; [
+        # k3d
+        kind
+      ];
 
-      # blackmatter.desktop.alacritty.enable = true;
       # blackmatter.desktop.kitty.enable = true;
       # blackmatter.desktop.packages.enable = true;
       # blackmatter.desktop.firefox.enable = false;
