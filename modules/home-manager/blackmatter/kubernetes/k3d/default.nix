@@ -64,16 +64,16 @@ in
     # };
 
     # Define a systemd service for the default k3d cluster
-    systemd.user.services.k3d-default = {
-      Service = {
-        ExecStart = ''
-          ${pkgs.k3d}/bin/k3d cluster create \
-            --api-port ${cfg.address}:${toString cfg.port} \
-            -p 80:80@loadbalancer
-        '';
-        ExecStop = "${pkgs.k3d}/bin/k3d cluster delete";
-        Restart = "on-failure";
-      };
-    };
+    # systemd.user.services.k3d-default = {
+    #   Service = {
+    #     ExecStart = ''
+    #       ${pkgs.k3d}/bin/k3d cluster create \
+    #         --api-port ${cfg.address}:${toString cfg.port} \
+    #         -p 80:80@loadbalancer
+    #     '';
+    #     ExecStop = "${pkgs.k3d}/bin/k3d cluster delete";
+    #     Restart = "on-failure";
+    #   };
+    # };
   };
 }
