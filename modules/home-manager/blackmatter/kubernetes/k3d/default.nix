@@ -35,9 +35,9 @@ in
       k3d
     ] ++ lib.optionals cfg.client.enable (map (tool: pkgs.${tool}) cfg.client.tools);
 
-    # home.sessionVariables = lib.mkIf cfg.client.enable {
-    #   KUBECONFIG = "${config.home.homeDirectory}/.kube/config";
-    # };
+    home.sessionVariables = lib.mkIf cfg.client.enable {
+      KUBECONFIG = "${config.home.homeDirectory}/.kube/config";
+    };
 
     # Setup KUBECONFIG for default and additional clusters
     # home.file = lib.mkIf cfg.client.enable {
