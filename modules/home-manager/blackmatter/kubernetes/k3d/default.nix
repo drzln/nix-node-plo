@@ -40,15 +40,15 @@ in
     };
 
     # Configure additional clusters
-    systemd.user.services = lib.mkIf (cfg.additionalClusters != [ ]) (lib.genAttrs (map (c: c.name) cfg.additionalClusters) (c: {
-      Service = {
-        ExecStart = ''
-          ${pkgs.k3d}/bin/k3d cluster create ${c.name} --api-port ${c.apiPort} ${concatStringsSep " " (map (arg: "-p " + arg) c.ports or [])}
-        '';
-        ExecStop = "${pkgs.k3d}/bin/k3d cluster delete ${c.name}";
-        Restart = "on-failure";
-      };
-      WantedBy = [ "default.target" ];
-    }));
+    # systemd.user.services = lib.mkIf (cfg.additionalClusters != [ ]) (lib.genAttrs (map (c: c.name) cfg.additionalClusters) (c: {
+    #   Service = {
+    #     ExecStart = ''
+    #       ${pkgs.k3d}/bin/k3d cluster create ${c.name} --api-port ${c.apiPort} ${concatStringsSep " " (map (arg: "-p " + arg) c.ports or [])}
+    #     '';
+    #     ExecStop = "${pkgs.k3d}/bin/k3d cluster delete ${c.name}";
+    #     Restart = "on-failure";
+    #   };
+    #   WantedBy = [ "default.target" ];
+    # }));
   };
 }
