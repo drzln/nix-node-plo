@@ -67,7 +67,6 @@ in
         ExecStop = "${pkgs.k3d}/bin/k3d cluster delete";
         Restart = "on-failure";
       };
-      # WantedBy = lib.mkForce [ "default.target" ]; # Explicitly ensure this is a list
     };
   };
 }
