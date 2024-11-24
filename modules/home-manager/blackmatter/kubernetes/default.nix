@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    # ./k3d
+    ./k3d
   ];
 
   options = {
@@ -23,7 +23,7 @@ in
 
   config = mkMerge [
     (mkIf cfg.kubernetes.enable {
-      # blackmatter.kubernetes.k3d.enable = true;
+      blackmatter.kubernetes.k3d.enable = true;
       home.packages = with pkgs; [
         # k3d
         kind
