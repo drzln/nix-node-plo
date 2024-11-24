@@ -12,12 +12,6 @@ in
   options = {
     blackmatter = {
       kubernetes.enable = mkEnableOption "desktop";
-
-      # provide a monitor configuration
-      # desktop.monitors = mkOption {
-      #   type = types.attrs;
-      #   description = "monitor related attributes";
-      # };
     };
   };
 
