@@ -1,5 +1,9 @@
 prog :=xnixperms
 
+rebuild:
+	bin/nixos-rebuild
+	bin/home-manager-rebuild
+
 nixos-rebuild:
 	bin/nixos-rebuild
 
