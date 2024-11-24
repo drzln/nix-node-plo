@@ -7,7 +7,7 @@ let
 in
 {
   options.blackmatter.kubernetes.k3d = {
-    enable = mkEnableOption "k3d for local Kubernetes clusters";
+    enable = mkEnableOption "Enable a default k3d cluster.";
 
     address = mkOption {
       type = types.str;
@@ -15,73 +15,59 @@ in
       description = "The address where the default k3d cluster is accessible.";
     };
 
-    additionalClusters = mkOption {
-      type = types.listOf (types.attrsOf types.str);
-      default = [ ];
-      description = "List of additional k3d clusters to configure. Each entry must have 'name', 'apiPort', and optional 'ports'.";
-    };
-
-    client.enable = mkEnableOption "Enable client tools and KUBECONFIG management for k3d clusters";
+    client.enable = mkEnableOption "Enable client tools and KUBECONFIG management for k3d.";
 
     client.tools = mkOption {
       type = types.listOf types.str;
       default = [ "kubectl" "k9s" ];
-      description = "List of client tools to install for interacting with Kubernetes clusters.";
+      description = "List of client tools to install for interacting with the Kubernetes cluster.";
     };
   };
 
   config = mkIf cfg.enable {
+    # Install k3d and optionally client tools
     home.packages = with pkgs; [
       k3d
     ] ++ lib.optionals cfg.client.enable (map (tool: pkgs.${tool}) cfg.client.tools);
 
+    # Set KUBECONFIG environment variable
     home.sessionVariables = lib.mkIf cfg.client.enable {
       KUBECONFIG = "${config.home.homeDirectory}/.kube/config";
     };
 
-    # Setup KUBECONFIG for default and additional clusters
+    # Generate KUBECONFIG for the default cluster
     home.file = lib.mkIf cfg.client.enable {
-      ".kube/config".text = builtins.concatStringsSep "\n"
-        (map
-          (cluster:
-            ''
-              apiVersion: v1
-              clusters:
-              - cluster:
-                  server: https://${if cluster.name == "default" then cfg.address else cluster.apiPort}
-                name: ${cluster.name}
-              contexts:
-              - context:
-                  cluster: ${cluster.name}
-                  user: ${cluster.name}-user
-                name: ${cluster.name}-context
-              current-context: ${if cluster.name == "default" then "default-context" else cluster.name + "-context"}
-              users:
-              - name: ${cluster.name}-user
-                user:
-                  token: dummy-token-for-${cluster.name}
-            '')
-          ([{ name = "default"; apiPort = cfg.address; }] ++ cfg.additionalClusters));
+      ".kube/config".text = ''
+        apiVersion: v1
+        clusters:
+        - cluster:
+            server: https://${cfg.address}
+          name: default
+        contexts:
+        - context:
+            cluster: default
+            user: default-user
+          name: default-context
+        current-context: default-context
+        users:
+        - name: default-user
+          user:
+            token: dummy-token
+      '';
     };
 
-    # Systemd services for all k3d clusters (default and additional)
-    # systemd.user.services = lib.genAttrs
-    #   ([{
-    #     name = "default";
-    #     apiPort = cfg.address;
-    #     ports = [ "80:80@loadbalancer" ];
-    #   }] ++ cfg.additionalClusters)
-    #   (cluster: {
-    #     Service = {
-    #       ExecStart = ''
-    #         ${pkgs.k3d}/bin/k3d cluster create ${if cluster.name == "default" then "" else cluster.name} \
-    #           --api-port ${cluster.apiPort} \
-    #           ${concatStringsSep " " (map (arg: "-p " + arg) (cluster.ports or []))}
-    #       '';
-    #       ExecStop = "${pkgs.k3d}/bin/k3d cluster delete ${if cluster.name == "default" then "" else cluster.name}";
-    #       Restart = "on-failure";
-    #     };
-    #     WantedBy = [ "default.target" ];
-    #   });
+    # Define a systemd service for the default k3d cluster
+    systemd.user.services.k3d-default = {
+      Service = {
+        ExecStart = ''
+          ${pkgs.k3d}/bin/k3d cluster create \
+            --api-port ${cfg.address} \
+            -p 80:80@loadbalancer
+        '';
+        ExecStop = "${pkgs.k3d}/bin/k3d cluster delete";
+        Restart = "on-failure";
+      };
+      # WantedBy = lib.mkForce [ "default.target" ]; # Explicitly ensure this is a list
+    };
   };
 }
