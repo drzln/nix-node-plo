@@ -12,13 +12,13 @@ in
     address = mkOption {
       type = types.str;
       default = "127.0.0.1";
-      description = "The address where the k3d cluster is accessible.";
+      description = "The address where the default k3d cluster is accessible.";
     };
 
     additionalClusters = mkOption {
-      type = types.listOf types.attrs;
+      type = types.listOf (types.attrsOf types.str);
       default = [ ];
-      description = "List of additional k3d clusters to configure.";
+      description = "List of additional k3d clusters to configure. Each entry must have 'name', 'apiPort', and optional 'ports'.";
     };
   };
 
@@ -27,28 +27,25 @@ in
       k3d # Ensure k3d is installed
     ];
 
-    # Create default k3d cluster if enabled
-    systemd.user.services.k3d-default = {
-      Service = {
-        ExecStart = ''
-          ${pkgs.k3d}/bin/k3d cluster create --api-port ${cfg.address} -p 80:80@loadbalancer
-        '';
-        ExecStop = "${pkgs.k3d}/bin/k3d cluster delete";
-        Restart = "on-failure";
-      };
-      WantedBy = [ "default.target" ];
-    };
-
-    # Configure additional clusters
-    # systemd.user.services = lib.mkIf (cfg.additionalClusters != [ ]) (lib.genAttrs (map (c: c.name) cfg.additionalClusters) (c: {
-    #   Service = {
-    #     ExecStart = ''
-    #       ${pkgs.k3d}/bin/k3d cluster create ${c.name} --api-port ${c.apiPort} ${concatStringsSep " " (map (arg: "-p " + arg) c.ports or [])}
-    #     '';
-    #     ExecStop = "${pkgs.k3d}/bin/k3d cluster delete ${c.name}";
-    #     Restart = "on-failure";
-    #   };
-    #   WantedBy = [ "default.target" ];
-    # }));
+    # Systemd services for all k3d clusters (default and additional)
+    systemd.user.services = lib.genAttrs
+      ([{
+        name = "default";
+        apiPort = cfg.address;
+        ports = [ "80:80@loadbalancer" ];
+      }] ++ cfg.additionalClusters)
+      (cluster: {
+        Service = {
+          ExecStart = ''
+            ${pkgs.k3d}/bin/k3d cluster create ${if cluster.name == "default" then "" else cluster.name} \
+              --api-port ${cluster.apiPort} \
+              ${concatStringsSep " " (map (arg: "-p " + arg) (cluster.ports or []))}
+          '';
+          ExecStop = "${pkgs.k3d}/bin/k3d cluster delete ${if cluster.name == "default" then "" else cluster.name}";
+          Restart = "on-failure";
+        };
+        WantedBy = [ "default.target" ];
+      });
   };
 }
+
