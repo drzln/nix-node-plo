@@ -42,25 +42,26 @@ in
     };
 
     # Generate KUBECONFIG for the default cluster
-    home.file = lib.mkIf cfg.client.enable {
-      ".kube/config".text = ''
-        apiVersion: v1
-        clusters:
-        - cluster:
-            server: https://${cfg.address}:${toString cfg.port}
-          name: default
-        contexts:
-        - context:
-            cluster: default
-            user: default-user
-          name: default-context
-        current-context: default-context
-        users:
-        - name: default-user
-          user:
-            token: dummy-token
-      '';
-    };
+    # home.file = lib.mkIf cfg.client.enable {
+    #   ".kube/config".text = ''
+    #     apiVersion: v1
+    #     clusters:
+    #     - cluster:
+    #         insecure-skip-tls-verify: true
+    #         server: https://${cfg.address}:${toString cfg.port}
+    #       name: default
+    #     contexts:
+    #     - context:
+    #         cluster: default
+    #         user: default-user
+    #       name: default-context
+    #     current-context: default-context
+    #     users:
+    #     - name: default-user
+    #       user:
+    #         token: dummy-token
+    #   '';
+    # };
 
     # Define a systemd service for the default k3d cluster
     systemd.user.services.k3d-default = {
