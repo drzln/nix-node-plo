@@ -16,8 +16,8 @@ in
     };
 
     port = mkOption {
-      type = types.str;
-      default = "6443";
+      type = types.int;
+      default = 6443;
       description = "The port where the default k3d cluster is accessible.";
     };
 
@@ -47,7 +47,7 @@ in
         apiVersion: v1
         clusters:
         - cluster:
-            server: https://${cfg.address}
+            server: https://${cfg.address}:${toString cfg.port}
           name: default
         contexts:
         - context:
@@ -67,7 +67,7 @@ in
       Service = {
         ExecStart = ''
           ${pkgs.k3d}/bin/k3d cluster create \
-            --api-port ${cfg.address}:${cfg.port} \
+            --api-port ${cfg.address}:${toString cfg.port} \
             -p 80:80@loadbalancer
         '';
         ExecStop = "${pkgs.k3d}/bin/k3d cluster delete";
