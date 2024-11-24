@@ -40,29 +40,29 @@ in
     };
 
     # Setup KUBECONFIG for default and additional clusters
-    # home.file = lib.mkIf cfg.client.enable {
-    #   ".kube/config".text = builtins.concatStringsSep "\n"
-    #     (map
-    #       (cluster:
-    #         ''
-    #           apiVersion: v1
-    #           clusters:
-    #           - cluster:
-    #               server: https://${if cluster.name == "default" then cfg.address else cluster.apiPort}
-    #             name: ${cluster.name}
-    #           contexts:
-    #           - context:
-    #               cluster: ${cluster.name}
-    #               user: ${cluster.name}-user
-    #             name: ${cluster.name}-context
-    #           current-context: ${if cluster.name == "default" then "default-context" else cluster.name + "-context"}
-    #           users:
-    #           - name: ${cluster.name}-user
-    #             user:
-    #               token: dummy-token-for-${cluster.name}
-    #         '')
-    #       ([{ name = "default"; apiPort = cfg.address; }] ++ cfg.additionalClusters));
-    # };
+    home.file = lib.mkIf cfg.client.enable {
+      ".kube/config".text = builtins.concatStringsSep "\n"
+        (map
+          (cluster:
+            ''
+              apiVersion: v1
+              clusters:
+              - cluster:
+                  server: https://${if cluster.name == "default" then cfg.address else cluster.apiPort}
+                name: ${cluster.name}
+              contexts:
+              - context:
+                  cluster: ${cluster.name}
+                  user: ${cluster.name}-user
+                name: ${cluster.name}-context
+              current-context: ${if cluster.name == "default" then "default-context" else cluster.name + "-context"}
+              users:
+              - name: ${cluster.name}-user
+                user:
+                  token: dummy-token-for-${cluster.name}
+            '')
+          ([{ name = "default"; apiPort = cfg.address; }] ++ cfg.additionalClusters));
+    };
 
     # Systemd services for all k3d clusters (default and additional)
     # systemd.user.services = lib.genAttrs
