@@ -32,9 +32,9 @@ in
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      k3d # Ensure k3d is installed
-      # {optionalString cfg.client.enable (map (tool: pkgs.${tool}) cfg.client.tools)}
-    ];
+      k3d
+    ] ++ lib.optional cfg.client.enable (map (tool: pkgs.${tool}) cfg.client.tools);
+
 
     home.sessionVariables = lib.mkIf cfg.client.enable {
       KUBECONFIG = "${config.home.homeDirectory}/.kube/config";
