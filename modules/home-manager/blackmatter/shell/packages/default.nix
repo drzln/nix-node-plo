@@ -63,6 +63,9 @@ in
           sops
           rust-analyzer
           rustfmt
+          openssl
+          pkg-config
+          rustc
           # git-remote-gcrypt
           # coreutils-prefixed
           # yq-go

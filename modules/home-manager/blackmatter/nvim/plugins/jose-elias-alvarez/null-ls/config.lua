@@ -4,6 +4,7 @@ function M.setup()
 	local nls = require("null-ls")
 
 	local nlssources = {
+		nls.builtins.formatting.rustfmt,
 		nls.builtins.formatting.phpcsfixer.with({
 			command = "php-cs-fixer",
 		}),
