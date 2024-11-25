@@ -60,6 +60,7 @@ in
 
       home.packages = with pkgs;
         [
+          sops
           # git-remote-gcrypt
           # coreutils-prefixed
           # yq-go
