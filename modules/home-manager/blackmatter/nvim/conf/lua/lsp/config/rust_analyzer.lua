@@ -5,7 +5,7 @@ function M.setup(opts)
 
 	-- Override bashls
 	local rust_analyzer_opts = vim.tbl_extend("force", {
-		on_attach = function(client, bufnr)
+		on_attach = function(client, _bufnr)
 			client.server_capabilities.documentFormattingProvider = false
 			client.server_capabilities.documentRangeFormattingProvider = false
 			-- Enable formatting on save
