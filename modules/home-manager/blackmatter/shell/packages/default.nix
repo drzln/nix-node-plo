@@ -62,6 +62,7 @@ in
         [
           sops
           rust-analyzer
+          rustfmt
           # git-remote-gcrypt
           # coreutils-prefixed
           # yq-go
