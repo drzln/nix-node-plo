@@ -66,6 +66,7 @@ in
           openssl
           pkg-config
           rustc
+          cargo
           # git-remote-gcrypt
           # coreutils-prefixed
           # yq-go
