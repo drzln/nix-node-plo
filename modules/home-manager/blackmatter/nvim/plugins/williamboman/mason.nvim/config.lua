@@ -79,8 +79,8 @@ function M.setup()
 	local lspconfig = require("lspconfig")
 
 	local server_configs = {
-		nil_ls = {
-			settins = {
+		null_ls = {
+			settings = {
 				['nil'] = {
 					autoArchive = true,
 				},
