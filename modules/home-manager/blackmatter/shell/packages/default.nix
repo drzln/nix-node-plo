@@ -61,6 +61,7 @@ in
       home.packages = with pkgs;
         [
           sops
+          rust-analyzer
           # git-remote-gcrypt
           # coreutils-prefixed
           # yq-go
