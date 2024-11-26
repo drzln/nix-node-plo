@@ -133,7 +133,8 @@ in
             enable = true;
             package = pkgs.i3-gaps;
             config = {
-              # keybindings = { };
+              modes = { };
+              keybindings = { };
               # modifier = "Mod4";
               floating.modifier = "Mod4"; # Set floating_modifier to Mod4
               window.border = 0;
@@ -153,63 +154,102 @@ in
               colors.focusedInactive = themes.nord.globals.colors.focusedInactive;
             };
             extraConfig = ''
-              # Set the Mod key to the Super/Windows key
-              set $mod Mod4
+# Set the Mod key to the Super/Windows key
+set $mod Mod4
 
-              # remove borders
-              for_window [class="^.*"] border pixel 0
-              for_window [class="^.*"] gaps inner all
+################################################################################
+# bindings
+################################################################################
 
-              gaps inner 0
-              gaps outer 0
+########################################
+# workspace
+########################################
 
-              # make the background nord color
-              exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
+bindsym $mod+0 workspace number 10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
 
-              # screen locking
-              # TODO: for now set directly but move to config file in the future
-              bindsym $mod+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
-              exec --no-startup-id ${pkgs.xorg.xrandr}/bin/xrandr --output ${monitors.main.name} --mode ${monitors.main.mode} --rate ${monitors.main.rate}
+########################################
+# end workspace
+########################################
 
-              # Start a terminal
-              bindsym $mod+Return exec kitty
+########################################
+# focus
+########################################
 
-              # Exit i3
-              bindsym $mod+Shift+e exec "i3-msg exit"
+bindsym $mod+Down focus down
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+space focus mode_toggle
 
-              # Reload the configuration file
-              bindsym $mod+Shift+c reload
+########################################
+# end focus
+########################################
 
-              # Restart i3 inplace (preserves your layout/session)
-              # bindsym $mod+Shift+r restart
+bindsym $mod+Return exec kitty
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+a focus parent
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+f fullscreen toggle
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+minus scratchpad show
+bindsym $mod+r mode resize
 
-              # Move focus
-              bindsym $mod+h focus left
-              bindsym $mod+j focus down
-              bindsym $mod+k focus up
-              bindsym $mod+l focus right
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+e layout toggle split
 
-              # Split in horizontal orientation
-              bindsym $mod+Shift+h split h
+################################################################################
+# end bindings
+################################################################################
 
-              # Split in vertical orientation
-              bindsym $mod+Shift+v split v
+# remove borders
+for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] gaps inner all
 
-              # Change container layout
-              bindsym $mod+s layout stacking
-              bindsym $mod+w layout tabbed
-              bindsym $mod+e layout toggle split
+gaps inner 0
+gaps outer 0
 
-              # Kill focused window
-              bindsym $mod+Shift+q kill
+# make the background nord color
+exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
 
-              # Start dmenu (a program launcher)
-              bindsym $mod+d exec dmenu_run
+# screen locking
+# TODO: for now set directly but move to config file in the future
+# bindsym $mod+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
+exec --no-startup-id ${pkgs.xorg.xrandr}/bin/xrandr --output ${monitors.main.name} --mode ${monitors.main.mode} --rate ${monitors.main.rate}
 
-              # Volume control (requires appropriate packages)
-              bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-              bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-              bindsym XF86AudioMute exec amixer set Master toggle
+# Volume control (requires appropriate packages)
+# bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+# bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+# bindsym XF86AudioMute exec amixer set Master toggle
             '';
           };
         };
