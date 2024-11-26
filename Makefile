@@ -15,3 +15,6 @@ home-manager-rebuild:
 
 build-neovim:
 	nix build .#packages.neovim_drzln.x86_64-linux
+
+build-nixhashsync:
+	nix build .#packages.nixhashsync.x86_64-linux
