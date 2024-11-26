@@ -1,5 +1,9 @@
 local M = {}
 
+local excluded_filetypes = {
+	"rust", -- Add other filetypes if needed
+}
+
 function M.setup()
 	local nls = require("null-ls")
 
@@ -23,6 +27,15 @@ function M.setup()
 	}
 	nls.setup({
 		sources = nlssources,
+		on_attach = function(client, bufnr)
+			local ft = vim.bo.filetype
+			for _, excluded_ft in ipairs(excluded_filetypes) do
+				if ft == excluded_ft then
+					client.stop()
+					return
+				end
+			end
+		end,
 	})
 end
 
