@@ -243,13 +243,13 @@ exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
 
 # screen locking
 # TODO: for now set directly but move to config file in the future
-# bindsym $mod+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
+bindsym $mod+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
 exec --no-startup-id ${pkgs.xorg.xrandr}/bin/xrandr --output ${monitors.main.name} --mode ${monitors.main.mode} --rate ${monitors.main.rate}
 
 # Volume control (requires appropriate packages)
-# bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-# bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-# bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioMute exec amixer set Master toggle
             '';
           };
         };
