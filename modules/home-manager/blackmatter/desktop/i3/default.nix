@@ -154,131 +154,131 @@ in
               colors.focusedInactive = themes.nord.globals.colors.focusedInactive;
             };
             extraConfig = ''
-              # Set the Mod key to the Super/Windows key
-              set $mod Mod1
+# Set the Mod key to the Super/Windows key
+set $mod Mod1
 
-              ################################################################################
-              # bindings
-              ################################################################################
+################################################################################
+# bindings
+################################################################################
 
-              ########################################
-              # workspace
-              ########################################
+########################################
+# workspace
+########################################
 
-              bindsym $mod+0 workspace number 10
-              bindsym $mod+1 workspace number 1
-              bindsym $mod+2 workspace number 2
-              bindsym $mod+3 workspace number 3
-              bindsym $mod+4 workspace number 4
-              bindsym $mod+5 workspace number 5
-              bindsym $mod+6 workspace number 6
-              bindsym $mod+7 workspace number 7
-              bindsym $mod+8 workspace number 8
-              bindsym $mod+9 workspace number 9
-              bindsym $mod+Shift+0 move container to workspace number 10
-              bindsym $mod+Shift+1 move container to workspace number 1
-              bindsym $mod+Shift+2 move container to workspace number 2
-              bindsym $mod+Shift+3 move container to workspace number 3
-              bindsym $mod+Shift+4 move container to workspace number 4
-              bindsym $mod+Shift+5 move container to workspace number 5
-              bindsym $mod+Shift+6 move container to workspace number 6
-              bindsym $mod+Shift+7 move container to workspace number 7
-              bindsym $mod+Shift+8 move container to workspace number 8
-              bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+0 workspace number 10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
 
-              ########################################
-              # end workspace
-              ########################################
+########################################
+# end workspace
+########################################
 
-              ########################################
-              # focus
-              ########################################
+########################################
+# focus
+########################################
 
-              # bindsym $mod+Down focus down
-              # bindsym $mod+Left focus left
-              # bindsym $mod+Right focus right
-              # bindsym $mod+Up focus up
-              # bindsym $mod+space focus mode_toggle
-              # bindsym $mod+a focus parent
+# bindsym $mod+Down focus down
+# bindsym $mod+Left focus left
+# bindsym $mod+Right focus right
+# bindsym $mod+Up focus up
+# bindsym $mod+space focus mode_toggle
+# bindsym $mod+a focus parent
 
-              ########################################
-              # end focus
-              ########################################
+########################################
+# end focus
+########################################
 
-              ########################################
-              # moves
-              ########################################
+########################################
+# moves
+########################################
 
-              # bindsym $mod+Shift+Down move down
-              # bindsym $mod+Shift+Left move left
-              # bindsym $mod+Shift+Right move right
-              # bindsym $mod+Shift+Up move up
-              # bindsym $mod+Shift+space floating toggle
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+space floating toggle
 
-              ########################################
-              # end moves
-              ########################################
+########################################
+# end moves
+########################################
 
-              ########################################
-              # tabs
-              ########################################
+########################################
+# tabs
+########################################
 
-              # bindsym $mod+w layout tabbed
-              # bindsym $mod+s layout stacking
-              # bindsym $mod+e layout toggle split
-              # bindsym $mod+h split h
-              # bindsym $mod+v split v
-              # bindsym $mod+r mode resize
+# bindsym $mod+w layout tabbed
+# bindsym $mod+s layout stacking
+# bindsym $mod+e layout toggle split
+# bindsym $mod+h split h
+# bindsym $mod+v split v
+# bindsym $mod+r mode resize
 
-              ########################################
-              # end tabs
-              ########################################
+########################################
+# end tabs
+########################################
 
-              bindsym $mod+Return exec kitty
-              bindsym $mod+d exec rofi -show drun
-              bindsym $mod+Shift+c reload
-              bindsym $mod+Shift+r restart
-              bindsym $mod+Shift+q kill
-              bindsym $mod+Shift+e exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'
-              # bindsym $mod+f fullscreen toggle
-              # bindsym $mod+minus scratchpad show
+bindsym $mod+Return exec kitty
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+e exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'
+# bindsym $mod+f fullscreen toggle
+# bindsym $mod+minus scratchpad show
 
-              ################################################################################
-              # end bindings
-              ################################################################################
+################################################################################
+# end bindings
+################################################################################
 
-              # remove borders
-              for_window [class="^.*"] border pixel 0
-              for_window [class="^.*"] gaps inner all
+# remove borders
+for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] gaps inner all
 
-              gaps inner 0
-              gaps outer 0
+gaps inner 0
+gaps outer 0
 
-              # make the background nord color
-              exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
+# make the background nord color
+exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
 
-              # screen locking
-              # TODO: for now set directly but move to config file in the future
-              bindsym $mod+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
+# screen locking
+# TODO: for now set directly but move to config file in the future
+bindsym $mod+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
 
-              # Volume control (requires appropriate packages)
-              bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-              bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-              bindsym XF86AudioMute exec amixer set Master toggle
+# Volume control (requires appropriate packages)
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym XF86AudioMute exec amixer set Master toggle
 
-							#################################
-							# monitor
-							#################################
+#################################
+# monitor
+#################################
 
-              exec --no-startup-id \
-								${pkgs.xorg.xrandr}/bin/xrandr \
-								--output ${monitors.main.name} \
-								--mode ${monitors.main.mode} \
-								--rate ${monitors.main.rate}
+exec --no-startup-id \
+	${pkgs.xorg.xrandr}/bin/xrandr \
+	--output ${monitors.main.name} \
+	--mode ${monitors.main.mode} \
+	--rate ${monitors.main.rate}
 
-							#################################
-							# end monitor
-							#################################
+#################################
+# end monitor
+#################################
             '';
           };
         };
@@ -305,25 +305,25 @@ in
               time = "%H:%M %Z";
             };
             # tries to work with alsa but we goin pipewire
-            "module/volume" = {
-              type = "internal/alsa";
-              mixer = "default";
-              master-mixer = "Master";
-              headphone-mixer = "Headphone";
-              interval = 1;
-              format-volume = "♪ <label-volume>";
-              label-volume = "VOL %percentage%%";
-              label-muted = "(muted)";
-              ramp-volume-0 = "▁";
-              ramp-volume-1 = "▂";
-              ramp-volume-2 = "▃";
-              ramp-volume-3 = "▄";
-              ramp-volume-4 = "▅";
-              ramp-volume-5 = "▆";
-              ramp-volume-6 = "▇";
-              ramp-volume-7 = "█";
-              headphone-id = "Master";
-            };
+            # "module/volume" = {
+            #   type = "internal/alsa";
+            #   mixer = "default";
+            #   master-mixer = "Master";
+            #   headphone-mixer = "Headphone";
+            #   interval = 1;
+            #   format-volume = "♪ <label-volume>";
+            #   label-volume = "VOL %percentage%%";
+            #   label-muted = "(muted)";
+            #   ramp-volume-0 = "▁";
+            #   ramp-volume-1 = "▂";
+            #   ramp-volume-2 = "▃";
+            #   ramp-volume-3 = "▄";
+            #   ramp-volume-4 = "▅";
+            #   ramp-volume-5 = "▆";
+            #   ramp-volume-6 = "▇";
+            #   ramp-volume-7 = "█";
+            #   headphone-id = "Master";
+            # };
             "bar/top" = {
               monitor = monitors.main.name;
               modules-right = "date";
