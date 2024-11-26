@@ -2,8 +2,6 @@
 {
   imports = [
     ./packages.nix
-    ./background.nix
-    ./hyprland.nix
     ./blackmatter.nix
     ./secrets
     ./shadeflakes
