@@ -133,6 +133,9 @@ in
             enable = true;
             package = pkgs.i3-gaps;
             config = {
+              # keybindings = { };
+              # modifier = "Mod4";
+              floating.modifier = "Mod4"; # Set floating_modifier to Mod4
               window.border = 0;
               fonts = {
                 names = [ themes.nord.styling.font-0 ];
@@ -150,21 +153,63 @@ in
               colors.focusedInactive = themes.nord.globals.colors.focusedInactive;
             };
             extraConfig = ''
-                            # remove borders
-                            for_window [class="^.*"] border pixel 0
-                            for_window [class="^.*"] gaps inner all
+              # Set the Mod key to the Super/Windows key
+              set $mod Mod4
 
-              							gaps inner 0
-              							gaps outer 0
+              # remove borders
+              for_window [class="^.*"] border pixel 0
+              for_window [class="^.*"] gaps inner all
 
-                            # make the background nord color
-                            exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
+              gaps inner 0
+              gaps outer 0
 
-                            # screen locking
-                            # TODO: for now set directly but move to config file in the future
-                            bindsym Mod1+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
+              # make the background nord color
+              exec_always --no-startup-id xsetroot -solid "${nord.colors.background.blue}"
 
-                            exec --no-startup-id ${pkgs.xorg.xrandr}/bin/xrandr --output ${monitors.main.name} --mode ${monitors.main.mode} --rate ${monitors.main.rate}
+              # screen locking
+              # TODO: for now set directly but move to config file in the future
+              bindsym $mod+Shift+l exec i3lock -c "${nord.colors.i3lock.background.blue}" -u
+              exec --no-startup-id ${pkgs.xorg.xrandr}/bin/xrandr --output ${monitors.main.name} --mode ${monitors.main.mode} --rate ${monitors.main.rate}
+
+              # Start a terminal
+              bindsym $mod+Return exec kitty
+
+              # Exit i3
+              bindsym $mod+Shift+e exec "i3-msg exit"
+
+              # Reload the configuration file
+              bindsym $mod+Shift+c reload
+
+              # Restart i3 inplace (preserves your layout/session)
+              # bindsym $mod+Shift+r restart
+
+              # Move focus
+              bindsym $mod+h focus left
+              bindsym $mod+j focus down
+              bindsym $mod+k focus up
+              bindsym $mod+l focus right
+
+              # Split in horizontal orientation
+              bindsym $mod+Shift+h split h
+
+              # Split in vertical orientation
+              bindsym $mod+Shift+v split v
+
+              # Change container layout
+              bindsym $mod+s layout stacking
+              bindsym $mod+w layout tabbed
+              bindsym $mod+e layout toggle split
+
+              # Kill focused window
+              bindsym $mod+Shift+q kill
+
+              # Start dmenu (a program launcher)
+              bindsym $mod+d exec dmenu_run
+
+              # Volume control (requires appropriate packages)
+              bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
+              bindsym XF86AudioLowerVolume exec amixer set Master 5%-
+              bindsym XF86AudioMute exec amixer set Master toggle
             '';
           };
         };
