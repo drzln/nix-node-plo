@@ -91,11 +91,11 @@ in
   };
   config = mkMerge [
     (mkIf cfg.desktop.enable {
-      blackmatter.desktop.alacritty.enable = true;
+      blackmatter.desktop.alacritty.enable = false;
+      blackmatter.desktop.firefox.enable = false;
       blackmatter.desktop.kitty.enable = true;
       blackmatter.desktop.packages.enable = true;
-      blackmatter.desktop.firefox.enable = false;
-      blackmatter.desktop.i3.enable = true;
+      blackmatter.desktop.i3.enable = false;
 
       #########################################################################
       # vscode
