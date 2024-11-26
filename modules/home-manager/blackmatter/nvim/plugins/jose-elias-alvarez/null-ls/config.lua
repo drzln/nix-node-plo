@@ -1,7 +1,7 @@
 local M = {}
 
 local excluded_filetypes = {
-	"rust", -- Add other filetypes if needed
+	-- "rust", -- Add other filetypes if needed
 }
 
 function M.setup()
