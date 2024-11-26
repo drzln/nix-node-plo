@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./programs.nix
     ./packages.nix
     ./background.nix
     ./hyprland.nix

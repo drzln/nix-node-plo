@@ -57,7 +57,11 @@ in
 
   config = mkMerge [
     (mkIf cfg.shell.packages.enable {
-
+      programs.fzf.enable = true;
+      programs.fzf.enableZshIntegration = true;
+      programs.zsh = {
+        enable = true;
+      };
       home.packages = with pkgs;
         [
           sops
