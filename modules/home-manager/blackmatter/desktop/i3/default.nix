@@ -342,20 +342,20 @@ in
           frame_color = nord.colors.background.blue;
           background = nord.colors.background.blue;
           foreground = nord.colors.foreground;
-          # timeout = 5;
+          timeout = 5;
         };
-        # urgency_low = {
-        #   background = nord.colors.secondary;
-        #   foreground = nord.colors.background.blue;
-        # };
-        # urgency_normal = {
-        #   background = nord.colors.background.blue;
-        #   foreground = nord.colors.foreground;
-        # };
-        # urgency_critical = {
-        #   background = nord.colors.error.background;
-        #   foreground = nord.colors.error.red;
-        # };
+        urgency_low = {
+          background = nord.colors.secondary;
+          foreground = nord.colors.background.blue;
+        };
+        urgency_normal = {
+          background = nord.colors.background.blue;
+          foreground = nord.colors.foreground;
+        };
+        urgency_critical = {
+          background = nord.colors.error.background.grey;
+          foreground = nord.colors.error.red;
+        };
       };
 
       # set backgrounds in place
