@@ -288,9 +288,13 @@ in
         background_color = "${nord.colors.i3lock.background.blue}"
       '';
 
-      # packages to assist polybar
-      home.packages = with pkgs;[
+			# audio requirements and polybar assistance
+      home.packages = with pkgs; [
         alsa-utils
+        polybar
+        pamixer # Volume control tool compatible with PipeWire
+        pipewire # PipeWire audio server
+        wireplumber # Session manager for PipeWire
       ];
 
       services.polybar = with themes.nord;
@@ -334,6 +338,8 @@ in
       # enable the rofi launcher
       programs.rofi.enable = true;
       programs.rofi.theme = themes.nord.rofi;
+
+
 
       # disable dunst
       services.dunst.enable = false;
