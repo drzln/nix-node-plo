@@ -346,7 +346,7 @@ in
           # how long the alert lasts
           timeout = 3;
 
-					# positioning of alert window
+          # positioning of alert window
           geometry = "300x5-10-10"; # Width x Stack Size - X Offset - Y Offset
 
         };
