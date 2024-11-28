@@ -288,13 +288,13 @@ in
         background_color = "${nord.colors.i3lock.background.blue}"
       '';
 
-			# audio requirements and polybar assistance
+      # audio requirements and polybar assistance
       home.packages = with pkgs; [
+        wireplumber # Session manager for PipeWire
         alsa-utils
+        pipewire # PipeWire audio server
         polybar
         pamixer # Volume control tool compatible with PipeWire
-        pipewire # PipeWire audio server
-        wireplumber # Session manager for PipeWire
       ];
 
       services.polybar = with themes.nord;
