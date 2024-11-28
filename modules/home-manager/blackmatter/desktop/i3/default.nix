@@ -336,19 +336,42 @@ in
 
       # enable dunst notifications
       services.dunst.enable = true;
+      # services.dunst.settings = {
+      #   global = {
+      #     font = "RobotoMono Nerd Font 10";
+      #     frame_color = nord.colors.background.blue;
+      #     background = nord.colors.background.blue;
+      #     foreground = nord.colors.foreground.blue;
+      #     timeout = 5;
+      #   };
+      #   urgency_low = {
+      #     background = nord.colors.secondary;
+      #     foreground = nord.colors.background.blue;
+      #   };
+      #   urgency_normal = {
+      #     background = nord.colors.background.blue;
+      #     foreground = nord.colors.foreground;
+      #   };
+      #   urgency_critical = {
+      #     background = nord.colors.error.background;
+      #     foreground = nord.colors.error.red;
+      #   };
+      # };
 
       # set backgrounds in place
-      home.file."backgrounds/nord/tools".source = builtins.fetchGit {
-        url = "https://github.com/arcticicestudio/nord.git";
-        ref = "develop";
-        rev = "c93f12b23baac69a92e7559f69e7a60c20b9da0d";
-      };
+      home.file."backgrounds/nord/tools".source = builtins.fetchGit
+        {
+          url = "https://github.com/arcticicestudio/nord.git";
+          ref = "develop";
+          rev = "c93f12b23baac69a92e7559f69e7a60c20b9da0d";
+        };
 
-      home.file."backgrounds/nord/backgrounds".source = builtins.fetchGit {
-        url = "https://github.com/dxnst/nord-backgrounds.git";
-        ref = "main";
-        rev = "c47d6b8b0ea391fabbb79aa005703ae5549ffdc4";
-      };
+      home.file."backgrounds/nord/backgrounds".source = builtins.fetchGit
+        {
+          url = "https://github.com/dxnst/nord-backgrounds.git";
+          ref = "main";
+          rev = "c47d6b8b0ea391fabbb79aa005703ae5549ffdc4";
+        };
     })
   ];
 }
