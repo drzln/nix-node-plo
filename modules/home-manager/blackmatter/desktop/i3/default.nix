@@ -295,8 +295,8 @@ in
         pipewire # PipeWire audio server
         polybar
         pamixer # Volume control tool compatible with PipeWire
-				libcamera
-				qpwgraph # graphical audio mapping
+        libcamera
+        qpwgraph # graphical audio mapping
       ];
 
       services.polybar = with themes.nord;
