@@ -299,16 +299,6 @@ in
         libcamera
         qpwgraph # graphical audio mapping
       ];
-      # [module/volume]
-      # type = custom/script
-      # exec = pamixer --get-volume-human
-      # interval = 1
-      # click-left = pamixer --increase 5
-      # click-right = pamixer --decrease 5
-      # click-middle = pamixer --toggle-mute
-      # label =  %output%
-      # label-muted =  Muted
-      # format-muted = <label-muted>
       services.polybar = with themes.nord;
         {
           enable = true;
