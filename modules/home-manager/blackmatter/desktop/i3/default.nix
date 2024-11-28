@@ -298,7 +298,16 @@ in
         libcamera
         qpwgraph # graphical audio mapping
       ];
-
+      # [module/volume]
+      # type = custom/script
+      # exec = pamixer --get-volume-human
+      # interval = 1
+      # click-left = pamixer --increase 5
+      # click-right = pamixer --decrease 5
+      # click-middle = pamixer --toggle-mute
+      # label =  %output%
+      # label-muted =  Muted
+      # format-muted = <label-muted>
       services.polybar = with themes.nord;
         {
           enable = true;
@@ -310,29 +319,20 @@ in
               date = "%Y-%m-%d";
               time = "%H:%M %Z";
             };
-            # tries to work with alsa but we goin pipewire
-            # "module/volume" = {
-            #   type = "internal/alsa";
-            #   mixer = "default";
-            #   master-mixer = "Master";
-            #   headphone-mixer = "Headphone";
-            #   interval = 1;
-            #   format-volume = "♪ <label-volume>";
-            #   label-volume = "VOL %percentage%%";
-            #   label-muted = "(muted)";
-            #   ramp-volume-0 = "▁";
-            #   ramp-volume-1 = "▂";
-            #   ramp-volume-2 = "▃";
-            #   ramp-volume-3 = "▄";
-            #   ramp-volume-4 = "▅";
-            #   ramp-volume-5 = "▆";
-            #   ramp-volume-6 = "▇";
-            #   ramp-volume-7 = "█";
-            #   headphone-id = "Master";
-            # };
+            "module/volume" = {
+              type = "custom/script";
+              exec = "pamixer --get-volume-human";
+              interval = "1";
+              click-left = "pamixer --increase 5";
+              click-right = "pamixer --decrease 5";
+              click-middle = "pamixer --toggle-mute";
+              label = " %output%";
+              label-muted = " Muted";
+              format-muted = "<label-muted>";
+            };
             "bar/top" = {
               monitor = monitors.main.name;
-              modules-right = "date";
+              modules-right = "date volume";
             } // colors // elements // styling // dimensions;
           };
         } // initialization;
@@ -343,8 +343,10 @@ in
 
 
 
-      # disable dunst
-      services.dunst.enable = false;
+      # enable dunst notifications
+      services.dunst.enable = true;
+
+			# set backgrounds in place
       home.file."backgrounds/nord/tools".source = builtins.fetchGit {
         url = "https://github.com/arcticicestudio/nord.git";
         ref = "develop";
