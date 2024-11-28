@@ -342,7 +342,7 @@ in
           frame_color = nord.colors.background.blue;
           background = nord.colors.background.blue;
           foreground = nord.colors.foreground;
-          timeout = 5;
+          timeout = 3;
         };
         urgency_low = {
           background = nord.colors.secondary;
