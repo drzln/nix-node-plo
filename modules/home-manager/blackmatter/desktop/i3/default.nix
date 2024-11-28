@@ -295,6 +295,7 @@ in
         pipewire # PipeWire audio server
         polybar
         pamixer # Volume control tool compatible with PipeWire
+				libcamera
       ];
 
       services.polybar = with themes.nord;
