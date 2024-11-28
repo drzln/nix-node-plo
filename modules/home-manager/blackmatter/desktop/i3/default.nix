@@ -61,7 +61,8 @@ let
       };
     };
     initialization = {
-      script = "polybar top &";
+      # manipulate the path or we do not find pamixer
+      script = "PATH=$HOME/.nix-profile/bin:$PATH polybar top &";
     };
     styling = {
       font-0 = "RobotoMono Nerd Font:antialias=true:hinting=true;size=10;2";
@@ -346,7 +347,7 @@ in
       # enable dunst notifications
       services.dunst.enable = true;
 
-			# set backgrounds in place
+      # set backgrounds in place
       home.file."backgrounds/nord/tools".source = builtins.fetchGit {
         url = "https://github.com/arcticicestudio/nord.git";
         ref = "develop";
