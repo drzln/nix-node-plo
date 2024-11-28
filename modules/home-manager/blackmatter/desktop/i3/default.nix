@@ -341,7 +341,7 @@ in
           font = "RobotoMono Nerd Font 10";
           frame_color = nord.colors.background.blue;
           background = nord.colors.background.blue;
-          # foreground = nord.colors.foreground.blue;
+          foreground = nord.colors.foreground;
           # timeout = 5;
         };
         # urgency_low = {
