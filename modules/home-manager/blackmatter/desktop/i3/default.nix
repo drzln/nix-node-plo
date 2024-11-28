@@ -347,7 +347,8 @@ in
           timeout = 3;
 
           # positioning of alert window
-          geometry = "300x5-10-10"; # Width x Stack Size - X Offset - Y Offset
+          # does not seem to be working
+          #geometry = "300x5-10-50"; # Width x Stack Size - X Offset - Y Offset
 
         };
         urgency_low = {
