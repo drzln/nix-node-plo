@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim;
+  cfg = config.blackmatter.components.nvim;
   plugs = cfg.plugin.groups;
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
 
@@ -311,7 +311,7 @@ in
 
   options = {
     blackmatter = {
-      programs = {
+      components = {
         nvim.enable = mkEnableOption "nvim";
         nvim.package = mkOption {
           type = types.package;
@@ -337,7 +337,7 @@ in
       xdg.configFile."nvim/after".source = ./conf/after;
 
       blackmatter = {
-        programs = {
+        components = {
           nvim = {
             plugins = plugins.toggles;
             plugin.groups = groups.toggles;

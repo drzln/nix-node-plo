@@ -5,7 +5,7 @@ let
 in
 {
   imports = [
-    # ./winter
+    ./winter
   ];
 
   options = {
