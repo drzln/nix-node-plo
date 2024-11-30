@@ -1,17 +1,16 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.desktop.alacritty;
 in
 {
   options = {
     blackmatter = {
-      desktop.alacritty.enable = mkEnableOption "desktop.alacritty";
-      desktop.alacritty.config.enable = mkEnableOption "desktop.alacritty.config";
+      components.desktop.alacritty.enable = mkEnableOption "desktop.alacritty";
     };
   };
   config = mkMerge [
-    (mkIf cfg.desktop.alacritty.enable {
+    (mkIf cfg.enable {
       programs.alacritty.enable = true;
       xdg.configFile."alacritty/alacritty.toml".source = ./alacritty.toml;
       xdg.configFile."alacritty/alacritty.yml".source = ./alacritty.yml;

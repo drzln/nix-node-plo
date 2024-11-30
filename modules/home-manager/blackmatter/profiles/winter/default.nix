@@ -26,6 +26,8 @@ in
     (mkIf (cfg.winter.enable)
       {
         blackmatter.components.nvim.enable = true;
+        blackmatter.components.shell.enable = true;
+        blackmatter.components.desktop.enable = true;
       })
   ];
 }
