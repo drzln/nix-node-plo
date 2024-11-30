@@ -23,7 +23,7 @@ in
   };
 
   config = mkMerge [
-    (mkIf (cfg.winter.enable)
+    (mkIf (cfg.enable)
       {
         blackmatter.components.nvim.enable = true;
         blackmatter.components.shell.enable = true;

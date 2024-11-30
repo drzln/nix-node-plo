@@ -14,6 +14,16 @@ in
     ./packages
   ];
 
+  options = {
+    blackmatter = {
+      components = {
+        desktop = {
+          enable = mkEnableOption "enable the desktop";
+        };
+      };
+    };
+  };
+
   config = mkMerge [
     (mkIf (cfg.enable) {
       blackmatter.components.desktop.alacritty.enable = true;
