@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  cfg = blackmatter.components.desktop.chrome;
+  cfg = config.blackmatter.components.desktop.chrome;
 
   preferences = {
     browser = {
