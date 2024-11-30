@@ -1,6 +1,14 @@
 { pkgs, ... }: {
+  programs.vscode.enable = true;
+  programs.vscode.extensions = with pkgs.vscode-extensions;[
+    ms-dotnettools.csharp
+  ];
+  home.sessionVariables = {
+    DOTNET_ROOT = "${pkgs.dotnet-sdk}";
+  };
   home.packages = with pkgs; [
-		vscode
+    vscode
+    dotnet-sdk
     # nixhashsync
     # autorandr
     # i3status

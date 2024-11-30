@@ -64,6 +64,7 @@ in
       };
       home.packages = with pkgs;
         [
+					# dotnetCorePackages.sdk_9_0
           sops
           transmission_4
           rust-analyzer
