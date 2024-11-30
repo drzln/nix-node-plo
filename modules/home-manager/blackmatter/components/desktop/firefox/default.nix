@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.desktop.firefox;
   nord-web-theme = pkgs.stdenv.mkDerivation {
     name = "nord-web-theme";
     src = ./extensions/nord.xpi;
@@ -15,29 +15,14 @@ in
 {
   options = {
     blackmatter = {
-      desktop.firefox.enable = mkEnableOption "desktop.firefox";
+      components = {
+        desktop.firefox.enable = mkEnableOption "desktop.firefox";
+      };
     };
   };
   config = mkMerge [
-    (mkIf cfg.desktop.firefox.enable {
+    (mkIf cfg.enable {
       programs.firefox = {
-        enable = true;
-        # settings = {
-        #   "lightweightThemes.selectedThemeID" = "t3rro@proton.me";
-        #   "lightweightThemes.usedThemes" = pkgs.lib.mkForce [
-        #     {
-        #       id = "t3rro@proton.me";
-        #       name = "nord";
-        #       description = "nord for firefox";
-        #       author = "t3rro";
-        #       version = "1.0";
-        #       textcolor = "#D8DEE9";
-        #       accentcolor = "#2E3440";
-        #       headerURL = "data:image/png;base64,$(base64 /.svg)";
-        #       iconURL = "data:image/png;base64,$(base64 /path/to/icon.png)";
-        #     }
-        #   ];
-        # };
         package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
           # results in unexpected argument when used
           # forceWayland = false;
