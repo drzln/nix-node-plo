@@ -4,6 +4,9 @@ let
   cfg = config.blackmatter;
 in
 {
+  imports = [
+    ./profiles
+  ];
 
   options = {
     blackmatter = {
@@ -12,10 +15,6 @@ in
   };
 
   config = mkMerge [
-    (mkIf (cfg.enable && cfg.profile != null) {
-      imports = [
-        ./profiles
-      ];
-    })
+    (mkIf (cfg.enable) { })
   ];
 }
