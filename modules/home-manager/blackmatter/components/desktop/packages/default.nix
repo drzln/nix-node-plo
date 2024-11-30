@@ -5,16 +5,18 @@
 { pkgs, lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.desktop.packages;
 in
 {
   options = {
     blackmatter = {
-      desktop.packages.enable = mkEnableOption "desktop.packages";
+      components = {
+        desktop.packages.enable = mkEnableOption "desktop.packages";
+      };
     };
   };
   config = mkMerge [
-    (mkIf cfg.desktop.packages.enable {
+    (mkIf cfg.enable {
       #########################################################################
       # discord
       #########################################################################
@@ -97,8 +99,8 @@ in
           xdotool
           xtitle
           freecad
-					libreoffice
-					vscode
+          libreoffice
+          vscode
         ];
     })
   ];
