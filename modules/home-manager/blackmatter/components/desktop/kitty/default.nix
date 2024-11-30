@@ -1,18 +1,20 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.components.kitty;
+  cfg = config.blackmatter.components.desktop.kitty;
 in
 {
   options = {
     blackmatter = {
       components = {
-        kitty = {
-          enable = mkEnableOption "Manage a kitty installation";
-          configFile = mkOption {
-            type = types.path;
-            default = ./kitty.conf; # Default to the current path
-            description = "Path to the kitty configuration file";
+        desktop = {
+          kitty = {
+            enable = mkEnableOption "Manage a kitty installation";
+            configFile = mkOption {
+              type = types.path;
+              default = ./kitty.conf; # Default to the current path
+              description = "Path to the kitty configuration file";
+            };
           };
         };
       };
