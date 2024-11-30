@@ -11,7 +11,7 @@ in
   options = {
     blackmatter = {
       enable = mkEnableOption "enable blackmatter as a whole and the ability to select profiles";
-      profiles = mkOption {
+      profile = mkOption {
         type = types.enum [ "winter" ];
         default = "winter";
         description = "Available profiles for desktop environments.";
