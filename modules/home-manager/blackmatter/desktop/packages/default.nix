@@ -98,6 +98,7 @@ in
           xtitle
           freecad
 					libreoffice
+					vscode
         ];
     })
   ];
