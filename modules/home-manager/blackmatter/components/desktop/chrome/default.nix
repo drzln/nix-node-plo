@@ -1,5 +1,7 @@
 { pkgs, ... }:
 let
+  cfg = blackmatter.components.desktop.chrome;
+
   preferences = {
     browser = {
       check_default_browser = false;
@@ -66,21 +68,37 @@ let
 
 in
 {
-  programs.chromium.enable = true;
+  options = {
+    blackmatter = {
+      components = {
+        desktop = {
+          chrome = {
+            enable = mkEnableOption " enable chrome";
+          };
+        };
+      };
+    };
+  };
 
-  # programs.chromium.package = pkgs.ungoogled-chromium;
-  programs.chromium.package = pkgs.chromium.overrideAttrs (oldAttrs: {
-    postInstall = ''
-      echo '$(echo ${preferences} | jq -c .)' | tr -d '\n' > $out/Preferences
-      chmod 600 $out/Preferences
-      # Copy the modified "Preferences" file to the user's profile directory
-      cp $out/Preferences $HOME/.config/google-chrome/Default/Preferences
-    '';
-  });
-  programs.chromium.extensions = [
-    # nord theme
-    { id = "honjmojpikfebagfakclmgbcchedenbo"; }
-    # 1password
-    { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; }
+  config = mkMerge [
+    (mkIf (cfg.enable)
+      {
+        programs.chromium.enable = true;
+        programs.chromium.package = pkgs.ungoogled-chromium;
+        # programs.chromium.package = pkgs.chromium.overrideAttrs (oldAttrs: {
+        #   postInstall = ''
+        #     echo '$(echo ${preferences} | jq -c .)' | tr -d '\n' > $out/Preferences
+        #     chmod 600 $out/Preferences
+        #     # Copy the modified "Preferences" file to the user's profile directory
+        #     cp $out/Preferences $HOME/.config/google-chrome/Default/Preferences
+        #   '';
+        # });
+        programs.chromium.extensions = [
+          # nord theme
+          { id = "honjmojpikfebagfakclmgbcchedenbo"; }
+          # 1password
+          { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; }
+        ];
+      })
   ];
 }
