@@ -1,7 +1,7 @@
 { lib, config, ... }:
 with lib;
 let
-	cfg = config.blackmatter.components.nvim.plugins.${author}.${name};
+  cfg = config.blackmatter.components.nvim.plugins.${author}.${name};
   common = import ../../../common;
   url = "${common.baseRepoUrl}/${author}/${name}";
   plugPath = "${common.basePlugPath}/${author}/start/${name}";
