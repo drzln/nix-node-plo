@@ -7,10 +7,10 @@ let
   ref = "master";
   rev = import ./rev.nix;
   plugPath = ".local/share/nvim/site/pack/${author}/start/${name}";
-  cfg = config.blackmatter.programs.nvim.plugins.${author}.${name};
+  cfg = config.blackmatter.components.nvim.plugins.${author}.${name};
 in
 {
-  options.blackmatter.programs.nvim.plugins.${author}.${name}.enable =
+  options.blackmatter.components.nvim.plugins.${author}.${name}.enable =
     mkEnableOption "${author}/${name}";
 
   config = mkMerge [
