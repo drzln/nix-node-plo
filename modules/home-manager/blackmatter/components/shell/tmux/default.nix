@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.shell.tmux;
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
 in
 {
@@ -12,7 +12,7 @@ in
   };
 
   config = mkMerge [
-    (mkIf cfg.shell.tmux.enable {
+    (mkIf cfg.enable {
       programs = {
         tmux = {
           enable = true;
@@ -26,7 +26,6 @@ in
           historyLimit = 1000000;
           keyMode = "vi";
           newSession = false;
-          # plugins = with pkgs.tmuxPlugins; [ better-mouse-mode ];
           shortcut = "f";
           reverseSplit = false;
           resizeAmount = 1;
