@@ -76,8 +76,8 @@ in
           i3status
           dmenu
           rxvt_unicode
-          git
-          git-remote-gcrypt
+          # git
+          # git-remote-gcrypt
           android-tools
           gnirehtet
           jellyfin-ffmpeg
