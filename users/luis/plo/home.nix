@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./packages.nix
     ./blackmatter.nix
+    ./packages.nix
     ./secrets
     ./shadeflakes
     ./kubernetes
