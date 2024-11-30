@@ -4,6 +4,10 @@ let
   cfg = config.blackmatter.profiles;
 in
 {
+  imports = [
+    # ./winter
+  ];
+
   options = {
     blackmatter = {
       profiles = {
@@ -16,10 +20,6 @@ in
 
   config = mkMerge [
     (mkIf (cfg.winter.enable)
-      {
-        import = [
-          # ./winter
-        ];
-      })
+      { })
   ];
 }
