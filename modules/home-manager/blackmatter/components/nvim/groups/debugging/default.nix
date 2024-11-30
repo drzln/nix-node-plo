@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugin.groups.debugging;
+  cfg = config.blackmatter.components.nvim.plugin.groups.debugging;
 in
 {
-  options.blackmatter.programs.nvim.plugin.groups.debugging =
+  options.blackmatter.components.nvim.plugin.groups.debugging =
     {
       enable = mkEnableOption "debugging";
     };
@@ -27,7 +27,7 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
-          blackmatter.programs.nvim.plugins =
+          blackmatter.components.nvim.plugins =
             {
               ravenxrz."DAPInstall.nvim".enable = false;
               yriveiro."dap-go.nvim".enable = false;
@@ -40,7 +40,6 @@ in
               theHamsta.nvim-dap-virtual-text.enable = false;
               suketa.nvim-dap-ruby.enable = false;
               rcarriga.nvim-dap-ui.enable = false;
-
             };
         }
       )
