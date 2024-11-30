@@ -1,7 +1,7 @@
 { lib, pkgs, config, stdenv, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.shell.packages;
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
 
   #############################################################################
@@ -44,8 +44,10 @@ in
 
   options = {
     blackmatter = {
-      shell.packages.enable =
-        mkEnableOption "shell.packages";
+      components = {
+        shell.packages.enable =
+          mkEnableOption "shell.packages";
+      };
     };
   };
 
@@ -56,15 +58,10 @@ in
   #############################################################################
 
   config = mkMerge [
-    (mkIf cfg.shell.packages.enable {
-      programs.fzf.enable = true;
-      programs.fzf.enableZshIntegration = true;
-      programs.zsh = {
-        enable = true;
-      };
+    (mkIf cfg.enable {
       home.packages = with pkgs;
         [
-					# dotnetCorePackages.sdk_9_0
+          # dotnetCorePackages.sdk_9_0
           sops
           transmission_4
           rust-analyzer

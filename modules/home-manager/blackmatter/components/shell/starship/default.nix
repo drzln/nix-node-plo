@@ -1,16 +1,19 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.shell.starship;
 in
 {
   options = {
     blackmatter = {
-      shell.starship.enable = mkEnableOption "shell.starship";
+      components = {
+        shell.starship.enable = mkEnableOption "shell.starship";
+      };
     };
   };
+
   config = mkMerge [
-    (mkIf cfg.shell.starship.enable {
+    (mkIf cfg.enable {
       programs.starship.enable = true;
       programs.starship.settings = {
         add_newline = false;
@@ -83,19 +86,6 @@ in
         git_status = {
           disabled = false;
           conflicted = "⚔️ ";
-          # untracked = ''
-          # 🛤️\${count}
-          # '';
-          # diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}";
-          # modified = "📝 ×${count}";
-          # stashed = "📦 ";
-          # renamed = "📛 ×${count}";
-          # deleted = "🗑️  ×${count}";
-          # behind = "🐢 ×${count}";
-          # staged = "🗃️  ×${count}";
-          # format = "$all_status$ahead_behind";
-          # ahead = "🏎️ 💨 ×${count}";
-          # style = "bright-white";
         };
         hostname = {
           ssh_only = false;

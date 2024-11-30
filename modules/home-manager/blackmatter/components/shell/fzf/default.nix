@@ -1,16 +1,18 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.shell.fzf;
 in
 {
   options = {
     blackmatter = {
-      shell.fzf.enable = mkEnableOption "shell.fzf";
+      components = {
+        shell.fzf.enable = mkEnableOption "shell.fzf";
+      };
     };
   };
   config = mkMerge [
-    (mkIf config.blackmatter.shell.fzf.enable {
+    (mkIf cfg.enable {
       programs.fzf.enable = true;
       programs.fzf.enableZshIntegration = true;
     })
