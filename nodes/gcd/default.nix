@@ -8,12 +8,14 @@
   boot.kernelParams = [
     "acpi_backlight=native" # Use native ACPI backlight interface
     "i915.force_probe=*" # Force i915 driver to recognize the GPU
-    # "i915.enable_dpcd_backlight=1" # Optional: uncomment if needed
+    # "i915.enable_dpcd_backlight=1"  # Optional: uncomment if needed
   ];
 
   boot.kernelModules = [ "i915" ]; # Ensure Intel graphics module is loaded
 
   boot.kernelPackages = pkgs.linuxPackages_latest; # Use the latest kernel packages
+
+  services.acpid.enable = true; # Enable ACPI daemon
 
   services.xserver.xkb.options = "eurosign:e,ctrl:nocaps"; # Remap Caps Lock to Control
 
@@ -28,7 +30,8 @@
     brightnessctl
     xorg.xrandr
     xorg.xev
+    xorg.xinput # Added for touchpad control
+    xbindkeys # Added to map keys if needed
   ];
-
 }
 
