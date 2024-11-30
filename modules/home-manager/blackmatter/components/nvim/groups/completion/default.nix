@@ -3,12 +3,12 @@ with lib;
 let
   name = "completion";
   plugName = name;
-  cfg = config.blackmatter.programs.nvim.plugin.groups.${name};
+  cfg = config.blackmatter.components.nvim.plugin.groups.${name};
   common = import ../../common;
   configPath = "${common.baseConfigPath}/groups/${plugName}.lua";
 in
 {
-  options.blackmatter.programs.nvim.plugin.groups.completion =
+  options.blackmatter.components.nvim.plugin.groups.completion =
     {
       enable = mkEnableOption name;
     };
@@ -32,7 +32,7 @@ in
       (mkIf cfg.enable
         {
           home.file."${configPath}".source = ./config.lua;
-          blackmatter.programs.nvim.plugins =
+          blackmatter.components.nvim.plugins =
             {
               hrsh7th.nvim-cmp.enable = true;
               hrsh7th.cmp-nvim-lsp.enable = true;
