@@ -1,4 +1,5 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
+with lib;
 let
   cfg = config.blackmatter.components.desktop.chrome;
 
