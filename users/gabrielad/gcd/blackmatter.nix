@@ -8,8 +8,7 @@
   blackmatter.gitconfig.enable = false;
   blackmatter.gitconfig.email = "gahb.dias@gmail.com";
   blackmatter.gitconfig.user = "gabrielad";
-  blackmatter.desktop.enable = false;
-  blackmatter.desktop.packages.enable = true;
+  blackmatter.desktop.enable = true;
   blackmatter.desktop.monitors = {
     main = {
       name = "DP-2"; # Secondary monitor output name
