@@ -1,16 +1,18 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.shell.tools;
 in
 {
   options = {
     blackmatter = {
-      shell.tools.enable = mkEnableOption "shell.tools";
+      components = {
+        shell.tools.enable = mkEnableOption "shell.tools";
+      };
     };
   };
   config = mkMerge [
-    (mkIf cfg.shell.tools.enable {
+    (mkIf cfg.enable {
       programs.jq.enable = true;
       programs.direnv.enable = true;
     })

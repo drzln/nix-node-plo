@@ -7,7 +7,9 @@ in
 {
   options = {
     blackmatter = {
-      shell.tmux.enable = mkEnableOption "shell.tmux";
+      components = {
+        shell.tmux.enable = mkEnableOption "shell.tmux";
+      };
     };
   };
 
