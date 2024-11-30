@@ -4,7 +4,7 @@ let
   cfg = config.blackmatter.components.nvim.plugin.groups.common;
 in
 {
-  options.blackmatter.programs.nvim.plugin.groups.common =
+  options.blackmatter.components.nvim.plugin.groups.common =
     {
       enable = mkEnableOption "common base plugins that provide functionality";
     };

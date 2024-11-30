@@ -1,3 +1,8 @@
+{ lib, config, pkgs, ... }:
+let
+  cfg = config.blackmatter.components.nvim.groups;
+in
+with lib;
 {
   imports = [
     ./common
@@ -8,4 +13,16 @@
     ./debugging
     ./tmux
   ];
+
+  # options = {
+  #   blackmatter = {
+  #     components = {
+  #       nvim = {
+  #         groups = {
+  #           enabled = { };
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
 }
