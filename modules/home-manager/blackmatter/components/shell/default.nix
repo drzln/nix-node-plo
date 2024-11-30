@@ -27,7 +27,7 @@ in
   };
 
   config = mkMerge [
-    (mkIf config.enable {
+    (mkIf cfg.enable {
       xdg.configFile."rubocop/config.yml".source = ./rubocop/config.yml;
       home.file.".solargraph.yml".source = ./solargraph/config.yml;
 
