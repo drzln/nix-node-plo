@@ -1,10 +1,10 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.mfussenegger."nvim-dap";
+  cfg = config.blackmatter.components.nvim.plugins.mfussenegger."nvim-dap";
 in
 {
-  options.blackmatter.programs.nvim.plugins.mfussenegger."nvim-dap".enable =
+  options.blackmatter.components.nvim.plugins.mfussenegger."nvim-dap".enable =
     mkEnableOption "mfussenegger/nvim-dap";
 
   config = mkMerge [
