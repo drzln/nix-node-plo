@@ -82,10 +82,10 @@ in
     blackmatter = {
       desktop.enable = mkEnableOption "desktop";
 
-			# desktop.style = mkOption {
-			# 	type = types.string;
-			# 	default = "i3";
-			# };
+      # desktop.style = mkOption {
+      # 	type = types.string;
+      # 	default = "i3";
+      # };
 
       # provide a monitor configuration
       desktop.monitors = mkOption {
@@ -96,9 +96,9 @@ in
   };
   config = mkMerge [
     (mkIf cfg.desktop.enable {
+      blackmatter.desktop.kitty.enable = true;
       blackmatter.desktop.alacritty.enable = false;
       blackmatter.desktop.firefox.enable = false;
-      blackmatter.desktop.kitty.enable = true;
       blackmatter.desktop.packages.enable = true;
       blackmatter.desktop.i3.enable = true;
 
