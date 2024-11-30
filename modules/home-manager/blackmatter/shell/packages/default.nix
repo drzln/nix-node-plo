@@ -65,6 +65,7 @@ in
       home.packages = with pkgs;
         [
           sops
+					transmission_4
           rust-analyzer
           rustfmt
           openssl
