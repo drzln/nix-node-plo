@@ -1,107 +1,37 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, config, profile, ... }:
 with lib;
 let
   cfg = config.blackmatter;
+in
+{
+  # Import additional modules
+  imports = [
+		./profiles
+    # ./alacritty
+    # ./packages
+    # ./firefox
+    # ./i3
+    # ./kitty
+    # ./chrome
+  ];
 
-  preferences = {
-    browser = {
-      check_default_browser = false;
-      custom_chrome_frame = true;
-      enabled_labs_experiments = "reader-mode";
-      window_placement = {
-        bottom = 1070;
-        left = "-8";
-        maximized = false;
-        right = 1920;
-        top = "-8";
-      };
-    };
-    distribution = {
-      import_bookmarks = false;
-      import_history = false;
-      import_home_page = false;
-      import_search_engine = false;
-      make_chrome_default = false;
-      suppress_first_run_bubble = true;
-      suppress_first_run_default_browser_prompt = true;
-      suppress_first_run_notification = true;
-      suppress_first_run_toolbar_hint = true;
-    };
-    dns_prefetching = {
-      enabled = false;
-    };
-    search = {
-      default_search_provider_data = {
-        favicon_url = "https://duckduckgo.com/favicon.ico";
-        id = "-1";
-        name = "SUPERPRIVATEBRO";
-        prepopulated_id = -1;
-        search_url = "https://duckduckgo.com/";
-        template_url = "https://duckduckgo.com/?q={searchTerms}";
-      };
-      disable_search_geolocation = true;
-    };
-    sync_promo = {
-      user_skipped = true;
-    };
-    webkit = {
-      webprefs = {
-        allow_displaying_insecure_content = false;
-        default_fixed_font_size = 18;
-        default_font_size = 18;
-        dns_prefetching_enabled = false;
-        enable_do_not_track = true;
-        enable_spellchecking_service = false;
-        enable_spellchecking = false;
-        maximum_decoded_image_size = 16777216;
-        minimum_font_size = 14;
-        minimum_logical_font_size = 14;
-        plugins = {
-          plugins_list = [{
-            enabled = false;
-            name = "Chrome PDF Viewer";
-            path = "/opt/google/chrome/libpdf.so";
-          }];
+  options = {
+    blackmatter = {
+      desktop = {
+        enable = mkEnableOption "Enable the desktop environment configuration based on the selected profile.";
+        profiles = mkOption {
+          type = types.enum [ "winter" ];
+          default = "winter";
+          description = "Available profiles for desktop environments.";
         };
       };
     };
   };
 
-
-in
-{
-  imports = [
-    ./alacritty
-    ./packages
-    ./firefox
-    ./i3
-    ./kitty
-    ./chrome
-  ];
-
-  options = {
-    blackmatter = {
-      desktop.enable = mkEnableOption "desktop";
-
-      # desktop.style = mkOption {
-      # 	type = types.string;
-      # 	default = "i3";
-      # };
-
-      # provide a monitor configuration
-      # desktop.monitors = mkOption {
-      #   type = types.attrs;
-      #   description = "monitor related attributes";
-      # };
-    };
-  };
   config = mkMerge [
-    (mkIf cfg.desktop.enable {
-      blackmatter.desktop.kitty.enable = true;
-      blackmatter.desktop.alacritty.enable = false;
-      blackmatter.desktop.firefox.enable = false;
-      blackmatter.desktop.packages.enable = true;
-      blackmatter.desktop.i3.enable = true;
+    # Ensure the profile exists in `blackmatter` before enabling it
+    (mkIf (cfg.desktop.enable && cfg.desktop.profile != null) {
+      blackmatter.${cfg.desktop.profile}.enable = true; # Dynamically enable the selected profile
     })
   ];
 }
