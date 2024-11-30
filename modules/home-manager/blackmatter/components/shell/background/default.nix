@@ -6,7 +6,9 @@ in
 {
   options = {
     blackmatter = {
-      shell.background.enable = mkEnableOption "shell.background";
+      components = {
+        shell.background.enable = mkEnableOption "shell.background";
+      };
     };
   };
 

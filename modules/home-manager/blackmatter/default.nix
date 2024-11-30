@@ -7,4 +7,10 @@ in
   imports = [
     ./profiles
   ];
+
+  options = {
+    blackmatter = {
+      enable = mkEnableOption "enable blackmatter";
+    };
+  };
 }
