@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugin.groups.lsp;
+  cfg = config.blackmatter.components.nvim.plugin.groups.lsp;
 in
 {
-  options.blackmatter.programs.nvim.plugin.groups.lsp =
+  options.blackmatter.components.nvim.plugin.groups.lsp =
     {
       enable = mkEnableOption "lsp";
     };
@@ -28,7 +28,7 @@ in
             rubyPackages.sorbet-runtime
           ];
 
-          blackmatter.programs.nvim.plugins =
+          blackmatter.components.nvim.plugins =
             {
               jose-elias-alvarez."null-ls.nvim".enable = true;
               neovim.nvim-lspconfig.enable = true;
