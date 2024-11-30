@@ -97,6 +97,8 @@ in
           xdotool
           xtitle
           freecad
+					libreoffice
+					vscode
         ];
     })
   ];

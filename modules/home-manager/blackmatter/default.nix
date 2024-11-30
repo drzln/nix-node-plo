@@ -5,5 +5,6 @@
     ./desktop
     ./shell
     ./nvim
+    ./kubernetes
   ];
 }
