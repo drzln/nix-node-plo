@@ -82,6 +82,11 @@ in
     blackmatter = {
       desktop.enable = mkEnableOption "desktop";
 
+			# desktop.style = mkOption {
+			# 	type = types.string;
+			# 	default = "i3";
+			# };
+
       # provide a monitor configuration
       desktop.monitors = mkOption {
         type = types.attrs;
