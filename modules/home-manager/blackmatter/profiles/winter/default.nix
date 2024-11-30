@@ -1,9 +1,9 @@
 {
   import = [
-    ../../nvim
-    ../../shell
-    ../../gitconfig
-    ../../desktop
-    ../../kubernetes
+		../../components/nvim
+		../../components/shell
+		../../components/desktop
+		../../components/gitconfig
+		../../components/kubernetes
   ];
 }
