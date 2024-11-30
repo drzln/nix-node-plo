@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugin.groups.treesitter;
+  cfg = config.blackmatter.components.nvim.plugin.groups.treesitter;
 in
 {
-  options.blackmatter.programs.nvim.plugin.groups.treesitter =
+  options.blackmatter.components.nvim.plugin.groups.treesitter =
     {
       enable = mkEnableOption "treesitter";
     };
@@ -26,7 +26,7 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
-          blackmatter.programs.nvim.plugins =
+          blackmatter.components.nvim.plugins =
             {
               nvim-treesitter.nvim-treesitter.enable = true;
               nvim-treesitter.playground.enable = true;

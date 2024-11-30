@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugin.groups.theming;
+  cfg = config.blackmatter.components.nvim.plugin.groups.theming;
 in
 {
-  options.blackmatter.programs.nvim.plugin.groups.theming =
+  options.blackmatter.components.nvim.plugin.groups.theming =
     {
       enable = mkEnableOption "theming";
     };
@@ -20,7 +20,7 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
-          blackmatter.programs.nvim.plugins =
+          blackmatter.components.nvim.plugins =
             {
               shaunsingh."nord.nvim".enable = true;
               nvim-lualine."lualine.nvim".enable = true;

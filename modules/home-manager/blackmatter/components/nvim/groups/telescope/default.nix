@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugin.groups.telescope;
+  cfg = config.blackmatter.components.nvim.plugin.groups.telescope;
 in
 {
-  options.blackmatter.programs.nvim.plugin.groups.telescope =
+  options.blackmatter.components.nvim.plugin.groups.telescope =
     {
       enable = mkEnableOption "telescope";
     };
@@ -22,7 +22,7 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
-          blackmatter.programs.nvim.plugins =
+          blackmatter.components.nvim.plugins =
             {
               nvim-telescope."telescope.nvim".enable = true;
               nvim-telescope."telescope-file-browser.nvim".enable = false;
