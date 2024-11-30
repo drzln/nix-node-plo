@@ -1,13 +1,15 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.profile;
+  cfg = config.blackmatter.profiles;
 in
 {
   options = {
     blackmatter = {
-      winter = {
-        enable = mkEnableOption "enable the winter profile";
+      profiles = {
+        winter = {
+          enable = mkEnableOption "enable the winter profile";
+        };
       };
     };
   };
