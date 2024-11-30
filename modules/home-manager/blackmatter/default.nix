@@ -8,13 +8,15 @@ in
     ./profiles
   ];
 
-  options = {
-    blackmatter = {
-      enable = mkEnableOption "enable blackmatter as a whole and the ability to select profiles";
-    };
-  };
+  # options = {
+  #   blackmatter = {
+  #     enable = mkEnableOption "enable blackmatter as a whole and the ability to select profiles";
+  #   };
+  # };
 
-  config = mkMerge [
-    (mkIf (cfg.enable) { })
-  ];
+  # config = mkMerge [
+  #   (mkIf (cfg.enable) { 
+  # 	blackmatter.profiles.enable = true;
+  # })
+  # ];
 }

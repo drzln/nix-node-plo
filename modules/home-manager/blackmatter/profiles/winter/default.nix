@@ -1,3 +1,8 @@
+{ lib, config, ... }:
+with lib;
+let
+  cfg = config.blackmatter.profiles.winter;
+in
 {
   imports = [
     ../../components/nvim
@@ -5,5 +10,22 @@
     ../../components/desktop
     ../../components/gitconfig
     ../../components/kubernetes
+  ];
+
+  options = {
+    blackmatter = {
+      profiles = {
+        winter = {
+          enable = mkEnableOption "enable the winter profile";
+        };
+      };
+    };
+  };
+
+  config = mkMerge [
+    (mkIf (cfg.winter.enable)
+      {
+        blackmatter.components.nvim.enable = true;
+      })
   ];
 }

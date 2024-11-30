@@ -1,7 +1,7 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.shell;
 in
 {
   imports = [
@@ -17,13 +17,15 @@ in
   ];
 
   options = {
-    blackmatter = {
-      shell.enable = mkEnableOption "shell";
+    components = {
+      blackmatter = {
+        shell.enable = mkEnableOption "shell";
+      };
     };
   };
 
   config = mkMerge [
-    (mkIf config.blackmatter.shell.enable {
+    (mkIf config.enable {
       blackmatter.shell.background.enable = true;
       blackmatter.shell.packages.enable = true;
       blackmatter.shell.starship.enable = true;
