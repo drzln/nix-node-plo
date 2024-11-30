@@ -1,8 +1,8 @@
 { lib, pkgs, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
-  monitors = cfg.desktop.monitors;
+  cfg = config.blackmatter.components.desktop.i3;
+  # monitors = cfg.desktop.monitors;
 
   nord.graphics.indicator = ">";
   nord.graphics.border.child = "1";
@@ -84,49 +84,14 @@ in
 {
   options = {
     blackmatter = {
-      desktop.i3.enable = mkEnableOption "desktop.i3";
+      components = {
+        desktop.i3.enable = mkEnableOption "i3";
+      };
     };
   };
+
   config = mkMerge [
-    (mkIf cfg.desktop.i3.enable {
-      # xdg.configFile."leftwm/config.ron".source = ./leftwm.ron;
-      # xdg.configFile."leftwm/themes/theme.toml".text = ''
-      #   # The command that gets executed to bring up the status bar
-      #   # Change this to match the command you use to start your status bar of choice
-      #   # In this case, I'm using polybar
-      #   status_bar = "polybar top &"
-      #
-      #   # Window border colors
-      #   border_active = "#4C566A"
-      #   border_inactive = "#3B4252"
-      #   border_width = 1
-      #
-      #   # Margin between windows
-      #   margin = [5, 5]
-      #
-      #   # Padding for windows
-      #   default_padding = [5, 5]
-      #
-      #   # Whether to match borders with the colors of the windows
-      #   smart_borders = false
-      #
-      #   # Whether to draw borders on floating windows only
-      #   smart_borders_no_nagging = true
-      #
-      #   # Window layouts for each workspace
-      #   layouts = [
-      #       "MainAndDeck",
-      #       "MainAndDeck",
-      #       "MainAndDeck",
-      #       "MainAndDeck",
-      #       "MainAndDeck",
-      #       "MainAndDeck",
-      #       "MainAndDeck",
-      #       "MainAndDeck",
-      #       "MainAndDeck",
-      #   ]
-      #
-      # '';
+    (mkIf cfg.enable {
       xsession.enable = true;
       xsession = {
         windowManager = {
@@ -271,11 +236,11 @@ in
               # monitor
               #################################
 
-              exec --no-startup-id \
-              	${pkgs.xorg.xrandr}/bin/xrandr \
-              	--output ${monitors.main.name} \
-              	--mode ${monitors.main.mode} \
-              	--rate ${monitors.main.rate}
+              # exec --no-startup-id \
+              # 	${pkgs.xorg.xrandr}/bin/xrandr \
+              # 	--output ${monitors.main.name} \
+              # 	--mode ${monitors.main.mode} \
+              # 	--rate ${monitors.main.rate}
 
               #################################
               # end monitor
