@@ -1,10 +1,10 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.programs.nvim.plugins.sar."cmp-lsp.nvim";
+  cfg = config.blackmatter.components.nvim.plugins.sar."cmp-lsp.nvim";
 in
 {
-  options.blackmatter.programs.nvim.plugins.sar."cmp-lsp.nvim".enable =
+  options.blackmatter.components.nvim.plugins.sar."cmp-lsp.nvim".enable =
     mkEnableOption "sar/cmp-lsp.nvim";
 
   config = mkMerge [
