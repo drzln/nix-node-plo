@@ -4,7 +4,6 @@
     ./programs.nix
     ./packages.nix
     ./background.nix
-    ./hyprland.nix
     ./blackmatter.nix
   ];
 
@@ -14,7 +13,8 @@
 
   # Enable XSession with GNOME as the window manager
   xsession.enable = true;
-  #xsession.windowManager.gnome.enable = true;
+
+  xsession.windowManager.gnome.enable = true;
 
   # Customize GNOME settings, including themes, icons, and keybindings
   # services.gnome.gsettings = {
