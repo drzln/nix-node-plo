@@ -12,9 +12,7 @@
       rate = "360";
     };
   };
-  # blackmatter.gitconfig.email = "luis@pleme.io";
-  # blackmatter.gitconfig.user = "luis";
-  # blackmatter.programs.nvim.enable = true;
-  # blackmatter.shell.enable = true;
-  # blackmatter.gitconfig.enable = true;
+  blackmatter.components.gitconfig.email = "luis@pleme.io";
+  blackmatter.components.gitconfig.user = "luis";
+  blackmatter.components.gitconfig.enable = true;
 }

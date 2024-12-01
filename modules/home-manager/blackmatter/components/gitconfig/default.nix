@@ -1,21 +1,23 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.blackmatter.gitconfig;
+  cfg = config.blackmatter.components.gitconfig;
 in
 {
   options = {
     blackmatter = {
-      gitconfig.enable = mkEnableOption "blackmatter.gitconfig";
+      components = {
+        gitconfig.enable = mkEnableOption "blackmatter.gitconfig";
 
-      gitconfig.email = mkOption {
-        type = types.str;
-        description = mdDoc "gitconfig user email";
-      };
+        gitconfig.email = mkOption {
+          type = types.str;
+          description = mdDoc "gitconfig user email";
+        };
 
-      gitconfig.user = mkOption {
-        type = types.str;
-        description = mdDoc "gitconfig user";
+        gitconfig.user = mkOption {
+          type = types.str;
+          description = mdDoc "gitconfig user";
+        };
       };
     };
   };
@@ -23,29 +25,29 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       home.file.".gitconfig".text = ''
-                [user]
-                	email = ${cfg.email}
-                	name = ${cfg.user}
+        [user]
+        	email = ${cfg.email}
+        	name = ${cfg.user}
 
-        				[init]
-        					defaultBranch = main
+        [init]
+        	defaultBranch = main
 
-        				[push]
-        					default = simple
+        [push]
+        	default = simple
 
-        				[branch "main"]
-        					remote = origin
-        					merge = refs/head/main
+        [branch "main"]
+        	remote = origin
+        	merge = refs/head/main
 
-                [merge]
-                	default = merge
+        [merge]
+        	default = merge
 
-                [core]
-                	pager = delta --dark --line-numbers
-        					editor = nvim
+        [core]
+        	pager = delta --dark --line-numbers
+        	editor = nvim
 
-                [delta]
-                	side-by-side = true
+        [delta]
+        	side-by-side = true
       '';
     })
   ];
