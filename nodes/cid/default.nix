@@ -161,12 +161,10 @@
   home-manager.users.ldesiqueira =
     { outputs, ... }: {
       imports = [ ../../modules/home-manager/blackmatter ];
-
       home.stateVersion = "23.11";
       programs.home-manager.enable = true;
 
-      blackmatter.profiles.winter.enable = true;
-      blackmatter.components.nvim.package = pkgs.neovim;
+      blackmatter.profiles.frost.enable = true;
 
       # stop a dumb bug
       # https://github.com/nix-community/home-manager/issues/3342
