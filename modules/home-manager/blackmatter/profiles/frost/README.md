@@ -1,3 +1,3 @@
-# winter
+# frost
 
-a profile for nixos/home-manager machines
+a profile for darwin/home-manager machines
