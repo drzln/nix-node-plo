@@ -20,7 +20,7 @@ with lib;
         nvim = {
 					plugin = {
         	  groups = {
-        	    enabled = mkEnableOption "nvim.groups";
+        	    enable = mkEnableOption "nvim.groups";
         	  };
 					};
         };
