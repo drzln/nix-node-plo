@@ -21,25 +21,6 @@ in
             default = pkgs.neovim;
             description = mdDoc "Neovim package/derivation";
           };
-
-          # plugins = mkOption {
-          #   type = types.attrsOf types.bool;
-          #   default = { };
-          #   description = mdDoc "A set of toggles for individual plugins";
-          # };
-
-          # pluginGroups = mkOption {
-          #   type = types.attrsOf types.bool;
-          #   default = {
-          #     common = true;
-          #     languages = true;
-          #     lsp = true;
-          #     theming = true;
-          #     completion = true;
-          #     debugging = false;
-          #   };
-          #   description = mdDoc "A set of toggles for groups of plugins";
-          # };
         };
       };
     };
@@ -58,10 +39,7 @@ in
       xdg.configFile."nvim/after".source = ./conf/after;
 
       # Pass plugins and groups to blackmatter configuration
-      # blackmatter.components.nvim = {
-      #   plugins = cfg.plugins;
-      #   plugin.groups = cfg.pluginGroups;
-      # };
+      blackmatter.components.nvim.plugin.groups.enable = true;
     })
   ];
 }
