@@ -60,8 +60,24 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
       home.packages = with pkgs;
-        [
-          # dotnetCorePackages.sdk_9_0
+        [ ]
+        ++ lib.optionals isDarwin [ ]
+        ++ lib.optionals isLinux [
+          i3status
+          packer
+          traceroute
+          iproute2
+          s-tui
+          # adbfs-rootless
+          # docker-compose-alternative
+          usbutils
+          sheldon
+          julia
+          adb-sync
+          autoadb
+          _1password-gui
+          google-chrome
+          beekeeper-studio
           sops
           transmission_4
           rust-analyzer
@@ -71,11 +87,8 @@ in
           rustc
           cargo
           autorandr
-          i3status
           dmenu
           rxvt_unicode
-          # git
-          # git-remote-gcrypt
           android-tools
           gnirehtet
           jellyfin-ffmpeg
@@ -96,7 +109,6 @@ in
           yarn
           typescript
           lazydocker
-          packer
           twitch-tui
           wiki-tui
           tuir
@@ -116,14 +128,6 @@ in
           php81Packages.composer
           php81Packages.php-cs-fixer
           xorriso
-          traceroute
-          iproute2
-          s-tui
-          usbutils
-          sheldon
-          julia
-          adb-sync
-          autoadb
           python39Packages.pipenv-poetry-migrate
           python39Packages.poetry-core
           black
@@ -204,89 +208,11 @@ in
           procs
           xclip
           xsel
-          _1password-gui
-          google-chrome
-          beekeeper-studio
           gpauth
           gpclient
           gp-saml-gui
           openconnect
-          # rnix-lsp
-          # nixopsUnstable
-          # postgres_with_libpq
           lazygit
-          # git-remote-gcrypt
-          # coreutils-prefixed
-          # yq-go
-          # unzip
-          # opam
-          # tfsec
-          # ruby
-          # tfswitch
-          # golint
-          # duckdb
-          # docker
-          # delve
-          # tree
-          # yarn
-          # typescript
-          # lazydocker
-          # postgres_with_libpq
-          # lazygit
-          # packer
-          # dig
-          # nmap
-          # saml2aws
-          # gcc
-          # jdk
-          # cargo
-          # ripgrep
-          # tree
-        ]
-        # ++ import ./python pkgs
-        # ++ import ./kubernetes pkgs
-        # ++ import ./javascript pkgs
-        # ++ import ./hashicorp pkgs
-        # ++ import ./utilities pkgs
-        # ++ import ./rustlang pkgs
-        # ++ import ./secrets pkgs
-        # ++ import ./arduino pkgs
-        # ++ import ./golang pkgs
-        # ++ import ./redis pkgs
-        # ++ import ./ruby pkgs
-        # ++ import ./shell pkgs
-        # ++ import ./aws pkgs
-        # ++ import ./nix pkgs
-        # ++ import ./asm pkgs
-        # ++ import ./lua pkgs
-        # ++ import ./php pkgs
-        # ++ lib.optionals isDarwin [
-        #   xhyve
-        #   # (zulu.overrideAttrs (_:
-        #   #   {
-        #   #     # hack the jdk package because of a dumb bug on macos
-        #   #     # https://github.com/LnL7/nix-darwin/issues/320
-        #   #     postPatch = ''
-        #   #       rm -rf share/man
-        #   #       rm -rf man
-        #   #       mkdir -p share
-        #   #       ln -s ../zulu-11.jdk/Contents/Home/man/ share
-        #   #
-        #   #     '';
-        #   #   }
-        #   # ))
-        # ]
-        ++ lib.optionals isLinux [
-          # adbfs-rootless
-          # docker-compose-alternative
-          # traceroute
-          # iproute2
-          # s-tui
-          # usbutils
-          # sheldon
-          # julia
-          # adb-sync
-          # autoadb
         ];
     })
   ];

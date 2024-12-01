@@ -1,12 +1,19 @@
 # ani is macos ventura
 # https://daiderd.com/nix-darwin/manual/index.html#sec-options
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, inputs, lib, ... }: {
   system.stateVersion = 4;
   networking.hostName = "cid";
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "python2.7-pyjwt-1.7.1"
-  ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "packer"
+    ];
+    permittedInsecurePackages = [
+      "python2.7-pyjwt-1.7.1"
+    ];
+  };
+
 
   nix.settings.sandbox = true;
   nix.package = pkgs.nixFlakes;
@@ -31,7 +38,6 @@
     man.enable = false;
   };
 
-  nixpkgs.config.allowUnfree = true;
 
   services.yabai.enable = false;
   services.yabai.enableScriptingAddition = true;
@@ -163,6 +169,7 @@
       imports = [ ../../modules/home-manager/blackmatter ];
       home.stateVersion = "23.11";
       programs.home-manager.enable = true;
+      nixpkgs.config.allowUnfree = true;
 
       blackmatter.profiles.frost.enable = true;
 
