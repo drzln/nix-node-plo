@@ -3,10 +3,10 @@
 with lib;
 
 let
-  cfg = config.blackmatter.kubernetes.k3d;
+  cfg = config.blackmatter.components.kubernetes.k3d;
 in
 {
-  options.blackmatter.kubernetes.k3d = {
+  options.blackmatter.components.kubernetes.k3d = {
     enable = mkEnableOption "Enable a default k3d cluster.";
 
     address = mkOption {
