@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.kubernetes;
 
 in
 {
@@ -11,12 +11,14 @@ in
 
   options = {
     blackmatter = {
-      kubernetes.enable = mkEnableOption "kubernetes";
+      components = {
+        kubernetes.enable = mkEnableOption "kubernetes";
+      };
     };
   };
 
   config = mkMerge [
-    (mkIf cfg.kubernetes.enable {
+    (mkIf cfg.enable {
       home.packages = with pkgs; [
         kind
         minikube
