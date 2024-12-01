@@ -2,7 +2,7 @@
 with lib;
 let
   cfg = config.blackmatter.components.desktop.i3;
-  # monitors = cfg.desktop.monitors;
+  monitors = cfg.monitors;
 
   nord.graphics.indicator = ">";
   nord.graphics.border.child = "1";
@@ -86,6 +86,10 @@ in
     blackmatter = {
       components = {
         desktop.i3.enable = mkEnableOption "i3";
+        desktop.i3.monitors = mkOption {
+          type = types.attrs;
+	  description = "monitor related attributes";
+	};
       };
     };
   };
@@ -236,11 +240,12 @@ in
               # monitor
               #################################
 
-              # exec --no-startup-id \
-              # 	${pkgs.xorg.xrandr}/bin/xrandr \
-              # 	--output ${monitors.main.name} \
-              # 	--mode ${monitors.main.mode} \
-              # 	--rate ${monitors.main.rate}
+       	      exec --no-startup-id \
+       	      	${pkgs.xorg.xrandr}/bin/xrandr \
+       	      	--output ${monitors.main.name} \
+       	      	--mode ${monitors.main.mode} \
+       	      	--rate ${monitors.main.rate}
+
 
               #################################
               # end monitor

@@ -1,7 +1,7 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter.shell.tools;
+  cfg = config.blackmatter.components.shell.tools;
 in
 {
   options = {
