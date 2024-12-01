@@ -15,4 +15,7 @@
   blackmatter.components.gitconfig.email = "luis@pleme.io";
   blackmatter.components.gitconfig.user = "luis";
   blackmatter.components.gitconfig.enable = true;
+  blackmatter.components.kubernetes.enable = false;
+  blackmatter.components.kubernetes.k3d.enable = false;
+  blackmatter.components.kubernetes.k3d.client.enable = false;
 }
