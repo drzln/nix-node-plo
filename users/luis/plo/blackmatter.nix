@@ -4,6 +4,7 @@
   ];
   blackmatter.enable = true;
   blackmatter.profiles.winter.enable = true;
+  blackmatter.components.nvim.package = pkgs.neovim_drzln;
   blackmatter.components.desktop.i3.monitors = {
     main = {
       name = "DP-2";
@@ -14,7 +15,6 @@
   # blackmatter.gitconfig.email = "luis@pleme.io";
   # blackmatter.gitconfig.user = "luis";
   # blackmatter.programs.nvim.enable = true;
-  # blackmatter.programs.nvim.package = pkgs.neovim_drzln;
   # blackmatter.shell.enable = true;
   # blackmatter.gitconfig.enable = true;
 }
