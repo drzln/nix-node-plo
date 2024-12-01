@@ -1,6 +1,6 @@
 { lib, config, pkgs, ... }:
 let
-  cfg = config.blackmatter.components.nvim.groups;
+  cfg = config.blackmatter.components.nvim.plugin.groups;
 in
 with lib;
 {
@@ -14,15 +14,32 @@ with lib;
     ./tmux
   ];
 
-  # options = {
-  #   blackmatter = {
-  #     components = {
-  #       nvim = {
-  #         groups = {
-  #           enabled = { };
-  #         };
-  #       };
-  #     };
-  #   };
-  # };
+  options = {
+    blackmatter = {
+      components = {
+        nvim = {
+					plugin = {
+        	  groups = {
+        	    enabled = mkEnableOption "nvim.groups";
+        	  };
+					};
+        };
+      };
+    };
+  };
+
+	config = mkMerge [
+	  (mkIf cfg.enable {
+			blackmatter.components.nvim.plugin.groups.common.enable = true;
+			blackmatter.components.nvim.plugin.groups.lsp.enable = true;
+			blackmatter.components.nvim.plugin.groups.languages.enable = true;
+			blackmatter.components.nvim.plugin.groups.completion.enable = true;
+			blackmatter.components.nvim.plugin.groups.theming.enable = true;
+			blackmatter.components.nvim.plugin.groups.debugging.enable = true;
+			blackmatter.components.nvim.plugin.groups.tmux.enable = true;
+      blackmatter.components.nvim.plugin.groups.telescope.enable = true;
+      blackmatter.components.nvim.plugin.groups.treesitter.enable = true;
+      blackmatter.components.nvim.plugin.groups.keybindings.enable = true;
+		})
+	];
 }

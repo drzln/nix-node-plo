@@ -26,9 +26,6 @@ in
     mkMerge [
       (mkIf cfg.enable
         {
-          # blackmatter.programs.nvim.plugin.groups.telescope.enable = true;
-          # blackmatter.programs.nvim.plugin.groups.treesitter.enable = true;
-          # blackmatter.programs.nvim.plugin.groups.keybindings.enable = true;
           blackmatter.components.nvim.plugins =
             {
               ahmedkhalf."project.nvim".enable = true;
