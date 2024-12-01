@@ -2,7 +2,6 @@
 with lib;
 let
   cfg = config.blackmatter.components.nvim;
-  # inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
 in
 {
   imports =
@@ -38,7 +37,6 @@ in
       xdg.configFile."nvim/lua/lsp".source = ./conf/lua/lsp;
       xdg.configFile."nvim/after".source = ./conf/after;
 
-      # Pass plugins and groups to blackmatter configuration
       blackmatter.components.nvim.plugin.groups.enable = true;
     })
   ];
