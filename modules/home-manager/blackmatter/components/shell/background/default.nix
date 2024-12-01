@@ -1,7 +1,7 @@
 { lib, config, ... }:
 with lib;
 let
-  cfg = config.blackmatter;
+  cfg = config.blackmatter.components.shell.background;
 in
 {
   options = {
@@ -13,7 +13,7 @@ in
   };
 
   config = mkMerge [
-    (mkIf cfg.shell.background.enable {
+    (mkIf cfg.enable {
       home.file."backgrounds/nord/tools".source = builtins.fetchGit {
         url = "https://github.com/arcticicestudio/nord.git";
         ref = "develop";
