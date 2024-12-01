@@ -165,12 +165,8 @@
       home.stateVersion = "23.11";
       programs.home-manager.enable = true;
 
-      blackmatter.components.nvim.enable = true;
+      blackmatter.profiles.winter.enable = true;
       blackmatter.components.nvim.package = pkgs.neovim;
-      blackmatter.components.shell.enable = true;
-      blackmatter.components.desktop.alacritty.enable = false;
-      blackmatter.components.desktop.kitty.enable = true;
-      # blackmatter.envrc.enable = true;
 
       # stop a dumb bug
       # https://github.com/nix-community/home-manager/issues/3342
