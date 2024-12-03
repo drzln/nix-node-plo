@@ -1,1 +1,3 @@
-{ }
+{
+  blackmatter = import ./blackmatter;
+}
