@@ -3,7 +3,8 @@
     requirements.outputs.homeManagerModules.blackmatter
   ];
   blackmatter.enable = true;
-  blackmatter.profiles.winter.enable = true;
+  blackmatter.profiles.winter.enable = false;
+  blackmatter.profiles.blizzard.enable = true;
   blackmatter.components.nvim.package = pkgs.neovim_drzln;
   blackmatter.components.desktop.i3.monitors = {
     main = {
