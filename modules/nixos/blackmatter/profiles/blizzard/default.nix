@@ -32,7 +32,10 @@ in
   config = mkMerge [
     (mkIf (cfg.enable)
       {
-        console = { font = "Lat2-Terminus16"; keyMap = "us"; };
+        console = {
+          font = "Lat2-Terminus16";
+          keyMap = "us";
+        };
         powerManagement.cpuFreqGovernor = "performance";
         environment.variables = {
           GBM_BACKEND = "nvidia-drm";
