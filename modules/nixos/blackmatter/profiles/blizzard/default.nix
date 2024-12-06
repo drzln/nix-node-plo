@@ -82,6 +82,20 @@ in
         # programs.hyprland.portalPackage = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         services.greetd = {
           enable = true;
+          settings = {
+            # default_session = lib.mkForce "hyprland";
+            sessions = [
+              {
+                name = "hyprland";
+                # Use your installed Hyprland package here
+                command = "${pkgs.hyprland}/bin/Hyprland";
+              }
+            ];
+            # Optionally set a greeter. For example, using tuigreet:
+            greeter = {
+              command = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+            };
+          };
         };
       })
   ];
