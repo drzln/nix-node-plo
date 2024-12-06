@@ -7,5 +7,6 @@ in
   imports = [
     ./winter
     ./frost
+    ./blizzard
   ];
 }
