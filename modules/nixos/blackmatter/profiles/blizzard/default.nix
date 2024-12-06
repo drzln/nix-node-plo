@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, requirements, ... }:
 with lib;
 let
   cfg = config.blackmatter.profiles.blizzard;
@@ -49,20 +49,9 @@ in
         services.libinput = { enable = true; };
         xdg.portal.enable = true;
         xdg.portal.wlr.enable = true;
+        hardware.nvidia.open = false;
         hardware.graphics = {
           enable = true;
-          package = pkgs-unstable.mesa.drivers;
-          enable32Bit = true;
-          package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
-          extraPackages = with pkgs; [
-            intel-media-driver
-            vaapiIntel
-            vaapiVdpau
-            libvdpau-va-gl
-          ];
-          extraPackages32 = with pkgs.pkgsi686Linux; [
-            vaapiIntel
-          ];
         };
         environment.systemPackages = with pkgs; [
           # requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
@@ -88,15 +77,6 @@ in
         # programs.hyprland.portalPackage = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         services.greetd = {
           enable = true;
-          greeter = {
-            package = pkgs.greetd;
-          };
-          sessions = [
-            {
-              name = "hyprland";
-              command = "${pkgs.hyprland}/bin/Hyprland";
-            }
-          ];
         };
       })
   ];
