@@ -11,6 +11,7 @@ in
     ./i3
     ./kitty
     ./packages
+    ./hyprland
   ];
 
   options = {
@@ -25,12 +26,13 @@ in
 
   config = mkMerge [
     (mkIf (cfg.enable) {
-      blackmatter.components.desktop.alacritty.enable = true;
-      blackmatter.components.desktop.chrome.enable = false;
-      blackmatter.components.desktop.firefox.enable = false;
-      blackmatter.components.desktop.i3.enable = true;
       blackmatter.components.desktop.kitty.enable = true;
       blackmatter.components.desktop.packages.enable = true;
+      blackmatter.components.desktop.hyprdland.enable = true;
+      blackmatter.components.desktop.i3.enable = false;
+      blackmatter.components.desktop.alacritty.enable = false;
+      blackmatter.components.desktop.chrome.enable = false;
+      blackmatter.components.desktop.firefox.enable = false;
     })
   ];
 }
