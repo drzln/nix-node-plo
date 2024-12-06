@@ -83,7 +83,11 @@ in
         services.greetd = {
           enable = true;
           settings = {
-            default_session = lib.mkForce "hyprland";
+            # default_session = {
+            #   name = "hyprland";
+            #   # Use your installed Hyprland package here
+            #   command = "${pkgs.hyprland}/bin/Hyprland";
+            # };
             sessions = [
               {
                 name = "hyprland";
