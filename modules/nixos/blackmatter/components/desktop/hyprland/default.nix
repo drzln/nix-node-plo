@@ -19,29 +19,37 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
-      # Install Hyprland and related packages
-      home.packages = with pkgs; [
-        hyprland
-        waybar # Status bar for Wayland
-        swaybg # Background image handler
-        kitty # Terminal emulator
-        # Add other packages as needed
-      ];
+      # Enable Wayland hardware acceleration (OpenGL)
+      hardware.opengl.enable = true;
 
-      # Manage the configuration
-      home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
-      # Optionally manage Waybar configuration
-      home.file.".config/waybar/config".source = ./waybar-config.json;
-      home.file.".config/waybar/style.css".source = ./waybar-style.css;
+      # Enable seatd for seat/session management, required by Hyprland
+      services.seatd.enable = true;
 
-      # Set environment variables for Wayland applications
-      home.sessionVariables = {
-        XDG_SESSION_TYPE = "wayland";
-        XDG_CURRENT_DESKTOP = "Hyprland";
-        QT_QPA_PLATFORM = "wayland";
-        GDK_BACKEND = "wayland";
-        MOZ_ENABLE_WAYLAND = "1";
-        _JAVA_AWT_WM_NONREPARENTING = "1";
+      # Input device configuration via libinput (Wayland-friendly)
+      services.libinput.enable = true;
+
+      # Choose video drivers if necessary (adjust for your hardware)
+      services.xserver.videoDrivers = [ "nvidia" ];
+
+      # minimal greetd
+      services.greetd = {
+        enable = true;
+        greeter = {
+          package = pkgs.agreety;
+        };
+        defaultSession = "hyprland";
+        sessions = [
+          {
+            name = "hyprland";
+            command = "${pkgs.hyprland}/bin/Hyprland";
+          }
+        ];
+      };
+
+      services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        pulse.enable = true;
       };
     })
   ];

@@ -87,6 +87,7 @@
       );
 
       homeManagerModules = import ./modules/home-manager;
+      nixosModules = import ./modules/nixos;
 
       homeConfigurations = {
         "luis@plo" = home-manager.lib.homeManagerConfiguration {

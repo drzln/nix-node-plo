@@ -23,20 +23,16 @@ in
   system.stateVersion = "24.05";
 
   imports = [
-    ./boot.nix
-    ./limits.nix
-    ./docker.nix
-    ./time.nix
-    ./locale.nix
-    ./xserver.nix
-    ./displayManager.nix
-    ./virtualisation.nix
-    ./bluetooth.nix
-    ./sound.nix
+    requirements.outputs.nixosModules.blackmatter
   ];
 
-  networking.networkmanager.enable = true;
+  console = { font = "Lat2-Terminus16"; keyMap = "us"; };
+
   programs.zsh.enable = true;
+  services.libinput = { enable = true; };
+
+  blackmatter.profiles.blizzard.enable = true;
+
   hardware.nvidia.open = false;
   hardware.graphics = {
     enable = true;
@@ -55,8 +51,8 @@ in
       vaapiIntel
     ];
   };
+
   hardware.nvidia.modesetting.enable = true;
-  services.libinput = { enable = true; };
 
   environment.variables = {
     GBM_BACKEND = "nvidia-drm";
@@ -99,54 +95,6 @@ in
     bash
     fontconfig
   ];
-
-  services.openssh.enable = true;
-  services.openssh.settings.PermitRootLogin = "yes";
-  services.openssh.settings.PasswordAuthentication = true;
-  services.dnsmasq.enable = true;
-  services.dnsmasq.settings.server = [
-    "1.1.1.1"
-    "1.0.0.1"
-    "8.8.8.8"
-    "8.8.4.4"
-  ];
-
-  services.printing.enable = false;
-  services.hardware.bolt.enable = false;
-  services.nfs.server.enable = false;
-
-  security.rtkit.enable = true;
-
-  powerManagement.cpuFreqGovernor = "performance";
-
-  nix = {
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      min-free = ${toString (1024 * 1024 * 1024)}
-      max-free = ${toString (4096 * 1024 * 1024)}
-    '';
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-    settings = {
-      auto-optimise-store = true;
-      substituters = [
-        "https://hyprland.cachix.org"
-      ];
-      trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-    };
-    package = pkgs.nixFlakes;
-  };
-
-  console = { font = "Lat2-Terminus16"; keyMap = "us"; };
-
-  networking.firewall.enable = false;
-  networking.firewall.extraCommands = ''
-    ip46tables -I INPUT 1 -i vboxnet+ -p tcp -m tcp --dport 2049 -j ACCEPT
-  '';
-  networking.wireless.interfaces = [ "wlp0s20f3" ];
 
   programs.hyprland.enable = false;
   programs.hyprland.xwayland.enable = false;
