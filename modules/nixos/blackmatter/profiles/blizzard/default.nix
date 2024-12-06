@@ -32,6 +32,7 @@ in
   config = mkMerge [
     (mkIf (cfg.enable)
       {
+        console = { font = "Lat2-Terminus16"; keyMap = "us"; };
         powerManagement.cpuFreqGovernor = "performance";
         environment.variables = {
           GBM_BACKEND = "nvidia-drm";
@@ -44,7 +45,6 @@ in
         security.rtkit.enable = true;
         services.seatd.enable = true;
         services.xserver.videoDrivers = [ "nvidia" ];
-        console = { font = "Lat2-Terminus16"; keyMap = "us"; };
         programs.zsh.enable = true;
         services.libinput = { enable = true; };
         xdg.portal.enable = true;
@@ -54,8 +54,8 @@ in
           enable = true;
         };
         environment.systemPackages = with pkgs; [
-					greetd.greetd
-					greetd.tuigreet
+          greetd.greetd
+          greetd.tuigreet
           # requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
           # xdg-desktop-portal-wlr
           # xdg-desktop-portal-gtk
