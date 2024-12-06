@@ -25,7 +25,6 @@ in
         waybar # Status bar for Wayland
         swaybg # Background image handler
         kitty # Terminal emulator
-        # Add other packages as needed
       ];
 
       # Manage the configuration
