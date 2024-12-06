@@ -30,6 +30,7 @@ in
 
       # Manage the configuration
       home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
+      home.file.".config/hypr/wallpaper.jpg".source = ./wallpaper.jpg;
       # Optionally manage Waybar configuration
       home.file.".config/waybar/config".source = ./waybar-config.json;
       home.file.".config/waybar/style.css".source = ./waybar-style.css;

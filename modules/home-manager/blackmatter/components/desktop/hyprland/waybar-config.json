@@ -1,0 +1,22 @@
+{
+  "layer": "top",
+  "position": "top",
+  "modules-left": ["network"],
+  "modules-center": ["clock"],
+  "modules-right": ["cpu", "memory"],
+
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M:%S}",
+    "interval": 1
+  },
+  "network": {
+    "format": "{ifname} {ipaddr}",
+    "interval": 10
+  },
+  "cpu": {
+    "format": "CPU: {usage}%"
+  },
+  "memory": {
+    "format": "Mem: {used}MiB/{total}MiB"
+  }
+}
