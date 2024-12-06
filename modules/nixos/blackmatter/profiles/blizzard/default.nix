@@ -54,6 +54,8 @@ in
           enable = true;
         };
         environment.systemPackages = with pkgs; [
+					greetd.greetd
+					greetd.tuigreet
           # requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
           # xdg-desktop-portal-wlr
           # xdg-desktop-portal-gtk
