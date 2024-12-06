@@ -7,6 +7,7 @@
       variant = "";
     };
     displayManager = {
+			enable = false;
       gdm = {
         enable = false;
         wayland = false;

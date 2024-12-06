@@ -47,7 +47,6 @@ in
         services.nfs.server.enable = false;
         security.rtkit.enable = true;
         services.seatd.enable = true;
-        services.xserver.videoDrivers = [ "nvidia" ];
         programs.zsh.enable = true;
         services.libinput = { enable = true; };
         xdg.portal.enable = true;
