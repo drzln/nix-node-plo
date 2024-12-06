@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 with lib;
 let
   cfg = config.blackmatter.profiles.blizzard;
@@ -50,11 +50,6 @@ in
         xdg.portal.enable = true;
         xdg.portal.wlr.enable = true;
         hardware.graphics = {
-          opengl.enable = true;
-          nvidia = {
-            open = false;
-            modesettings.enable = true;
-          };
           enable = true;
           package = pkgs-unstable.mesa.drivers;
           enable32Bit = true;
@@ -70,9 +65,9 @@ in
           ];
         };
         environment.systemPackages = with pkgs; [
-          requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
-          xdg-desktop-portal-wlr
-          xdg-desktop-portal-gtk
+          # requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
+          # xdg-desktop-portal-wlr
+          # xdg-desktop-portal-gtk
           vim
           wget
           git
@@ -87,16 +82,15 @@ in
           fira-code-symbols
           dejavu_fonts
         ];
-        programs.hyprland.enable = false;
+        programs.hyprland.enable = true;
         programs.hyprland.xwayland.enable = false;
         programs.hyprland.package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-        programs.hyprland.portalPackage = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+        # programs.hyprland.portalPackage = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         services.greetd = {
           enable = true;
           greeter = {
-            package = pkgs.agreety;
+            package = pkgs.greetd;
           };
-          defaultSession = "hyprland";
           sessions = [
             {
               name = "hyprland";
