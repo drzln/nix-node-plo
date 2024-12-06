@@ -83,7 +83,7 @@ in
         services.greetd = {
           enable = true;
           settings = {
-            # default_session = lib.mkForce "hyprland";
+            default_session = lib.mkForce "hyprland";
             sessions = [
               {
                 name = "hyprland";

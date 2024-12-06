@@ -33,7 +33,15 @@ in
       # Optionally manage Waybar configuration
       home.file.".config/waybar/config".source = ./waybar-config.json;
       home.file.".config/waybar/style.css".source = ./waybar-style.css;
-
+      # home.file.".config/tuigreet/config".text = ''
+      #   # Example tuigreet config options
+      #   # Set a custom greeting message
+      #   greeting = "Welcome to Hyprland"
+      #
+      #   # Adjust colors (example values, not actual)
+      #   fg_color = "#D8DEE9"
+      #   bg_color = "#2E3440"
+      # '';
       # Set environment variables for Wayland applications
       home.sessionVariables = {
         XDG_SESSION_TYPE = "wayland";
