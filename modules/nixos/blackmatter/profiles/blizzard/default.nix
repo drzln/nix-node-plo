@@ -77,8 +77,8 @@ in
           dejavu_fonts
         ];
         programs.hyprland.enable = true;
-        programs.hyprland.xwayland.enable = false;
-        programs.hyprland.package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+        # programs.hyprland.xwayland.enable = false;
+        # programs.hyprland.package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
         # programs.hyprland.portalPackage = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
         services.greetd = {
           enable = true;
