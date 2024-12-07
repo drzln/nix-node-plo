@@ -5,6 +5,7 @@
   };
   boot.kernelParams = [ 
     "nvidia-drm.modeset=1" 
+		"fbdev=1"
     "selinux=0" 
     "apparmor=0"
   ];

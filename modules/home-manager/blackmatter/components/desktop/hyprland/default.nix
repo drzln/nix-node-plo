@@ -21,6 +21,10 @@ in
     (mkIf cfg.enable {
       # Install Hyprland and related packages
       home.packages = with pkgs; [
+				nvidia
+				nvidia-dkms
+				nvidia-open-dkms
+				nvidia-open
         hyprland
 				wofi
         waybar # Status bar for Wayland
