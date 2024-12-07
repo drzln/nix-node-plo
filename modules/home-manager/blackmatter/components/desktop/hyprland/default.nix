@@ -22,6 +22,10 @@ in
       # Install Hyprland and related packages
       home.packages = with pkgs; [
         hyprland
+				dunst
+				mako
+				fnott
+				swaync
 				wofi
         waybar # Status bar for Wayland
         swaybg # Background image handler
