@@ -22,6 +22,7 @@ in
       # Install Hyprland and related packages
       home.packages = with pkgs; [
         hyprland
+				wofi
         waybar # Status bar for Wayland
         swaybg # Background image handler
         kitty # Terminal emulator
