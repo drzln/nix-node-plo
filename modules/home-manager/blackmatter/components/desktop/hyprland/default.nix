@@ -25,7 +25,6 @@ in
 				dunst
 				mako
 				fnott
-				swaync
 				wofi
         waybar # Status bar for Wayland
         swaybg # Background image handler
