@@ -35,6 +35,7 @@ in
       # Manage the configuration
       home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
       home.file.".config/hypr/env.conf".source = ./env.conf;
+      home.file.".config/hypr/input.conf".source = ./input.conf;
       home.file.".config/hypr/monitors.conf".source = ./monitors.conf;
       home.file.".config/hypr/variables.conf".source = ./variables.conf;
       home.file.".config/hypr/general.conf".source = ./general.conf;
