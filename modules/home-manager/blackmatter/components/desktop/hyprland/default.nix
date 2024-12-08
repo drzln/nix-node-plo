@@ -19,13 +19,14 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
+      programs.regreet.enable = true;
       # Install Hyprland and related packages
       home.packages = with pkgs; [
         hyprland
-				dunst
-				mako
-				fnott
-				wofi
+        dunst
+        mako
+        fnott
+        wofi
         waybar # Status bar for Wayland
         swaybg # Background image handler
         kitty # Terminal emulator
@@ -49,7 +50,7 @@ in
       # Set environment variables for Wayland applications
       home.sessionVariables = {
         XDG_SESSION_TYPE = "wayland";
-				XDG_SESSION_DESKTOP =  "Hyprland";
+        XDG_SESSION_DESKTOP = "Hyprland";
         XDG_CURRENT_DESKTOP = "Hyprland";
         QT_QPA_PLATFORM = "wayland";
         GDK_BACKEND = "wayland";
