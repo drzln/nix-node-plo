@@ -35,6 +35,7 @@ in
 				hypridle
 				hyprlock
 				xdg-desktop-portal-hyprland
+				xdg-desktop-portal
 				hyprcursor
 				hyprutils
 				hyprlang
