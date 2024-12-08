@@ -35,17 +35,17 @@ in
 				hypridle
 				hyprlock
 				xdg-desktop-portal-hyprland
-				hyprsunset
-				hyprpolkitagent
-				hyprsysteminfo
+				# hyprsunset
+				# hyprpolkitagent
+				# hyprsysteminfo
 				hyprcursor
 				hyprutils
 				hyprlang
 				hyprwayland-scanner
 				aquamarine
-				hyprgraphics
-				hyprland-qtutils
-				hyprwall
+				# hyprgraphics
+				# hyprland-qtutils
+				# hyprwall
       ];
 
       home.sessionVariables = {
