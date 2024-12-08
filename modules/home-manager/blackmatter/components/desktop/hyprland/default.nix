@@ -19,7 +19,7 @@ in
 
   config = mkMerge [
     (mkIf cfg.enable {
-      programs.regreet.enable = true;
+      # programs.regreet.enable = true;
       # Install Hyprland and related packages
       home.packages = with pkgs; [
         hyprland

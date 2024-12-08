@@ -79,6 +79,7 @@ in
         # programs.hyprland.xwayland.enable = false;
         # programs.hyprland.package = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
         # programs.hyprland.portalPackage = requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+        programs.regreet.enable = true;
         services.greetd = {
           enable = true;
           settings = {
