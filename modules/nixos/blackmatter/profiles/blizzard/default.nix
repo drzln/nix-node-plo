@@ -57,6 +57,7 @@ in
         };
         environment.systemPackages = with pkgs; [
           greetd.greetd
+          greetd.regreet
           greetd.tuigreet
           # requirements.inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
           # xdg-desktop-portal-wlr
@@ -84,7 +85,7 @@ in
           enable = true;
           settings = {
             default_session = {
-              command = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+              command = "${pkgs.greetd.regreet}/bin/regreet";
             };
           };
         };
