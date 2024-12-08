@@ -30,6 +30,22 @@ in
         waybar # Status bar for Wayland
         swaybg # Background image handler
         kitty # Terminal emulator
+				hyprpaper
+				hyprpicker
+				hypridle
+				hyprlock
+				xdg-desktop-portal-hyprland
+				hyprsunset
+				hyprpolkitagent
+				hyprsysteminfo
+				hyprcursor
+				hyprutils
+				hyprlang
+				hyprwayland-scanner
+				aquamarine
+				hyprgraphics
+				hyprland-qtutils
+				hyprwall
       ];
 
       home.sessionVariables = {
