@@ -35,9 +35,6 @@ in
 				hypridle
 				hyprlock
 				xdg-desktop-portal-hyprland
-				# hyprsunset
-				# hyprpolkitagent
-				# hyprsysteminfo
 				hyprcursor
 				hyprutils
 				hyprlang
@@ -46,6 +43,9 @@ in
 				# hyprgraphics
 				# hyprland-qtutils
 				# hyprwall
+				# hyprsunset
+				# hyprpolkitagent
+				# hyprsysteminfo
       ];
 
       home.sessionVariables = {
