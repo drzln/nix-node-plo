@@ -85,7 +85,7 @@ in
           enable = true;
           settings = {
             default_session = {
-              command = "${pkgs.greetd.regreet}/bin/regreet";
+              command = "${pkgs.greetd.tuigreet}/bin/tuigreet";
             };
           };
         };
