@@ -11,7 +11,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager?branch=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
