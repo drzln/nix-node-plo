@@ -68,6 +68,9 @@ in
 
       # hypridle
       home.file.".config/hypr/hypridle.conf".source = ./hypridle.conf;
+
+      #hyprlock
+      home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
     })
   ];
 }
