@@ -40,90 +40,93 @@ plugins:
   #   name: runner.nvim
   #   branch: main
 
-  - author: LudoPinelli
-    name: comment-box.nvim
-    branch: main
-  - author: LnL7
-    name: vim-nix
-    branch: main
-  - author: LeonHeidelbach
-    name: trailblazer.nvim
-    branch: main
+  # - author: LudoPinelli
+  #   name: comment-box.nvim
+  #   branch: main
+  # - author: LnL7
+  #   name: vim-nix
+  #   branch: main
+  # - author: LeonHeidelbach
+  #   name: trailblazer.nvim
+  #   branch: main
+
   # - author: camspiers
   #   name: animate
   #   branch: main
-  - author: bennypowers
-    name: nvim-regexplainer
+  
+  # - author: bennypowers
+  #   name: nvim-regexplainer
+  #   branch: main
+  # - author: aserowy
+  #   name: tmux.nvim
+  #   branch: main
+  # - author: andymass
+  #   name: vim-matchup
+  #   branch: main
+  # - author: amrbashir
+  #   name: nvim-docs-view
+  #   branch: main
+  # - author: akinsho
+  #   name: git-conflict.nvim
+  #   branch: main
+  # - author: ahmedkhalf
+  #   name: project.nvim
+  #   branch: main
+  # - author: ellisonleao
+  #   name: glow.nvim
+  #   branch: main
+  # - author: camspiers
+  #   name: lens
+  #   branch: main
+  # - author: nanotee
+  #   name: nvim-lsp-basics
+  #   branch: main
+
+  - author: mfussenegger
+    name: nvim-dap
     branch: main
-  - author: aserowy
-    name: tmux.nvim
+  - author: lewis6991
+    name: impatient
     branch: main
-  - author: andymass
-    name: vim-matchup
+  - author: nvim-neotest
+    name: neotest
     branch: main
-  - author: amrbashir
-    name: nvim-docs-view
+  - author: nvim-neorg
+    name: neorg
     branch: main
-  - author: akinsho
-    name: git-conflict.nvim
+  - author: sar
+    name: cmp-lsp.nvim
     branch: main
-  - author: ahmedkhalf
-    name: project.nvim
+  - author: williamboman
+    name: mason-lspconfig.nvim
     branch: main
-  - author: ellisonleao
-    name: glow.nvim
+  - author: cbochs
+    name: grapple.nvim
     branch: main
-  - author: camspiers
-    name: lens
+  - author: chaoren
+    name: vim-wordmotion
     branch: main
-  - author: nanotee
-    name: nvim-lsp-basics
+  - author: chrisgrieser
+    name: nvim-various-textobjs
     branch: main
-  # - author: mfussenegger
-  #   name: nvim-dap
-  #   branch: main
-  # - author: lewis6991
-  #   name: impatient
-  #   branch: main
-  # - author: nvim-neotest
-  #   name: neotest
-  #   branch: main
-  # - author: nvim-neorg
-  #   name: neorg
-  #   branch: main
-  # - author: sar
-  #   name: cmp-lsp.nvim
-  #   branch: main
-  # - author: williamboman
-  #   name: mason-lspconfig.nvim
-  #   branch: main
-  # - author: cbochs
-  #   name: grapple.nvim
-  #   branch: main
-  # - author: chaoren
-  #   name: vim-wordmotion
-  #   branch: main
-  # - author: chrisgrieser
-  #   name: nvim-various-textobjs
-  #   branch: main
-  # - author: christoomey
-  #   name: vim-tmux-navigator
-  #   branch: main
-  # - author: cuducos
-  #   name: yaml.nvim
-  #   branch: main
-  # - author: danielpieper
-  #   name: telescope-tmuxinator.nvim
-  #   branch: main
-  # - author: declancm
-  #   name: cinnamon.nvim
-  #   branch: main
-  # - author: diepm
-  #   name: vim-rest-console
-  #   branch: main
-  # - author: drybalka
-  #   name: tree-climber.nvim
-  #   branch: main
+  - author: christoomey
+    name: vim-tmux-navigator
+    branch: main
+  - author: cuducos
+    name: yaml.nvim
+    branch: main
+  - author: danielpieper
+    name: telescope-tmuxinator.nvim
+    branch: main
+  - author: declancm
+    name: cinnamon.nvim
+    branch: main
+  - author: diepm
+    name: vim-rest-console
+    branch: main
+  - author: drybalka
+    name: tree-climber.nvim
+    branch: main
   # - author: esensar
   #   name: nvim-dev-container
   #   branch: main
