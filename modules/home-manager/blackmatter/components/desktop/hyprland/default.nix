@@ -54,6 +54,7 @@ in
         ranger
         superfile
         spacedrive
+				udiskie
       ];
 
       home.file.".local/share/icons/Nordzy-cursors" = {
