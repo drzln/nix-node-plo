@@ -25,6 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland-plugins = {
+      url = "github;hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     stylix = {
       url = "github:danth/stylix";
     };
@@ -37,6 +42,7 @@
     , home-manager
     , nix-darwin
     , hyprland
+    , hyprland-plugins
     , stylix
     , sops-nix
     , nixhashsync
