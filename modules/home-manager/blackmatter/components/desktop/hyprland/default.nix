@@ -22,6 +22,8 @@ in
         xdg-desktop-portal
         hyprpicker
         hyprland
+				anyrun
+				walker
         dunst
         mako
 				grim
