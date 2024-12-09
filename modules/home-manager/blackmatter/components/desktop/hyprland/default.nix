@@ -39,8 +39,6 @@ in
         nordzy-cursor-theme
       ];
 
-      gtk.iconTheme.name = "Nordzy";
-
       home.file.".local/share/icons/Nordzy-cursors" = {
         source = "${pkgs.nordzy-cursor-theme}/share/icons/Nordzy-cursors";
       };
