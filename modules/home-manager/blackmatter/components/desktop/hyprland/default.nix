@@ -39,11 +39,6 @@ in
         nordzy-cursor-theme
       ];
 
-      xdg.settings.Cursor = {
-        theme = "nordzy-cursor-theme";
-        size = 24;
-      };
-
       home.sessionVariables = {
         XDG_SESSION_TYPE = "wayland";
         XDG_SESSION_DESKTOP = "Hyprland";
