@@ -57,12 +57,17 @@ in
       home.file.".config/hypr/autostart.conf".source = ./autostart.conf;
       home.file.".config/hypr/cursor.conf".source = ./cursor.conf;
       home.file.".config/hypr/workspaces.conf".source = ./workspaces.conf;
-      home.file.".config/hypr/wallpaper.jpg".source = ./wallpaper.jpg;
+
+      #waybar
       home.file.".config/waybar/config".source = ./waybar-config.json;
       home.file.".config/waybar/style.css".source = ./waybar-style.css;
 
       # hyprpaper
+      home.file.".config/hypr/wallpaper.jpg".source = ./wallpaper.jpg;
       home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
+
+      # hypridle
+      home.file.".config/hypr/hypridle.conf".source = ./hypridle.conf;
     })
   ];
 }
