@@ -35,9 +35,14 @@ in
         hyprlang
         hyprwayland-scanner
         aquamarine
-				nordzy-icon-theme
-				nordzy-cursor-theme
+        nordzy-icon-theme
+        nordzy-cursor-theme
       ];
+
+      xdg.settings.Cursor = {
+        theme = "nordzy-cursor-theme";
+        size = 24;
+      };
 
       home.sessionVariables = {
         XDG_SESSION_TYPE = "wayland";
