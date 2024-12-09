@@ -16,18 +16,18 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
 
-			programs.obs-studio.enable = true;
+      programs.obs-studio.enable = true;
       home.packages = with pkgs; [
         xdg-desktop-portal-hyprland
         xdg-desktop-portal
         hyprpicker
         hyprland
-				anyrun
-				walker
+        anyrun
+        walker
         dunst
         mako
-				grim
-				slurp
+        grim
+        slurp
         fnott
         wofi
         waybar
@@ -42,9 +42,13 @@ in
         aquamarine
         nordzy-icon-theme
         nordzy-cursor-theme
-				dissent
-				vesktop
-				webcord
+        dissent
+        vesktop
+        webcord
+        clipman
+        cliphist
+        wl-clip-persist
+        clipse
       ];
 
       home.file.".local/share/icons/Nordzy-cursors" = {
@@ -96,7 +100,7 @@ in
       #hyprlock
       home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
 
-			#xdph
+      #xdph
       home.file.".config/hypr/xdph.conf".source = ./xdph.conf;
 
       # notifications
