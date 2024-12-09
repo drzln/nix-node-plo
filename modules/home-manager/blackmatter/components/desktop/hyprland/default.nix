@@ -49,7 +49,7 @@ in
         cliphist
         wl-clip-persist
         clipse
-				# cb
+				cb
       ];
 
       home.file.".local/share/icons/Nordzy-cursors" = {
