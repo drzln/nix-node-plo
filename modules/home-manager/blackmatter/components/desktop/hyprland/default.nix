@@ -9,44 +9,33 @@ in
     blackmatter = {
       components = {
         desktop.hyprland.enable = mkEnableOption "hyprland";
-        # desktop.hyprland.monitors = mkOption {
-        #   type = types.attrs;
-        #   description = "monitor related attributes";
-        # };
       };
     };
   };
 
   config = mkMerge [
     (mkIf cfg.enable {
-      # programs.regreet.enable = true;
-      # Install Hyprland and related packages
+
       home.packages = with pkgs; [
         hyprland
         dunst
         mako
         fnott
         wofi
-        waybar # Status bar for Wayland
-        swaybg # Background image handler
-        kitty # Terminal emulator
-				hyprpaper
-				hyprpicker
-				hypridle
-				hyprlock
-				xdg-desktop-portal-hyprland
-				xdg-desktop-portal
-				hyprcursor
-				hyprutils
-				hyprlang
-				hyprwayland-scanner
-				aquamarine
-				# hyprgraphics
-				# hyprland-qtutils
-				# hyprwall
-				# hyprsunset
-				# hyprpolkitagent
-				# hyprsysteminfo
+        waybar
+        kitty
+        hyprpaper
+        hyprpicker
+        hypridle
+        hyprlock
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal
+        xdg-desktop-port-kde
+        hyprcursor
+        hyprutils
+        hyprlang
+        hyprwayland-scanner
+        aquamarine
       ];
 
       home.sessionVariables = {
@@ -59,7 +48,6 @@ in
         _JAVA_AWT_WM_NONREPARENTING = "1";
       };
 
-      # Manage the configuration
       home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
       home.file.".config/hypr/env.conf".source = ./env.conf;
       home.file.".config/hypr/input.conf".source = ./input.conf;
