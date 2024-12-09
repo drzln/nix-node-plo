@@ -49,6 +49,11 @@ in
         cliphist
         wl-clip-persist
         clipse
+				yazi
+				nnn
+				ranger
+				superfile
+				spacedrive
 				# cb
       ];
 
