@@ -19,7 +19,6 @@ in
       home.packages = with pkgs; [
         xdg-desktop-portal-hyprland
         xdg-desktop-portal
-        xdg-desktop-port-kde
         hyprpicker
         hyprland
         dunst
@@ -48,6 +47,7 @@ in
         _JAVA_AWT_WM_NONREPARENTING = "1";
       };
 
+      # hyprland
       home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
       home.file.".config/hypr/env.conf".source = ./env.conf;
       home.file.".config/hypr/input.conf".source = ./input.conf;
@@ -60,6 +60,9 @@ in
       home.file.".config/hypr/wallpaper.jpg".source = ./wallpaper.jpg;
       home.file.".config/waybar/config".source = ./waybar-config.json;
       home.file.".config/waybar/style.css".source = ./waybar-style.css;
+
+      # hyprpaper
+      home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     })
   ];
 }
