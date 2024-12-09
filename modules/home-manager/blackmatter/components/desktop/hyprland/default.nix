@@ -23,6 +23,8 @@ in
         hyprland
         dunst
         mako
+				grim
+				slurp
         fnott
         wofi
         waybar
