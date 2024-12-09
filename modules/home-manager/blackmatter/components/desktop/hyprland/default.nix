@@ -35,6 +35,8 @@ in
         hyprlang
         hyprwayland-scanner
         aquamarine
+				nordzy-icon-theme
+				nordzy-cursor-theme
       ];
 
       home.sessionVariables = {
