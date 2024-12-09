@@ -1,16 +1,17 @@
 plugin:
-  path: "~/code/github/drzln/nix-node-plo/modules/home-manager/blackmatter/nvim/plugins/"
+  path: "~/code/github/drzln/nix-node-plo/modules/home-manager/blackmatter/components/nvim/plugins/"
 
 plugins:
-  - author: L3MON4D3
-    name: LuaSnip
-    branch: main
-  - author: Wansmer
-    name: treesj
-    branch: main
-  - author: ThePrimeagen
-    name: refactoring.nvim
-    branch: main
+  # - author: L3MON4D3
+  #   name: LuaSnip
+  #   branch: main
+  # - author: Wansmer
+  #   name: treesj
+  #   branch: main
+  # - author: ThePrimeagen
+  #   name: refactoring.nvim
+  #   branch: main
+  
   # - author: SchemaStore
   #   name: schemastore
   #   branch: main
@@ -38,45 +39,46 @@ plugins:
   # - author: MarcHamamji
   #   name: runner.nvim
   #   branch: main
-  # - author: LudoPinelli
-  #   name: comment-box.nvim
-  #   branch: main
-  # - author: LnL7
-  #   name: vim-nix
-  #   branch: main
-  # - author: LeonHeidelbach
-  #   name: trailblazer.nvim
-  #   branch: main
-  # # - author: camspiers
-  # #   name: animate
-  # #   branch: main
-  # - author: bennypowers
-  #   name: nvim-regexplainer
-  #   branch: main
-  # - author: aserowy
-  #   name: tmux.nvim
-  #   branch: main
-  # - author: andymass
-  #   name: vim-matchup
-  #   branch: main
-  # - author: amrbashir
-  #   name: nvim-docs-view
-  #   branch: main
-  # - author: akinsho
-  #   name: git-conflict.nvim
-  #   branch: main
-  # - author: ahmedkhalf
-  #   name: project.nvim
-  #   branch: main
-  # - author: ellisonleao
-  #   name: glow.nvim
-  #   branch: main
+
+  - author: LudoPinelli
+    name: comment-box.nvim
+    branch: main
+  - author: LnL7
+    name: vim-nix
+    branch: main
+  - author: LeonHeidelbach
+    name: trailblazer.nvim
+    branch: main
   # - author: camspiers
-  #   name: lens
+  #   name: animate
   #   branch: main
-  # - author: nanotee
-  #   name: nvim-lsp-basics
-  #   branch: main
+  - author: bennypowers
+    name: nvim-regexplainer
+    branch: main
+  - author: aserowy
+    name: tmux.nvim
+    branch: main
+  - author: andymass
+    name: vim-matchup
+    branch: main
+  - author: amrbashir
+    name: nvim-docs-view
+    branch: main
+  - author: akinsho
+    name: git-conflict.nvim
+    branch: main
+  - author: ahmedkhalf
+    name: project.nvim
+    branch: main
+  - author: ellisonleao
+    name: glow.nvim
+    branch: main
+  - author: camspiers
+    name: lens
+    branch: main
+  - author: nanotee
+    name: nvim-lsp-basics
+    branch: main
   # - author: mfussenegger
   #   name: nvim-dap
   #   branch: main
