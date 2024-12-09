@@ -87,6 +87,37 @@ in
 
       #hyprlock
       home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
+
+      # notifications
+      programs.dunst = {
+        enable = true;
+        package = pkgs.dunst;
+        settings = {
+          font = "Sans 12";
+          geometry = "top-right";
+          transparency = 10;
+          frame_width = 2;
+          frame_color = "#4C566A";
+          separator_height = 2;
+          timeout = 3;
+
+          urgency_low = {
+            background = "#2E3440";
+            foreground = "#D8DEE9";
+            frame_color = "#4C566A";
+          };
+          urgency_normal = {
+            background = "#3B4252";
+            foreground = "#ECEFF4";
+            frame_color = "#5E81AC";
+          };
+          urgency_critical = {
+            background = "#BF616A";
+            foreground = "#ECEFF4";
+            frame_color = "#BF616A";
+          };
+        };
+      };
     })
   ];
 }
