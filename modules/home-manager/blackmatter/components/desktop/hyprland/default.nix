@@ -17,6 +17,10 @@ in
     (mkIf cfg.enable {
 
       home.packages = with pkgs; [
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal
+        xdg-desktop-port-kde
+        hyprpicker
         hyprland
         dunst
         mako
@@ -25,12 +29,8 @@ in
         waybar
         kitty
         hyprpaper
-        hyprpicker
         hypridle
         hyprlock
-        xdg-desktop-portal-hyprland
-        xdg-desktop-portal
-        xdg-desktop-port-kde
         hyprcursor
         hyprutils
         hyprlang
