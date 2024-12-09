@@ -48,8 +48,12 @@ in
       };
 
       home.sessionVariables = {
-				XCURSOR_THEME = "Nordzy-cursors";
-				XCURSOR_SIZE = "24";
+        LIBVA_DRIVER_NAME = "nvidia";
+        __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+        HYPRCURSOR_THEME = "Nordzy-cursors";
+        HYPRCURSOR_SIZE = "24";
+        XCURSOR_THEME = "Nordzy-cursors";
+        XCURSOR_SIZE = "24";
         XDG_SESSION_TYPE = "wayland";
         XDG_SESSION_DESKTOP = "Hyprland";
         XDG_CURRENT_DESKTOP = "Hyprland";
