@@ -42,6 +42,9 @@ in
         aquamarine
         nordzy-icon-theme
         nordzy-cursor-theme
+				dissent
+				vesktop
+				webcord
       ];
 
       home.file.".local/share/icons/Nordzy-cursors" = {
