@@ -9,44 +9,32 @@ in
     blackmatter = {
       components = {
         desktop.hyprland.enable = mkEnableOption "hyprland";
-        # desktop.hyprland.monitors = mkOption {
-        #   type = types.attrs;
-        #   description = "monitor related attributes";
-        # };
       };
     };
   };
 
   config = mkMerge [
     (mkIf cfg.enable {
-      # programs.regreet.enable = true;
-      # Install Hyprland and related packages
+
       home.packages = with pkgs; [
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal
+        hyprpicker
         hyprland
         dunst
         mako
         fnott
         wofi
-        waybar # Status bar for Wayland
-        swaybg # Background image handler
-        kitty # Terminal emulator
-				hyprpaper
-				hyprpicker
-				hypridle
-				hyprlock
-				xdg-desktop-portal-hyprland
-				xdg-desktop-portal
-				hyprcursor
-				hyprutils
-				hyprlang
-				hyprwayland-scanner
-				aquamarine
-				# hyprgraphics
-				# hyprland-qtutils
-				# hyprwall
-				# hyprsunset
-				# hyprpolkitagent
-				# hyprsysteminfo
+        waybar
+        kitty
+        hyprpaper
+        hypridle
+        hyprlock
+        hyprcursor
+        hyprutils
+        hyprlang
+        hyprwayland-scanner
+        aquamarine
       ];
 
       home.sessionVariables = {
@@ -59,7 +47,7 @@ in
         _JAVA_AWT_WM_NONREPARENTING = "1";
       };
 
-      # Manage the configuration
+      # hyprland
       home.file.".config/hypr/hyprland.conf".source = ./hyprland.conf;
       home.file.".config/hypr/env.conf".source = ./env.conf;
       home.file.".config/hypr/input.conf".source = ./input.conf;
@@ -69,9 +57,20 @@ in
       home.file.".config/hypr/autostart.conf".source = ./autostart.conf;
       home.file.".config/hypr/cursor.conf".source = ./cursor.conf;
       home.file.".config/hypr/workspaces.conf".source = ./workspaces.conf;
-      home.file.".config/hypr/wallpaper.jpg".source = ./wallpaper.jpg;
+
+      #waybar
       home.file.".config/waybar/config".source = ./waybar-config.json;
       home.file.".config/waybar/style.css".source = ./waybar-style.css;
+
+      # hyprpaper
+      home.file.".config/hypr/wallpaper.jpg".source = ./wallpaper.jpg;
+      home.file.".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
+
+      # hypridle
+      home.file.".config/hypr/hypridle.conf".source = ./hypridle.conf;
+
+      #hyprlock
+      home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
     })
   ];
 }
