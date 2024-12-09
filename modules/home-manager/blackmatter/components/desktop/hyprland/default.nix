@@ -43,7 +43,13 @@ in
         source = "${pkgs.nordzy-cursor-theme}/share/icons/Nordzy-cursors";
       };
 
+      home.file.".icons/Nordzy-cursors" = {
+        source = "${pkgs.nordzy-cursor-theme}/share/icons/Nordzy-cursors";
+      };
+
       home.sessionVariables = {
+				XCURSOR_THEME = "Nordzy-cursors";
+				XCURSOR_SIZE = "24";
         XDG_SESSION_TYPE = "wayland";
         XDG_SESSION_DESKTOP = "Hyprland";
         XDG_CURRENT_DESKTOP = "Hyprland";
