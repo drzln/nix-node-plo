@@ -55,6 +55,9 @@ in
         superfile
         spacedrive
 				udiskie
+				waydroid
+				zathura
+				waypipe
       ];
 
       home.file.".local/share/icons/Nordzy-cursors" = {
