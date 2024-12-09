@@ -88,6 +88,9 @@ in
       #hyprlock
       home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
 
+			#xdph
+      home.file.".config/hypr/xdph.conf".source = ./xdph.conf;
+
       # notifications
       services.dunst = {
         enable = true;
