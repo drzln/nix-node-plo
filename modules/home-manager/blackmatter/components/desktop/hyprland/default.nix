@@ -54,10 +54,11 @@ in
         ranger
         superfile
         spacedrive
-				udiskie
-				waydroid
-				zathura
-				waypipe
+        udiskie
+        waydroid
+        zathura
+        waypipe
+				xdotool
       ];
 
       home.file.".local/share/icons/Nordzy-cursors" = {
@@ -126,7 +127,6 @@ in
             separator_height = 2;
             timeout = 3;
           };
-
           urgency_low = {
             background = "#2E3440";
             foreground = "#D8DEE9";
