@@ -91,7 +91,7 @@ in
       home.file.".config/hypr/input.conf".source = ./input.conf;
       home.file.".config/hypr/monitors.conf".source = ./monitors.conf;
       home.file.".config/hypr/variables.conf".source = ./variables.conf;
-      home.file.".config/hypr/general.conf".source = ./general.conf;
+      home.file.".config/hypr/bindings.conf".source = ./bindings.conf;
       home.file.".config/hypr/autostart.conf".source = ./autostart.conf;
       home.file.".config/hypr/cursor.conf".source = ./cursor.conf;
       home.file.".config/hypr/workspaces.conf".source = ./workspaces.conf;
