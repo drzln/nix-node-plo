@@ -39,7 +39,7 @@
   };
 
 
-  services.yabai.enable = false;
+  services.yabai.enable = true;
   services.yabai.enableScriptingAddition = true;
   services.yabai.package = pkgs.yabai;
   services.yabai.config = {
@@ -52,7 +52,7 @@
     window_opacity_duration = 0.0;
   };
 
-  services.skhd.enable = false;
+  services.skhd.enable = true;
   services.skhd.package = pkgs.skhd;
   services.skhd.skhdConfig = ''
     # move window focus
