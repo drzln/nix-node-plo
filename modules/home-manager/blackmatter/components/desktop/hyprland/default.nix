@@ -16,13 +16,18 @@ in
   config = mkMerge [
     (mkIf cfg.enable {
 
+      programs.obs-studio.enable = true;
       home.packages = with pkgs; [
         xdg-desktop-portal-hyprland
         xdg-desktop-portal
         hyprpicker
         hyprland
+        anyrun
+        walker
         dunst
         mako
+        grim
+        slurp
         fnott
         wofi
         waybar
@@ -37,6 +42,22 @@ in
         aquamarine
         nordzy-icon-theme
         nordzy-cursor-theme
+        dissent
+        vesktop
+        webcord
+        clipman
+        cliphist
+        wl-clip-persist
+        clipse
+        yazi
+        nnn
+        ranger
+        superfile
+        spacedrive
+				udiskie
+				waydroid
+				zathura
+				waypipe
       ];
 
       home.file.".local/share/icons/Nordzy-cursors" = {
@@ -87,6 +108,42 @@ in
 
       #hyprlock
       home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
+
+      #xdph
+      home.file.".config/hypr/xdph.conf".source = ./xdph.conf;
+
+      # notifications
+      services.dunst = {
+        enable = true;
+        package = pkgs.dunst;
+        settings = {
+          global = {
+            font = "Sans 12";
+            geometry = "top-right";
+            transparency = 10;
+            frame_width = 2;
+            frame_color = "#4C566A";
+            separator_height = 2;
+            timeout = 3;
+          };
+
+          urgency_low = {
+            background = "#2E3440";
+            foreground = "#D8DEE9";
+            frame_color = "#4C566A";
+          };
+          urgency_normal = {
+            background = "#3B4252";
+            foreground = "#ECEFF4";
+            frame_color = "#5E81AC";
+          };
+          urgency_critical = {
+            background = "#BF616A";
+            foreground = "#ECEFF4";
+            frame_color = "#BF616A";
+          };
+        };
+      };
     })
   ];
 }
