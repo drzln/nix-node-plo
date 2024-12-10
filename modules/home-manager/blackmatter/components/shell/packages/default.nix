@@ -63,6 +63,7 @@ in
         [ ]
         ++ lib.optionals isDarwin [ ]
         ++ lib.optionals isLinux [
+					terraform
           i3status
           packer
           traceroute
