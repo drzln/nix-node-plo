@@ -27,7 +27,9 @@ in
       {
         blackmatter.components.nvim.enable = true;
         blackmatter.components.shell.enable = true;
-        blackmatter.components.desktop.enable = false;
+
+        # blackmatter.components.desktop.enable = true;
+        blackmatter.components.desktop.kitty.enable = true;
       })
   ];
 }
