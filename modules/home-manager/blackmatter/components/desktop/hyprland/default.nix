@@ -94,7 +94,6 @@ in
       home.file.".config/hypr/bindings.conf".source = ./bindings.conf;
       home.file.".config/hypr/autostart.conf".source = ./autostart.conf;
       home.file.".config/hypr/cursor.conf".source = ./cursor.conf;
-      home.file.".config/hypr/workspaces.conf".source = ./workspaces.conf;
 
       #waybar
       home.file.".config/waybar/config".source = ./waybar-config.json;
