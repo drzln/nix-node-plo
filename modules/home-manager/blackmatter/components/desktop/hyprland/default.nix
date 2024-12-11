@@ -54,10 +54,11 @@ in
         ranger
         superfile
         spacedrive
-				udiskie
-				waydroid
-				zathura
-				waypipe
+        udiskie
+        waydroid
+        zathura
+        waypipe
+				xdotool
       ];
 
       home.file.".local/share/icons/Nordzy-cursors" = {
@@ -90,7 +91,7 @@ in
       home.file.".config/hypr/input.conf".source = ./input.conf;
       home.file.".config/hypr/monitors.conf".source = ./monitors.conf;
       home.file.".config/hypr/variables.conf".source = ./variables.conf;
-      home.file.".config/hypr/general.conf".source = ./general.conf;
+      home.file.".config/hypr/bindings.conf".source = ./bindings.conf;
       home.file.".config/hypr/autostart.conf".source = ./autostart.conf;
       home.file.".config/hypr/cursor.conf".source = ./cursor.conf;
       home.file.".config/hypr/workspaces.conf".source = ./workspaces.conf;
@@ -126,7 +127,6 @@ in
             separator_height = 2;
             timeout = 3;
           };
-
           urgency_low = {
             background = "#2E3440";
             foreground = "#D8DEE9";
