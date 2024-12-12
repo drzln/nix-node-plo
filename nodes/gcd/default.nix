@@ -29,6 +29,5 @@
     xorg.xrandr
     xorg.xev
   ];
-
+  virtualisation.docker.enable = true;
 }
-
