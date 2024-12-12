@@ -5,24 +5,7 @@ let
   cfg = config.blackmatter.components.desktop.i3;
   monitors = cfg.monitors;
 
-  nord.graphics.indicator = ">";
-  nord.graphics.border.child = "1";
-  nord.colors = rec {
-    i3lock.background.blue = "#2E3440";
-    primary = "#5E81AC";
-    secondary = "#D8DEE9";
-    tertiary = "#88C0D0";
-    highlight = "#BF616A";
-    foreground = "#ECEFF4";
-    background.blue = "#2E3440";
-    background.teal = "#8fbcbb";
-    text.white = "#d8dee9";
-    error.red = highlight;
-    error.background.grey = "#4c566a";
-  };
-
   themes.nord = rec {
-
     rofi = "Arc-Dark";
     globals = {
       colors.focused = {
