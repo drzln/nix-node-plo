@@ -19,6 +19,7 @@ let
     error.red = highlight;
     error.background.grey = "#4c566a";
   };
+
   themes.nord = rec {
     rofi = "Arc-Dark";
     globals = {
