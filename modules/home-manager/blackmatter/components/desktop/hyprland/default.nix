@@ -3,6 +3,84 @@ with lib;
 let
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
   cfg = config.blackmatter.components.desktop.hyprland;
+
+  nord.graphics.indicator = ">";
+  nord.graphics.border.child = "1";
+  nord.colors = rec {
+    i3lock.background.blue = "#2E3440";
+    primary = "#5E81AC";
+    secondary = "#D8DEE9";
+    tertiary = "#88C0D0";
+    highlight = "#BF616A";
+    foreground = "#ECEFF4";
+    background.blue = "#2E3440";
+    background.teal = "#8fbcbb";
+    text.white = "#d8dee9";
+    error.red = highlight;
+    error.background.grey = "#4c566a";
+  };
+
+  themes.nord = rec {
+    rofi = "Arc-Dark";
+    globals = {
+      colors.focused = {
+        border = nord.colors.background.blue;
+        background = nord.colors.background.blue;
+        text = nord.colors.text.white;
+        indicator = nord.graphics.indicator;
+        childBorder = nord.graphics.border.child;
+      };
+      colors.focusedInactive = {
+        border = nord.colors.background.blue;
+        background = nord.colors.background.blue;
+        text = nord.colors.text.white;
+        indicator = nord.graphics.indicator;
+        childBorder = nord.graphics.border.child;
+      };
+      colors.unfocused = {
+        border = nord.colors.background.blue;
+        background = nord.colors.background.blue;
+        text = nord.colors.text.white;
+        indicator = nord.graphics.indicator;
+        childBorder = nord.graphics.border.child;
+      };
+      colors.urgent = {
+        border = nord.colors.error.red;
+        background = nord.colors.error.background.grey;
+        text = nord.colors.text.white;
+        indicator = nord.graphics.indicator;
+        childBorder = nord.graphics.border.child;
+      };
+      colors.hovered = {
+        border = nord.colors.background.teal;
+        background = nord.colors.background.blue;
+        text = nord.colors.text.white;
+        indicator = nord.graphics.indicator;
+        childBorder = nord.graphics.border.child;
+      };
+    };
+    initialization = {
+      # manipulate the path or we do not find pamixer
+      script = "PATH=$HOME/.nix-profile/bin:$PATH polybar top &";
+    };
+    styling = {
+      font-0 = "RobotoMono Nerd Font:antialias=true:hinting=true;size=10;2";
+      padding = 2;
+    };
+    dimensions = {
+      height = 30;
+      width = "100%";
+    };
+    elements = {
+      separator = "|";
+    };
+    colors = {
+      background = nord.colors.background.blue;
+      foreground = nord.colors.foreground;
+    };
+  };
+
+
 in
 {
   options = {
@@ -58,7 +136,7 @@ in
         waydroid
         zathura
         waypipe
-				xdotool
+        xdotool
       ];
 
       home.file.".local/share/icons/Nordzy-cursors" = {
@@ -94,7 +172,6 @@ in
       home.file.".config/hypr/bindings.conf".source = ./bindings.conf;
       home.file.".config/hypr/autostart.conf".source = ./autostart.conf;
       home.file.".config/hypr/cursor.conf".source = ./cursor.conf;
-      home.file.".config/hypr/workspaces.conf".source = ./workspaces.conf;
 
       #waybar
       home.file.".config/waybar/config".source = ./waybar-config.json;
@@ -113,34 +190,36 @@ in
       #xdph
       home.file.".config/hypr/xdph.conf".source = ./xdph.conf;
 
-      # notifications
+
+			# notifications
       services.dunst = {
         enable = true;
-        package = pkgs.dunst;
         settings = {
           global = {
-            font = "Sans 12";
-            geometry = "top-right";
-            transparency = 10;
-            frame_width = 2;
-            frame_color = "#4C566A";
-            separator_height = 2;
+            font = "RobotoMono Nerd Font 10";
+            frame_color = nord.colors.background.blue;
+            background = nord.colors.background.blue;
+            foreground = nord.colors.foreground;
+
+            # how long the alert lasts
             timeout = 3;
+
+            # positioning of alert window
+            # does not seem to be working
+            #geometry = "300x5-10-50"; # Width x Stack Size - X Offset - Y Offset
+
           };
           urgency_low = {
-            background = "#2E3440";
-            foreground = "#D8DEE9";
-            frame_color = "#4C566A";
+            background = nord.colors.secondary;
+            foreground = nord.colors.background.blue;
           };
           urgency_normal = {
-            background = "#3B4252";
-            foreground = "#ECEFF4";
-            frame_color = "#5E81AC";
+            background = nord.colors.background.blue;
+            foreground = nord.colors.foreground;
           };
           urgency_critical = {
-            background = "#BF616A";
-            foreground = "#ECEFF4";
-            frame_color = "#BF616A";
+            background = nord.colors.error.background.grey;
+            foreground = nord.colors.error.red;
           };
         };
       };
