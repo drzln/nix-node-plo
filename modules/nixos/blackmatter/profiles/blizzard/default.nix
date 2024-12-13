@@ -85,7 +85,9 @@ in
           enable = true;
           settings = {
             default_session = {
-              command = "${pkgs.greetd.tuigreet}/bin/tuigreet --default-session Hyprland";
+              command = "
+${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --remember-user-sessions
+";
             };
           };
         };
