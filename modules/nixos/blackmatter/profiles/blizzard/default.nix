@@ -86,8 +86,7 @@ in
           settings = {
             default_session = {
               command = "
-${pkgs.greetd.tuigreet}/bin/tuigreet \
-								--cmd hyprland
+${pkgs.greetd.tuigreet}/bin/tuigreet
 ";
             };
           };
