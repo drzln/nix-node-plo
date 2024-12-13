@@ -1,14 +1,15 @@
--- local M = {}
+local M = {}
 
 -- merge tables
--- function M.merge(t1, t2)
--- 	for k, v in pairs(t2) do
--- 		t1[k] = v
--- 	end
---
--- 	return t1
--- end
+function M.merge(t1, t2)
+	for k, v in pairs(t2) do
+		t1[k] = v
+	end
 
+	return t1
+end
+
+-- ALL BELOW FUNCTIONS SUSPECTED OF NOT BEING REQUIRED
 -- disable formatting on any servers
 -- function M.disable_formatting(client)
 -- 	-- disable tsserver as a formatter to avoid
@@ -183,4 +184,4 @@
 -- 	}
 -- end
 
--- return M
+return M
