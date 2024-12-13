@@ -86,7 +86,10 @@ in
           settings = {
             default_session = {
               command = "
-${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-session --remember-user-sessions
+${pkgs.greetd.tuigreet}/bin/tuigreet \
+								--remember \
+								--remember-session \
+								--remember-user-session
 ";
             };
           };
