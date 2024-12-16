@@ -61,12 +61,20 @@ function M.setup()
 		"als"
 	}
 
+	local configure_only_servers = {
+		"rust_analyzer",
+	}
+
 	local function is_excluded(server)
 		return vim.tbl_contains(exclude_servers, server)
 	end
 
+	local function is_configure_only(server)
+		return vim.tbl_contains(configure_only_servers, server)
+	end
+
 	local servers_to_install = vim.tbl_filter(function(server)
-		return not is_excluded(server)
+		return not is_excluded(server) and not is_configure_only(server)
 	end, available_servers)
 
 	mason_lspconfig.setup(
