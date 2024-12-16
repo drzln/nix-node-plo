@@ -30,4 +30,8 @@
     xorg.xev
   ];
   virtualisation.docker.enable = true;
+	virtualisation.docker.rootless = {
+    setSocketVariable = true;
+    enable = true;
+  };
 }
