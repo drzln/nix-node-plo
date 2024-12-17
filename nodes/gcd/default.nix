@@ -19,7 +19,10 @@
 
   nixpkgs.config.allowUnfree = true; # Enable unfree software
 
-  nix.settings.experimental-features = [ "nix-command" ];
+  nix.settings.experimental-features = [ 
+		"nix-command"
+		"flakes"
+	];
   environment.systemPackages = with pkgs; [
     mesa
     mesa-demos
