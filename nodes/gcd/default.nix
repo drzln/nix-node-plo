@@ -19,6 +19,7 @@
 
   nixpkgs.config.allowUnfree = true; # Enable unfree software
 
+  nix.settings.experimental-features = [ "nix-command" ];
   environment.systemPackages = with pkgs; [
     mesa
     mesa-demos
@@ -30,7 +31,7 @@
     xorg.xev
   ];
   virtualisation.docker.enable = true;
-	virtualisation.docker.rootless = {
+  virtualisation.docker.rootless = {
     setSocketVariable = true;
     enable = true;
   };
