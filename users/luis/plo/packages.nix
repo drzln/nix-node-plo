@@ -1,5 +1,7 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [ ] ++ [
+  home.packages = with pkgs; [ 
+		arion
+	] ++ [
     (pkgs.stdenv.mkDerivation {
       pname = "connect-vpn-pinger";
       version = "1.0.0";
