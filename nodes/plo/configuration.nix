@@ -22,6 +22,9 @@ in
 {
   system.stateVersion = "24.05";
   nixpkgs.config.allowUnfree = true;
+  networking.hosts = {
+    "127.0.0.1" = [ "mysql" ];
+  };
 
   imports = [
     requirements.outputs.nixosModules.blackmatter
