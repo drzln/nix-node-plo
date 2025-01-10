@@ -21,6 +21,21 @@ let
         default = pkgs.traefik;
         description = mdDoc "Traefik binary to use";
       };
+      extraConfig = mkOption {
+        type = types.str;
+        default = ''
+          entryPoints:
+            mysql-entry:
+              address: ":3306"
+              tls:
+                passthrough: true
+          providers:
+            file:
+              directory: /etc/traefik/dynamic/
+              watch: true
+        '';
+        description = "Override the default Traefik configuration";
+      };
     };
 
     consul = {
@@ -33,6 +48,11 @@ let
         type = types.package;
         default = pkgs.consul;
         description = mdDoc "Consul binary to use";
+      };
+      extraConfig = mkOption {
+        type = types.str;
+        default = "";
+        description = "Override or provide additional Consul configuration";
       };
     };
   };
@@ -53,17 +73,8 @@ in
       services.traefik = {
         enable = true;
         package = cfg.traefik.package;
-        extraConfig = ''
-          entryPoints:
-            mysql-entry:
-              address: ":3306"
-              tls:
-                passthrough: true
-          providers:
-            file:
-              directory: /etc/traefik/dynamic/
-              watch: true
-        '';
+        # Use user-provided or default Traefik configuration
+        extraConfig = cfg.traefik.extraConfig;
         serviceConfig = {
           After = [ "consul.service" ];
           Requires = [ "consul.service" ];
@@ -78,6 +89,9 @@ in
           enabled = true;
           bootstrapExpect = 1;
         };
+        # For demonstration: assign extraConfig even if not directly used by Consul module
+        # This field may need special handling depending on how you intend to apply it.
+        extraConfig = cfg.consul.extraConfig;
       };
     })
   ];
