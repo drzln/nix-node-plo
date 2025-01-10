@@ -91,7 +91,7 @@ in
         # };
         # For demonstration: assign extraConfig even if not directly used by Consul module
         # This field may need special handling depending on how you intend to apply it.
-        extraConfig = cfg.consul.extraConfig;
+        # extraConfig = cfg.consul.extraConfig;
       };
     })
   ];
