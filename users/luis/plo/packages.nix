@@ -1,5 +1,8 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [ 
+		unocov
+		poppler_utils
+		poppler
 		arion
 	] ++ [
     (pkgs.stdenv.mkDerivation {
