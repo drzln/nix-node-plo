@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./profiles
-		./components/microservices
+		./components
   ];
 
   options = {
