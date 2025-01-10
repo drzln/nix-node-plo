@@ -74,7 +74,7 @@ in
         enable = true;
         package = cfg.traefik.package;
         # Use user-provided or default Traefik configuration
-        extraConfig = cfg.traefik.extraConfig;
+        # extraConfig = cfg.traefik.extraConfig;
         serviceConfig = {
           After = [ "consul.service" ];
           Requires = [ "consul.service" ];
