@@ -4,9 +4,9 @@ let
   cfg = config.blackmatter.components;
 in
 {
-  imports = [
-		./microservices
-  ];
+  # imports = [
+  # ./microservices
+  # ];
 
   options = {
     blackmatter = {
