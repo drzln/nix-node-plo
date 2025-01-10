@@ -28,6 +28,7 @@ in
 
   imports = [
     requirements.outputs.nixosModules.blackmatter
+		./application_reverse_proxy
   ];
 
   blackmatter.profiles.blizzard.enable = true;
