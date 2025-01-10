@@ -85,6 +85,11 @@ in
       services.consul = {
         enable = true;
         package = cfg.consul.package;
+				webUi = true;
+				interface.bind = "127.0.0.1";
+
+				# if other services use After=consul.service
+				# serviceConfig.Type =  "notify";
         # server = {
         #   enabled = true;
         #   bootstrapExpect = 1;
