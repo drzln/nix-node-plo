@@ -6,7 +6,7 @@ in
 {
   imports =
     [
-      ./groups
+      ./application_reverse_proxy
     ];
 
   options = {
@@ -19,7 +19,7 @@ in
     };
   };
 
-	# in case we do find anything global about microservices
+  # in case we do find anything global about microservices
   config = mkMerge [
     (mkIf cfg.enable { })
   ];
