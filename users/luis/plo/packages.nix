@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [ 
-		unocov
+		# unocov
 		poppler_utils
 		poppler
 		arion
