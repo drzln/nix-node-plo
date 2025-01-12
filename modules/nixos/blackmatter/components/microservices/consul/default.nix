@@ -129,7 +129,7 @@ in
       serviceConfig.ExecStart = finalCommand;
     };
     services.dnsmasq.settings = {
-      address = [ "${c.namespace}-consul.local/127.0.0.1" ];
+      address = [ "/${c.namespace}-consul.local/127.0.0.1" ];
     };
   };
 }
