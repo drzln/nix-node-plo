@@ -21,21 +21,6 @@ let
         default = pkgs.traefik;
         description = mdDoc "Traefik binary to use";
       };
-      # extraConfig = mkOption {
-      #   type = types.str;
-      #   default = ''
-      #     entryPoints:
-      #       mysql-entry:
-      #         address: ":3306"
-      #         tls:
-      #           passthrough: true
-      #     providers:
-      #       file:
-      #         directory: /etc/traefik/dynamic/
-      #         watch: true
-      #   '';
-      #   description = "Override the default Traefik configuration";
-      # };
     };
 
     consul = {
@@ -49,11 +34,6 @@ let
         default = pkgs.consul;
         description = mdDoc "Consul binary to use";
       };
-      # extraConfig = mkOption {
-      #   type = types.str;
-      #   default = "";
-      #   description = "Override or provide additional Consul configuration";
-      # };
     };
   };
 in
