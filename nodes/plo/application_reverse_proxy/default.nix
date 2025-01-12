@@ -7,20 +7,16 @@
     enable = true;
     traefik.namespace = "plo";
     consul.namespace = "plo";
-    # traefik.enable = true;
-    # consul.enable = true;
-
-    # traefik.extraConfig = ''
-    #   # Custom Traefik configuration
-    #   entryPoints:
-    #     web:
-    #       address: ":80"
-    #   providers:
-    #     file:
-    #       directory: /etc/traefik/custom/
-    #       watch: true
-    # '';
-
+    traefik.settings = ''
+      # Custom Traefik configuration
+      entryPoints:
+        web:
+          address: ":80"
+      providers:
+        file:
+          directory: /etc/traefik/custom/
+          watch: true
+    '';
     # consul.extraConfig = ''
     #   # Custom Consul configuration or notes
     #   # This configuration string is stored but may need specific handling in your setup.
