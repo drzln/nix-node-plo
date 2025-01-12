@@ -35,11 +35,20 @@ let
         default = pkgs.consul;
         description = mdDoc "Consul binary to use";
       };
+      namespace = mkOption {
+        type = types.str;
+        default = "application";
+        description = mdDoc ''
+          Namespace to use for the Consul systemd service name. 
+          Defaults to "application".
+        '';
+      };
     };
   };
 in
 {
   imports = [
+    # Imports your consul module, which defines blackmatter.components.microservices.consul
     ../consul
   ];
 
@@ -54,6 +63,7 @@ in
   };
 
   config = mkMerge [
+    # If the top-level reverse proxy + Traefik is enabled, configure Traefik.
     (mkIf (cfg.enable && cfg.traefik.enable) {
       services.traefik = {
         enable = true;
@@ -66,7 +76,9 @@ in
       blackmatter.components.microservices.consul = {
         enable = true;
         package = cfg.consul.package;
+        namespace = cfg.consul.namespace;
       };
     })
   ];
 }
+
