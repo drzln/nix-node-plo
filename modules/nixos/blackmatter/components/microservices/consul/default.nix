@@ -94,7 +94,7 @@ in
   config = mkIf c.enable {
     environment.etc."consul.d/config.json".text = builtins.toJSON finalConsulConfig;
 
-    systemd.services."${c.namespace}_consul" = {
+    systemd.services."${c.namespace}-consul" = {
       description = "${c.namespace} Consul Service";
       wantedBy = [ "multi-user.target" ];
       serviceConfig.ExecStart = finalCommand;
