@@ -65,10 +65,10 @@ in
   config = mkMerge [
     # If the top-level reverse proxy + Traefik is enabled, configure Traefik.
     (mkIf (cfg.enable && cfg.traefik.enable) {
-      services.traefik = {
-        enable = true;
-        package = cfg.traefik.package;
-      };
+      # services.traefik = {
+      #   enable = true;
+      #   package = cfg.traefik.package;
+      # };
     })
 
     # If the top-level reverse proxy + Consul is enabled, configure the lower-tier consul.
