@@ -2,101 +2,95 @@
 with lib;
 
 let
-  ##############################
-  # Short alias for user config
-  ##############################
+  # Short alias for user config.
   t = config.blackmatter.components.microservices.traefik;
 
   #################################
   # 1) Define Defaults for Each Mode
   #################################
-
-  # Development defaults
   devDefaults = {
-    logLevel = "DEBUG";
-    apiInsecure = true; # dev: keep dashboard open
-    webPort = 8080; # dev: user HTTP on 8080
-    apiPort = 8081; # dev: dashboard on 8081
+    logLevel    = "DEBUG";
+    apiInsecure = true;   # dev: keep dashboard open
+    webPort     = 8080;   # dev: traffic on 8080
+    apiPort     = 8081;   # dev: dashboard on 8081
   };
 
-  # Production defaults
   prodDefaults = {
-    logLevel = "INFO";
-    apiInsecure = false; # prod: disable dashboard by default
-    webPort = 80; # typical HTTP port
-    apiPort = 8080; # if dashboard is enabled
+    logLevel    = "INFO";
+    apiInsecure = false;  # prod: disable dashboard by default
+    webPort     = 80;     # typical HTTP port
+    apiPort     = 8080;   # used if dashboard is enabled
   };
 
-  #####################################
-  # 2) Merge Final Traefik Configuration
-  #####################################
-  finalTraefikConfig = mkMerge [
+  #######################################################################
+  # 2) Merge user inputs (dev/prod defaults + extraConfig + port overrides)
+  #######################################################################
+  finalUserInputs = mkMerge [
     (if t.mode == "dev" then devDefaults else prodDefaults)
     t.extraConfig
     {
-      # Let user override or confirm final ports
       webPort = t.webPort;
       apiPort = t.apiPort;
     }
   ];
 
-  # Helper to safely get an attr from finalTraefikConfig or use fallback
-  get = name: fallback:
-    if finalTraefikConfig ? name then
-      finalTraefikConfig.${name}
-    else
-      fallback;
+  ##################################################################
+  # 3) Construct a Real Traefik Config from finalUserInputs Safely
+  ##################################################################
+  #
+  # We rely on finalUserInputs having logLevel, apiInsecure, webPort, apiPort,
+  # but we add `or` fallbacks so it won't blow up if something's missing.
 
-  # Convenience accessors
-  logLevel = get "logLevel" "INFO";
-  apiInsecure = get "apiInsecure" false;
-  webPortVal = toString (get "webPort" 80);
-  apiPortVal = toString (get "apiPort" 8080);
+  realTraefikConfig = let
+    logLevel    = finalUserInputs.logLevel or "INFO";
+    apiInsecure = finalUserInputs.apiInsecure or false;
+    webPort     = toString (finalUserInputs.webPort or 80);
+    apiPort     = toString (finalUserInputs.apiPort or 8080);
+  in {
+    # Logging
+    log = {
+      level = logLevel;
+    };
+
+    # If `apiInsecure`, define `api.insecure = true`.
+    # Otherwise either set `false` or omit the block.
+    api = if apiInsecure then { insecure = true; } else {};
+
+    # The "entryPoints" map: always have `web` on `webPort`.
+    entryPoints = 
+      {
+        web = {
+          address = ":${webPort}";
+        };
+      }
+      //
+      # If the API dashboard is insecurely enabled, define traefik entryPoint
+      (if apiInsecure then {
+         traefik = {
+           address = ":${apiPort}";
+         };
+       } else {});
+  };
 
   ###################################
-  # 3) Build the ExecStart Command(s)
+  # 4) Build the ExecStart Command(s)
   ###################################
   #
-  # We use shell backslashes to ensure systemd sees it as a single command.
+  # By default, just `--configFile=/etc/traefik/traefik.yml`.
 
-  defaultDevCommand = ''
+  defaultCommand = ''
     "${t.package}/bin/traefik" \
-      --log.level="${logLevel}" \
-      ${if apiInsecure then ''
-        --api.insecure=true \
-        --entryPoints.traefik.address=":'${apiPortVal}'"
-      '' else ''
-        --api.insecure=false
-      ''} \
-      --entryPoints.web.address=":'${webPortVal}'"
+      --configFile=/etc/traefik/traefik.yml
   '';
 
-  defaultProdCommand = ''
-    "${t.package}/bin/traefik" \
-      --log.level="${logLevel}" \
-      ${if apiInsecure then ''
-        --api.insecure=true \
-        --entryPoints.traefik.address=":'${apiPortVal}'"
-      '' else ''
-        --api.insecure=false
-      ''} \
-      --entryPoints.web.address=":'${webPortVal}'"
-  '';
-
-  # Honor user override if provided; otherwise pick dev or prod default
-  finalCommand =
-    if t.command != "" then
-      t.command
-    else if t.mode == "dev" then
-      defaultDevCommand
-    else
-      defaultProdCommand;
+  # If user sets traefik.command manually, honor that; otherwise, use ours.
+  finalCommand = if t.command != "" then t.command else defaultCommand;
 
 in
 {
-  ################################
-  # 4) Module Options Definition #
-  ################################
+  #############################
+  # 5) Module Options Definition
+  #############################
   options = {
     blackmatter.components.microservices.traefik = {
       enable = mkOption {
@@ -111,7 +105,7 @@ in
         type = types.enum [ "dev" "prod" ];
         default = "dev";
         description = ''
-          Determines dev/prod defaults for logLevel, ports, and the dashboard.
+          Determines dev/prod defaults for logLevel, ports, etc.
         '';
       };
 
@@ -127,8 +121,8 @@ in
         type = types.attrsOf types.anything;
         default = { };
         description = ''
-          Extra configuration merged into dev/prod defaults (for advanced flags).
-          E.g. `{ apiInsecure = true; }` to force dashboard on in prod.
+          Extra user config merged into dev/prod defaults.
+          Example: `{ apiInsecure = true; }` to force dashboard on in prod.
         '';
       };
 
@@ -137,26 +131,23 @@ in
         default = "";
         description = ''
           If non-empty, fully override the command to start Traefik.
-          Otherwise, the dev/prod default is used.
+          Otherwise, we use the file-based approach (`--configFile`).
         '';
       };
 
-      # Ports
       webPort = mkOption {
         type = types.int;
-        default = 8080;
+        default = 8080;  # dev default, effectively 80 in prod
         description = ''
-          Main HTTP port for Traefik. In dev defaults to 8080, in prod to 80.
-          Override as needed.
+          Main HTTP port for Traefik. In dev defaults to 8080, in prod 80.
         '';
       };
 
       apiPort = mkOption {
         type = types.int;
-        default = 8081;
+        default = 8081;  # dev default, effectively 8080 in prod
         description = ''
-          Dashboard port (when apiInsecure is true).
-          In dev defaults to 8081, in prod to 8080, unless overridden.
+          Dashboard port (when `apiInsecure` is true).
         '';
       };
 
@@ -164,27 +155,30 @@ in
         type = types.package;
         default = pkgs.traefik;
         description = ''
-          Traefik derivation to use. Defaults to the system's pkgs.traefik.
+          Which Traefik derivation to use.
         '';
       };
     };
   };
 
-  ############################
-  # 5) Module Implementation #
-  ############################
+  ################################
+  # 6) Module Implementation
+  ################################
   config = mkIf t.enable {
-    # Optionally, generate a config file:
-    # environment.etc."traefik/traefik.yml".text = builtins.toJSON finalTraefikConfig;
-    # Then reference it with: --configFile=/etc/traefik/traefik.yml
+    # 6a) Write a file-based config in /etc/traefik/traefik.yml
+    #
+    # We use builtins.toJSON. Because Traefik/Viper can parse JSON as YAML,
+    # it's enough. If you need "true" YAML, use a YAML generator.
 
+    environment.etc."traefik/traefik.yml".text = builtins.toJSON realTraefikConfig;
+
+    # 6b) Create the systemd service
     systemd.services."${t.namespace}-traefik" = {
       description = "${t.namespace} Traefik Service";
-      wantedBy = [ "multi-user.target" ];
-
+      wantedBy    = [ "multi-user.target" ];
       serviceConfig.ExecStart = finalCommand;
 
-      # Optionally set more systemd options, e.g.:
+      # Example extra systemd settings
       # serviceConfig = {
       #   Restart = "always";
       # };
