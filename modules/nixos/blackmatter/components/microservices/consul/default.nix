@@ -1,103 +1,101 @@
-{ lib, config, pkgs, ... }:
+{ lib, pkgs, config, ... }:
 with lib;
 
 let
-  cfg = config.blackmatter.components.microservices.consul or {};
+  c = config.blackmatter.components.microservices.consul;
 
-  # Default settings for dev mode.
-  defaultDevConfig = {
+  devDefaults = {
     bind_addr = "127.0.0.1";
     server    = false;
     data_dir  = "/tmp/consul";
     ui        = true;
   };
 
-  # Default settings for production mode.
-  defaultProdConfig = {
+  prodDefaults = {
     bind_addr = "0.0.0.0";
     server    = true;
     data_dir  = "/var/lib/consul";
     ui        = false;
   };
 
+  # Merge user config with dev/prod defaults
+  finalConsulConfig = mkMerge [
+    (if c.mode == "dev" then devDefaults else prodDefaults)
+    c.extraConfig
+  ];
+
+  # Helper to safely get an attribute or use a fallback
+  get = name: fallback:
+    if finalConsulConfig ? name then finalConsulConfig.${name} else fallback;
+
+  # Default dev command
+  defaultDevCommand = ''
+    ${pkgs.consul}/bin/consul agent -dev \
+      -bind=${get "bind_addr" "127.0.0.1"} \
+      --data-dir=${get "data_dir" "/tmp/consul"} \
+      --ui
+  '';
+
+  # Default prod command
+  defaultProdCommand = ''
+    ${pkgs.consul}/bin/consul agent -server \
+      -bind=${get "bind_addr" "0.0.0.0"} \
+      -config-dir=/etc/consul.d \
+      --data-dir=${get "data_dir" "/var/lib/consul"}
+  '';
+
+  finalCommand = if c.command != "" then
+    c.command
+  else if c.mode == "dev" then
+    defaultDevCommand
+  else
+    defaultProdCommand;
+
 in {
   options = {
     blackmatter.components.microservices.consul = {
       enable = mkOption {
-        type        = types.bool;
-        default     = true;
-        description = "Enable consul.";
+        type    = types.bool;
+        default = true;
+        description = "Enable Consul service.";
       };
 
       mode = mkOption {
-        type        = types.enum [ "dev" "prod" ];
-        default     = "dev";
-        description = "Mode for Consul: 'dev' or 'prod'.";
+        type    = types.enum [ "dev" "prod" ];
+        default = "dev";
+        description = "Consul mode: 'dev' or 'prod'.";
       };
 
       namespace = mkOption {
-        type        = types.str;
-        default     = "default";
+        type    = types.str;
+        default = "default";
         description = "Namespace for the Consul systemd service name.";
       };
 
-      # Allows the user to override or add any arbitrary configuration values
-      # that will get merged into the final consul config JSON.
       extraConfig = mkOption {
-        type        = types.attrsOf types.anything;
-        default     = {};
-        description = ''
-          Additional config to be merged with the default dev/prod config.
-        '';
+        type    = types.attrsOf types.anything;
+        default = {};
+        description = "Extra Consul configuration merged into dev/prod defaults.";
       };
 
-      # If this is empty, we generate a command automatically based on `mode`.
-      # Otherwise, the user can override the entire `consul agent` invocation.
       command = mkOption {
-        type        = types.str;
-        default     = "";
+        type    = types.str;
+        default = "";
         description = ''
-          Override the default consul command.  
-          If empty, this module generates one from `mode` and `extraConfig`.
+          If non-empty, completely override the command to start Consul.
+          Otherwise, a dev/prod-appropriate default is used.
         '';
       };
     };
   };
 
-  config = let
-    # Merge the base dev/prod config with user-supplied overrides.
-    baseConfig = if cfg.mode == "dev" then defaultDevConfig else defaultProdConfig;
-    consulConfig = mkMerge [ baseConfig cfg.extraConfig ];
+  config = mkIf c.enable {
+    environment.etc."consul.d/config.json".text = builtins.toJSON finalConsulConfig;
 
-    # The final command to start Consul. If 'command' is non-empty, use it directly.
-    # Otherwise, generate a mode-appropriate command.
-    finalCommand = if cfg.command != "" then cfg.command else (
-      if cfg.mode == "dev" then
-        # Example dev command
-        "${pkgs.consul}/bin/consul agent "
-        + "-dev "
-        + "-bind=${consulConfig.bind_addr} "
-        + "--data-dir=${consulConfig.data_dir} "
-        + "--ui"
-      else
-        # Example prod command
-        "${pkgs.consul}/bin/consul agent "
-        + "-server "
-        + "-bind=${consulConfig.bind_addr} "
-        + "-config-dir=/etc/consul.d "
-        + "--data-dir=${consulConfig.data_dir}"
-    );
-  in {
-    # Write out the config.json used by Consul. Feel free to customize or rename.
-    environment.etc."consul.d/config.json".text = builtins.toJSON consulConfig;
-
-    # Only create the systemd service if `enable = true`.
-    systemd.services."${cfg.namespace}-consul" = mkIf cfg.enable {
-      description = "${cfg.namespace} Consul service";
+    systemd.services."${c.namespace}_consul" = {
+      description = "${c.namespace} Consul Service";
       wantedBy    = [ "multi-user.target" ];
-      serviceConfig = {
-        ExecStart = finalCommand;
-      };
+      serviceConfig.ExecStart = finalCommand;
     };
   };
 }
