@@ -2,57 +2,79 @@
 with lib;
 
 let
-  # Alias for your Traefik config
+  # Short alias for the user config
   t = config.blackmatter.components.microservices.traefik;
 
-  # Defaults for development mode (example)
+  ##########################
+  # 1) Default mode configs
+  ##########################
+
+  # Dev defaults (example)
   devDefaults = {
     logLevel = "DEBUG";
-    apiInsecure = true;
-    # ... any other dev-specific settings
+    apiInsecure = true; # enables the dashboard
+    webPort = 8080;
+    apiPort = 8081;
   };
 
-  # Defaults for production mode (example)
+  # Prod defaults (example)
   prodDefaults = {
     logLevel = "INFO";
-    apiInsecure = false;
-    # ... any other prod-specific settings
+    apiInsecure = false; # disables the dashboard by default
+    webPort = 80;
+    apiPort = 8080;
   };
 
-  # Merge dev/prod defaults with any user-supplied config
+  ######################################
+  # 2) Merge final Traefik configuration
+  ######################################
+
   finalTraefikConfig = mkMerge [
     (if t.mode == "dev" then devDefaults else prodDefaults)
     t.extraConfig
-    # If you want to unify everything in one big config structure,
-    # you can combine it here. For instance, if you have "port" or
-    # "entryPoints" to merge, do so below or in extraConfig.
     {
-      # If you have a notion of a main HTTP port for Traefik, you can store it here:
-      port = t.port;
+      # Let user override or confirm the final ports:
+      webPort = t.webPort;
+      apiPort = t.apiPort;
     }
   ];
 
-  # Helper to safely get an attribute from finalTraefikConfig or use a fallback
+  # Helper to safely get an attribute from finalTraefikConfig or use fallback
   get = name: fallback:
     if finalTraefikConfig ? name then finalTraefikConfig.${name} else fallback;
 
-  # Default dev command (example flags — adjust as needed)
+  ######################################
+  # 3) Build the final ExecStart command
+  ######################################
+
+  # For dev or prod, we rely on the merged config to set ports + log level.
+
   defaultDevCommand = ''
     ${t.package}/bin/traefik \
       --log.level=${get "logLevel" "DEBUG"} \
-      --api.insecure=${if get "apiInsecure" true then "true" else "false"} \
-      --entryPoints.web.address=":${toString t.port}"
+      ${if get "apiInsecure" true then ''
+        --api.insecure=true \
+        --entryPoints.traefik.address=":${toString (get "apiPort" 8081)}"
+      '' else ''
+        --api.insecure=false
+      ''} \
+      --entryPoints.web.address=":${toString (get "webPort" 8080)}"
   '';
 
-  # Default prod command (example flags — adjust as needed)
   defaultProdCommand = ''
     ${t.package}/bin/traefik \
       --log.level=${get "logLevel" "INFO"} \
-      --api.insecure=${if get "apiInsecure" false then "true" else "false"} \
-      --entryPoints.web.address=":${toString t.port}"
+      ${if get "apiInsecure" false then ''
+        --api.insecure=true \
+        --entryPoints.traefik.address=":${toString (get "apiPort" 8080)}"
+      '' else ''
+        --api.insecure=false
+      ''} \
+      --entryPoints.web.address=":${toString (get "webPort" 80)}"
   '';
 
-  # Final command line (honor user override if provided)
+  # If user sets traefik.command manually, honor that.
+  # Otherwise pick dev or prod default.
   finalCommand =
     if t.command != "" then
       t.command
@@ -77,7 +99,7 @@ in
       mode = mkOption {
         type = types.enum [ "dev" "prod" ];
         default = "dev";
-        description = "Traefik mode: 'dev' or 'prod'.";
+        description = "Traefik mode: 'dev' or 'prod'. Determines defaults like ports, logLevel, etc.";
       };
 
       namespace = mkOption {
@@ -105,12 +127,27 @@ in
         '';
       };
 
-      port = mkOption {
+      ####################
+      # NEW: Separate Ports
+      ####################
+      webPort = mkOption {
         type = types.int;
+        # Note: The dev/prod default merges from devDefaults/prodDefaults,
+        # but if the user sets this top-level, it takes precedence.
         default = 8080;
         description = ''
-          Primary HTTP port on which Traefik listens.
-          By default, this is 8080.
+          Primary "web" port for user-facing HTTP traffic.
+          Defaults to 8080 in dev, 80 in production,
+          but you can override it if desired.
+        '';
+      };
+
+      apiPort = mkOption {
+        type = types.int;
+        default = 8081;
+        description = ''
+          "Dashboard" / "Traefik" port, used if "apiInsecure = true".
+          Defaults to 8081 in dev, 8080 in production, but can be overridden.
         '';
       };
 
@@ -118,9 +155,28 @@ in
         type = types.package;
         default = pkgs.traefik;
         description = ''
-          The Traefik derivation to use. Defaults to the system's "pkgs.traefik".
+          The traefik derivation to use. Defaults to the system's "pkgs.traefik".
         '';
       };
+
+      ############################
+      # Still from dev/prod logic
+      ############################
+      # `apiInsecure` is read from dev/prod defaults,
+      # but if you want to override it at the top level, you can do so:
+      #   blackmatter.components.microservices.traefik.extraConfig = {
+      #     apiInsecure = true; # or false
+      #   };
+      #
+      # Or you can add a direct option here if desired. For example:
+      #
+      # apiInsecure = mkOption {
+      #   type = types.bool;
+      #   default = false;
+      #   description = "Enable insecure API / Dashboard on 'apiPort'.";
+      # };
+      #
+      # Then add that to your finalTraefikConfig merges. 
     };
   };
 
@@ -128,27 +184,23 @@ in
   # Module Implementation #
   #########################
   config = mkIf t.enable {
-    # If you need to generate a config file (TOML/YAML),
-    # you could do something like:
+    # Optionally generate a config file (TOML/YAML/JSON) if you prefer a file-based config:
     #
     # environment.etc."traefik/traefik.yml".text = builtins.toJSON finalTraefikConfig;
     #
-    # or produce TOML, depending on how you prefer to configure Traefik.
+    # Then your ExecStart could reference it via:
+    #   --configFile=/etc/traefik/traefik.yml
 
-    # Create systemd service for Traefik
     systemd.services."${t.namespace}-traefik" = {
       description = "${t.namespace} Traefik Service";
       wantedBy = [ "multi-user.target" ];
 
-      # The command to execute (ExecStart)
       serviceConfig.ExecStart = finalCommand;
 
-      # If you need or want to set other systemd directives, do so here.
-      # e.g. serviceConfig = {
+      # Additional systemd settings if needed (Restart, etc.)
+      # serviceConfig = {
       #   Restart = "always";
-      #   ...
       # };
     };
   };
 }
-
