@@ -1,12 +1,16 @@
-{ requirements, ... }: {
+{ requirements, ... }:
+let
+  namespace = "plo";
+in
+{
   imports = [
     requirements.outputs.nixosModules.blackmatter
   ];
 
   blackmatter.components.microservices.application_reverse_proxy = {
     enable = true;
-    traefik.namespace = "plo";
-    consul.namespace = "plo";
+    traefik.namespace = namespace;
+    consul.namespace = namespace;
     traefik.settings = {
       entryPoints = {
         web = {
@@ -40,5 +44,10 @@
     #   # This configuration string is stored but may need specific handling in your setup.
     # '';
   };
-}
 
+  services.dnsmasq.settings = {
+    address = [
+      "/lilith.local/127.0.0.1"
+    ];
+  };
+}
