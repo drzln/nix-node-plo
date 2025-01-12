@@ -25,7 +25,6 @@ let
     (if c.mode == "dev" then devDefaults else prodDefaults)
     c.extraConfig
     {
-      # Insert the (overridable) HTTP port
       ports = {
         http = c.port;
       };
@@ -38,7 +37,7 @@ let
 
   # Default dev command
   defaultDevCommand = ''
-    ${pkgs.consul}/bin/consul agent -dev \
+    ${c.package}/bin/consul agent -dev \
       -bind=${get "bind_addr" "127.0.0.1"} \
       --data-dir=${get "data_dir" "/tmp/consul"} \
       --ui
@@ -46,7 +45,7 @@ let
 
   # Default prod command
   defaultProdCommand = ''
-    ${pkgs.consul}/bin/consul agent -server \
+    ${c.package}/bin/consul agent -server \
       -bind=${get "bind_addr" "0.0.0.0"} \
       -config-dir=/etc/consul.d \
       --data-dir=${get "data_dir" "/var/lib/consul"}
@@ -105,6 +104,15 @@ in {
           By default, this is 8500.
         '';
       };
+
+      # NEW: Package option to let users specify which Consul derivation to use.
+      package = mkOption {
+        type    = types.package;
+        default = pkgs.consul;
+        description = ''
+          The Consul derivation to use. Defaults to the system's "pkgs.consul".
+        '';
+      };
     };
   };
 
@@ -120,4 +128,3 @@ in {
     };
   };
 }
-
