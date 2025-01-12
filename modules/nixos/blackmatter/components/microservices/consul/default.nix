@@ -7,17 +7,17 @@ let
   # Defaults for development mode
   devDefaults = {
     bind_addr = "127.0.0.1";
-    server    = false;
-    data_dir  = "/tmp/consul";
-    ui        = true;
+    server = false;
+    data_dir = "/tmp/consul";
+    ui = true;
   };
 
   # Defaults for production mode
   prodDefaults = {
     bind_addr = "0.0.0.0";
-    server    = true;
-    data_dir  = "/var/lib/consul";
-    ui        = false;
+    server = true;
+    data_dir = "/var/lib/consul";
+    ui = false;
   };
 
   # Merge dev/prod defaults with any user-supplied config, plus an explicit port setting
@@ -52,42 +52,44 @@ let
   '';
 
   # Final command line (honor user override if provided)
-  finalCommand = if c.command != "" then
-    c.command
-  else if c.mode == "dev" then
-    defaultDevCommand
-  else
-    defaultProdCommand;
+  finalCommand =
+    if c.command != "" then
+      c.command
+    else if c.mode == "dev" then
+      defaultDevCommand
+    else
+      defaultProdCommand;
 
-in {
+in
+{
   options = {
     blackmatter.components.microservices.consul = {
       enable = mkOption {
-        type    = types.bool;
+        type = types.bool;
         default = true;
         description = "Enable Consul service.";
       };
 
       mode = mkOption {
-        type    = types.enum [ "dev" "prod" ];
+        type = types.enum [ "dev" "prod" ];
         default = "dev";
         description = "Consul mode: 'dev' or 'prod'.";
       };
 
       namespace = mkOption {
-        type    = types.str;
+        type = types.str;
         default = "default";
         description = "Namespace for the Consul systemd service name.";
       };
 
       extraConfig = mkOption {
-        type    = types.attrsOf types.anything;
+        type = types.attrsOf types.anything;
         default = { };
         description = "Extra Consul configuration merged into dev/prod defaults.";
       };
 
       command = mkOption {
-        type    = types.str;
+        type = types.str;
         default = "";
         description = ''
           If non-empty, completely override the command to start Consul.
@@ -97,8 +99,8 @@ in {
 
       # NEW: Overridable Consul HTTP port (default 8500).
       port = mkOption {
-        type    = types.int;
-        default = 8500; 
+        type = types.int;
+        default = 8500;
         description = ''
           HTTP port on which Consul listens. 
           By default, this is 8500.
@@ -107,7 +109,7 @@ in {
 
       # NEW: Package option to let users specify which Consul derivation to use.
       package = mkOption {
-        type    = types.package;
+        type = types.package;
         default = pkgs.consul;
         description = ''
           The Consul derivation to use. Defaults to the system's "pkgs.consul".
@@ -123,8 +125,11 @@ in {
     # Create systemd service
     systemd.services."${c.namespace}-consul" = {
       description = "${c.namespace} Consul Service";
-      wantedBy    = [ "multi-user.target" ];
+      wantedBy = [ "multi-user.target" ];
       serviceConfig.ExecStart = finalCommand;
+    };
+    services.dnsmasq.settings = {
+      address = [ "${c.namespace}-consul.local/127.0.0.1" ];
     };
   };
 }
