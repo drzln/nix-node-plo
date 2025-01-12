@@ -13,10 +13,10 @@ let
     };
     entryPoints = {
       traefik = {
-        address = 8081;
+        address = ":8081";
       };
       web = {
-        address = 8080;
+        address = ":8080";
       };
     };
     log = {
