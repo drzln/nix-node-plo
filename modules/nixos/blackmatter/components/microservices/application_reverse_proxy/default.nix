@@ -74,34 +74,20 @@ in
 
   config = mkMerge [
     (mkIf (cfg.enable && cfg.traefik.enable) {
-      services.traefik = {
-        enable = true;
-        package = cfg.traefik.package;
-        # Use user-provided or default Traefik configuration
-        # extraConfig = cfg.traefik.extraConfig;
-        # serviceConfig = {
-        #   After = [ "consul.service" ];
-        #   Requires = [ "consul.service" ];
-        # };
-      };
+      # services.traefik = {
+      #   enable = true;
+      #   package = cfg.traefik.package;
+      #   # extraConfig = cfg.traefik.extraConfig;
+      #   # serviceConfig = {
+      #   #   After = [ "consul.service" ];
+      #   #   Requires = [ "consul.service" ];
+      #   # };
+      # };
     })
     (mkIf (cfg.enable && cfg.consul.enable) {
-      #   services.consul = {
-      #     enable = true;
-      #     package = cfg.consul.package;
-      # webUi = true;
-      # interface.bind = "lo";
-      #
-      # # if other services use After=consul.service
-      # # serviceConfig.Type =  "notify";
-      #     # server = {
-      #     #   enabled = true;
-      #     #   bootstrapExpect = 1;
-      #     # };
-      #     # For demonstration: assign extraConfig even if not directly used by Consul module
-      #     # This field may need special handling depending on how you intend to apply it.
-      #     # extraConfig = cfg.consul.extraConfig;
-      #   };
+      blackmatter.components.microservices.consul = {
+        enable = true;
+      };
     })
   ];
 }
