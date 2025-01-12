@@ -8,7 +8,7 @@ in
   ];
 
   blackmatter.components.microservices.application_reverse_proxy = {
-    enable = false;
+    enable = true;
     traefik.namespace = namespace;
     consul.namespace = namespace;
     traefik.settings = {
