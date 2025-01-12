@@ -12,12 +12,27 @@
         web = {
           address = ":80";
         };
+        websecure = {
+          address = ":443";
+        };
+        mysql = {
+          address = ":3306";
+        };
       };
       providers = {
-        file = {
-          directory = "/etc/traefik/custom/";
-          watch = true;
+        consulCatalog = {
+          endpoint = {
+            address = "127.0.0.1:8500";
+            scheme = "http";
+          };
+          exposedByDefault = false;
         };
+      };
+      log = {
+        level = "INFO";
+      };
+      api = {
+        insecure = true;
       };
     };
     # consul.extraConfig = ''
