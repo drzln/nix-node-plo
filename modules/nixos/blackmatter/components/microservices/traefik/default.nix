@@ -13,14 +13,14 @@ let
   #################################
   devDefaults = {
     logLevel = "DEBUG";
-    apiInsecure = true; # dev: keep dashboard open
+    apiInsecure = t.apiInsecure; # dev: keep dashboard open
     webPort = t.webPort; # dev: main traffic on 8080
     apiPort = t.apiPort; # dev: dashboard on 8081
   };
 
   prodDefaults = {
     logLevel = "INFO";
-    apiInsecure = false; # prod: dashboard off by default
+    apiInsecure = t.apiInsecure; # prod: dashboard off by default
     webPort = t.webPort; # typical HTTP port
     apiPort = t.apiPort; # used if dashboard is enabled
   };
@@ -59,7 +59,7 @@ let
   realTraefikConfig =
     let
       logLevel = finalUserInputs.logLevel    or "INFO";
-      apiInsecure = finalUserInputs.apiInsecure or false;
+      apiInsecure = finalUserInputs.apiInsecure or t.apiInsecure;
       webPort = toString (finalUserInputs.webPort or t.webPort);
       apiPort = toString (finalUserInputs.apiPort or t.apiPort);
     in
@@ -134,6 +134,14 @@ in
         description = ''
           If true, skip dev/prod defaults entirely. Only extraConfig is used.
           That means ignoring webPort & apiPort top-level options as well.
+        '';
+      };
+
+      apiInsecure = mkOption {
+        type = types.bool;
+        default = true;
+        description = ''
+					whether apiInsecure is turned on and we get a dashboard
         '';
       };
 
