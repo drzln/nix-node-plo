@@ -71,21 +71,14 @@ in
   };
 
   config = mkMerge [
-    # If the top-level reverse proxy + Traefik is enabled, configure Traefik.
     (mkIf (cfg.enable && cfg.traefik.enable) {
       blackmatter.components.microservices.traefik = {
         enable = true;
         package = cfg.traefik.package;
-        namespace = cfg.traefik.namespace; # If your Traefik module also has a namespace
-
-        # Optionally set other Traefik module options here, e.g.
-        # mode = "dev";  # or "prod"
-        # port = 8080;
-        # extraConfig = { ... };
+        namespace = cfg.traefik.namespace;
       };
     })
 
-    # If the top-level reverse proxy + Consul is enabled, configure the lower-tier consul.
     (mkIf (cfg.enable && cfg.consul.enable) {
       blackmatter.components.microservices.consul = {
         enable = true;
