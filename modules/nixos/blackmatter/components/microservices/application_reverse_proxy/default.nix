@@ -76,6 +76,25 @@ in
         enable = cfg.traefik.enable;
         package = cfg.traefik.package;
         namespace = cfg.traefik.namespace;
+
+        # eliminate all other configs and only apply the extraConfig
+        onlyExtra = true;
+        extraConfig = {
+          entryPoints = {
+            mysql = {
+              address = ":3306";
+            };
+          };
+          providers = {
+            consul = {
+              endpoint = "127.0.0.1:8500";
+              prefix = "traefik";
+            };
+          };
+          log = {
+            level = "INFO";
+          };
+        };
       };
     })
 
