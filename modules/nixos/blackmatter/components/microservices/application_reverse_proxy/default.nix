@@ -17,6 +17,11 @@ let
         default = true;
         description = "Enable Traefik within the application reverse proxy";
       };
+      settings = mkOption {
+        type = types.attrsOf types.anything;
+        default = { };
+        description = "Traefik dynamic settings (overrides defaults if non-empty).";
+      };
       package = mkOption {
         type = types.package;
         default = pkgs.traefik;
@@ -76,22 +81,7 @@ in
         enable = cfg.traefik.enable;
         package = cfg.traefik.package;
         namespace = cfg.traefik.namespace;
-        settings = {
-          entryPoints = {
-            mysql = {
-              address = ":3306";
-            };
-          };
-          providers = {
-            consul = {
-              endpoint = "127.0.0.1:8500";
-              prefix = "traefik";
-            };
-          };
-          log = {
-            level = "INFO";
-          };
-        };
+        settings = cfg.traefik.settings;
       };
     })
 
