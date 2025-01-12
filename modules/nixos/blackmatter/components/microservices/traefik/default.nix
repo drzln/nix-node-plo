@@ -9,17 +9,17 @@ let
   # 1) Define Defaults for Each Mode
   #################################
   devDefaults = {
-    logLevel    = "DEBUG";
-    apiInsecure = true;   # dev: keep dashboard open
-    webPort     = 8080;   # dev: traffic on 8080
-    apiPort     = 8081;   # dev: dashboard on 8081
+    logLevel = "DEBUG";
+    apiInsecure = true; # dev: keep dashboard open
+    webPort = 8080; # dev: traffic on 8080
+    apiPort = 8081; # dev: dashboard on 8081
   };
 
   prodDefaults = {
-    logLevel    = "INFO";
-    apiInsecure = false;  # prod: disable dashboard by default
-    webPort     = 80;     # typical HTTP port
-    apiPort     = 8080;   # used if dashboard is enabled
+    logLevel = "INFO";
+    apiInsecure = false; # prod: disable dashboard by default
+    webPort = 80; # typical HTTP port
+    apiPort = 8080; # used if dashboard is enabled
   };
 
   #######################################################################
@@ -41,36 +41,38 @@ let
   # We rely on finalUserInputs having logLevel, apiInsecure, webPort, apiPort,
   # but we add `or` fallbacks so it won't blow up if something's missing.
 
-  realTraefikConfig = let
-    logLevel    = finalUserInputs.logLevel or "INFO";
-    apiInsecure = finalUserInputs.apiInsecure or false;
-    webPort     = toString (finalUserInputs.webPort or 80);
-    apiPort     = toString (finalUserInputs.apiPort or 8080);
-  in {
-    # Logging
-    log = {
-      level = logLevel;
+  realTraefikConfig =
+    let
+      logLevel = finalUserInputs.logLevel or "INFO";
+      apiInsecure = finalUserInputs.apiInsecure or false;
+      webPort = toString (finalUserInputs.webPort or 80);
+      apiPort = toString (finalUserInputs.apiPort or 8080);
+    in
+    {
+      # Logging
+      log = {
+        level = logLevel;
+      };
+
+      # If `apiInsecure`, define `api.insecure = true`.
+      # Otherwise either set `false` or omit the block.
+      api = if apiInsecure then { insecure = true; } else { };
+
+      # The "entryPoints" map: always have `web` on `webPort`.
+      entryPoints =
+        {
+          web = {
+            address = ":${webPort}";
+          };
+        }
+        //
+        # If the API dashboard is insecurely enabled, define traefik entryPoint
+        (if apiInsecure then {
+          traefik = {
+            address = ":${apiPort}";
+          };
+        } else { });
     };
-
-    # If `apiInsecure`, define `api.insecure = true`.
-    # Otherwise either set `false` or omit the block.
-    api = if apiInsecure then { insecure = true; } else {};
-
-    # The "entryPoints" map: always have `web` on `webPort`.
-    entryPoints = 
-      {
-        web = {
-          address = ":${webPort}";
-        };
-      }
-      //
-      # If the API dashboard is insecurely enabled, define traefik entryPoint
-      (if apiInsecure then {
-         traefik = {
-           address = ":${apiPort}";
-         };
-       } else {});
-  };
 
   ###################################
   # 4) Build the ExecStart Command(s)
@@ -137,7 +139,7 @@ in
 
       webPort = mkOption {
         type = types.int;
-        default = 8080;  # dev default, effectively 80 in prod
+        default = 8080; # dev default, effectively 80 in prod
         description = ''
           Main HTTP port for Traefik. In dev defaults to 8080, in prod 80.
         '';
@@ -145,7 +147,7 @@ in
 
       apiPort = mkOption {
         type = types.int;
-        default = 8081;  # dev default, effectively 8080 in prod
+        default = 8081; # dev default, effectively 8080 in prod
         description = ''
           Dashboard port (when `apiInsecure` is true).
         '';
@@ -175,7 +177,7 @@ in
     # 6b) Create the systemd service
     systemd.services."${t.namespace}-traefik" = {
       description = "${t.namespace} Traefik Service";
-      wantedBy    = [ "multi-user.target" ];
+      wantedBy = [ "multi-user.target" ];
       serviceConfig.ExecStart = finalCommand;
 
       # Example extra systemd settings
