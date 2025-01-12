@@ -12,17 +12,17 @@ let
   # 1) Define Defaults for Each Mode
   #################################
   devDefaults = {
-    logLevel    = "DEBUG";
-    apiInsecure = true;    # dev: keep dashboard open
-    webPort     = t.webPort;    # dev: main traffic on 8080
-    apiPort     = t.apiPort;    # dev: dashboard on 8081
+    logLevel = "DEBUG";
+    apiInsecure = true; # dev: keep dashboard open
+    webPort = t.webPort; # dev: main traffic on 8080
+    apiPort = t.apiPort; # dev: dashboard on 8081
   };
 
   prodDefaults = {
-    logLevel    = "INFO";
-    apiInsecure = false;   # prod: dashboard off by default
-    webPort     = t.webPort;      # typical HTTP port
-    apiPort     = t.apiPort;    # used if dashboard is enabled
+    logLevel = "INFO";
+    apiInsecure = false; # prod: dashboard off by default
+    webPort = t.webPort; # typical HTTP port
+    apiPort = t.apiPort; # used if dashboard is enabled
   };
 
   ##############################################################################
@@ -58,10 +58,10 @@ let
 
   realTraefikConfig =
     let
-      logLevel    = finalUserInputs.logLevel    or "INFO";
+      logLevel = finalUserInputs.logLevel    or "INFO";
       apiInsecure = finalUserInputs.apiInsecure or false;
-      webPort     = toString (finalUserInputs.webPort or t.webPort);
-      apiPort     = toString (finalUserInputs.apiPort or t.apiPort);
+      webPort = toString (finalUserInputs.webPort or t.webPort);
+      apiPort = toString (finalUserInputs.apiPort or t.apiPort);
     in
     {
       # Logging
@@ -79,7 +79,7 @@ let
       # If the dashboard is insecure, add "traefik" at :apiPort
       (if apiInsecure then {
         traefik.address = ":${apiPort}";
-      } else {});
+      } else { });
     };
 
   ###################################
@@ -103,7 +103,7 @@ in
   options = {
     blackmatter.components.microservices.traefik = {
       enable = mkOption {
-        type    = types.bool;
+        type = types.bool;
         default = true;
         description = ''
           Enable the Traefik service.
@@ -111,7 +111,7 @@ in
       };
 
       mode = mkOption {
-        type    = types.enum [ "dev" "prod" ];
+        type = types.enum [ "dev" "prod" ];
         default = "dev";
         description = ''
           Determines dev/prod defaults for logLevel, ports, etc.
@@ -119,7 +119,7 @@ in
       };
 
       namespace = mkOption {
-        type    = types.str;
+        type = types.str;
         default = "default";
         description = ''
           Namespace for the Traefik systemd service name.
@@ -129,7 +129,7 @@ in
       # NEW: If set to true, we skip dev/prod defaults & port overrides,
       # so only extraConfig is used.
       onlyExtra = mkOption {
-        type    = types.bool;
+        type = types.bool;
         default = false;
         description = ''
           If true, skip dev/prod defaults entirely. Only extraConfig is used.
@@ -138,7 +138,7 @@ in
       };
 
       extraConfig = mkOption {
-        type    = types.attrsOf types.anything;
+        type = types.attrsOf types.anything;
         default = { };
         description = ''
           Extra user config that merges into dev/prod defaults
@@ -147,7 +147,7 @@ in
       };
 
       command = mkOption {
-        type    = types.str;
+        type = types.str;
         default = "";
         description = ''
           If non-empty, fully override the command to start Traefik.
@@ -156,7 +156,7 @@ in
       };
 
       webPort = mkOption {
-        type    = types.int;
+        type = types.int;
         default = 8080;
         description = ''
           Main HTTP port for Traefik in dev (80 in prod).
@@ -165,7 +165,7 @@ in
       };
 
       apiPort = mkOption {
-        type    = types.int;
+        type = types.int;
         default = 8081;
         description = ''
           Dashboard port if `apiInsecure` is true. Dev default 8081, prod 8080.
@@ -174,7 +174,7 @@ in
       };
 
       package = mkOption {
-        type    = types.package;
+        type = types.package;
         default = pkgs.traefik;
         description = ''
           Which Traefik derivation to use.
@@ -194,7 +194,7 @@ in
     # 6b) Systemd service
     systemd.services."${t.namespace}-traefik" = {
       description = "${t.namespace} Traefik Service";
-      wantedBy    = [ "multi-user.target" ];
+      wantedBy = [ "multi-user.target" ];
       serviceConfig.ExecStart = finalCommand;
     };
   };
