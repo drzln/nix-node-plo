@@ -77,7 +77,7 @@ in
       serviceConfig.ExecStart = t.command;
     };
     services.dnsmasq.settings = {
-      address = [ "/${c.namespace}-traefik.local/127.0.0.1" ];
+      address = [ "/${t.namespace}-traefik.local/127.0.0.1" ];
     };
   };
 }
