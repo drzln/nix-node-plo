@@ -22,6 +22,14 @@ let
         default = pkgs.traefik;
         description = mdDoc "Traefik binary to use";
       };
+      namespace = mkOption {
+        type = types.str;
+        default = "default";
+        description = mdDoc ''
+          Namespace to use for the consul systemd service name. 
+          Defaults to "default".
+        '';
+      };
     };
 
     consul = {
@@ -37,10 +45,10 @@ let
       };
       namespace = mkOption {
         type = types.str;
-        default = "application";
+        default = "default";
         description = mdDoc ''
-          Namespace to use for the Consul systemd service name. 
-          Defaults to "application".
+          Namespace to use for the traefik systemd service name. 
+          Defaults to "default".
         '';
       };
     };
@@ -48,8 +56,8 @@ let
 in
 {
   imports = [
-    # Imports your consul module, which defines blackmatter.components.microservices.consul
     ../consul
+    ../traefik
   ];
 
   options = {
@@ -65,10 +73,16 @@ in
   config = mkMerge [
     # If the top-level reverse proxy + Traefik is enabled, configure Traefik.
     (mkIf (cfg.enable && cfg.traefik.enable) {
-      # services.traefik = {
-      #   enable = true;
-      #   package = cfg.traefik.package;
-      # };
+      blackmatter.components.microservices.traefik = {
+        enable = true;
+        package = cfg.traefik.package;
+        namespace = cfg.traefik.namespace; # If your Traefik module also has a namespace
+
+        # Optionally set other Traefik module options here, e.g.
+        # mode = "dev";  # or "prod"
+        # port = 8080;
+        # extraConfig = { ... };
+      };
     })
 
     # If the top-level reverse proxy + Consul is enabled, configure the lower-tier consul.

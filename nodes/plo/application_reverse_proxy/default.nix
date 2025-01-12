@@ -5,6 +5,7 @@
 
   blackmatter.components.microservices.application_reverse_proxy = {
     enable = true;
+    namespace = "plo";
     # traefik.enable = true;
     # consul.enable = true;
 
