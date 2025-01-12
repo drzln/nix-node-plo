@@ -58,6 +58,10 @@ let
   };
 in
 {
+  imports = [
+    ../consul
+  ];
+
   options = {
     blackmatter = {
       components = {
@@ -82,22 +86,22 @@ in
       };
     })
     (mkIf (cfg.enable && cfg.consul.enable) {
-				#   services.consul = {
-				#     enable = true;
-				#     package = cfg.consul.package;
-				# webUi = true;
-				# interface.bind = "lo";
-				#
-				# # if other services use After=consul.service
-				# # serviceConfig.Type =  "notify";
-				#     # server = {
-				#     #   enabled = true;
-				#     #   bootstrapExpect = 1;
-				#     # };
-				#     # For demonstration: assign extraConfig even if not directly used by Consul module
-				#     # This field may need special handling depending on how you intend to apply it.
-				#     # extraConfig = cfg.consul.extraConfig;
-				#   };
+      #   services.consul = {
+      #     enable = true;
+      #     package = cfg.consul.package;
+      # webUi = true;
+      # interface.bind = "lo";
+      #
+      # # if other services use After=consul.service
+      # # serviceConfig.Type =  "notify";
+      #     # server = {
+      #     #   enabled = true;
+      #     #   bootstrapExpect = 1;
+      #     # };
+      #     # For demonstration: assign extraConfig even if not directly used by Consul module
+      #     # This field may need special handling depending on how you intend to apply it.
+      #     # extraConfig = cfg.consul.extraConfig;
+      #   };
     })
   ];
 }
