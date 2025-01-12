@@ -141,7 +141,7 @@ in
         type = types.bool;
         default = true;
         description = ''
-					whether apiInsecure is turned on and we get a dashboard
+          whether apiInsecure is turned on and we get a dashboard
         '';
       };
 
