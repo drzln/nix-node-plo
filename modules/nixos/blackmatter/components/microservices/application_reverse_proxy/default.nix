@@ -73,7 +73,7 @@ in
   config = mkMerge [
     (mkIf (cfg.enable && cfg.traefik.enable) {
       blackmatter.components.microservices.traefik = {
-        enable = true;
+        enable = cfg.traefik.enable;
         package = cfg.traefik.package;
         namespace = cfg.traefik.namespace;
       };
@@ -81,7 +81,7 @@ in
 
     (mkIf (cfg.enable && cfg.consul.enable) {
       blackmatter.components.microservices.consul = {
-        enable = true;
+        enable = cfg.consul.enable;
         package = cfg.consul.package;
         namespace = cfg.consul.namespace;
       };
